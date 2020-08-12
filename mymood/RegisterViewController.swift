@@ -1,0 +1,186 @@
+//
+//  RegisterViewController.swift
+//  mymood
+//
+//  Created by Manasawee Kaenampornpan on 12/8/2563 BE.
+//  Copyright © 2563 Manasawee Kaenampornpan. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
+
+class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+
+    @IBOutlet weak var tfUsername: UITextField!
+    @IBOutlet weak var tfPassword: UITextField!
+    @IBOutlet weak var tfConPassword: UITextField!
+    @IBOutlet weak var tfFname: UITextField!
+    @IBOutlet weak var tfLname: UITextField!
+    @IBOutlet weak var tfEmail: UITextField!
+    @IBOutlet weak var tfPhone: UITextField!
+    @IBOutlet weak var tfBirth: UITextField!
+    @IBOutlet weak var tfAddress: UITextField!
+    @IBOutlet weak var tfDisease: UITextField!
+    
+    @IBOutlet weak var btCreate: UIButton!
+    @IBOutlet weak var btMale: UIButton!
+    @IBOutlet weak var btFemale: UIButton!
+    @IBOutlet weak var btUser: UIButton!
+    @IBOutlet weak var btCarer: UIButton!
+    
+    @IBOutlet weak var img: UIImageView!
+    
+    let datePicker = UIDatePicker()
+    var word = "data:image/jpg;base64,"
+    var photoBase64:String?
+    var rcId : String?
+    var gender : String?
+    var status : String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        btCreate.layer.cornerRadius = 20.0
+        createDatePicker()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecongizer: )))
+        view.addGestureRecognizer(tap)
+        
+        img.layer.cornerRadius = img.frame.size.height/2
+
+    }
+    
+    @objc func viewTapped(gestureRecongizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
+        [UIImagePickerController.InfoKey:Any]) {
+        let images = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        img.contentMode = .scaleToFill
+        img.image = images
+        
+        let imageData:NSData = images.jpegData(compressionQuality: 0.4)! as NSData
+        photoBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
+        word = word + "\(photoBase64!)"
+        dismiss(animated: true, completion:nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ Picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func btProfile(_ sender: UIButton) {
+        print("button")
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let litButton = UIAlertAction(title: "คลังรูปภาพ", style: UIAlertAction.Style.default){(litSelect) in
+            print("Library")
+            let selectPhoto = UIImagePickerController()
+            selectPhoto.delegate = self
+            selectPhoto.sourceType = .photoLibrary
+            self.present(selectPhoto, animated: true, completion: nil)
+            
+        }
+        let camButton = UIAlertAction(title: "ถ่ายภาพ", style: UIAlertAction.Style.default){(litSelect) in
+            print("Camera")
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .camera
+            self.present(picker, animated: true, completion: nil)
+            
+        }
+        let cancleButton = UIAlertAction(title: "ยกเลิก", style: UIAlertAction.Style.cancel){(canSelect) in
+            print("Cancle")
+            
+        }
+        actionSheet.addAction(camButton)
+        actionSheet.addAction(litButton)
+        actionSheet.addAction(cancleButton)
+        self.present(actionSheet,animated: true,completion: nil)
+    }
+    
+    
+    func createDatePicker() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBth = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBth], animated: true)
+        tfBirth.inputAccessoryView = toolbar
+        tfBirth.inputView = datePicker
+        
+        datePicker.datePickerMode = .date
+        
+    }
+    @objc func donePressed() {
+        let fotmatter = DateFormatter()
+        fotmatter.dateStyle = .medium
+        fotmatter.timeStyle = .none
+        
+        tfBirth.text = fotmatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+
+    @IBAction func btRadioGender(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btMale.isSelected = true
+            btFemale.isSelected = false
+            gender = "ชาย"
+        }else if sender.tag == 2 {
+            btFemale.isSelected = true
+            btMale.isSelected = false
+            gender = "หญิง"
+        }
+    }
+    
+    @IBAction func btRadioStatus(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btUser.isSelected = true
+            btCarer.isSelected = false
+            status = "user"
+        }else if sender.tag == 2 {
+            btCarer.isSelected = true
+            btUser.isSelected = false
+            status = "carer"
+        }
+    }
+    
+    
+    @IBAction func btCreateAccount(_ sender: Any) {
+        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let param : [String:AnyObject] = [
+            "username":tfUsername.text! as AnyObject,
+            "password":tfPassword.text! as AnyObject,
+            "fname":tfFname.text! as AnyObject,
+            "lname":tfLname.text! as AnyObject,
+            "gender":gender as AnyObject,
+            "disease":tfDisease.text! as AnyObject,
+            "phone":tfPhone.text! as AnyObject,
+            "birthdate":tfBirth.text! as AnyObject,
+            "img":word as AnyObject,
+            "status":status as AnyObject
+        ]
+        
+        AF.request(url+"register.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
+            switch response.result {
+            case.success(let data):
+                let alert = UIAlertController(title: "สมัครสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                    self.navigationController!.popViewController(animated: true)
+                    
+                }))
+                self.present(alert, animated: true, completion: nil)
+            case .failure(let error):
+            let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+}
