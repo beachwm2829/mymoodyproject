@@ -36,8 +36,8 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     var word = "data:image/jpg;base64,"
     var photoBase64:String?
     var rcId : String?
-    var gender : String?
-    var status : String?
+    var gender = ""
+    var status = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,9 +118,8 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     }
     @objc func donePressed() {
         let fotmatter = DateFormatter()
-        fotmatter.dateStyle = .medium
-        fotmatter.timeStyle = .none
-        
+        fotmatter.dateFormat = "yyyy-mm-dd"
+    
         tfBirth.text = fotmatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -129,11 +128,11 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         if sender.tag == 1 {
             btMale.isSelected = true
             btFemale.isSelected = false
-            gender = "ชาย"
+            gender = "male"
         }else if sender.tag == 2 {
             btFemale.isSelected = true
             btMale.isSelected = false
-            gender = "หญิง"
+            gender = "female"
         }
     }
     
@@ -152,32 +151,34 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     
     @IBAction func btCreateAccount(_ sender: Any) {
         let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        print(gender)
+        print(status)
         let param : [String:AnyObject] = [
             "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,
             "fname":tfFname.text! as AnyObject,
             "lname":tfLname.text! as AnyObject,
             "gender":gender as AnyObject,
-            "disease":tfDisease.text! as AnyObject,
-            "phone":tfPhone.text! as AnyObject,
             "birthdate":tfBirth.text! as AnyObject,
+            "phone":tfPhone.text! as AnyObject,
+            "address":tfAddress.text! as AnyObject,
+            "disease":tfDisease.text! as AnyObject,
+            "email":tfEmail.text! as AnyObject,
             "img":word as AnyObject,
             "status":status as AnyObject
         ]
         
         AF.request(url+"register.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
-            switch response.result {
-            case.success(let data):
+        switch response.result {
+            case.success(_):
                 let alert = UIAlertController(title: "สมัครสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
-                    
                 }))
                 self.present(alert, animated: true, completion: nil)
-            case .failure(let error):
-            let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-                
+            case .failure(_):
+                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
