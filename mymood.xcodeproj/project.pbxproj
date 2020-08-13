@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22B1D12824E5A71C00B374E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1D12624E5A71C00B374E0 /* HomeViewController.swift */; };
+		22B1D12924E5A71C00B374E0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1D12724E5A71C00B374E0 /* TabBarController.swift */; };
 		ECF565C6E04560A3BCF8C66E /* Pods_mymood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51BDD30ACF0F18B45D1D9AD /* Pods_mymood.framework */; };
 		F91D1E2A24D9581700D5E112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D1E2924D9581700D5E112 /* AppDelegate.swift */; };
 		F91D1E2C24D9581700D5E112 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D1E2B24D9581700D5E112 /* SceneDelegate.swift */; };
@@ -14,13 +16,13 @@
 		F91D1E3124D9581700D5E112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91D1E2F24D9581700D5E112 /* Main.storyboard */; };
 		F91D1E3324D9581F00D5E112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91D1E3224D9581F00D5E112 /* Assets.xcassets */; };
 		F91D1E3624D9581F00D5E112 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91D1E3424D9581F00D5E112 /* LaunchScreen.storyboard */; };
-		F953110724DFD35300230B12 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953110624DFD35300230B12 /* HomeViewController.swift */; };
-		F953110924DFD35500230B12 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953110824DFD35500230B12 /* TabBarController.swift */; };
 		F953110B24DFD38500230B12 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953110A24DFD38500230B12 /* NavigationController.swift */; };
 		F9FE602524E3C9EA009EA900 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE602424E3C9EA009EA900 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22B1D12624E5A71C00B374E0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../../../../Desktop/Desktop - macOS’s Mac mini/HomeViewController.swift"; sourceTree = "<group>"; };
+		22B1D12724E5A71C00B374E0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = "../../../../Desktop/Desktop - macOS’s Mac mini/TabBarController.swift"; sourceTree = "<group>"; };
 		A51BDD30ACF0F18B45D1D9AD /* Pods_mymood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mymood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9432FC02E718FCB65873484 /* Pods-mymood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mymood.debug.xcconfig"; path = "Target Support Files/Pods-mymood/Pods-mymood.debug.xcconfig"; sourceTree = "<group>"; };
 		F378FAF11AF7B28ED23EA943 /* Pods-mymood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mymood.release.xcconfig"; path = "Target Support Files/Pods-mymood/Pods-mymood.release.xcconfig"; sourceTree = "<group>"; };
@@ -32,8 +34,6 @@
 		F91D1E3224D9581F00D5E112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F91D1E3524D9581F00D5E112 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F91D1E3724D9581F00D5E112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F953110624DFD35300230B12 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = /Users/manasaweek/Desktop/mymood/mymood/HomeViewController.swift; sourceTree = "<absolute>"; };
-		F953110824DFD35500230B12 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = /Users/manasaweek/Desktop/mymood/mymood/TabBarController.swift; sourceTree = "<absolute>"; };
 		F953110A24DFD38500230B12 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		F9FE602424E3C9EA009EA900 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,8 +88,8 @@
 		F91D1E2824D9581700D5E112 /* mymood */ = {
 			isa = PBXGroup;
 			children = (
-				F953110824DFD35500230B12 /* TabBarController.swift */,
-				F953110624DFD35300230B12 /* HomeViewController.swift */,
+				22B1D12624E5A71C00B374E0 /* HomeViewController.swift */,
+				22B1D12724E5A71C00B374E0 /* TabBarController.swift */,
 				F91D1E2924D9581700D5E112 /* AppDelegate.swift */,
 				F91D1E2B24D9581700D5E112 /* SceneDelegate.swift */,
 				F91D1E2D24D9581700D5E112 /* ViewController.swift */,
@@ -222,9 +222,9 @@
 				F953110B24DFD38500230B12 /* NavigationController.swift in Sources */,
 				F9FE602524E3C9EA009EA900 /* RegisterViewController.swift in Sources */,
 				F91D1E2A24D9581700D5E112 /* AppDelegate.swift in Sources */,
+				22B1D12924E5A71C00B374E0 /* TabBarController.swift in Sources */,
 				F91D1E2C24D9581700D5E112 /* SceneDelegate.swift in Sources */,
-				F953110924DFD35500230B12 /* TabBarController.swift in Sources */,
-				F953110724DFD35300230B12 /* HomeViewController.swift in Sources */,
+				22B1D12824E5A71C00B374E0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
