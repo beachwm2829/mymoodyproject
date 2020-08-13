@@ -1,0 +1,6 @@
+framework module Pods_mymood {
+  umbrella header "Pods-mymood-umbrella.h"
+
+  export *
+  module * { export * }
+}
