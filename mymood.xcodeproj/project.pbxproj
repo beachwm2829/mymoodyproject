@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		227E66B324E66EF800F14AA6 /* Result_q9_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E66B024E66EF800F14AA6 /* Result_q9_ViewController.swift */; };
+		227E66B424E66EF800F14AA6 /* Result_8q_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E66B124E66EF800F14AA6 /* Result_8q_ViewController.swift */; };
+		227E66B524E66EF800F14AA6 /* Result_q2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E66B224E66EF800F14AA6 /* Result_q2_ViewController.swift */; };
 		22B1D12824E5A71C00B374E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1D12624E5A71C00B374E0 /* HomeViewController.swift */; };
 		22B1D12924E5A71C00B374E0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1D12724E5A71C00B374E0 /* TabBarController.swift */; };
 		ECF565C6E04560A3BCF8C66E /* Pods_mymood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51BDD30ACF0F18B45D1D9AD /* Pods_mymood.framework */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		227E66B024E66EF800F14AA6 /* Result_q9_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result_q9_ViewController.swift; sourceTree = "<group>"; };
+		227E66B124E66EF800F14AA6 /* Result_8q_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result_8q_ViewController.swift; sourceTree = "<group>"; };
+		227E66B224E66EF800F14AA6 /* Result_q2_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result_q2_ViewController.swift; sourceTree = "<group>"; };
 		22B1D12624E5A71C00B374E0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = "../../../../Desktop/Desktop - macOS’s Mac mini/HomeViewController.swift"; sourceTree = "<group>"; };
 		22B1D12724E5A71C00B374E0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = "../../../../Desktop/Desktop - macOS’s Mac mini/TabBarController.swift"; sourceTree = "<group>"; };
 		A51BDD30ACF0F18B45D1D9AD /* Pods_mymood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mymood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +94,9 @@
 		F91D1E2824D9581700D5E112 /* mymood */ = {
 			isa = PBXGroup;
 			children = (
+				227E66B124E66EF800F14AA6 /* Result_8q_ViewController.swift */,
+				227E66B224E66EF800F14AA6 /* Result_q2_ViewController.swift */,
+				227E66B024E66EF800F14AA6 /* Result_q9_ViewController.swift */,
 				22B1D12624E5A71C00B374E0 /* HomeViewController.swift */,
 				22B1D12724E5A71C00B374E0 /* TabBarController.swift */,
 				F91D1E2924D9581700D5E112 /* AppDelegate.swift */,
@@ -222,9 +231,12 @@
 				F953110B24DFD38500230B12 /* NavigationController.swift in Sources */,
 				F9FE602524E3C9EA009EA900 /* RegisterViewController.swift in Sources */,
 				F91D1E2A24D9581700D5E112 /* AppDelegate.swift in Sources */,
+				227E66B424E66EF800F14AA6 /* Result_8q_ViewController.swift in Sources */,
 				22B1D12924E5A71C00B374E0 /* TabBarController.swift in Sources */,
 				F91D1E2C24D9581700D5E112 /* SceneDelegate.swift in Sources */,
 				22B1D12824E5A71C00B374E0 /* HomeViewController.swift in Sources */,
+				227E66B524E66EF800F14AA6 /* Result_q2_ViewController.swift in Sources */,
+				227E66B324E66EF800F14AA6 /* Result_q9_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

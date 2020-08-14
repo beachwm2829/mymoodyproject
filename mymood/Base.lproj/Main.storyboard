@@ -494,7 +494,7 @@
         <!--Q2-->
         <scene sceneID="HtT-kL-yxA">
             <objects>
-                <viewController title="Q2" modalPresentationStyle="overFullScreen" id="6Jm-gS-MDG" sceneMemberID="viewController">
+                <viewController title="Q2" modalPresentationStyle="overFullScreen" id="6Jm-gS-MDG" customClass="Result_q2_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wSI-PE-b86">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -522,6 +522,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Rusult"/>
                                                 <connections>
+                                                    <action selector="b:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="6rC-6Q-842"/>
                                                     <segue destination="XDx-b2-JUX" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="6Dp-4m-eZG"/>
                                                 </connections>
                                             </button>
@@ -554,12 +555,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="circle" catalog="system"/>
                                         <state key="selected" image="circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="checkbox_f_a1:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="WOv-Ym-W66"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fV-LD-JWL">
                                         <rect key="frame" x="274" y="155" width="20" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="circle" catalog="system"/>
                                         <state key="selected" image="circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="checkbox_t_a1:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="l1N-j5-Oyf"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มี" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXw-oP-FAT">
                                         <rect key="frame" x="279" y="124" width="11" height="21"/>
@@ -573,12 +580,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="circle" catalog="system"/>
                                         <state key="selected" image="circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="checkbox_f_a2:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="FyC-A9-yQg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxe-um-YmF">
                                         <rect key="frame" x="274" y="236" width="20" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="circle" catalog="system"/>
                                         <state key="selected" image="circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="checkbox_t_a2:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="uxD-YG-uY1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ใน 2 สัปดาห์ที่ผ่านมารวมวันนี้&quot;ท่านรู้สึกเบื่อทำอะไรไม่ก็ไม่เพลิดเพลินรือไม่&quot;" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaI-Pc-iuc">
                                         <rect key="frame" x="32" y="206" width="199" height="66"/>
@@ -633,6 +646,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="falseRadio_q2_a1" destination="7N9-pe-yJ4" id="99H-UL-Wjm"/>
+                        <outlet property="falseRadio_q2_a2" destination="qOZ-6L-HPU" id="aw5-MB-4md"/>
+                        <outlet property="trueRadio_q2_a1" destination="1fV-LD-JWL" id="kGo-xn-X8S"/>
+                        <outlet property="trueRadio_q2_a2" destination="vxe-um-YmF" id="ep7-PH-nrM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -713,10 +732,10 @@
             </objects>
             <point key="canvasLocation" x="2289.8550724637685" y="-1252.1739130434783"/>
         </scene>
-        <!--View Controller-->
+        <!--Result q9 View Controller-->
         <scene sceneID="7km-pd-8Mf">
             <objects>
-                <viewController id="XDx-b2-JUX" sceneMemberID="viewController">
+                <viewController id="XDx-b2-JUX" customClass="Result_q9_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FdV-gK-pUI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -753,24 +772,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="7Cj-Mp-8UL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik1-dL-qBw">
                                                 <rect key="frame" x="153" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="j7d-t3-toQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfp-hI-y7z">
                                                 <rect key="frame" x="248" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="4CW-qe-Ce9"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unm-sY-0Gw">
                                                 <rect key="frame" x="342" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="6KV-6H-MmU"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCw-w4-7HK">
                                                 <rect key="frame" x="43" y="177" width="55" height="21"/>
@@ -812,24 +843,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="HZu-l1-HgH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-pO-bbE">
                                                 <rect key="frame" x="153" y="255" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="dSz-cf-Bf1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-D3-dPk">
                                                 <rect key="frame" x="248" y="255" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="izz-pB-GVa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-fR-oDO">
                                                 <rect key="frame" x="342" y="255" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="CzS-EE-rht"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-Sa-h2b">
                                                 <rect key="frame" x="43" y="285" width="55" height="21"/>
@@ -871,24 +914,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="u9Z-BI-us1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcT-7c-WFk">
                                                 <rect key="frame" x="147" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="lt5-MD-Nzi"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-Tf-uoh">
                                                 <rect key="frame" x="242" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="N21-QJ-13e"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0p-lX-ifa">
                                                 <rect key="frame" x="336" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="WRU-Vb-Yvt"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b95-Wk-wjV">
                                                 <rect key="frame" x="37" y="393" width="55" height="21"/>
@@ -930,24 +985,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="fWI-dB-T8s"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-LN-vY3">
                                                 <rect key="frame" x="147" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="f5R-Od-kAo"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luV-PR-957">
                                                 <rect key="frame" x="242" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="LEX-Ub-MoH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-fp-f63">
                                                 <rect key="frame" x="336" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="VZN-CJ-FaN"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFC-wc-Hy1">
                                                 <rect key="frame" x="37" y="501" width="55" height="21"/>
@@ -989,24 +1056,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="bjz-FJ-weG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-PZ-YNx">
                                                 <rect key="frame" x="147" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="AQL-h8-Oqc"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-ti-fug">
                                                 <rect key="frame" x="242" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="w08-mi-NFI"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-Fi-3r2">
                                                 <rect key="frame" x="336" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Q6I-Nr-ydm"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hve-Zi-4rW">
                                                 <rect key="frame" x="37" y="609" width="55" height="21"/>
@@ -1048,24 +1127,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="CKg-yp-dQu"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-TO-1RM">
                                                 <rect key="frame" x="147" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="3WE-p4-xmv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qS-Pv-ssn">
                                                 <rect key="frame" x="242" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="GNA-lZ-d1O"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBX-Io-7iw">
                                                 <rect key="frame" x="336" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="j6G-B9-WEg"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyX-Qm-GcN">
                                                 <rect key="frame" x="37" y="737" width="55" height="21"/>
@@ -1107,24 +1198,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="vbE-pO-cyj"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-cn-qlc">
                                                 <rect key="frame" x="147" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="MYI-N2-u3o"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-Qt-ch9">
                                                 <rect key="frame" x="242" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Ufv-Ui-avJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHD-WM-iC6">
                                                 <rect key="frame" x="336" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="QRJ-ji-0Wb"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgw-P9-1iF">
                                                 <rect key="frame" x="37" y="865" width="55" height="21"/>
@@ -1159,24 +1262,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Ydz-lR-4AK"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-3G-OnR">
                                                 <rect key="frame" x="147" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="c23-gV-1aj"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-pq-8eh">
                                                 <rect key="frame" x="242" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="DUZ-hn-HAI"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-6l-p2F">
                                                 <rect key="frame" x="336" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="dcd-4u-GQ2"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdT-Ek-YNM">
                                                 <rect key="frame" x="37" y="1020" width="55" height="21"/>
@@ -1218,24 +1333,36 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_neverRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="7fE-D1-6Kk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-pc-mtQ">
                                                 <rect key="frame" x="147" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_someRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="zp0-Dg-Pmz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdd-7O-nzq">
                                                 <rect key="frame" x="242" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_oftenRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="oyc-8A-RF4"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ry-lW-uqk">
                                                 <rect key="frame" x="336" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_alwaysRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="W4y-Ao-Ykq"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKa-Gi-V9h">
                                                 <rect key="frame" x="37" y="1148" width="55" height="21"/>
@@ -1277,6 +1404,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Rusult"/>
                                                 <connections>
+                                                    <action selector="save:" destination="XDx-b2-JUX" eventType="touchUpInside" id="ecM-Ho-NJx"/>
                                                     <segue destination="J89-99-xy3" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="2mR-UM-0e5"/>
                                                 </connections>
                                             </button>
@@ -1323,15 +1451,53 @@
                     </view>
                     <navigationItem key="navigationItem" id="ad2-wS-fbU"/>
                     <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="alwaysRadio_9q_a1" destination="Unm-sY-0Gw" id="IYa-tm-bOC"/>
+                        <outlet property="alwaysRadio_9q_a2" destination="a3I-fR-oDO" id="efr-HC-EJE"/>
+                        <outlet property="alwaysRadio_9q_a3" destination="m0p-lX-ifa" id="Fr9-wT-8Mw"/>
+                        <outlet property="alwaysRadio_9q_a4" destination="NVF-fp-f63" id="0EG-Bz-yCQ"/>
+                        <outlet property="alwaysRadio_9q_a5" destination="PzI-Fi-3r2" id="Ss3-Yg-yid"/>
+                        <outlet property="alwaysRadio_9q_a6" destination="NBX-Io-7iw" id="IWh-2R-74s"/>
+                        <outlet property="alwaysRadio_9q_a7" destination="wHD-WM-iC6" id="nVJ-Z9-JLt"/>
+                        <outlet property="alwaysRadio_9q_a8" destination="gAR-6l-p2F" id="OAR-f4-vqD"/>
+                        <outlet property="alwaysRadio_9q_a9" destination="0Ry-lW-uqk" id="Pwr-6o-QtB"/>
+                        <outlet property="neverRadio_9q_a1" destination="Qoq-26-nPl" id="DaK-EZ-dIC"/>
+                        <outlet property="neverRadio_9q_a2" destination="whB-41-M53" id="rIn-DF-Zl9"/>
+                        <outlet property="neverRadio_9q_a3" destination="xb8-CV-q7E" id="MBH-gp-iyk"/>
+                        <outlet property="neverRadio_9q_a4" destination="VO5-jS-gZd" id="fgZ-7d-zNl"/>
+                        <outlet property="neverRadio_9q_a5" destination="mcX-8s-eyI" id="nko-Zb-uAX"/>
+                        <outlet property="neverRadio_9q_a6" destination="pAN-Uo-9lU" id="B2n-in-G9f"/>
+                        <outlet property="neverRadio_9q_a7" destination="bbQ-RS-k4U" id="XM0-Od-DRF"/>
+                        <outlet property="neverRadio_9q_a8" destination="pdg-fa-9gT" id="Cng-82-4AX"/>
+                        <outlet property="neverRadio_9q_a9" destination="p2c-o0-g2X" id="Brc-kd-BtT"/>
+                        <outlet property="oftenRadio_9q_a1" destination="Qfp-hI-y7z" id="d49-Ch-flc"/>
+                        <outlet property="oftenRadio_9q_a2" destination="NGV-D3-dPk" id="7sZ-bU-wIH"/>
+                        <outlet property="oftenRadio_9q_a3" destination="u9J-Tf-uoh" id="CAb-uU-bCT"/>
+                        <outlet property="oftenRadio_9q_a4" destination="luV-PR-957" id="BwG-1X-arD"/>
+                        <outlet property="oftenRadio_9q_a5" destination="f0d-ti-fug" id="26b-AG-Qul"/>
+                        <outlet property="oftenRadio_9q_a6" destination="5qS-Pv-ssn" id="clI-5l-Azt"/>
+                        <outlet property="oftenRadio_9q_a7" destination="Wmn-Qt-ch9" id="Pe3-vc-ZJ0"/>
+                        <outlet property="oftenRadio_9q_a8" destination="5NV-pq-8eh" id="0Y6-AS-9rx"/>
+                        <outlet property="oftenRadio_9q_a9" destination="jdd-7O-nzq" id="IGV-iT-bhh"/>
+                        <outlet property="someRadio_9q_a1" destination="Ik1-dL-qBw" id="Ksj-t3-nhj"/>
+                        <outlet property="someRadio_9q_a2" destination="JL9-pO-bbE" id="Ed1-qy-J2N"/>
+                        <outlet property="someRadio_9q_a3" destination="zcT-7c-WFk" id="FsV-bq-sZ1"/>
+                        <outlet property="someRadio_9q_a4" destination="IBR-LN-vY3" id="CAJ-zr-Vng"/>
+                        <outlet property="someRadio_9q_a5" destination="L3e-PZ-YNx" id="X3u-Ql-aOI"/>
+                        <outlet property="someRadio_9q_a6" destination="19k-TO-1RM" id="DXk-ZV-LrO"/>
+                        <outlet property="someRadio_9q_a7" destination="zGD-cn-qlc" id="zHH-uf-aU8"/>
+                        <outlet property="someRadio_9q_a8" destination="m8K-3G-OnR" id="Hee-Mc-ewq"/>
+                        <outlet property="someRadio_9q_a9" destination="kGr-pc-mtQ" id="Pti-gw-Bsb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4216" y="-1252"/>
         </scene>
-        <!--View Controller-->
+        <!--Result 8q View Controller-->
         <scene sceneID="s1K-Ik-PPC">
             <objects>
-                <viewController id="J89-99-xy3" sceneMemberID="viewController">
+                <viewController id="J89-99-xy3" customClass="Result_8q_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iwB-pC-Xbd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1368,12 +1534,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a1:" destination="J89-99-xy3" eventType="touchUpInside" id="Ymc-s1-ctV"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36A-TF-MmO">
                                                 <rect key="frame" x="223" y="186" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a1:" destination="J89-99-xy3" eventType="touchUpInside" id="MRH-ij-8bg"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxI-fI-J1Z">
                                                 <rect key="frame" x="151" y="215" width="11" height="21"/>
@@ -1408,12 +1580,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a2:" destination="J89-99-xy3" eventType="touchUpInside" id="yFj-w2-UhT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPz-EE-VFO">
                                                 <rect key="frame" x="223" y="312" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a2:" destination="J89-99-xy3" eventType="touchUpInside" id="TOh-eQ-Uur"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อยากทำร้านตัวเอง หรือทำให้ตัวเองบาดเจ็บ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-gD-rHd">
                                                 <rect key="frame" x="47" y="250" width="323" height="21"/>
@@ -1448,12 +1626,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a3:" destination="J89-99-xy3" eventType="touchUpInside" id="RgY-ML-lAW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrD-8y-i2t">
                                                 <rect key="frame" x="223" y="432" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a3:" destination="J89-99-xy3" eventType="touchUpInside" id="Lp1-XO-Nwz"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คิดเกี่ยวกับการฆ่าตัวตาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojt-hs-ZRg">
                                                 <rect key="frame" x="47" y="370" width="323" height="21"/>
@@ -1488,12 +1672,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a4:" destination="J89-99-xy3" eventType="touchUpInside" id="sm1-OV-QFF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNE-aG-aQz">
                                                 <rect key="frame" x="223" y="559" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a4:" destination="J89-99-xy3" eventType="touchUpInside" id="gdg-2v-Z6Q"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มีแผนการที่ฆ่าตัวตาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xy-FZ-wRA">
                                                 <rect key="frame" x="47" y="497" width="323" height="21"/>
@@ -1528,12 +1718,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a5:" destination="J89-99-xy3" eventType="touchUpInside" id="SNc-uM-XpE"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-8z-Wgv">
                                                 <rect key="frame" x="234" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a5:" destination="J89-99-xy3" eventType="touchUpInside" id="Utr-ho-ugQ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-fN-Y07">
                                                 <rect key="frame" x="231" y="735" width="29" height="21"/>
@@ -1575,12 +1771,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a6:" destination="J89-99-xy3" eventType="touchUpInside" id="DEQ-Bv-1fx"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqe-9N-6uc">
                                                 <rect key="frame" x="223" y="848" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a6:" destination="J89-99-xy3" eventType="touchUpInside" id="9Ig-MT-ROA"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-Qs-m0f">
                                                 <rect key="frame" x="218" y="876" width="29" height="21"/>
@@ -1608,12 +1810,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a7:" destination="J89-99-xy3" eventType="touchUpInside" id="LkB-Pd-arJ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoW-rd-5oM">
                                                 <rect key="frame" x="223" y="996" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a7:" destination="J89-99-xy3" eventType="touchUpInside" id="1Qs-qi-bHC"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ได้พยามฆ่าตัวตาย โดยคาดหวัง /ตั้งใจที่จะให้ตาย" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-Fj-gfe">
                                                 <rect key="frame" x="47" y="906" width="323" height="49"/>
@@ -1648,12 +1856,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_tureRadio_8q_a8:" destination="J89-99-xy3" eventType="touchUpInside" id="Xs1-69-PaF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-hA-sVG">
                                                 <rect key="frame" x="223" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="check_falseRadio_8q_a8:" destination="J89-99-xy3" eventType="touchUpInside" id="Ma1-t9-vo7"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ท่านเคยพยามยามฆ่าตัวตาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-oc-mtT">
                                                 <rect key="frame" x="47" y="1056" width="323" height="21"/>
@@ -1680,6 +1894,9 @@
                                                 <rect key="frame" x="162" y="1315" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Rusult"/>
+                                                <connections>
+                                                    <action selector="save:" destination="J89-99-xy3" eventType="touchUpInside" id="hp0-wd-q9Z"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ต่อไป" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npd-TF-rwd">
                                                 <rect key="frame" x="191" y="1442" width="53" height="28"/>
@@ -1723,6 +1940,24 @@
                         <viewLayoutGuide key="safeArea" id="rNL-Ix-HG0"/>
                     </view>
                     <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="falseRadio_8q_a1" destination="36A-TF-MmO" id="TrU-Rz-JiA"/>
+                        <outlet property="falseRadio_8q_a2" destination="vPz-EE-VFO" id="cVa-yf-p0i"/>
+                        <outlet property="falseRadio_8q_a3" destination="RrD-8y-i2t" id="ALd-2h-vkc"/>
+                        <outlet property="falseRadio_8q_a4" destination="tNE-aG-aQz" id="YAC-DP-Tju"/>
+                        <outlet property="falseRadio_8q_a5" destination="CAC-8z-Wgv" id="SOG-er-fY6"/>
+                        <outlet property="falseRadio_8q_a6" destination="eqe-9N-6uc" id="Bdc-w3-k4i"/>
+                        <outlet property="falseRadio_8q_a7" destination="zoW-rd-5oM" id="bxH-vp-svz"/>
+                        <outlet property="falseRadio_8q_a8" destination="Mua-hA-sVG" id="bgX-an-FOI"/>
+                        <outlet property="tureRadio_8q_a1" destination="kTc-pW-Gst" id="h74-kh-8Xk"/>
+                        <outlet property="tureRadio_8q_a2" destination="R64-qV-gAg" id="JhK-GJ-kTz"/>
+                        <outlet property="tureRadio_8q_a3" destination="K38-aD-jHH" id="61m-PU-aDX"/>
+                        <outlet property="tureRadio_8q_a4" destination="zE9-Aj-j7h" id="fxD-1t-0F4"/>
+                        <outlet property="tureRadio_8q_a5" destination="VtX-W5-MRo" id="bWx-2R-nC7"/>
+                        <outlet property="tureRadio_8q_a6" destination="ar5-oL-T9S" id="P2a-7b-Lfi"/>
+                        <outlet property="tureRadio_8q_a7" destination="JzP-TU-S4C" id="XZP-js-4ai"/>
+                        <outlet property="tureRadio_8q_a8" destination="7v4-FH-rOk" id="ise-Wi-XbB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1730,9 +1965,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2mR-UM-0e5"/>
         <segue reference="YM2-Eb-468"/>
-        <segue reference="oKi-uV-Ys5"/>
+        <segue reference="Ciu-Yd-7zn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="89619017_496934974327158_5541626706655182848_n" width="256" height="256"/>
