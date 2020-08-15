@@ -42,6 +42,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="btLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLi-Hh-FPt"/>
+                                    <segue destination="hTo-6L-b1y" kind="presentation" modalPresentationStyle="fullScreen" id="qrz-5x-i9c"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rQ-Fd-21z">
@@ -662,6 +663,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hTo-6L-b1y" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Uw8-oe-4xO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rE8-VB-Q3O">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
