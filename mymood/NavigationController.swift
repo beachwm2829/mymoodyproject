@@ -9,7 +9,7 @@
 import UIKit
 
 class NavigationController: UINavigationController {
-
+    var ncId :String?
     override func viewDidLoad() {
         super.viewDidLoad()
 

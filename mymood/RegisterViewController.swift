@@ -118,7 +118,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     }
     @objc func donePressed() {
         let fotmatter = DateFormatter()
-        fotmatter.dateFormat = "yyyy-mm-dd"
+        fotmatter.dateFormat = "yyyy-MM-dd"
     
         tfBirth.text = fotmatter.string(from: datePicker.date)
         self.view.endEditing(true)
@@ -150,10 +150,10 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     
     
     @IBAction func btCreateAccount(_ sender: Any) {
-        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
         print(gender)
         print(status)
-        let param : [String:AnyObject] = [
+        let param : Parameters = [
             "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,
             "fname":tfFname.text! as AnyObject,
@@ -168,9 +168,9 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
             "status":status as AnyObject
         ]
         
-        AF.request(url+"register.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
-            case.success(_):
+            case .success(_):
                 let alert = UIAlertController(title: "สมัครสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
