@@ -40,7 +40,7 @@ class ViewController: UIViewController {
             case .success(_):
                 print(response)
                 let data = JSON(response.data!)
-                if(data["login"] == "true"){
+                if(data["login"] != "true"){
                     self.vcId = data["u_id"].stringValue
                     self.performSegue(withIdentifier: "toTabbar", sender: self)
                 }else{
