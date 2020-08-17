@@ -2125,16 +2125,16 @@
             </objects>
             <point key="canvasLocation" x="3598.5507246376815" y="1674.4565217391305"/>
         </scene>
-        <!--View Controller-->
+        <!--Addmood Table View Controller-->
         <scene sceneID="OOH-2H-76Y">
             <objects>
-                <viewController id="gof-5O-c7b" sceneMemberID="viewController">
+                <viewController id="gof-5O-c7b" customClass="Addmood_TableViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="w7R-WW-t27">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="200" id="Pds-ZV-T2e" customClass="TableViewCell" customModule="mymood" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addMood_cell" rowHeight="200" id="Pds-ZV-T2e" customClass="Addmood_TableViewCell" customModule="mymood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pds-ZV-T2e" id="byO-kC-qwS">
@@ -2165,13 +2165,18 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgcell" destination="hyn-B7-gUm" id="Wdl-kO-3OJ"/>
+                                    <outlet property="moodcell" destination="oGH-0W-Bmj" id="Adp-uk-pVX"/>
+                                    <outlet property="notecell" destination="rH5-zJ-dt7" id="a7j-ap-gHO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" id="xoV-3l-aOS">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="KcT-HZ-eao">
                             <connections>
-                                <segue destination="rFj-ns-mPt" kind="show" id="lye-kX-8hX"/>
+                                <segue destination="rFj-ns-mPt" kind="show" identifier="addMoodcell" id="lye-kX-8hX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2180,10 +2185,10 @@
             </objects>
             <point key="canvasLocation" x="7292.753623188406" y="129.61956521739131"/>
         </scene>
-        <!--View Controller-->
+        <!--Addmood View Controller-->
         <scene sceneID="fa8-zS-fc6">
             <objects>
-                <viewController id="rFj-ns-mPt" sceneMemberID="viewController">
+                <viewController id="rFj-ns-mPt" customClass="Addmood_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PDp-dC-orB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2200,6 +2205,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" image="1.circle" catalog="system"/>
                                 <state key="selected" image="1fivemood"/>
+                                <connections>
+                                    <action selector="mood1_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="Vh2-Dg-wfS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYD-gx-fyU">
                                 <rect key="frame" x="252" y="83" width="65" height="59"/>
@@ -2218,6 +2226,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="2.circle" catalog="system"/>
                                 <state key="selected" image="2mood"/>
+                                <connections>
+                                    <action selector="mood2_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="kTT-wO-lMO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="โน๊ตข้อความ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d0-1L-0PA">
                                 <rect key="frame" x="46" y="201" width="89" height="21"/>
@@ -2274,6 +2285,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="B9U-oj-EsN"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="bt_mood1" destination="dCN-e4-AvZ" id="heM-W4-4dJ"/>
+                        <outlet property="bt_mood2" destination="t8c-IH-0Rv" id="HNG-7D-AYn"/>
+                        <outlet property="bt_mood3" destination="nE5-eS-z9X" id="Msa-eQ-Dzr"/>
+                        <outlet property="bt_mood4" destination="mYD-gx-fyU" id="nJk-RN-bAz"/>
+                        <outlet property="bt_mood5" destination="97x-OR-JEz" id="XIV-aJ-0to"/>
+                        <outlet property="img" destination="MpA-Tc-yBg" id="DCK-Nl-tVk"/>
+                        <outlet property="lb_note" destination="cX5-Gn-nIc" id="SNW-qJ-JEl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUi-Pa-XfR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2282,7 +2302,7 @@
         <!--Navigation Controller-->
         <scene sceneID="W8O-Qb-QlM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mCf-cz-2oI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mCf-cz-2oI" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YYr-I9-A7X"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1zu-qL-O9o">
