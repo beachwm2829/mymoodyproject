@@ -10,12 +10,18 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import GooglePlaces
+
 
 class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     var Id : String?
     var imgmood = UIImage()
     var mood = UITextField()
+    
+    @IBOutlet weak var lb_addres: UILabel!
+    @IBOutlet weak var ldname_location: UILabel!
+    var placesClient: GMSPlacesClient!
     
     var tdId:String?
     var moodData = [[String:AnyObject]]()
@@ -35,6 +41,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
         // Do any additional setup after loading the view.
     }
@@ -213,5 +220,41 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     
         }
+    
+    @IBAction func btLocation(_ sender: Any) {
+       let autocompleteController = GMSAutocompleteViewController()
+       autocompleteController.delegate = self
+       present(autocompleteController, animated: true, completion: nil)
+        
+    }
+
+}
+extension Addmood_ViewController: GMSAutocompleteViewControllerDelegate {
+  func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+    ldname_location.text = String(place.name!)
+    print("Place name: \(place.name)")
+    print("Place ID: \(place.placeID)")
+    print("Place attributions: \(place.attributions)")
+    dismiss(animated: true, completion: nil)
+  }
+
+  func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+    // TODO: handle the error.
+    print("Error: ", error.localizedDescription)
+  }
+
+  // User canceled the operation.
+  func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+    dismiss(animated: true, completion: nil)
+  }
+
+  // Turn the network activity indicator on and off again.
+  func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+  }
+
+  func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+  }
 
 }

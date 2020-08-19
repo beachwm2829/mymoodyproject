@@ -133,6 +133,7 @@
 				F91D1E2324D9581700D5E112 /* Frameworks */,
 				F91D1E2424D9581700D5E112 /* Resources */,
 				511316C532A5B334D8057560 /* [CP] Embed Pods Frameworks */,
+				36CEF0A9E7AD3A2A6997C573 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,6 +191,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		36CEF0A9E7AD3A2A6997C573 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mymood/Pods-mymood-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mymood/Pods-mymood-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mymood/Pods-mymood-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		511316C532A5B334D8057560 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
