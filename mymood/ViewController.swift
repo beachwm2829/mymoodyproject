@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTabbar"{
+        if segue.identifier == "Resultcell"{
             let NavigationController = segue.destination as! NavigationController
             NavigationController.ncId = self.vcId
 //            let TabbarController = segue.destination as! TabBarController
