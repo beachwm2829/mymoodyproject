@@ -29,6 +29,10 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let datePicker = UIDatePicker()
     var word = "data:image/jpg;base64,"
     var photoBase64:String?
+    
+    var activitySH:String?
+    @IBOutlet weak var imgactivity: UIImageView!
+    
        
        @IBOutlet weak var bt_mood1: UIButton!
        @IBOutlet weak var bt_mood2: UIButton!
@@ -41,8 +45,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-
+      
         // Do any additional setup after loading the view.
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
@@ -228,6 +231,10 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         
     }
 
+    @IBAction func bt_addActivity(_ sender: Any) {
+        print("activity\(activitySH)")
+        
+    }
 }
 extension Addmood_ViewController: GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
