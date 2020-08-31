@@ -12,8 +12,18 @@ class NavigationController: UINavigationController {
     var ncId :String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//        guard let viewControllers = viewControllers else {
+//            return
+//        }
+        
+//        for viewController in viewControllers {
+//            if let mainNavigationController = viewControllers as? NavigationController {
+//                if let Result_q2_viewController = mainNavigationController.viewControllers.first as? Result_q2_ViewController {
+//                    Result_q2_viewController.q2Id = self.ncId
+//                    print("ncId = \(ncId)")
+//                }
+//            }
+//        }
     }
     
 

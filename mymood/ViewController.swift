@@ -40,9 +40,14 @@ class ViewController: UIViewController {
             case .success(_):
                 print(response)
                 let data = JSON(response.data!)
-                if(data["login"] != "true"){
+                if(data["login"] == "true"){
                     self.vcId = data["u_id"].stringValue
-                    self.performSegue(withIdentifier: "toTabbar", sender: self)
+                    if(data["status"] == "0"){
+                        self.performSegue(withIdentifier: "toTabbar", sender: self)
+                    }else{
+                        self.performSegue(withIdentifier: "Resultcell", sender: self)
+                    }
+                    
                 }else{
                     self.lbInvalid.isHidden = false
                 }
@@ -53,11 +58,9 @@ class ViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Resultcell"{
-            let NavigationController = segue.destination as! NavigationController
-            NavigationController.ncId = self.vcId
-//            let TabbarController = segue.destination as! TabBarController
-//            TabbarController.tbId = self.vcId
-        }else{}
+            let Result_q2_viewController = segue.destination as! Result_q2_ViewController
+            Result_q2_viewController.q2Id = self.vcId
+        }
     }
     
 }

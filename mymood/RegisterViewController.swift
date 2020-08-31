@@ -15,7 +15,6 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
 
     @IBOutlet weak var tfUsername: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
-    @IBOutlet weak var tfConPassword: UITextField!
     @IBOutlet weak var tfFname: UITextField!
     @IBOutlet weak var tfLname: UITextField!
     @IBOutlet weak var tfEmail: UITextField!
@@ -37,7 +36,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     var photoBase64:String?
     var rcId : String?
     var gender = ""
-    var status = ""
+    var status : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,19 +139,17 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         if sender.tag == 1 {
             btUser.isSelected = true
             btCarer.isSelected = false
-            status = "user"
+            status = 1
         }else if sender.tag == 2 {
             btCarer.isSelected = true
             btUser.isSelected = false
-            status = "carer"
+            status = 2
         }
     }
     
     
     @IBAction func btCreateAccount(_ sender: Any) {
         let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
-        print(gender)
-        print(status)
         let param : Parameters = [
             "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,

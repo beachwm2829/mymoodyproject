@@ -7,62 +7,99 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class Result_q2_ViewController: UIViewController {
 
     
+    @IBOutlet weak var btTure_q2_r1: UIButton!
+    @IBOutlet weak var btFalse_q2_r1: UIButton!
     
-    @IBOutlet weak var trueRadio_q2_a1: UIButton!
-    @IBOutlet weak var falseRadio_q2_a1: UIButton!
+    @IBOutlet weak var btTure_q2_r2: UIButton!
+    @IBOutlet weak var btFalse_q2_r2: UIButton!
     
-    @IBOutlet weak var trueRadio_q2_a2: UIButton!
-    @IBOutlet weak var falseRadio_q2_a2: UIButton!
+    var q2Id :String?
+    var assess = "Q2"
+    var date :String?
+    var result = 0
+    var r1 = 0
+    var r2 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(q2Id!)
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func checkbox_f_a1(_ sender: UIButton) {
-                if trueRadio_q2_a1.isSelected {
-                       trueRadio_q2_a1.isSelected = false
-                falseRadio_q2_a1.isSelected = true
-                    } else {
-                        falseRadio_q2_a1.isSelected  = true
-                    }
-         }
-         
-         @IBAction func checkbox_t_a1(_ sender: UIButton) {
-                if falseRadio_q2_a1.isSelected {
-                        falseRadio_q2_a1.isSelected = false
-                 trueRadio_q2_a1.isSelected = true
-                     } else {
-                         trueRadio_q2_a1.isSelected  = true
-                     }
-             
-         }
-    @IBAction func checkbox_f_a2(_ sender: UIButton) {
-           if trueRadio_q2_a2.isSelected {
-                  trueRadio_q2_a2.isSelected = false
-           falseRadio_q2_a2.isSelected = true
-               } else {
-                   falseRadio_q2_a2.isSelected  = true
-               }
+    
+    @IBAction func btQ2_r1(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q2_r1.isSelected = true
+            btFalse_q2_r1.isSelected = false
+            r1 = 1
+        }else if sender.tag == 2 {
+            btTure_q2_r1.isSelected = false
+            btFalse_q2_r1.isSelected = true
+            r1 = 0
+        }
+    }
+    @IBAction func btQ2_r2(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q2_r2.isSelected = true
+            btFalse_q2_r2.isSelected = false
+            r2 = 1
+        }else if sender.tag == 2 {
+            btFalse_q2_r2.isSelected = true
+            btTure_q2_r2.isSelected = false
+            r2 = 0
+            
+        }
     }
     
-    @IBAction func checkbox_t_a2(_ sender: UIButton) {
-           if falseRadio_q2_a2.isSelected {
-                   falseRadio_q2_a2.isSelected = false
-            trueRadio_q2_a2.isSelected = true
-                } else {
-                    trueRadio_q2_a2.isSelected  = true
-                }
-        
-    }
+
+    
     
     @IBAction func b(_ sender: UIButton) {
-        print("hello")
+        result = r1 + r2
+        print(result)
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
+        print("\(hour):\(minutes):\(seconds)")
+        
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = formatter.string(from: date)
+        print(dateString)
+        
+        
+        let url = "https://moodapi.000webhostapp.com/DBMoody/assessment.php?"
+        let param : Parameters = [
+            "assess":assess as AnyObject,
+            "result":result as AnyObject,
+            "hour":hour as AnyObject,
+            "minutes":minutes as AnyObject,
+            "seconds":seconds as AnyObject,
+            "date":dateString as AnyObject,
+            "u_id":q2Id as AnyObject
+        ]
+
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+        switch response.result {
+            case .success(_):
+                print("success")
+            case .failure(_):
+                print("fail")
+               
+            }
+        }
     }
     
     /*
