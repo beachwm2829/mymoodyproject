@@ -21,14 +21,12 @@ class Result_q2_ViewController: UIViewController {
     
     var q2Id :String?
     var assess = "Q2"
-    var date :String?
     var result = 0
     var r1 = 0
     var r2 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(q2Id!)
         // Do any additional setup after loading the view.
     }
     
@@ -57,12 +55,8 @@ class Result_q2_ViewController: UIViewController {
         }
     }
     
-
-    
-    
     @IBAction func b(_ sender: UIButton) {
         result = r1 + r2
-        print(result)
         let date = Date()
         let calendar = Calendar.current
         
@@ -95,6 +89,20 @@ class Result_q2_ViewController: UIViewController {
         switch response.result {
             case .success(_):
                 print("success")
+                if self.result >= 1 {
+                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า กรุณาทำแบบประเมินโรคซึมเศร้า 9Q ต่อ", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.performSegue(withIdentifier: "to9q", sender: self)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }else if self.result == 0 {
+                    let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.performSegue(withIdentifier: "toAddmood", sender: self)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+            }
             case .failure(_):
                 print("fail")
                
@@ -102,6 +110,10 @@ class Result_q2_ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let Result_q9_viewController = segue.destination as! Result_q9_ViewController
+        Result_q9_viewController.q9Id = self.q2Id
+    }
     /*
     // MARK: - Navigation
 

@@ -68,7 +68,7 @@
                                     <color key="titleColor" red="0.072192035619999997" green="0.44525921340000002" blue="0.88488525149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="by1-Yf-cXy" kind="showDetail" id="xKI-Mi-zJI"/>
+                                    <segue destination="by1-Yf-cXy" kind="show" id="xKI-Mi-zJI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -249,14 +249,14 @@
             <objects>
                 <viewController id="by1-Yf-cXy" customClass="RegisterViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z8Q-dh-xTP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OsE-Yq-zMT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd3-jU-3m5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="694"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9c-Fu-9uY">
                                                 <rect key="frame" x="73" y="114" width="269" height="34"/>
@@ -659,6 +659,8 @@
                         <outlet property="btFalse_q2_r2" destination="qOZ-6L-HPU" id="ktU-wf-Jka"/>
                         <outlet property="btTure_q2_r1" destination="1fV-LD-JWL" id="qyK-AP-vfg"/>
                         <outlet property="btTure_q2_r2" destination="vxe-um-YmF" id="TfO-nV-3au"/>
+                        <segue destination="rFj-ns-mPt" kind="show" identifier="toAddmood" id="HDz-b2-PqS"/>
+                        <segue destination="XDx-b2-JUX" kind="show" identifier="to9q" id="1ch-zX-B12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -860,40 +862,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoq-26-nPl">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoq-26-nPl">
                                                 <rect key="frame" x="54" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="7Cj-Mp-8UL"/>
+                                                    <action selector="btQ9_r1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="51A-nQ-4F2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik1-dL-qBw">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik1-dL-qBw">
                                                 <rect key="frame" x="153" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="j7d-t3-toQ"/>
+                                                    <action selector="btQ9_r1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="nDM-bb-XCI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfp-hI-y7z">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfp-hI-y7z">
                                                 <rect key="frame" x="248" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="4CW-qe-Ce9"/>
+                                                    <action selector="btQ9_r1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="WH3-OG-Fdh"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unm-sY-0Gw">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unm-sY-0Gw">
                                                 <rect key="frame" x="342" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="6KV-6H-MmU"/>
+                                                    <action selector="btQ9_r1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="css-4m-9Mz"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCw-w4-7HK">
@@ -931,40 +933,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whB-41-M53">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whB-41-M53">
                                                 <rect key="frame" x="54" y="255" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="HZu-l1-HgH"/>
+                                                    <action selector="btQ9_r2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="ASm-dY-sHu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-pO-bbE">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-pO-bbE">
                                                 <rect key="frame" x="153" y="255" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="dSz-cf-Bf1"/>
+                                                    <action selector="btQ9_r2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="wvl-Qg-xIo"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-D3-dPk">
-                                                <rect key="frame" x="248" y="255" width="20" height="22"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-D3-dPk">
+                                                <rect key="frame" x="248" y="255" width="20" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="izz-pB-GVa"/>
+                                                    <action selector="btQ9_r2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="5mV-K2-iyZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-fR-oDO">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-fR-oDO">
                                                 <rect key="frame" x="342" y="255" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="CzS-EE-rht"/>
+                                                    <action selector="btQ9_r2:" destination="XDx-b2-JUX" eventType="touchUpInside" id="52R-Vs-BRQ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-Sa-h2b">
@@ -1002,40 +1004,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-CV-q7E">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-CV-q7E">
                                                 <rect key="frame" x="48" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="u9Z-BI-us1"/>
+                                                    <action selector="btQ9_r3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="yr3-oZ-TMf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcT-7c-WFk">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcT-7c-WFk">
                                                 <rect key="frame" x="147" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="lt5-MD-Nzi"/>
+                                                    <action selector="btQ9_r3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Wps-2n-mPG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-Tf-uoh">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9J-Tf-uoh">
                                                 <rect key="frame" x="242" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="N21-QJ-13e"/>
+                                                    <action selector="btQ9_r3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="q8v-AS-nAC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0p-lX-ifa">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0p-lX-ifa">
                                                 <rect key="frame" x="336" y="363" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="WRU-Vb-Yvt"/>
+                                                    <action selector="btQ9_r3:" destination="XDx-b2-JUX" eventType="touchUpInside" id="2TY-27-9qk"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b95-Wk-wjV">
@@ -1073,40 +1075,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VO5-jS-gZd">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VO5-jS-gZd">
                                                 <rect key="frame" x="48" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="fWI-dB-T8s"/>
+                                                    <action selector="btQ9_r4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="mju-hk-kF0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-LN-vY3">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBR-LN-vY3">
                                                 <rect key="frame" x="147" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="f5R-Od-kAo"/>
+                                                    <action selector="btQ9_r4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="SXm-OY-sfn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luV-PR-957">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luV-PR-957">
                                                 <rect key="frame" x="242" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="LEX-Ub-MoH"/>
+                                                    <action selector="btQ9_r4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="JhM-IX-K70"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-fp-f63">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVF-fp-f63">
                                                 <rect key="frame" x="336" y="471" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="VZN-CJ-FaN"/>
+                                                    <action selector="btQ9_r4:" destination="XDx-b2-JUX" eventType="touchUpInside" id="0PH-DW-OhJ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFC-wc-Hy1">
@@ -1144,40 +1146,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcX-8s-eyI">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcX-8s-eyI">
                                                 <rect key="frame" x="48" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="bjz-FJ-weG"/>
+                                                    <action selector="btQ9_r5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="51A-sg-Tl3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-PZ-YNx">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3e-PZ-YNx">
                                                 <rect key="frame" x="147" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="AQL-h8-Oqc"/>
+                                                    <action selector="btQ9_r5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="KGd-oH-ZjH"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-ti-fug">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-ti-fug">
                                                 <rect key="frame" x="242" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="w08-mi-NFI"/>
+                                                    <action selector="btQ9_r5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="sdy-eb-Xge"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-Fi-3r2">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-Fi-3r2">
                                                 <rect key="frame" x="336" y="579" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Q6I-Nr-ydm"/>
+                                                    <action selector="btQ9_r5:" destination="XDx-b2-JUX" eventType="touchUpInside" id="9Rg-Bb-7EF"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hve-Zi-4rW">
@@ -1215,40 +1217,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-Uo-9lU">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-Uo-9lU">
                                                 <rect key="frame" x="48" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="CKg-yp-dQu"/>
+                                                    <action selector="btQ9_r6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="CJQ-Q3-XE6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-TO-1RM">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19k-TO-1RM">
                                                 <rect key="frame" x="147" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="3WE-p4-xmv"/>
+                                                    <action selector="btQ9_r6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="ANg-s7-ggm"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qS-Pv-ssn">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qS-Pv-ssn">
                                                 <rect key="frame" x="242" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="GNA-lZ-d1O"/>
+                                                    <action selector="btQ9_r6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="bvJ-EC-m21"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBX-Io-7iw">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBX-Io-7iw">
                                                 <rect key="frame" x="336" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="j6G-B9-WEg"/>
+                                                    <action selector="btQ9_r6:" destination="XDx-b2-JUX" eventType="touchUpInside" id="ekF-bZ-nzT"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyX-Qm-GcN">
@@ -1286,40 +1288,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-RS-k4U">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbQ-RS-k4U">
                                                 <rect key="frame" x="48" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="vbE-pO-cyj"/>
+                                                    <action selector="btQ9_r7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="BwO-OY-VeP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-cn-qlc">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-cn-qlc">
                                                 <rect key="frame" x="147" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="MYI-N2-u3o"/>
+                                                    <action selector="btQ9_r7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="x26-fI-80v"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-Qt-ch9">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-Qt-ch9">
                                                 <rect key="frame" x="242" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Ufv-Ui-avJ"/>
+                                                    <action selector="btQ9_r7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="9lH-IG-Bxb"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHD-WM-iC6">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHD-WM-iC6">
                                                 <rect key="frame" x="336" y="835" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="QRJ-ji-0Wb"/>
+                                                    <action selector="btQ9_r7:" destination="XDx-b2-JUX" eventType="touchUpInside" id="zRb-uq-sGU"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgw-P9-1iF">
@@ -1350,40 +1352,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdg-fa-9gT">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdg-fa-9gT">
                                                 <rect key="frame" x="48" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Ydz-lR-4AK"/>
+                                                    <action selector="btQ9_r8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="yKz-uB-kll"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-3G-OnR">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8K-3G-OnR">
                                                 <rect key="frame" x="147" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="c23-gV-1aj"/>
+                                                    <action selector="btQ9_r8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="sjk-Wd-vrT"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-pq-8eh">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-pq-8eh">
                                                 <rect key="frame" x="242" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="DUZ-hn-HAI"/>
+                                                    <action selector="btQ9_r8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="RG9-h5-V3e"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-6l-p2F">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-6l-p2F">
                                                 <rect key="frame" x="336" y="990" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="dcd-4u-GQ2"/>
+                                                    <action selector="btQ9_r8:" destination="XDx-b2-JUX" eventType="touchUpInside" id="wvu-Pq-47Z"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdT-Ek-YNM">
@@ -1421,40 +1423,40 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2c-o0-g2X">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2c-o0-g2X">
                                                 <rect key="frame" x="48" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_neverRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="7fE-D1-6Kk"/>
+                                                    <action selector="btQ9_r9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="Yrq-vt-d1k"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-pc-mtQ">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGr-pc-mtQ">
                                                 <rect key="frame" x="147" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_someRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="zp0-Dg-Pmz"/>
+                                                    <action selector="btQ9_r9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="RHs-xf-KWP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdd-7O-nzq">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdd-7O-nzq">
                                                 <rect key="frame" x="242" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_oftenRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="oyc-8A-RF4"/>
+                                                    <action selector="btQ9_r9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="aI4-D7-M9e"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ry-lW-uqk">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ry-lW-uqk">
                                                 <rect key="frame" x="336" y="1118" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_alwaysRadio_9q_a9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="W4y-Ao-Ykq"/>
+                                                    <action selector="btQ9_r9:" destination="XDx-b2-JUX" eventType="touchUpInside" id="KQM-1D-w6y"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มีเลย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKa-Gi-V9h">
@@ -1558,7 +1560,6 @@
                                                 <state key="normal" image="Rusult"/>
                                                 <connections>
                                                     <action selector="save:" destination="XDx-b2-JUX" eventType="touchUpInside" id="ecM-Ho-NJx"/>
-                                                    <segue destination="J89-99-xy3" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="2mR-UM-0e5"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ต่อไป" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya5-Sp-CzE">
@@ -1574,12 +1575,6 @@
                                             <constraint firstAttribute="height" constant="1500" id="Kt1-XJ-egj"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGw-dX-5tM">
-                                        <rect key="frame" x="10" y="10" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="arrowshape.turn.up.left.circle" catalog="system"/>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dCb-Pe-tY4" firstAttribute="trailing" secondItem="7vy-fF-EyM" secondAttribute="trailing" id="8q2-hw-IH8"/>
@@ -1602,47 +1597,49 @@
                     <navigationItem key="navigationItem" id="ad2-wS-fbU"/>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
-                        <outlet property="alwaysRadio_9q_a1" destination="Unm-sY-0Gw" id="IYa-tm-bOC"/>
-                        <outlet property="alwaysRadio_9q_a2" destination="a3I-fR-oDO" id="efr-HC-EJE"/>
-                        <outlet property="alwaysRadio_9q_a3" destination="m0p-lX-ifa" id="Fr9-wT-8Mw"/>
-                        <outlet property="alwaysRadio_9q_a4" destination="NVF-fp-f63" id="0EG-Bz-yCQ"/>
-                        <outlet property="alwaysRadio_9q_a5" destination="PzI-Fi-3r2" id="Ss3-Yg-yid"/>
-                        <outlet property="alwaysRadio_9q_a6" destination="NBX-Io-7iw" id="IWh-2R-74s"/>
-                        <outlet property="alwaysRadio_9q_a7" destination="wHD-WM-iC6" id="nVJ-Z9-JLt"/>
-                        <outlet property="alwaysRadio_9q_a8" destination="gAR-6l-p2F" id="OAR-f4-vqD"/>
-                        <outlet property="alwaysRadio_9q_a9" destination="0Ry-lW-uqk" id="Pwr-6o-QtB"/>
-                        <outlet property="neverRadio_9q_a1" destination="Qoq-26-nPl" id="DaK-EZ-dIC"/>
-                        <outlet property="neverRadio_9q_a2" destination="whB-41-M53" id="rIn-DF-Zl9"/>
-                        <outlet property="neverRadio_9q_a3" destination="xb8-CV-q7E" id="MBH-gp-iyk"/>
-                        <outlet property="neverRadio_9q_a4" destination="VO5-jS-gZd" id="fgZ-7d-zNl"/>
-                        <outlet property="neverRadio_9q_a5" destination="mcX-8s-eyI" id="nko-Zb-uAX"/>
-                        <outlet property="neverRadio_9q_a6" destination="pAN-Uo-9lU" id="B2n-in-G9f"/>
-                        <outlet property="neverRadio_9q_a7" destination="bbQ-RS-k4U" id="XM0-Od-DRF"/>
-                        <outlet property="neverRadio_9q_a8" destination="pdg-fa-9gT" id="Cng-82-4AX"/>
-                        <outlet property="neverRadio_9q_a9" destination="p2c-o0-g2X" id="Brc-kd-BtT"/>
-                        <outlet property="oftenRadio_9q_a1" destination="Qfp-hI-y7z" id="d49-Ch-flc"/>
-                        <outlet property="oftenRadio_9q_a2" destination="NGV-D3-dPk" id="7sZ-bU-wIH"/>
-                        <outlet property="oftenRadio_9q_a3" destination="u9J-Tf-uoh" id="CAb-uU-bCT"/>
-                        <outlet property="oftenRadio_9q_a4" destination="luV-PR-957" id="BwG-1X-arD"/>
-                        <outlet property="oftenRadio_9q_a5" destination="f0d-ti-fug" id="26b-AG-Qul"/>
-                        <outlet property="oftenRadio_9q_a6" destination="5qS-Pv-ssn" id="clI-5l-Azt"/>
-                        <outlet property="oftenRadio_9q_a7" destination="Wmn-Qt-ch9" id="Pe3-vc-ZJ0"/>
-                        <outlet property="oftenRadio_9q_a8" destination="5NV-pq-8eh" id="0Y6-AS-9rx"/>
-                        <outlet property="oftenRadio_9q_a9" destination="jdd-7O-nzq" id="IGV-iT-bhh"/>
-                        <outlet property="someRadio_9q_a1" destination="Ik1-dL-qBw" id="Ksj-t3-nhj"/>
-                        <outlet property="someRadio_9q_a2" destination="JL9-pO-bbE" id="Ed1-qy-J2N"/>
-                        <outlet property="someRadio_9q_a3" destination="zcT-7c-WFk" id="FsV-bq-sZ1"/>
-                        <outlet property="someRadio_9q_a4" destination="IBR-LN-vY3" id="CAJ-zr-Vng"/>
-                        <outlet property="someRadio_9q_a5" destination="L3e-PZ-YNx" id="X3u-Ql-aOI"/>
-                        <outlet property="someRadio_9q_a6" destination="19k-TO-1RM" id="DXk-ZV-LrO"/>
-                        <outlet property="someRadio_9q_a7" destination="zGD-cn-qlc" id="zHH-uf-aU8"/>
-                        <outlet property="someRadio_9q_a8" destination="m8K-3G-OnR" id="Hee-Mc-ewq"/>
-                        <outlet property="someRadio_9q_a9" destination="kGr-pc-mtQ" id="Pti-gw-Bsb"/>
+                        <outlet property="bt1_q9_r1" destination="Qoq-26-nPl" id="TA1-s5-ojc"/>
+                        <outlet property="bt1_q9_r2" destination="whB-41-M53" id="5RG-U2-fsk"/>
+                        <outlet property="bt1_q9_r3" destination="xb8-CV-q7E" id="Xkz-U5-b5e"/>
+                        <outlet property="bt1_q9_r4" destination="VO5-jS-gZd" id="Uzp-of-GPJ"/>
+                        <outlet property="bt1_q9_r5" destination="mcX-8s-eyI" id="Qsq-ry-ywZ"/>
+                        <outlet property="bt1_q9_r6" destination="pAN-Uo-9lU" id="FDR-ev-Iso"/>
+                        <outlet property="bt1_q9_r7" destination="bbQ-RS-k4U" id="Di1-mu-dpg"/>
+                        <outlet property="bt1_q9_r8" destination="pdg-fa-9gT" id="cJM-Gi-9DE"/>
+                        <outlet property="bt1_q9_r9" destination="p2c-o0-g2X" id="n4l-ou-rqL"/>
+                        <outlet property="bt2_q9_r1" destination="Ik1-dL-qBw" id="Cqu-Yk-T8K"/>
+                        <outlet property="bt2_q9_r2" destination="JL9-pO-bbE" id="wwJ-MD-zzr"/>
+                        <outlet property="bt2_q9_r3" destination="zcT-7c-WFk" id="Xsq-pq-dLq"/>
+                        <outlet property="bt2_q9_r4" destination="IBR-LN-vY3" id="NMT-cY-yUu"/>
+                        <outlet property="bt2_q9_r5" destination="L3e-PZ-YNx" id="pUY-jh-DJq"/>
+                        <outlet property="bt2_q9_r6" destination="19k-TO-1RM" id="SHN-Sw-qTD"/>
+                        <outlet property="bt2_q9_r7" destination="zGD-cn-qlc" id="yJj-OI-555"/>
+                        <outlet property="bt2_q9_r8" destination="m8K-3G-OnR" id="aGl-5c-Bvu"/>
+                        <outlet property="bt2_q9_r9" destination="kGr-pc-mtQ" id="QZS-M8-Wxq"/>
+                        <outlet property="bt3_q9_r1" destination="Qfp-hI-y7z" id="d2p-BJ-p7g"/>
+                        <outlet property="bt3_q9_r2" destination="NGV-D3-dPk" id="O3u-ny-rls"/>
+                        <outlet property="bt3_q9_r3" destination="u9J-Tf-uoh" id="ZrF-Ce-8Yr"/>
+                        <outlet property="bt3_q9_r4" destination="luV-PR-957" id="Tmn-ND-L5S"/>
+                        <outlet property="bt3_q9_r5" destination="f0d-ti-fug" id="8HE-6C-OHI"/>
+                        <outlet property="bt3_q9_r6" destination="5qS-Pv-ssn" id="GUT-Qa-Crc"/>
+                        <outlet property="bt3_q9_r7" destination="Wmn-Qt-ch9" id="iZL-ox-20L"/>
+                        <outlet property="bt3_q9_r8" destination="5NV-pq-8eh" id="2FP-jB-dnB"/>
+                        <outlet property="bt3_q9_r9" destination="jdd-7O-nzq" id="J27-qP-RDu"/>
+                        <outlet property="bt4_q9_r1" destination="Unm-sY-0Gw" id="xd0-Zs-gQI"/>
+                        <outlet property="bt4_q9_r2" destination="a3I-fR-oDO" id="hba-RH-cxU"/>
+                        <outlet property="bt4_q9_r3" destination="m0p-lX-ifa" id="KI2-zg-GMC"/>
+                        <outlet property="bt4_q9_r4" destination="NVF-fp-f63" id="X9F-AP-iiS"/>
+                        <outlet property="bt4_q9_r5" destination="PzI-Fi-3r2" id="PnF-OZ-MMK"/>
+                        <outlet property="bt4_q9_r6" destination="NBX-Io-7iw" id="O1u-2n-4D6"/>
+                        <outlet property="bt4_q9_r7" destination="wHD-WM-iC6" id="Uoi-DU-kNf"/>
+                        <outlet property="bt4_q9_r8" destination="gAR-6l-p2F" id="lPr-t6-vU4"/>
+                        <outlet property="bt4_q9_r9" destination="0Ry-lW-uqk" id="3pH-6x-cRd"/>
+                        <segue destination="rFj-ns-mPt" kind="show" identifier="toAddmood" id="C2h-fS-snM"/>
+                        <segue destination="J89-99-xy3" kind="show" identifier="to8q" id="IR2-vL-4iQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-1582"/>
+            <point key="canvasLocation" x="1389.8550724637682" y="-1582.3369565217392"/>
         </scene>
         <!--Result 8q View Controller-->
         <scene sceneID="s1K-Ik-PPC">
@@ -1679,22 +1676,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTc-pW-Gst">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTc-pW-Gst">
                                                 <rect key="frame" x="150" y="186" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a1:" destination="J89-99-xy3" eventType="touchUpInside" id="Ymc-s1-ctV"/>
+                                                    <action selector="btQ8_r1:" destination="J89-99-xy3" eventType="touchUpInside" id="jCE-Zf-suk"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36A-TF-MmO">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36A-TF-MmO">
                                                 <rect key="frame" x="227" y="186" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a1:" destination="J89-99-xy3" eventType="touchUpInside" id="MRH-ij-8bg"/>
+                                                    <action selector="btQ8_r1:" destination="J89-99-xy3" eventType="touchUpInside" id="yGu-oY-noi"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxI-fI-J1Z">
@@ -1725,22 +1722,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R64-qV-gAg">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R64-qV-gAg">
                                                 <rect key="frame" x="150" y="312" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a2:" destination="J89-99-xy3" eventType="touchUpInside" id="yFj-w2-UhT"/>
+                                                    <action selector="btQ8_r2:" destination="J89-99-xy3" eventType="touchUpInside" id="TFe-iR-1IS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPz-EE-VFO">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPz-EE-VFO">
                                                 <rect key="frame" x="227" y="312" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a2:" destination="J89-99-xy3" eventType="touchUpInside" id="TOh-eQ-Uur"/>
+                                                    <action selector="btQ8_r2:" destination="J89-99-xy3" eventType="touchUpInside" id="z8O-fJ-lAx"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อยากทำร้านตัวเอง หรือทำให้ตัวเองบาดเจ็บ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPK-gD-rHd">
@@ -1771,22 +1768,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K38-aD-jHH">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K38-aD-jHH">
                                                 <rect key="frame" x="150" y="432" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a3:" destination="J89-99-xy3" eventType="touchUpInside" id="RgY-ML-lAW"/>
+                                                    <action selector="btQ8_r3:" destination="J89-99-xy3" eventType="touchUpInside" id="RYF-5T-AvM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrD-8y-i2t">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrD-8y-i2t">
                                                 <rect key="frame" x="227" y="432" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a3:" destination="J89-99-xy3" eventType="touchUpInside" id="Lp1-XO-Nwz"/>
+                                                    <action selector="btQ8_r3:" destination="J89-99-xy3" eventType="touchUpInside" id="SBV-mN-XXh"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คิดเกี่ยวกับการฆ่าตัวตาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojt-hs-ZRg">
@@ -1817,22 +1814,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-Aj-j7h">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-Aj-j7h">
                                                 <rect key="frame" x="150" y="559" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a4:" destination="J89-99-xy3" eventType="touchUpInside" id="sm1-OV-QFF"/>
+                                                    <action selector="btQ8_r4:" destination="J89-99-xy3" eventType="touchUpInside" id="YAi-5B-fwh"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNE-aG-aQz">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNE-aG-aQz">
                                                 <rect key="frame" x="227" y="559" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a4:" destination="J89-99-xy3" eventType="touchUpInside" id="gdg-2v-Z6Q"/>
+                                                    <action selector="btQ8_r4:" destination="J89-99-xy3" eventType="touchUpInside" id="pZB-6j-JRn"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="มีแผนการที่ฆ่าตัวตาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xy-FZ-wRA">
@@ -1863,22 +1860,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtX-W5-MRo">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtX-W5-MRo">
                                                 <rect key="frame" x="152" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a5:" destination="J89-99-xy3" eventType="touchUpInside" id="SNc-uM-XpE"/>
+                                                    <action selector="btQ8_r5:" destination="J89-99-xy3" eventType="touchUpInside" id="qMK-iK-3UJ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-8z-Wgv">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-8z-Wgv">
                                                 <rect key="frame" x="229" y="707" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a5:" destination="J89-99-xy3" eventType="touchUpInside" id="Utr-ho-ugQ"/>
+                                                    <action selector="btQ8_r5:" destination="J89-99-xy3" eventType="touchUpInside" id="6vJ-lq-Q8U"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-fN-Y07">
@@ -1916,22 +1913,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-oL-T9S">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ar5-oL-T9S">
                                                 <rect key="frame" x="156" y="848" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a6:" destination="J89-99-xy3" eventType="touchUpInside" id="DEQ-Bv-1fx"/>
+                                                    <action selector="btQ8_r6:" destination="J89-99-xy3" eventType="touchUpInside" id="EM1-On-mWG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqe-9N-6uc">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqe-9N-6uc">
                                                 <rect key="frame" x="233" y="848" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a6:" destination="J89-99-xy3" eventType="touchUpInside" id="9Ig-MT-ROA"/>
+                                                    <action selector="btQ8_r6:" destination="J89-99-xy3" eventType="touchUpInside" id="T65-W1-AlQ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ไม่มี" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-Qs-m0f">
@@ -1955,22 +1952,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzP-TU-S4C">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JzP-TU-S4C">
                                                 <rect key="frame" x="156" y="997" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a7:" destination="J89-99-xy3" eventType="touchUpInside" id="LkB-Pd-arJ"/>
+                                                    <action selector="btQ8_r7:" destination="J89-99-xy3" eventType="touchUpInside" id="z1b-Us-SUw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoW-rd-5oM">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoW-rd-5oM">
                                                 <rect key="frame" x="233" y="997" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a7:" destination="J89-99-xy3" eventType="touchUpInside" id="1Qs-qi-bHC"/>
+                                                    <action selector="btQ8_r7:" destination="J89-99-xy3" eventType="touchUpInside" id="Sah-PJ-3Jw"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ได้พยามฆ่าตัวตาย โดยคาดหวัง /ตั้งใจที่จะให้ตาย" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-Fj-gfe">
@@ -2001,22 +1998,22 @@
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-FH-rOk">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-FH-rOk">
                                                 <rect key="frame" x="156" y="1117" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_tureRadio_8q_a8:" destination="J89-99-xy3" eventType="touchUpInside" id="Xs1-69-PaF"/>
+                                                    <action selector="btQ8_r8:" destination="J89-99-xy3" eventType="touchUpInside" id="Y3h-CQ-pue"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-hA-sVG">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-hA-sVG">
                                                 <rect key="frame" x="233" y="1117" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
                                                 <state key="selected" image="circle.fill" catalog="system"/>
                                                 <connections>
-                                                    <action selector="check_falseRadio_8q_a8:" destination="J89-99-xy3" eventType="touchUpInside" id="Ma1-t9-vo7"/>
+                                                    <action selector="btQ8_r8:" destination="J89-99-xy3" eventType="touchUpInside" id="dkz-og-lR7"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ท่านเคยพยามยามฆ่าตัวตาย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fk-oc-mtT">
@@ -2040,15 +2037,6 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iz-Wc-gCB">
-                                                <rect key="frame" x="8" y="8" width="30" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="arrowshape.turn.up.left.circle" catalog="system"/>
-                                                <connections>
-                                                    <segue destination="XDx-b2-JUX" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="YM2-Eb-468"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugs-Lt-yyE">
                                                 <rect key="frame" x="8" y="105" width="415" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2143,24 +2131,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rNL-Ix-HG0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="w2Q-Go-iEW"/>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
-                        <outlet property="falseRadio_8q_a1" destination="36A-TF-MmO" id="TrU-Rz-JiA"/>
-                        <outlet property="falseRadio_8q_a2" destination="vPz-EE-VFO" id="cVa-yf-p0i"/>
-                        <outlet property="falseRadio_8q_a3" destination="RrD-8y-i2t" id="ALd-2h-vkc"/>
-                        <outlet property="falseRadio_8q_a4" destination="tNE-aG-aQz" id="YAC-DP-Tju"/>
-                        <outlet property="falseRadio_8q_a5" destination="CAC-8z-Wgv" id="SOG-er-fY6"/>
-                        <outlet property="falseRadio_8q_a6" destination="eqe-9N-6uc" id="Bdc-w3-k4i"/>
-                        <outlet property="falseRadio_8q_a7" destination="zoW-rd-5oM" id="bxH-vp-svz"/>
-                        <outlet property="falseRadio_8q_a8" destination="Mua-hA-sVG" id="bgX-an-FOI"/>
-                        <outlet property="tureRadio_8q_a1" destination="kTc-pW-Gst" id="h74-kh-8Xk"/>
-                        <outlet property="tureRadio_8q_a2" destination="R64-qV-gAg" id="JhK-GJ-kTz"/>
-                        <outlet property="tureRadio_8q_a3" destination="K38-aD-jHH" id="61m-PU-aDX"/>
-                        <outlet property="tureRadio_8q_a4" destination="zE9-Aj-j7h" id="fxD-1t-0F4"/>
-                        <outlet property="tureRadio_8q_a5" destination="VtX-W5-MRo" id="bWx-2R-nC7"/>
-                        <outlet property="tureRadio_8q_a6" destination="ar5-oL-T9S" id="P2a-7b-Lfi"/>
-                        <outlet property="tureRadio_8q_a7" destination="JzP-TU-S4C" id="XZP-js-4ai"/>
-                        <outlet property="tureRadio_8q_a8" destination="7v4-FH-rOk" id="ise-Wi-XbB"/>
+                        <outlet property="btFalse_q8_r1" destination="36A-TF-MmO" id="drJ-A9-X4D"/>
+                        <outlet property="btFalse_q8_r2" destination="vPz-EE-VFO" id="v3H-2u-9ne"/>
+                        <outlet property="btFalse_q8_r3" destination="RrD-8y-i2t" id="gNB-NO-Smq"/>
+                        <outlet property="btFalse_q8_r4" destination="tNE-aG-aQz" id="xf6-NM-P94"/>
+                        <outlet property="btFalse_q8_r5" destination="CAC-8z-Wgv" id="gTB-6D-n4o"/>
+                        <outlet property="btFalse_q8_r6" destination="eqe-9N-6uc" id="MYn-E3-Dtv"/>
+                        <outlet property="btFalse_q8_r7" destination="zoW-rd-5oM" id="pel-6F-azF"/>
+                        <outlet property="btFalse_q8_r8" destination="Mua-hA-sVG" id="BV9-H8-uGF"/>
+                        <outlet property="btTure_q8_r1" destination="kTc-pW-Gst" id="Xwm-LJ-TDw"/>
+                        <outlet property="btTure_q8_r2" destination="R64-qV-gAg" id="zB3-70-1pB"/>
+                        <outlet property="btTure_q8_r3" destination="K38-aD-jHH" id="0Lx-1k-hgz"/>
+                        <outlet property="btTure_q8_r4" destination="zE9-Aj-j7h" id="wj7-Dx-wij"/>
+                        <outlet property="btTure_q8_r5" destination="VtX-W5-MRo" id="j8u-JX-H3f"/>
+                        <outlet property="btTure_q8_r6" destination="ar5-oL-T9S" id="HYw-ve-xkD"/>
+                        <outlet property="btTure_q8_r7" destination="JzP-TU-S4C" id="ML4-cE-PNd"/>
+                        <outlet property="btTure_q8_r8" destination="7v4-FH-rOk" id="mGm-ri-1Yq"/>
+                        <segue destination="rFj-ns-mPt" kind="show" identifier="toAddmood" id="9kc-qL-WNe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2428,8 +2418,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2mR-UM-0e5"/>
         <segue reference="zT3-Pk-dgc"/>
+        <segue reference="9kc-qL-WNe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
@@ -2446,7 +2436,6 @@
         <image name="Checkbox" width="60" height="60"/>
         <image name="Rusult" width="551" height="550"/>
         <image name="UnCheckbox" width="60" height="60"/>
-        <image name="arrowshape.turn.up.left.circle" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="minus" catalog="system" width="128" height="24"/>

@@ -7,32 +7,56 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class Result_8q_ViewController: UIViewController {
 
-    @IBOutlet weak var tureRadio_8q_a1: UIButton!
-    @IBOutlet weak var falseRadio_8q_a1: UIButton!
+    @IBOutlet weak var btTure_q8_r1: UIButton!
+    @IBOutlet weak var btFalse_q8_r1: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a2: UIButton!
-    @IBOutlet weak var falseRadio_8q_a2: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a3: UIButton!
-    @IBOutlet weak var falseRadio_8q_a3: UIButton!
+    @IBOutlet weak var btTure_q8_r2: UIButton!
+    @IBOutlet weak var btFalse_q8_r2: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a4: UIButton!
-    @IBOutlet weak var falseRadio_8q_a4: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a5: UIButton!
-    @IBOutlet weak var falseRadio_8q_a5: UIButton!
+    @IBOutlet weak var btTure_q8_r3: UIButton!
+    @IBOutlet weak var btFalse_q8_r3: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a6: UIButton!
-    @IBOutlet weak var falseRadio_8q_a6: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a7: UIButton!
-    @IBOutlet weak var falseRadio_8q_a7: UIButton!
+    @IBOutlet weak var btTure_q8_r4: UIButton!
+    @IBOutlet weak var btFalse_q8_r4: UIButton!
     
-    @IBOutlet weak var tureRadio_8q_a8: UIButton!
-    @IBOutlet weak var falseRadio_8q_a8: UIButton!
+    
+    @IBOutlet weak var btTure_q8_r5: UIButton!
+    @IBOutlet weak var btFalse_q8_r5: UIButton!
+    
+    
+    @IBOutlet weak var btTure_q8_r6: UIButton!
+    @IBOutlet weak var btFalse_q8_r6: UIButton!
+    
+    
+    @IBOutlet weak var btTure_q8_r7: UIButton!
+    @IBOutlet weak var btFalse_q8_r7: UIButton!
+    
+    
+    @IBOutlet weak var btTure_q8_r8: UIButton!
+    @IBOutlet weak var btFalse_q8_r8: UIButton!
+    
+    
+    var q8Id :String?
+    
+    var rated = ""
+    var assess = "Q8"
+    var result_r1 = 0
+    var result_r2 = 0
+    var result_r3 = 0
+    var result_r4 = 0
+    var result_r5 = 0
+    var result_r6 = 0
+    var result_r7 = 0
+    var result_r8 = 0
+    var result = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,159 +64,161 @@ class Result_8q_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func check_tureRadio_8q_a1(_ sender: UIButton) {
-           if falseRadio_8q_a1.isSelected {
-                  falseRadio_8q_a1.isSelected = false
-           tureRadio_8q_a1.isSelected = true
-               } else {
-                   tureRadio_8q_a1.isSelected  = true
-               }
+    @IBAction func btQ8_r1(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r1.isSelected = true
+            btFalse_q8_r1.isSelected = false
+            result_r1 = 1
+        }else if sender.tag == 2 {
+            btTure_q8_r1.isSelected = false
+            btFalse_q8_r1.isSelected = true
+            result_r1 = 0
+        }
     }
     
-    @IBAction func check_falseRadio_8q_a1(_ sender: UIButton) {
-           if tureRadio_8q_a1.isSelected {
-                   tureRadio_8q_a1.isSelected = false
-            falseRadio_8q_a1.isSelected = true
-                } else {
-                    falseRadio_8q_a1.isSelected  = true
-                }
-        
-    }
-    @IBAction func check_tureRadio_8q_a2(_ sender: UIButton) {
-           if falseRadio_8q_a2.isSelected {
-                  falseRadio_8q_a2.isSelected = false
-           tureRadio_8q_a2.isSelected = true
-               } else {
-                   tureRadio_8q_a2.isSelected  = true
-               }
+    @IBAction func btQ8_r2(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r2.isSelected = true
+            btFalse_q8_r2.isSelected = false
+            result_r2 = 2
+        }else if sender.tag == 2 {
+            btTure_q8_r2.isSelected = false
+            btFalse_q8_r2.isSelected = true
+            result_r2 = 0
+        }
     }
     
-    @IBAction func check_falseRadio_8q_a2(_ sender: UIButton) {
-           if tureRadio_8q_a2.isSelected {
-                   tureRadio_8q_a2.isSelected = false
-            falseRadio_8q_a2.isSelected = true
-                } else {
-                    falseRadio_8q_a2.isSelected  = true
-                }
-        
+    @IBAction func btQ8_r3(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r3.isSelected = true
+            btFalse_q8_r3.isSelected = false
+            result_r3 = 6
+        }else if sender.tag == 2 {
+            btTure_q8_r3.isSelected = false
+            btFalse_q8_r3.isSelected = true
+            result_r3 = 0
+        }
     }
     
-    @IBAction func check_tureRadio_8q_a3(_ sender: UIButton) {
-           if falseRadio_8q_a3.isSelected {
-                  falseRadio_8q_a3.isSelected = false
-           tureRadio_8q_a3.isSelected = true
-               } else {
-                   tureRadio_8q_a3.isSelected  = true
-               }
+    @IBAction func btQ8_r4(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r4.isSelected = true
+            btFalse_q8_r4.isSelected = false
+            result_r4 = 8
+        }else if sender.tag == 2 {
+            btTure_q8_r4.isSelected = false
+            btFalse_q8_r4.isSelected = true
+            result_r4 = 0
+        }
     }
     
-    @IBAction func check_falseRadio_8q_a3(_ sender: UIButton) {
-           if tureRadio_8q_a3.isSelected {
-                   tureRadio_8q_a3.isSelected = false
-            falseRadio_8q_a3.isSelected = true
-                } else {
-                    falseRadio_8q_a3.isSelected  = true
-                }
-        
+    @IBAction func btQ8_r5(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r5.isSelected = true
+            btFalse_q8_r5.isSelected = false
+            result_r5 = 9
+        }else if sender.tag == 2 {
+            btTure_q8_r5.isSelected = false
+            btFalse_q8_r5.isSelected = true
+            result_r5 = 0
+        }
     }
     
-    @IBAction func check_tureRadio_8q_a4(_ sender: UIButton) {
-           if falseRadio_8q_a4.isSelected {
-                  falseRadio_8q_a4.isSelected = false
-           tureRadio_8q_a4.isSelected = true
-               } else {
-                   tureRadio_8q_a4.isSelected  = true
-               }
+    @IBAction func btQ8_r6(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r6.isSelected = true
+            btFalse_q8_r6.isSelected = false
+            result_r6 = 4
+        }else if sender.tag == 2 {
+            btTure_q8_r6.isSelected = false
+            btFalse_q8_r6.isSelected = true
+            result_r6 = 0
+        }
     }
     
-    @IBAction func check_falseRadio_8q_a4(_ sender: UIButton) {
-           if tureRadio_8q_a4.isSelected {
-                   tureRadio_8q_a4.isSelected = false
-            falseRadio_8q_a4.isSelected = true
-                } else {
-                    falseRadio_8q_a4.isSelected  = true
-                }
-        
+    @IBAction func btQ8_r7(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r7.isSelected = true
+            btFalse_q8_r7.isSelected = false
+            result_r7 = 10
+        }else if sender.tag == 2 {
+            btTure_q8_r7.isSelected = false
+            btFalse_q8_r7.isSelected = true
+            result_r7 = 0
+        }
     }
     
-    @IBAction func check_tureRadio_8q_a5(_ sender: UIButton) {
-           if falseRadio_8q_a5.isSelected {
-                  falseRadio_8q_a5.isSelected = false
-           tureRadio_8q_a5.isSelected = true
-               } else {
-                   tureRadio_8q_a5.isSelected  = true
-               }
-    }
-    
-    @IBAction func check_falseRadio_8q_a5(_ sender: UIButton) {
-           if tureRadio_8q_a5.isSelected {
-                   tureRadio_8q_a5.isSelected = false
-            falseRadio_8q_a5.isSelected = true
-                } else {
-                    falseRadio_8q_a5.isSelected  = true
-                }
-        
-    }
-    
-    @IBAction func check_tureRadio_8q_a6(_ sender: UIButton) {
-           if falseRadio_8q_a6.isSelected {
-                  falseRadio_8q_a6.isSelected = false
-           tureRadio_8q_a6.isSelected = true
-               } else {
-                   tureRadio_8q_a6.isSelected  = true
-               }
-    }
-    
-    @IBAction func check_falseRadio_8q_a6(_ sender: UIButton) {
-           if tureRadio_8q_a6.isSelected {
-                   tureRadio_8q_a6.isSelected = false
-            falseRadio_8q_a6.isSelected = true
-                } else {
-                    falseRadio_8q_a6.isSelected  = true
-                }
-        
-    }
-    
-    @IBAction func check_tureRadio_8q_a7(_ sender: UIButton) {
-           if falseRadio_8q_a7.isSelected {
-                  falseRadio_8q_a7.isSelected = false
-           tureRadio_8q_a7.isSelected = true
-               } else {
-                   tureRadio_8q_a7.isSelected  = true
-               }
-    }
-    
-    @IBAction func check_falseRadio_8q_a7(_ sender: UIButton) {
-           if tureRadio_8q_a7.isSelected {
-                   tureRadio_8q_a7.isSelected = false
-            falseRadio_8q_a7.isSelected = true
-                } else {
-                    falseRadio_8q_a7.isSelected  = true
-                }
-        
-    }
-    
-    @IBAction func check_tureRadio_8q_a8(_ sender: UIButton) {
-           if falseRadio_8q_a8.isSelected {
-                  falseRadio_8q_a8.isSelected = false
-           tureRadio_8q_a8.isSelected = true
-               } else {
-                   tureRadio_8q_a8.isSelected  = true
-               }
-    }
-    
-    @IBAction func check_falseRadio_8q_a8(_ sender: UIButton) {
-           if tureRadio_8q_a8.isSelected {
-                   tureRadio_8q_a8.isSelected = false
-            falseRadio_8q_a8.isSelected = true
-                } else {
-                    falseRadio_8q_a8.isSelected  = true
-                }
-        
+    @IBAction func btQ8_r8(_ sender: UIButton) {
+        if sender.tag == 1 {
+            btTure_q8_r8.isSelected = true
+            btFalse_q8_r8.isSelected = false
+            result_r8 = 4
+        }else if sender.tag == 2 {
+            btTure_q8_r8.isSelected = false
+            btFalse_q8_r8.isSelected = true
+            result_r8 = 0
+        }
     }
     
     @IBAction func save(_ sender: Any) {
-        print("8Q save")
+        result = result_r1 + result_r2 + result_r3 + result_r4 + result_r5 + result_r6 + result_r7 + result_r8
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
+        print("\(hour):\(minutes):\(seconds)")
+        
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = formatter.string(from: date)
+        print(dateString)
+        
+        
+        let url = "https://moodapi.000webhostapp.com/DBMoody/assessment.php?"
+        let param : Parameters = [
+            "assess":assess as AnyObject,
+            "result":result as AnyObject,
+            "hour":hour as AnyObject,
+            "minutes":minutes as AnyObject,
+            "seconds":seconds as AnyObject,
+            "date":dateString as AnyObject,
+            "u_id":q8Id as AnyObject
+        ]
+
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+        switch response.result {
+            case .success(_):
+                print("success")
+                if self.result >= 1 {
+                    self.rated = "\"ระดับน้อย\" ควรได้รับคำแนะนำการบำบัด รักษาจากจิตแพทย์"
+                    if self.result >= 9 {
+                        self.rated = "\"ระดับปานกลาง\" ควรได้รับคำแนะนำการบำบัด รักษาจากจิตแพทย์"
+                    }else if self.result >= 17 {
+                        self.rated = "\"ระดับรุนแรง\" พบจิตแพทย์เพื่อรับการรักษาโดยด่วน"
+                    }
+                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะฆ่าตัวตายในปัจจุบันใน \(self.rated)", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.performSegue(withIdentifier: "toAddmood", sender: self)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }else if self.result == 0 {
+                    let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะฆ่าตัวตายในปัจจุบัน", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.performSegue(withIdentifier: "toAddmood", sender: self)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                    
+            }
+            case .failure(_):
+                print("fail")
+               
+            }
+        }
     }
     
     /*
