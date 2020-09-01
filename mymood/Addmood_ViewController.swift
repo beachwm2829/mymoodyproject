@@ -15,15 +15,14 @@ import GooglePlaces
 
 class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
-    var Id : String?
     var imgmood = UIImage()
-    var mood = UITextField()
+    var mood :Int?
+    var amId :String?
     
     @IBOutlet weak var lb_addres: UILabel!
     @IBOutlet weak var ldname_location: UILabel!
     var placesClient: GMSPlacesClient!
     
-    var tdId:String?
     var moodData = [[String:AnyObject]]()
     
     let datePicker = UIDatePicker()
@@ -45,7 +44,8 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        self.ldname_location.isHidden = true
         // Do any additional setup after loading the view.
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
@@ -67,124 +67,54 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    @IBAction func mood1_controll(_ sender: Any) {
-        mood.text = "mood1"
-                if bt_mood2.isSelected {
-                                         bt_mood2.isSelected = false
-                                  bt_mood1.isSelected = true
-                                      }
-                                  else if bt_mood3.isSelected {
-                                         bt_mood3.isSelected = false
-                                  bt_mood1.isSelected = true
-                                      }
-                                  else if bt_mood4.isSelected {
-                                         bt_mood4.isSelected = false
-                                  bt_mood1.isSelected = true
-                                      }
-                    else if bt_mood5.isSelected {
-                                                    bt_mood5.isSelected = false
-                                             bt_mood1.isSelected = true
-                                                 }
-                                  else {
-                                          bt_mood1.isSelected  = true
-                                      }
-    }
-    @IBAction func mood2_controll(_ sender: Any) {
-        mood.text = "mood2"
-        if bt_mood1.isSelected {
-                             bt_mood1.isSelected = false
-                      bt_mood2.isSelected = true
-                          }
-                      else if bt_mood3.isSelected {
-                             bt_mood3.isSelected = false
-                      bt_mood2.isSelected = true
-                          }
-                      else if bt_mood4.isSelected {
-                             bt_mood4.isSelected = false
-                      bt_mood2.isSelected = true
-                          }
-        else if bt_mood5.isSelected {
-                                        bt_mood5.isSelected = false
-                                 bt_mood2.isSelected = true
-                                     }
-                      else {
-                              bt_mood2.isSelected  = true
-                          }
-    }
-    @IBAction func mood3_controll(_ sender: Any) {
-        mood.text = "mood3"
-        if bt_mood2.isSelected {
-                             bt_mood2.isSelected = false
-                      bt_mood3.isSelected = true
-                          }
-                      else if bt_mood1.isSelected {
-                             bt_mood1.isSelected = false
-                      bt_mood3.isSelected = true
-                          }
-                      else if bt_mood4.isSelected {
-                             bt_mood4.isSelected = false
-                      bt_mood3.isSelected = true
-                          }
-        else if bt_mood5.isSelected {
-                                        bt_mood5.isSelected = false
-                                 bt_mood3.isSelected = true
-                                     }
-                      else {
-                              bt_mood3.isSelected  = true
-                          }
-    }
-    @IBAction func mood4_controll(_ sender: Any) {
-        mood.text = "mood4"
-        if bt_mood2.isSelected {
-                             bt_mood2.isSelected = false
-                      bt_mood4.isSelected = true
-                          }
-                      else if bt_mood3.isSelected {
-                             bt_mood3.isSelected = false
-                      bt_mood4.isSelected = true
-                          }
-                      else if bt_mood1.isSelected {
-                             bt_mood1.isSelected = false
-                      bt_mood4.isSelected = true
-                          }
-        else if bt_mood5.isSelected {
-                                        bt_mood5.isSelected = false
-                                 bt_mood4.isSelected = true
-                                     }
-                      else {
-                              bt_mood4.isSelected  = true
-                          }
-    }
-    @IBAction func mood5_controll(_ sender: Any) {
-        mood.text = "mood5"
-        if bt_mood2.isSelected {
-                             bt_mood2.isSelected = false
-                      bt_mood5.isSelected = true
-                          }
-                      else if bt_mood3.isSelected {
-                             bt_mood3.isSelected = false
-                      bt_mood5.isSelected = true
-                          }
-                      else if bt_mood4.isSelected {
-                             bt_mood4.isSelected = false
-                      bt_mood5.isSelected = true
-                          }
-        else if bt_mood1.isSelected {
-                                        bt_mood1.isSelected = false
-                                 bt_mood5.isSelected = true
-                                     }
-                      else {
-                              bt_mood5.isSelected  = true
-                          }
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
-        if segue.identifier == "addMoodcell"{
-            let AddMoodViewController = segue.description as! Addmood_ViewController
-            AddMoodViewController.Id = self.tdId
-        }else{
-            [print("add")]
+    
+    @IBAction func btMoodControl(_ sender: UIButton) {
+        if sender.tag == 1 {
+            bt_mood1.isSelected = true
+            bt_mood2.isSelected = false
+            bt_mood3.isSelected = false
+            bt_mood4.isSelected = false
+            bt_mood5.isSelected = false
+            mood = 1
+        }else if sender.tag == 2 {
+            bt_mood1.isSelected = false
+            bt_mood2.isSelected = true
+            bt_mood3.isSelected = false
+            bt_mood4.isSelected = false
+            bt_mood5.isSelected = false
+            mood = 2
+        }else if sender.tag == 3 {
+            bt_mood1.isSelected = false
+            bt_mood2.isSelected = false
+            bt_mood3.isSelected = true
+            bt_mood4.isSelected = false
+            bt_mood5.isSelected = false
+            mood = 3
+        }else if sender.tag == 4 {
+            bt_mood1.isSelected = false
+            bt_mood2.isSelected = false
+            bt_mood3.isSelected = false
+            bt_mood4.isSelected = true
+            bt_mood5.isSelected = false
+            mood = 4
+        }else if sender.tag == 5 {
+            bt_mood1.isSelected = false
+            bt_mood2.isSelected = false
+            bt_mood3.isSelected = false
+            bt_mood4.isSelected = false
+            bt_mood5.isSelected = true
+            mood = 5
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
+//        if segue.identifier == "addMoodcell"{
+//            let AddMoodViewController = segue.description as! Addmood_ViewController
+//            AddMoodViewController.Id = self.tdId
+//        }else{
+//            [print("add")]
+//        }
+//    }
     @IBAction func bt_abum(_ sender: Any) {
          let selectPhoto = UIImagePickerController()
          selectPhoto.delegate = self
@@ -199,12 +129,35 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
      }
 
    @IBAction func btsavemood(_ sender: Any) {
-         let url = "https://moodapi.000webhostapp.com/DBMoody/addmood.php?" //MARK: - host addmood
+    let url = "https://moodapi.000webhostapp.com/DBMoody/mood.php?" //MARK: - host addmood
+    
+    let date = Date()
+    let calendar = Calendar.current
+    
+    let hour = calendar.component(.hour, from: date)
+    let minutes = calendar.component(.minute, from: date)
+    let seconds = calendar.component(.second, from: date)
+    
+//    print("\(hour):\(minutes):\(seconds)")
+    var time = "\(hour):\(minutes):\(seconds)"
+    print(time)
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    
+    let dateString = formatter.string(from: date)
+    print(dateString)
     
     let param : Parameters = [
-        "mood":mood.text! as AnyObject,//MARK: - host addmood
-        "ืnote":lb_note.text! as AnyObject,//MARK: - host addmood
-        "img":word as AnyObject,//MARK: - host addmood
+        "mood":mood as AnyObject,
+//        "activity": as AnyObject,
+        "ืnote":lb_note.text! as AnyObject,
+        "location":ldname_location.text! as AnyObject,
+//        "hastag":lbhastag.text! as AnyObject,
+        "time":time as AnyObject,
+        "date":dateString as AnyObject,
+        "img":word as AnyObject,
+        "u_id":amId as AnyObject
         ]
     AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
     switch response.result {
@@ -239,6 +192,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
 extension Addmood_ViewController: GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
     ldname_location.text = String(place.name!)
+    self.ldname_location.isHidden = false
     print("Place name: \(place.name)")
     print("Place ID: \(place.placeID)")
     print("Place attributions: \(place.attributions)")

@@ -62,8 +62,8 @@ class ViewController: UIViewController {
             Result_q2_ViewController.q2Id = self.vcId
         }
         if segue.identifier == "toTabbar"{
-            let NavigationController = segue.destination as! NavigationController
-            NavigationController.ncId = self.vcId
+            let TabbarController = segue.destination as! TabBarController
+            TabbarController.tbId = self.vcId
         }
 
     }

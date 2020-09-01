@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFj-ns-mPt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rFj-ns-mPt">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -120,8 +120,8 @@
                         <outlet property="loginBT" destination="TkC-46-Rw9" id="ZRb-GF-IU0"/>
                         <outlet property="tfPassword" destination="7bL-jy-Cbe" id="jg4-lw-lML"/>
                         <outlet property="tfUsername" destination="9rQ-Fd-21z" id="SnR-9h-5xz"/>
-                        <segue destination="NCR-Zt-K6b" kind="presentation" identifier="toTabbar" animates="NO" modalPresentationStyle="fullScreen" id="eLq-DI-Ou0"/>
                         <segue destination="6Jm-gS-MDG" kind="show" identifier="Resultcell" id="nhh-NL-1Lu"/>
+                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="Nmv-iP-xMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -219,30 +219,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yuo-D1-xQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4506" y="-1406"/>
-        </scene>
-        <!--รายงานอารมณ์-->
-        <scene sceneID="tU2-1S-wDk">
-            <objects>
-                <viewController id="TpZ-yz-1Xr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9gF-Ch-gzG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="j01-Ee-bi0"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="รายงานอารมณ์" id="BIn-QI-qee">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="7it-aJ-inX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DbZ-Md-cs7">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wOa-iB-8yG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4506" y="-651"/>
         </scene>
         <!--สมัครสมาชิก-->
         <scene sceneID="UCU-ak-2DC">
@@ -689,7 +665,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBV-Ut-Pxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="130"/>
+            <point key="canvasLocation" x="2552" y="130"/>
         </scene>
         <!--addMood-->
         <scene sceneID="lS6-L0-Srd">
@@ -755,7 +731,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjl-oo-mtG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5413.04347826087" y="129.61956521739131"/>
+            <point key="canvasLocation" x="4506" y="129"/>
         </scene>
         <!--แจ้งเตือน-->
         <scene sceneID="743-Cl-WLW">
@@ -792,7 +768,7 @@
         <!--Item-->
         <scene sceneID="N3M-zH-9kj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="tut-0y-RJc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="tut-0y-RJc" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xTR-UW-SQA"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -811,7 +787,7 @@
         <!--Item-->
         <scene sceneID="Vie-LA-g2W">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pxU-qB-uMz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pxU-qB-uMz" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="PAg-c2-1ZV"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -820,12 +796,87 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="TpZ-yz-1Xr" kind="relationship" relationship="rootViewController" id="KF9-wf-eHy"/>
+                        <segue destination="Nrm-Sq-oRW" kind="relationship" relationship="rootViewController" id="bhH-tm-BRi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd4-8z-Jto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3599" y="-651"/>
+        </scene>
+        <!--List Table Table View Controller-->
+        <scene sceneID="xln-b3-2fU">
+            <objects>
+                <tableViewController id="Nrm-Sq-oRW" customClass="ListTableTableViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fkE-ZH-uv3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="281" id="s0n-uQ-uls" customClass="ListTableViewCell" customModule="mymood" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="281"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s0n-uQ-uls" id="zke-4g-DK9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GpM-5t-axK">
+                                            <rect key="frame" x="20" y="20" width="83" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAp-jB-heo">
+                                            <rect key="frame" x="274" y="0.0" width="130" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-Al-ZGf">
+                                            <rect key="frame" x="134" y="29" width="250" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnJ-R5-ZQD">
+                                            <rect key="frame" x="134" y="58" width="250" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niQ-jP-RMA">
+                                            <rect key="frame" x="134" y="90" width="250" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWK-5C-caI">
+                                            <rect key="frame" x="74" y="132" width="266" height="138"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="EaN-8u-Aoo">
+                                            <rect key="frame" x="109" y="89" width="22" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kB0-SU-hUr">
+                                            <rect key="frame" x="109" y="60" width="22" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nrm-Sq-oRW" id="VUR-CB-O5Z"/>
+                            <outlet property="delegate" destination="Nrm-Sq-oRW" id="L6D-dy-4wb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="LNO-kW-k7t"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxc-Ux-mLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4505.7971014492759" y="-651.35869565217399"/>
         </scene>
         <!--Result q9 View Controller-->
         <scene sceneID="7km-pd-8Mf">
@@ -2160,7 +2211,7 @@
         <!--Item-->
         <scene sceneID="LOc-tY-k4w">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ahH-pE-Z6s" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ahH-pE-Z6s" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="rQg-Mb-mTQ"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -2174,12 +2225,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0e-ah-fcu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505.7971014492759" y="129.61956521739131"/>
+            <point key="canvasLocation" x="3599" y="129"/>
         </scene>
         <!--Item-->
         <scene sceneID="MtF-QR-ofd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJV-aK-slF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJV-aK-slF" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="mIG-qo-9E7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dhh-l2-oE6">
@@ -2198,7 +2249,7 @@
         <!--Item-->
         <scene sceneID="El6-qZ-D3Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GX0-pZ-upR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GX0-pZ-upR" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="y1g-0H-eaP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DZC-gW-JgF">
@@ -2222,50 +2273,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-eS-z9X">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-eS-z9X">
                                 <rect key="frame" x="179" y="83" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="3.circle" catalog="system"/>
-                                <state key="selected" image="3treemood"/>
+                                <state key="selected" image="mood3"/>
                                 <connections>
-                                    <action selector="mood3_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="oj8-fL-S1E"/>
+                                    <action selector="btMoodControl:" destination="rFj-ns-mPt" eventType="touchUpInside" id="sRI-mU-xub"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-e4-AvZ">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCN-e4-AvZ">
                                 <rect key="frame" x="33" y="83" width="67" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" image="1.circle" catalog="system"/>
-                                <state key="selected" image="1fivemood"/>
+                                <state key="selected" image="mood1"/>
                                 <connections>
-                                    <action selector="mood1_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="ifV-OO-7pa"/>
+                                    <action selector="btMoodControl:" destination="rFj-ns-mPt" eventType="touchUpInside" id="JDt-6g-H9T"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYD-gx-fyU">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYD-gx-fyU">
                                 <rect key="frame" x="252" y="83" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="4.circle" catalog="system"/>
-                                <state key="selected" image="4twomood"/>
+                                <state key="selected" image="mood4"/>
                                 <connections>
-                                    <action selector="mood4_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="b3B-2B-QjI"/>
+                                    <action selector="btMoodControl:" destination="rFj-ns-mPt" eventType="touchUpInside" id="Vz0-7P-PLH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97x-OR-JEz">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97x-OR-JEz">
                                 <rect key="frame" x="325" y="83" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="5.circle" catalog="system"/>
-                                <state key="selected" image="5onemood"/>
+                                <state key="selected" image="mood5"/>
                                 <connections>
-                                    <action selector="mood5_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="rEa-tA-dEB"/>
+                                    <action selector="btMoodControl:" destination="rFj-ns-mPt" eventType="touchUpInside" id="3PR-QG-P5M"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-IH-0Rv">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8c-IH-0Rv">
                                 <rect key="frame" x="106" y="82" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="2.circle" catalog="system"/>
-                                <state key="selected" image="2mood"/>
+                                <state key="selected" image="mood2"/>
                                 <connections>
-                                    <action selector="mood2_controll:" destination="rFj-ns-mPt" eventType="touchUpInside" id="uAv-00-UPS"/>
+                                    <action selector="btMoodControl:" destination="rFj-ns-mPt" eventType="touchUpInside" id="cGJ-Qm-iEU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="โน๊ตข้อความ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d0-1L-0PA">
@@ -2295,6 +2346,9 @@
                                 <state key="normal" title="คลังรูปภาพ">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="bt_abum:" destination="rFj-ns-mPt" eventType="touchUpInside" id="Mb2-U1-CPf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWn-G3-1lN">
                                 <rect key="frame" x="230" y="414" width="113" height="48"/>
@@ -2303,6 +2357,9 @@
                                 <state key="normal" title="ถ่ายภาพ">
                                     <color key="titleColor" red="0.072192035619999997" green="0.44525921340000002" blue="0.88488525149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="bt_camera:" destination="rFj-ns-mPt" eventType="touchUpInside" id="Vxk-ip-4Ls"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MpA-Tc-yBg">
                                 <rect key="frame" x="56" y="470" width="311" height="166"/>
@@ -2318,16 +2375,19 @@
                                 <rect key="frame" x="170" y="644" width="80" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Rusult"/>
+                                <connections>
+                                    <action selector="btsavemood:" destination="rFj-ns-mPt" eventType="touchUpInside" id="a4o-Yc-RR5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnx-OS-UAg">
                                 <rect key="frame" x="40" y="272" width="334" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="ค้นหาสถานที่"/>
                                 <connections>
                                     <action selector="btLocation:" destination="rFj-ns-mPt" eventType="touchUpInside" id="V6Q-kg-rYi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc8-le-ZeQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc8-le-ZeQ">
                                 <rect key="frame" x="45" y="314" width="322" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2343,7 +2403,7 @@
                                     <segue destination="5i6-pF-g4f" kind="modal" id="sDk-Qv-xTM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เพิ่มอิโมจิ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PJ-zd-nIB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เพิ่มกิจกรรม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PJ-zd-nIB">
                                 <rect key="frame" x="99" y="348" width="151" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2375,12 +2435,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUi-Pa-XfR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7473.9130434782619" y="129.61956521739131"/>
+            <point key="canvasLocation" x="6455" y="129"/>
         </scene>
         <!--Add activity View Controller-->
         <scene sceneID="EIC-G7-LEg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LEB-Yb-WA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="5i6-pF-g4f" customClass="add_activityViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j9q-rx-TCZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
@@ -2436,8 +2495,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="zBv-rF-r3C"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LEB-Yb-WA1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8308.6956521739139" y="128.80434782608697"/>
+            <point key="canvasLocation" x="7355" y="129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W8O-Qb-QlM">
@@ -2456,43 +2516,19 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dc-9J-0ML" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6381.1594202898559" y="129.61956521739131"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="VmG-sj-WnY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NCR-Zt-K6b" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="jnN-Sd-Vjx"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1gA-L4-uMh">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="hTo-6L-b1y" kind="relationship" relationship="rootViewController" id="Ayh-cg-wIC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1NM-td-DDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1872" y="130"/>
+            <point key="canvasLocation" x="5488" y="130"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="zT3-Pk-dgc"/>
-        <segue reference="9kc-qL-WNe"/>
+        <segue reference="N7b-DI-nBl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
-        <image name="1fivemood" width="128" height="128"/>
         <image name="2.circle" catalog="system" width="128" height="121"/>
-        <image name="2mood" width="128" height="128"/>
         <image name="3.circle" catalog="system" width="128" height="121"/>
-        <image name="3treemood" width="128" height="128"/>
         <image name="4.circle" catalog="system" width="128" height="121"/>
-        <image name="4twomood" width="128" height="128"/>
         <image name="5.circle" catalog="system" width="128" height="121"/>
-        <image name="5onemood" width="128" height="128"/>
         <image name="89619017_496934974327158_5541626706655182848_n" width="256" height="256"/>
         <image name="Checkbox" width="60" height="60"/>
         <image name="Rusult" width="551" height="550"/>
@@ -2501,9 +2537,15 @@
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="entertainment" width="512" height="512"/>
         <image name="minus" catalog="system" width="128" height="24"/>
+        <image name="mood1" width="256" height="256"/>
+        <image name="mood2" width="759" height="762"/>
+        <image name="mood3" width="512" height="512"/>
+        <image name="mood4" width="256" height="256"/>
+        <image name="mood5" width="256" height="256"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
         <image name="online-shopping" width="512" height="512"/>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="pin" width="64" height="64"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="social-media" width="512" height="512"/>
         <image name="yoga" width="512" height="512"/>
