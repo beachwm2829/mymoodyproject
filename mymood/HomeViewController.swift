@@ -12,19 +12,28 @@ class HomeViewController: UIViewController {
     var hvId :String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("hvID = \(hvId!)")
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func btAddmood(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toAddmood", sender: self)
     }
-    */
+    
+    @IBAction func btAddassess(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "Resultcell", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "Resultcell"{
+               let Result_q2_ViewController = segue.destination as! Result_q2_ViewController
+               Result_q2_ViewController.q2Id = self.hvId
+           }
+           if segue.identifier == "toAddmood"{
+               let NavigationController = segue.destination as! NavigationController
+            NavigationController.ncId = self.hvId
+           }
+
+       }
 
 }

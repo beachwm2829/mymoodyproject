@@ -16,7 +16,7 @@ import GooglePlaces
 class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     var imgmood = UIImage()
-    var mood :Int?
+    var mood = 0
     var amId :String?
     
     @IBOutlet weak var lb_addres: UILabel!
@@ -26,28 +26,37 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     var moodData = [[String:AnyObject]]()
     
     let datePicker = UIDatePicker()
-    var word = "data:image/jpg;base64,"
+    var word = ""
     var photoBase64:String?
     
     var activitySH:String?
     @IBOutlet weak var imgactivity: UIImageView!
     
+    @IBOutlet weak var bt_mood1: UIButton!
+    @IBOutlet weak var bt_mood2: UIButton!
+    @IBOutlet weak var bt_mood3: UIButton!
+    @IBOutlet weak var bt_mood4: UIButton!
+    @IBOutlet weak var bt_mood5: UIButton!
        
-       @IBOutlet weak var bt_mood1: UIButton!
-       @IBOutlet weak var bt_mood2: UIButton!
-       @IBOutlet weak var bt_mood3: UIButton!
-       @IBOutlet weak var bt_mood4: UIButton!
-       @IBOutlet weak var bt_mood5: UIButton!
-       
-       @IBOutlet weak var lb_note: UITextField!
-       @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var lb_note: UITextField!
+    @IBOutlet weak var lbHastag: UITextField!
+    @IBOutlet weak var img: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.ldname_location.isHidden = true
-        // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handle), name: NSNotification.Name(rawValue: "saveActivity"), object: nil)
     }
+    
+    @objc func handle(notification : Notification){
+        let mooodVc = notification.object as! add_activityViewController
+        activitySH = mooodVc.activity
+        imgactivity.image = UIImage(named: activitySH!)
+        
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
         [UIImagePickerController.InfoKey:Any]) {
         let images = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
@@ -56,7 +65,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         
         let imageData:NSData = images.jpegData(compressionQuality: 0.4)! as NSData
         photoBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-        word = word + "\(photoBase64!)"
+        word = "data:image/jpg;base64,\(photoBase64!)"
         dismiss(animated: true, completion:nil)
         
     }
@@ -107,14 +116,6 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
-//        if segue.identifier == "addMoodcell"{
-//            let AddMoodViewController = segue.description as! Addmood_ViewController
-//            AddMoodViewController.Id = self.tdId
-//        }else{
-//            [print("add")]
-//        }
-//    }
     @IBAction func bt_abum(_ sender: Any) {
          let selectPhoto = UIImagePickerController()
          selectPhoto.delegate = self
@@ -137,11 +138,9 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let hour = calendar.component(.hour, from: date)
     let minutes = calendar.component(.minute, from: date)
     let seconds = calendar.component(.second, from: date)
-    
-//    print("\(hour):\(minutes):\(seconds)")
-    var time = "\(hour):\(minutes):\(seconds)"
-    print(time)
-    
+
+    let time = "\(hour):\(minutes):\(seconds)"
+
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
     
@@ -150,10 +149,10 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     let param : Parameters = [
         "mood":mood as AnyObject,
-//        "activity": as AnyObject,
+        "activity":activitySH as AnyObject,
         "ืnote":lb_note.text! as AnyObject,
         "location":ldname_location.text! as AnyObject,
-//        "hastag":lbhastag.text! as AnyObject,
+        "hastag":lbHastag.text! as AnyObject,
         "time":time as AnyObject,
         "date":dateString as AnyObject,
         "img":word as AnyObject,
@@ -164,7 +163,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         case .success(_):
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                self.navigationController!.popViewController(animated: true)
+                self.performSegue(withIdentifier: "toHome", sender: self)
             }))
             self.present(alert, animated: true, completion: nil)
         case .failure(_):
@@ -173,19 +172,11 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-    
-        }
-    
+    }
     @IBAction func btLocation(_ sender: Any) {
        let autocompleteController = GMSAutocompleteViewController()
        autocompleteController.delegate = self
        present(autocompleteController, animated: true, completion: nil)
-        
-    }
-
-    @IBAction func bt_addActivity(_ sender: Any) {
-        print("activity\(activitySH)")
         
     }
 }
@@ -219,3 +210,4 @@ extension Addmood_ViewController: GMSAutocompleteViewControllerDelegate {
   }
 
 }
+

@@ -25,6 +25,7 @@
 		F91D1E3624D9581F00D5E112 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91D1E3424D9581F00D5E112 /* LaunchScreen.storyboard */; };
 		F93A5DEC24FDF41900EDB824 /* ListTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A5DEB24FDF41900EDB824 /* ListTableTableViewController.swift */; };
 		F93A5DEE24FDF43E00EDB824 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93A5DED24FDF43E00EDB824 /* ListTableViewCell.swift */; };
+		F94F37D52500DCC000865559 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F37D42500DCBF00865559 /* NotificationNameExtension.swift */; };
 		F953110B24DFD38500230B12 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953110A24DFD38500230B12 /* NavigationController.swift */; };
 		F9FE602524E3C9EA009EA900 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE602424E3C9EA009EA900 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		F91D1E3724D9581F00D5E112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F93A5DEB24FDF41900EDB824 /* ListTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableTableViewController.swift; sourceTree = "<group>"; };
 		F93A5DED24FDF43E00EDB824 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		F94F37D42500DCBF00865559 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		F953110A24DFD38500230B12 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		F9FE602424E3C9EA009EA900 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				F91D1E3424D9581F00D5E112 /* LaunchScreen.storyboard */,
 				F91D1E3724D9581F00D5E112 /* Info.plist */,
 				F953110A24DFD38500230B12 /* NavigationController.swift */,
+				F94F37D42500DCBF00865559 /* NotificationNameExtension.swift */,
 			);
 			path = mymood;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				TargetAttributes = {
 					F91D1E2524D9581700D5E112 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -265,6 +269,7 @@
 			files = (
 				F91D1E2E24D9581700D5E112 /* ViewController.swift in Sources */,
 				F93A5DEE24FDF43E00EDB824 /* ListTableViewCell.swift in Sources */,
+				F94F37D52500DCC000865559 /* NotificationNameExtension.swift in Sources */,
 				2258D54D24EAE6E4001E1F12 /* Addmood_TableViewCell.swift in Sources */,
 				2258D54924EAE6B2001E1F12 /* Addmood_ViewController.swift in Sources */,
 				F953110B24DFD38500230B12 /* NavigationController.swift in Sources */,
@@ -423,6 +428,7 @@
 			baseConfigurationReference = D9432FC02E718FCB65873484 /* Pods-mymood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WD2K3722J8;
 				INFOPLIST_FILE = mymood/Info.plist;
@@ -432,6 +438,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "project-moody.mymood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -442,6 +449,7 @@
 			baseConfigurationReference = F378FAF11AF7B28ED23EA943 /* Pods-mymood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WD2K3722J8;
 				INFOPLIST_FILE = mymood/Info.plist;

@@ -339,7 +339,7 @@ class Result_q9_ViewController: UIViewController {
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         
-        print("\(hour):\(minutes):\(seconds)")
+        let time = "\(hour):\(minutes):\(seconds)"
         
         
         let formatter = DateFormatter()
@@ -353,9 +353,7 @@ class Result_q9_ViewController: UIViewController {
         let param : Parameters = [
             "assess":assess as AnyObject,
             "result":result as AnyObject,
-            "hour":hour as AnyObject,
-            "minutes":minutes as AnyObject,
-            "seconds":seconds as AnyObject,
+            "time":time as AnyObject,
             "date":dateString as AnyObject,
             "u_id":q9Id as AnyObject
         ]
@@ -367,11 +365,11 @@ class Result_q9_ViewController: UIViewController {
                 if self.result >= 7 {
                     self.rated = "\"ระดับน้อย\""
                     if self.result >= 13 {
-                        self.rated = "\"ระดับปานกลาง\" ควรพบจิตแพทย์เพื่อรับการตรวจวินิจฉัยเพิ่มเติม"
+                        self.rated = "\"ระดับปานกลาง\""
                     }else if self.result >= 19{
-                        self.rated = "\"ระดับรุนแรง\" ควรพบจิตแพทย์เพื่อรับการตรวจวินิจฉัยเพิ่มเติม"
+                        self.rated = "\"ระดับรุนแรง\""
                     }
-                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า \(self.rated) กรุณาทำแบบประเมินการฆ่าตัวตาย 8Q ต่อ", message: nil, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า \(self.rated) กรุณาทำแบบประเมินต่อ", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                         self.performSegue(withIdentifier: "to8q", sender: self)
                     }))

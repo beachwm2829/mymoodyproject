@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     @IBOutlet weak var img: UIImageView!
     
     let datePicker = UIDatePicker()
-    var word = "data:image/jpg;base64,"
+    var word = ""
     var photoBase64:String?
     var rcId : String?
     var gender = ""
@@ -63,7 +63,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         
         let imageData:NSData = images.jpegData(compressionQuality: 0.4)! as NSData
         photoBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-        word = word + "\(photoBase64!)"
+        word = "data:image/jpg;base64,\(photoBase64!)"
         dismiss(animated: true, completion:nil)
         
     }

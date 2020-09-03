@@ -27,7 +27,8 @@ class Result_q2_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        print("q2Id = \(q2Id!)")
     }
     
     
@@ -64,7 +65,7 @@ class Result_q2_ViewController: UIViewController {
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         
-        print("\(hour):\(minutes):\(seconds)")
+        let time = "\(hour):\(minutes):\(seconds)"
         
         
         let formatter = DateFormatter()
@@ -78,10 +79,7 @@ class Result_q2_ViewController: UIViewController {
         let param : Parameters = [
             "assess":assess as AnyObject,
             "result":result as AnyObject,
-            "hour":hour as AnyObject,
-            "minutes":minutes as AnyObject,
-            "seconds":seconds as AnyObject,
-            "date":dateString as AnyObject,
+            "time":time as AnyObject,
             "u_id":q2Id as AnyObject
         ]
 
@@ -90,7 +88,7 @@ class Result_q2_ViewController: UIViewController {
             case .success(_):
                 print("success")
                 if self.result >= 1 {
-                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า กรุณาทำแบบประเมินโรคซึมเศร้า 9Q ต่อ", message: nil, preferredStyle: .alert)
+                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า กรุณาทำแบบประเมินต่อ", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                         self.performSegue(withIdentifier: "to9q", sender: self)
                     }))

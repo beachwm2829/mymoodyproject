@@ -36,9 +36,9 @@ class Addmood_TableViewController: UITableViewController {
         height = 200
         return height
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.getMood()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.getMood()
+//    }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //               if segue.identifier == "addMood"{
 //                   let NavigationController = segue.destination as! NavigationController
@@ -47,22 +47,22 @@ class Addmood_TableViewController: UITableViewController {
 //       //            TabbarController.tbId = self.vcId
 //               }else{}
 //           }
-    func getMood(){
-        let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
-        let parameter : Parameters = [
-            "id":self.tdId! as AnyObject]
-        AF.request(url, method: .post, parameters: parameter,encoding: JSONEncoding.default, headers: nil).validate().responseJSON{(response)in
-            if((response.value) != nil){
-                let jsondata = JSON(response.value!)
-                if let data = jsondata["mood"].arrayObject{
-                    self.moodData = data as! [[String:AnyObject]]
-                    self.tableView?.reloadData()
-                }
-                if self.moodData.count > 0{
-                    self.tableView?.reloadData()
-                }
-        }
-        }
+//    func getMood(){
+//        let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
+//        let parameter : Parameters = [
+//            "id":self.tdId! as AnyObject]
+//        AF.request(url, method: .post, parameters: parameter,encoding: JSONEncoding.default, headers: nil).validate().responseJSON{(response)in
+//            if((response.value) != nil){
+//                let jsondata = JSON(response.value!)
+//                if let data = jsondata["mood"].arrayObject{
+//                    self.moodData = data as! [[String:AnyObject]]
+//                    self.tableView?.reloadData()
+//                }
+//                if self.moodData.count > 0{
+//                    self.tableView?.reloadData()
+//                }
+//        }
+//        }
         
     }
     
@@ -121,4 +121,4 @@ class Addmood_TableViewController: UITableViewController {
     }
     */
 
-}
+//}

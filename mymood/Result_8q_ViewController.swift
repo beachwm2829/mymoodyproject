@@ -169,7 +169,7 @@ class Result_8q_ViewController: UIViewController {
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         
-        print("\(hour):\(minutes):\(seconds)")
+        let time = "\(hour):\(minutes):\(seconds)"
         
         
         let formatter = DateFormatter()
@@ -178,14 +178,11 @@ class Result_8q_ViewController: UIViewController {
         let dateString = formatter.string(from: date)
         print(dateString)
         
-        
         let url = "https://moodapi.000webhostapp.com/DBMoody/assessment.php?"
         let param : Parameters = [
             "assess":assess as AnyObject,
             "result":result as AnyObject,
-            "hour":hour as AnyObject,
-            "minutes":minutes as AnyObject,
-            "seconds":seconds as AnyObject,
+            "time":time as AnyObject,
             "date":dateString as AnyObject,
             "u_id":q8Id as AnyObject
         ]
@@ -195,11 +192,11 @@ class Result_8q_ViewController: UIViewController {
             case .success(_):
                 print("success")
                 if self.result >= 1 {
-                    self.rated = "\"ระดับน้อย\" ควรได้รับคำแนะนำการบำบัด รักษาจากจิตแพทย์"
+                    self.rated = "\"ระดับน้อย\""
                     if self.result >= 9 {
-                        self.rated = "\"ระดับปานกลาง\" ควรได้รับคำแนะนำการบำบัด รักษาจากจิตแพทย์"
+                        self.rated = "\"ระดับปานกลาง\""
                     }else if self.result >= 17 {
-                        self.rated = "\"ระดับรุนแรง\" พบจิตแพทย์เพื่อรับการรักษาโดยด่วน"
+                        self.rated = "\"ระดับรุนแรง\""
                     }
                     let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะฆ่าตัวตายในปัจจุบันใน \(self.rated)", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in

@@ -11,32 +11,33 @@ import UIKit
 class add_activityViewController: UIViewController {
     
     var activity:String?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func bt_shopping(_ sender: Any) {
-        activity = "shopping"
-        print(activity!)
-        self.dismiss(animated: true, completion: nil)
-        
+    @IBAction func bt_shopping(_ sender: UIButton) {
+        activity = "online-shopping"
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveActivity"), object: self)
+        self.dismiss(animated: true)
     }
     @IBAction func bt_music(_ sender: Any) {
-        activity = "music"
-        print(activity!)
-        self.dismiss(animated: true, completion: nil)
+        activity = "entertainment"
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveActivity"), object: self)
+        self.dismiss(animated: true)
     }
     @IBAction func bt_yoga(_ sender: Any) {
         activity = "yoga"
-        print(activity!)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveActivity"), object: self)
+        self.dismiss(animated: true)
     }
     @IBAction func bt_social(_ sender: Any) {
         activity = "social-media"
-        print(activity!)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveActivity"), object: self)
+        self.dismiss(animated: true)
     }
+
     
     /*
     // MARK: - Navigation
