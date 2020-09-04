@@ -30,8 +30,9 @@ class HomeViewController: UIViewController {
                Result_q2_ViewController.q2Id = self.hvId
            }
            if segue.identifier == "toAddmood"{
-               let NavigationController = segue.destination as! NavigationController
-            NavigationController.ncId = self.hvId
+            if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? Addmood_ViewController {
+                targetController.amId = self.hvId
+            }
            }
 
        }

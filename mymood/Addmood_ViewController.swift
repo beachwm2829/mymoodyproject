@@ -44,6 +44,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("amId = \(amId!)")
         
         self.ldname_location.isHidden = true
         
@@ -156,23 +157,23 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         "time":time as AnyObject,
         "date":dateString as AnyObject,
         "img":word as AnyObject,
-        "u_id":amId as AnyObject
+        "u_id":amId! as AnyObject
         ]
     print(param)
-//    AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-//    switch response.result {
-//        case .success(_):
-//            let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-//                self.performSegue(withIdentifier: "toHome", sender: self)
-//            }))
-//            self.present(alert, animated: true, completion: nil)
-//        case .failure(_):
-//            let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
-//    }
+    AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+    switch response.result {
+        case .success(_):
+            let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                self.performSegue(withIdentifier: "toHome", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        case .failure(_):
+            let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     }
     @IBAction func btLocation(_ sender: Any) {
        let autocompleteController = GMSAutocompleteViewController()
