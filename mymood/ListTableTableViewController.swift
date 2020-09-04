@@ -7,84 +7,90 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ListTableTableViewController: UITableViewController {
+    
+    var ltId :String?
+    var moodData = [[String:AnyObject]]()
+    var pathPhoto :String?
+    var Image1 :UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        print("ltId = \(ltId!)")
     }
 
+    func getMood(){
+        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let param : [String:AnyObject] = ["u_id":ltId! as AnyObject]
+
+        AF.request(url+"getMood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
+            switch response.result {
+            case .success(let value):
+                print(String(data: value as! Data, encoding: .utf8)!)
+                if(value != nil){
+                    let jsondata = JSON(value)
+                    if let data = jsondata["mood"].arrayObject {
+                        self.moodData = data as! [[String:AnyObject]]
+                        self.tableView?.reloadData()
+                    }
+                    if self.moodData.count > 0 {
+                        self.tableView?.reloadData()
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.getMood()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListTableViewCell
+        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let index = moodData[indexPath.row]
+        
+        cell?.lbNote.text = index["note"] as? String
+        cell?.lbHastag.text = index["hastag"] as? String
+        cell?.lbLocation.text = index["location"] as? String
+        var dateString = index["date"] as? String
+        var timeString = index["time"] as? String
+        var datatimeString = "\(timeString) \(dateString)"
+        cell?.lbDatatime.text = datatimeString
+        var imgMood = index["mood"] as? String
+        cell?.imgMood.image = UIImage(named: imgMood!)
+        self.pathPhoto = index["image"] as? String
+        
+        AF.request(url+pathPhoto!).responseImage { response in
+            switch response.result {
+            case .success(let value):
+                print(String(data: value as! Data, encoding: .utf8)!)
+                DispatchQueue.main.async {
+                    cell?.img.image = value
+                    self.Image1 = value
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        return cell!
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return moodData.count
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

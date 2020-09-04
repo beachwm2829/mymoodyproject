@@ -390,8 +390,14 @@ class Result_q9_ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let Result_8q_viewController = segue.destination as! Result_8q_ViewController
-        Result_8q_viewController.q8Id = self.q9Id
+        if segue.identifier == "to8q"{
+            let Result_8q_viewController = segue.destination as! Result_8q_ViewController
+            Result_8q_viewController.q8Id = self.q9Id
+        }
+        if segue.identifier == "toAddmood"{
+            let addmoodViewController = segue.destination as! Addmood_ViewController
+            addmoodViewController.amId = self.q9Id
+        }
     }
     
     /*

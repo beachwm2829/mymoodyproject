@@ -22,6 +22,9 @@ class TabBarController: UITabBarController {
                 if let HomeViewController = mainNavigationController.viewControllers.first as? HomeViewController{
                     HomeViewController.hvId = self.tbId
                 }
+                if let ListTableViewController = mainNavigationController.viewControllers.first as? ListTableTableViewController{
+                    ListTableViewController.ltId = self.tbId
+                }
             }
         }
         

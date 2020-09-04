@@ -217,7 +217,12 @@ class Result_8q_ViewController: UIViewController {
             }
         }
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddmood"{
+            let addmoodViewController = segue.destination as! Addmood_ViewController
+            addmoodViewController.amId = self.q8Id
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -10,6 +10,14 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imgMood: UIImageView!
+    @IBOutlet weak var img: UIImageView!
+    
+    @IBOutlet weak var lbNote: UILabel!
+    @IBOutlet weak var lbHastag: UILabel!
+    @IBOutlet weak var lbLocation: UILabel!
+    @IBOutlet weak var lbDatatime: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
