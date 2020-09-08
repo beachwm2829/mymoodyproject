@@ -27,22 +27,39 @@ class ListTableTableViewController: UITableViewController {
         let param : [String:AnyObject] = ["u_id":ltId! as AnyObject]
 
         AF.request(url+"getMood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
-            switch response.result {
-            case .success(let value):
-                print(String(data: value as! Data, encoding: .utf8)!)
-                if(value != nil){
-                    let jsondata = JSON(value)
-                    if let data = jsondata["mood"].arrayObject {
-                        self.moodData = data as! [[String:AnyObject]]
-                        self.tableView?.reloadData()
-                    }
-                    if self.moodData.count > 0 {
-                        self.tableView?.reloadData()
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
+            
+           
+//            if let data = response.data {
+//                let data1 = String(data: data, encoding: String.Encoding.utf8)!
+//                let jsondata = JSON(data1)
+//                if let dataMood = jsondata["mood"].arrayObject {
+//                    print("if dataMood")
+//                    self.moodData = dataMood as! [[String:AnyObject]]
+//                    self.tableView?.reloadData()
+//                }
+//                if self.moodData.count > 0 {
+//                    self.tableView?.reloadData()
+//                }
+//            }
+             
+            
+//            switch response.result {
+//            case .failure(let error):
+//                if let data = response.data {
+////                    print(String(data: data, encoding: String.Encoding.utf8)!)
+//                    let jsondata = JSON(String(data: data, encoding: .utf8)!)
+//                    if let data = jsondata["mood"].arrayObject {
+//                        self.moodData = data as! [[String:AnyObject]]
+//                        self.tableView?.reloadData()
+//                        print("moodData : \(self.moodData)")
+//                    }
+//                    if self.moodData.count > 0 {
+//                        self.tableView?.reloadData()
+//                    }
+//                }
+//            case .success(let value):
+//                print(value)
+//            }
         }
     }
     

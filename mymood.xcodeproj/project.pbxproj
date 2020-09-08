@@ -20,6 +20,7 @@
 		227E66B424E66EF800F14AA6 /* Result_8q_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E66B124E66EF800F14AA6 /* Result_8q_ViewController.swift */; };
 		227E66B524E66EF800F14AA6 /* Result_q2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E66B224E66EF800F14AA6 /* Result_q2_ViewController.swift */; };
 		ECF565C6E04560A3BCF8C66E /* Pods_mymood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51BDD30ACF0F18B45D1D9AD /* Pods_mymood.framework */; };
+		F91CAF412507830800910D51 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91CAF402507830800910D51 /* SearchViewController.swift */; };
 		F91D1E2A24D9581700D5E112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D1E2924D9581700D5E112 /* AppDelegate.swift */; };
 		F91D1E2C24D9581700D5E112 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D1E2B24D9581700D5E112 /* SceneDelegate.swift */; };
 		F91D1E2E24D9581700D5E112 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D1E2D24D9581700D5E112 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		A51BDD30ACF0F18B45D1D9AD /* Pods_mymood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mymood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9432FC02E718FCB65873484 /* Pods-mymood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mymood.debug.xcconfig"; path = "Target Support Files/Pods-mymood/Pods-mymood.debug.xcconfig"; sourceTree = "<group>"; };
 		F378FAF11AF7B28ED23EA943 /* Pods-mymood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mymood.release.xcconfig"; path = "Target Support Files/Pods-mymood/Pods-mymood.release.xcconfig"; sourceTree = "<group>"; };
+		F91CAF402507830800910D51 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F91D1E2624D9581700D5E112 /* mymood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mymood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91D1E2924D9581700D5E112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91D1E2B24D9581700D5E112 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				F91D1E2B24D9581700D5E112 /* SceneDelegate.swift */,
 				F91D1E2D24D9581700D5E112 /* ViewController.swift */,
 				F91D1E2F24D9581700D5E112 /* Main.storyboard */,
+				F91CAF402507830800910D51 /* SearchViewController.swift */,
 				224164DD2501005B003BEB8B /* settingTableViewController.swift */,
 				224164DF2501007C003BEB8B /* settingsTableViewCell.swift */,
 				224164DB25010028003BEB8B /* settingsViewController.swift */,
@@ -291,6 +294,7 @@
 				2258D54B24EAE6CE001E1F12 /* Addmood_TableViewController.swift in Sources */,
 				224164DE2501005B003BEB8B /* settingTableViewController.swift in Sources */,
 				224164E02501007C003BEB8B /* settingsTableViewCell.swift in Sources */,
+				F91CAF412507830800910D51 /* SearchViewController.swift in Sources */,
 				227E66B424E66EF800F14AA6 /* Result_8q_ViewController.swift in Sources */,
 				2258D54524EAE25E001E1F12 /* HomeViewController.swift in Sources */,
 				F91D1E2C24D9581700D5E112 /* SceneDelegate.swift in Sources */,
