@@ -8,8 +8,9 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
+//import AlamofireImage
 import SwiftyJSON
+import ObjectMapper
 
 class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 

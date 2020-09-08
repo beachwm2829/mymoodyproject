@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import ObjectMapper
+import Kingfisher
 
 class ListTableTableViewController: UITableViewController {
     
@@ -83,19 +85,26 @@ class ListTableTableViewController: UITableViewController {
         cell?.imgMood.image = UIImage(named: imgMood!)
         self.pathPhoto = index["image"] as? String
         
-        AF.request(url+pathPhoto!).responseImage { response in
-            switch response.result {
-            case .success(let value):
-                print(String(data: value as! Data, encoding: .utf8)!)
-                DispatchQueue.main.async {
-                    cell?.img.image = value
-                    self.Image1 = value
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
         
+//        KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+//            print(image)
+//        })
+//        AF.request(url+pathPhoto!).responseImage { response in
+//            switch response.result {
+//            case .success(let value):
+//                print(String(data: value as! Data, encoding: .utf8)!)
+//                DispatchQueue.main.async {
+//                    cell?.img.image = value
+//                    self.Image1 = value
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//
+        let urlimg = URL(string: url+pathPhoto!)
+        cell?.img!.kf.setImage(with: urlimg)
+      
         return cell!
     }
     // MARK: - Table view data source
