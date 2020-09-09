@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import ObjectMapper
 import Kingfisher
+import AlamofireObjectMapper
 
 class ListTableTableViewController: UITableViewController {
     
@@ -21,48 +22,52 @@ class ListTableTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ltId = \(ltId!)")
+//        print("ltId = \(ltId!)")
     }
 
     func getMood(){
         let url = "https://moodapi.000webhostapp.com/DBMoody/"
-        let param : [String:AnyObject] = ["u_id":ltId! as AnyObject]
+        let param : Parameters = ["u_id":self.ltId! as AnyObject]
 
         AF.request(url+"getMood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
-            
-           
+
+            if((response.result) != nil){
+           let jsondata = JSON(response.result)
 //            if let data = response.data {
 //                let data1 = String(data: data, encoding: String.Encoding.utf8)!
 //                let jsondata = JSON(data1)
-//                if let dataMood = jsondata["mood"].arrayObject {
-//                    print("if dataMood")
-//                    self.moodData = dataMood as! [[String:AnyObject]]
-//                    self.tableView?.reloadData()
-//                }
-//                if self.moodData.count > 0 {
-//                    self.tableView?.reloadData()
-//                }
-//            }
+                if let dataMood = jsondata["mood"].arrayObject {
+                    print("if dataMood")
+                    self.moodData = dataMood as! [[String:AnyObject]]
+                    self.tableView?.reloadData()
+                }
+                if self.moodData.count > 0 {
+                    self.tableView?.reloadData()
+                }
+            }
+        
+
              
             
-//            switch response.result {
-//            case .failure(let error):
-//                if let data = response.data {
-////                    print(String(data: data, encoding: String.Encoding.utf8)!)
-//                    let jsondata = JSON(String(data: data, encoding: .utf8)!)
-//                    if let data = jsondata["mood"].arrayObject {
-//                        self.moodData = data as! [[String:AnyObject]]
-//                        self.tableView?.reloadData()
-//                        print("moodData : \(self.moodData)")
-//                    }
-//                    if self.moodData.count > 0 {
-//                        self.tableView?.reloadData()
-//                    }
-//                }
-//            case .success(let value):
-//                print(value)
-//            }
+            switch response.result {
+            case .failure(let error):
+                if let data = response.data {
+//                    print(String(data: data, encoding: String.Encoding.utf8)!)
+                    let jsondata = JSON(String(data: data, encoding: .utf8)!)
+                    if let data = jsondata["mood"].arrayObject {
+                        self.moodData = data as! [[String:AnyObject]]
+                        self.tableView?.reloadData()
+                        print("moodData : \(self.moodData)")
+                    }
+                    if self.moodData.count > 0 {
+                        self.tableView?.reloadData()
+                    }
+                }
+            case .success(let value):
+                print(value)
+            }
         }
+        print("ltId = \(ltId!)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +89,7 @@ class ListTableTableViewController: UITableViewController {
         var imgMood = index["mood"] as? String
         cell?.imgMood.image = UIImage(named: imgMood!)
         self.pathPhoto = index["image"] as? String
-        
+        print("table = \(ltId!)")
         
 //        KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
 //            print(image)
@@ -101,10 +106,10 @@ class ListTableTableViewController: UITableViewController {
 //                print(error)
 //            }
 //        }
+
+//        let urlimg = URL(string: url+pathPhoto!)
+//        cell?.img!.kf.setImage(with: urlimg)
 //
-        let urlimg = URL(string: url+pathPhoto!)
-        cell?.img!.kf.setImage(with: urlimg)
-      
         return cell!
     }
     // MARK: - Table view data source

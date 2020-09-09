@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="34" id="R6m-SR-dVQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkC-46-Rw9">
                                 <rect key="frame" x="68" y="502" width="277" height="40"/>
@@ -120,7 +120,7 @@
                         <outlet property="loginBT" destination="TkC-46-Rw9" id="ZRb-GF-IU0"/>
                         <outlet property="tfPassword" destination="7bL-jy-Cbe" id="jg4-lw-lML"/>
                         <outlet property="tfUsername" destination="9rQ-Fd-21z" id="SnR-9h-5xz"/>
-                        <segue destination="6Jm-gS-MDG" kind="show" identifier="Resultcell" id="nhh-NL-1Lu"/>
+                        <segue destination="96x-xU-9uK" kind="presentation" identifier="Resultcell" animates="NO" modalPresentationStyle="fullScreen" id="nhh-NL-1Lu"/>
                         <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="Nmv-iP-xMV"/>
                     </connections>
                 </viewController>
@@ -220,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yuo-D1-xQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4505.7971014492759" y="-1406.25"/>
+            <point key="canvasLocation" x="5413.04347826087" y="-1406.25"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="c3T-qG-oOv">
@@ -282,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A48-bp-81S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5273.913043478261" y="-1405.4347826086957"/>
+            <point key="canvasLocation" x="6181.1594202898559" y="-1405.4347826086957"/>
         </scene>
         <!--สมัครสมาชิก-->
         <scene sceneID="UCU-ak-2DC">
@@ -463,6 +463,18 @@
                                                     <action selector="btCreateAccount:" destination="by1-Yf-cXy" eventType="touchUpInside" id="hdS-Zk-b2S"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-dJ-4K2">
+                                                <rect key="frame" x="24" y="15" width="61" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title=" Back" image="chevron.left" catalog="system">
+                                                    <color key="titleColor" red="0.085740587009999994" green="0.51022474520000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btback:" destination="by1-Yf-cXy" eventType="touchUpInside" id="MoN-sY-x6M"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
@@ -530,7 +542,7 @@
         <!--Q2-->
         <scene sceneID="HtT-kL-yxA">
             <objects>
-                <viewController title="Q2" modalPresentationStyle="overFullScreen" id="6Jm-gS-MDG" customClass="Result_q2_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Q2" wantsFullScreenLayout="YES" modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="6Jm-gS-MDG" customClass="Result_q2_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wSI-PE-b86">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -587,15 +599,6 @@
                                                             <action selector="btQ2_r1:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="Wbj-aY-GlP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fV-LD-JWL">
-                                                        <rect key="frame" x="274" y="144" width="20" height="33"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Button" image="circle" catalog="system"/>
-                                                        <state key="selected" image="circle.fill" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="btQ2_r1:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="qfi-cF-chu"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxe-um-YmF">
                                                         <rect key="frame" x="274" y="236" width="20" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -626,6 +629,15 @@
                                                         <state key="selected" image="circle.fill" catalog="system"/>
                                                         <connections>
                                                             <action selector="btQ2_r2:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="Kmn-bc-51N"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fV-LD-JWL">
+                                                        <rect key="frame" x="258" y="127" width="52" height="69"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="circle" catalog="system"/>
+                                                        <state key="selected" image="circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="btQ2_r1:" destination="6Jm-gS-MDG" eventType="touchUpInside" id="qfi-cF-chu"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -691,9 +703,6 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="z38-GG-R4y"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="btFalse_q2_r1" destination="7N9-pe-yJ4" id="hx8-5C-CSo"/>
                         <outlet property="btFalse_q2_r2" destination="qOZ-6L-HPU" id="ktU-wf-Jka"/>
@@ -705,7 +714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369.56521739130437" y="-1582.3369565217392"/>
+            <point key="canvasLocation" x="1276.8115942028987" y="-1582.3369565217392"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="97h-7t-7Zx">
@@ -790,8 +799,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="addMood" id="g8L-Ds-7L8"/>
                     <connections>
-                        <segue destination="6Jm-gS-MDG" kind="show" identifier="Resultcell" id="8YE-FZ-NcS"/>
                         <segue destination="xA2-Af-pFl" kind="presentation" identifier="toAddmood" modalPresentationStyle="fullScreen" id="9M0-YB-Zqx"/>
+                        <segue destination="96x-xU-9uK" kind="presentation" identifier="Resultcell" modalPresentationStyle="fullScreen" id="x1A-4q-HpD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjl-oo-mtG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -894,7 +903,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLd-yU-eMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3599" y="-1406"/>
+            <point key="canvasLocation" x="4505.7971014492759" y="-1406.25"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vie-LA-g2W">
@@ -1803,7 +1812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389.8550724637682" y="-1582.3369565217392"/>
+            <point key="canvasLocation" x="2297.1014492753625" y="-1582.3369565217392"/>
         </scene>
         <!--Result 8q View Controller-->
         <scene sceneID="s1K-Ik-PPC">
@@ -2319,7 +2328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290" y="-1582"/>
+            <point key="canvasLocation" x="3197.1014492753625" y="-1582.3369565217392"/>
         </scene>
         <!--Item-->
         <scene sceneID="LOc-tY-k4w">
@@ -2381,7 +2390,7 @@
         <!--Addmood View Controller-->
         <scene sceneID="fa8-zS-fc6">
             <objects>
-                <viewController id="rFj-ns-mPt" customClass="Addmood_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="rFj-ns-mPt" customClass="Addmood_ViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PDp-dC-orB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2445,12 +2454,6 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoP-LV-eJx">
-                                <rect key="frame" x="24" y="15" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
-                                <state key="normal" image="multiply.circle" catalog="system"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnx-OS-UAg">
                                 <rect key="frame" x="39" y="288" width="334" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2540,6 +2543,17 @@
                                 <rect key="frame" x="144" y="352" width="90" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoP-LV-eJx">
+                                <rect key="frame" x="20" y="20" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title=" Back" image="chevron.left" catalog="system">
+                                    <color key="titleColor" red="0.085740587009999994" green="0.51022474520000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btBack:" destination="rFj-ns-mPt" eventType="touchUpInside" id="hcM-eR-J3V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ff5-3q-gEc"/>
@@ -2568,10 +2582,10 @@
         <!--Navigation Controller-->
         <scene sceneID="P2h-xt-MvQ">
             <objects>
-                <navigationController id="xA2-Af-pFl" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="xA2-Af-pFl" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZtD-zz-q3W"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4BM-YZ-ko7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -2644,11 +2658,31 @@
             </objects>
             <point key="canvasLocation" x="7355" y="129"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UqL-Wb-UBC">
+            <objects>
+                <navigationController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="96x-xU-9uK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="78N-nR-AQo"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zfx-gz-0XI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Jm-gS-MDG" kind="relationship" relationship="rootViewController" id="OSt-nO-ng3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IuO-xh-H8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="369.56521739130437" y="-1582.3369565217392"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9kc-qL-WNe"/>
+        <segue reference="9M0-YB-Zqx"/>
+        <segue reference="nhh-NL-1Lu"/>
+        <segue reference="2J2-lU-PkP"/>
         <segue reference="Isb-K8-2TN"/>
-        <segue reference="8YE-FZ-NcS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
@@ -2660,6 +2694,7 @@
         <image name="Checkbox" width="60" height="60"/>
         <image name="Rusult" width="551" height="550"/>
         <image name="UnCheckbox" width="60" height="60"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="entertainment" width="512" height="512"/>
@@ -2670,7 +2705,6 @@
         <image name="mood3" width="512" height="512"/>
         <image name="mood4" width="256" height="256"/>
         <image name="mood5" width="256" height="256"/>
-        <image name="multiply.circle" catalog="system" width="128" height="121"/>
         <image name="online-shopping" width="512" height="512"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>

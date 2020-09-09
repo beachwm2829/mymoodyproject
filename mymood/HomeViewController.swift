@@ -26,8 +26,9 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "Resultcell"{
-               let Result_q2_ViewController = segue.destination as! Result_q2_ViewController
-               Result_q2_ViewController.q2Id = self.hvId
+                if let assessVc = segue.destination as? UINavigationController, let targetController = assessVc.topViewController as? Result_q2_ViewController {
+                              targetController.q2Id = self.hvId
+                          }
            }
            if segue.identifier == "toAddmood"{
             if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? Addmood_ViewController {

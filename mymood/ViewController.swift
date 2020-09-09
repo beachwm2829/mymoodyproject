@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         createBT.layer.cornerRadius = 20.0
         lbInvalid.isHidden = true
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 
     @IBAction func btLogin(_ sender: Any) {
         let url = "https://moodapi.000webhostapp.com/DBMoody/"
@@ -58,14 +61,14 @@ class ViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Resultcell"{
-            let Result_q2_ViewController = segue.destination as! Result_q2_ViewController
-            Result_q2_ViewController.q2Id = self.vcId
+            if let assessVc = segue.destination as? UINavigationController, let targetController = assessVc.topViewController as? Result_q2_ViewController {
+                targetController.q2Id = self.vcId
+            }
         }
         if segue.identifier == "toTabbar"{
             let TabbarController = segue.destination as! TabBarController
             TabbarController.tbId = self.vcId
         }
-
     }
     
 }

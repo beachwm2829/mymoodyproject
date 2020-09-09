@@ -51,6 +51,10 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         NotificationCenter.default.addObserver(self, selector: #selector(handle), name: NSNotification.Name(rawValue: "saveActivity"), object: nil)
     }
     
+    @IBAction func btBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @objc func handle(notification : Notification){
         let mooodVc = notification.object as! add_activityViewController
         activitySH = mooodVc.activity
@@ -166,6 +170,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                 self.performSegue(withIdentifier: "toHome", sender: self)
+                
             }))
             self.present(alert, animated: true, completion: nil)
         case .failure(_):
@@ -181,6 +186,14 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
        present(autocompleteController, animated: true, completion: nil)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toHome"{
+            let HomeViewController = segue.destination as! HomeViewController
+            HomeViewController.hvId = self.amId
+        }
+    }
+    
 }
 extension Addmood_ViewController: GMSAutocompleteViewControllerDelegate {
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {

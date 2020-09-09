@@ -147,6 +147,9 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
             status = 2
         }
     }
+    @IBAction func btback(_ sender: Any) {
+        self	.navigationController?.popViewController(animated: true)
+    }
     
     
     @IBAction func btCreateAccount(_ sender: Any) {
