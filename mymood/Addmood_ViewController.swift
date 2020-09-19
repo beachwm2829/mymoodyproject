@@ -155,7 +155,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let param : Parameters = [
         "mood":mood as AnyObject,
         "activity":activitySH as AnyObject,
-        "ืnote":lb_note.text! as AnyObject,
+        "note":lb_note.text! as AnyObject,
         "location":ldname_location.text! as AnyObject,
         "hastag":lbHastag.text! as AnyObject,
         "time":time as AnyObject,
@@ -169,7 +169,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         case .success(_):
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                self.performSegue(withIdentifier: "toHome", sender: self)
+                self.performSegue(withIdentifier: "toListmood", sender: self)
                 
             }))
             self.present(alert, animated: true, completion: nil)
@@ -188,9 +188,10 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toHome"{
-            let HomeViewController = segue.destination as! HomeViewController
-            HomeViewController.hvId = self.amId
+        if segue.identifier == "toListmood"{
+            if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? MoodViewController {
+                targetController.mvId = self.amId
+            }
         }
     }
     

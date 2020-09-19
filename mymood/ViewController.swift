@@ -38,7 +38,9 @@ class ViewController: UIViewController {
             "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject]
         
-        AF.request(url+"login.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseJSON{ (response) in
+        AF.request(url+"login.php?", method: .post, parameters: param,
+                   encoding: JSONEncoding.default,
+                   headers: nil).validate().responseJSON{ (response) in
             switch response.result {
             case .success(_):
                 print(response)
