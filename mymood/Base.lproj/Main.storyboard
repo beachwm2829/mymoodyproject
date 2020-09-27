@@ -827,7 +827,7 @@
         <scene sceneID="N3M-zH-9kj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tut-0y-RJc" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xTR-UW-SQA"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="book.fill" catalog="system" id="xTR-UW-SQA"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sgv-H1-6Nv">
@@ -847,7 +847,7 @@
         <scene sceneID="Vie-LA-g2W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pxU-qB-uMz" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="PAg-c2-1ZV"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="chart.pie.fill" catalog="system" id="PAg-c2-1ZV"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="TOi-yr-Dc8"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -2291,7 +2291,7 @@
         <scene sceneID="LOc-tY-k4w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ahH-pE-Z6s" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rQg-Mb-mTQ"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="plus.circle.fill" catalog="system" id="rQg-Mb-mTQ"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iwZ-sP-NE9">
@@ -2310,7 +2310,7 @@
         <scene sceneID="MtF-QR-ofd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJV-aK-slF" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mIG-qo-9E7"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="calendar" catalog="system" id="mIG-qo-9E7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dhh-l2-oE6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -2329,7 +2329,7 @@
         <scene sceneID="El6-qZ-D3Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GX0-pZ-upR" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="y1g-0H-eaP"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="list.bullet" catalog="system" id="y1g-0H-eaP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DZC-gW-JgF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -2344,7 +2344,7 @@
             </objects>
             <point key="canvasLocation" x="3598.5507246376815" y="1674.4565217391305"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Setting-->
         <scene sceneID="tI1-5U-n14">
             <objects>
                 <tableViewController id="rI0-qK-iLZ" sceneMemberID="viewController">
@@ -2353,7 +2353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Setting" id="YkU-FS-y7W">
+                            <tableViewSection headerTitle="ข้อมูลส่วนตัว" id="YkU-FS-y7W">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="6wv-zF-a60">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
@@ -2362,8 +2362,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9D-6J-YZP">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ข้อมูลส่วนตัว" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9D-6J-YZP">
+                                                    <rect key="frame" x="20" y="11" width="89" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2372,15 +2372,40 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="dY2-6Z-bLN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dY2-6Z-bLN">
                                         <rect key="frame" x="0.0" y="71.666667938232422" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dY2-6Z-bLN" id="m8Y-kd-4KK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="แจ้งเตือนการกรอกอารมณ์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-QR-h7v">
+                                                    <rect key="frame" x="20" y="11" width="180" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZK-DZ-aeB">
+                                                    <rect key="frame" x="356" y="6" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="แบบประเมิน" id="Esq-HZ-MR5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="If7-O1-5Sc">
+                                        <rect key="frame" x="0.0" y="171.33333587646484" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="If7-O1-5Sc" id="YHr-Dr-oNc">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-QR-h7v">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="แบบประเมิน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab5-08-iyn">
+                                                    <rect key="frame" x="20" y="11" width="86" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2389,15 +2414,53 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="LdY-dz-QSz">
-                                        <rect key="frame" x="0.0" y="115.33333587646484" width="414" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="s8x-T1-oZZ">
+                                        <rect key="frame" x="0.0" y="215.00000381469727" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LdY-dz-QSz" id="Rxs-Hx-fsI">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s8x-T1-oZZ" id="Fdf-dW-kyj">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GZ-nd-VUI">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ผลแบบประเมิน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUM-Ir-HaL">
+                                                    <rect key="frame" x="20" y="11" width="106" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Gmz-xB-mLt">
+                                        <rect key="frame" x="0.0" y="258.66667175292969" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gmz-xB-mLt" id="RIG-pk-Rvq">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คำแนะนำ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-gC-eIU">
+                                                    <rect key="frame" x="20" y="11" width="67" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="แบบฟอร์มการพบแพทย์" id="S7f-by-Zvs">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="xRE-9c-znm">
+                                        <rect key="frame" x="0.0" y="358.33333969116211" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xRE-9c-znm" id="iIA-f0-h26">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="แบบฟอร์ม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ask-1b-VET">
+                                                    <rect key="frame" x="20" y="11" width="73" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2414,7 +2477,7 @@
                             <outlet property="delegate" destination="rI0-qK-iLZ" id="cP2-k6-hCf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FLd-t1-yuz"/>
+                    <navigationItem key="navigationItem" title="Setting" id="FLd-t1-yuz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjE-ru-pXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2714,7 +2777,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="x1A-4q-HpD"/>
         <segue reference="2J2-lU-PkP"/>
-        <segue reference="BNT-gA-Fer"/>
+        <segue reference="X3X-Xz-RM8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
@@ -2726,10 +2789,14 @@
         <image name="Checkbox" width="60" height="60"/>
         <image name="Rusult" width="551" height="550"/>
         <image name="UnCheckbox" width="60" height="60"/>
+        <image name="book.fill" catalog="system" width="128" height="100"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="chart.pie.fill" catalog="system" width="128" height="124"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="entertainment" width="512" height="512"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="mood1" width="256" height="256"/>
@@ -2740,6 +2807,7 @@
         <image name="online-shopping" width="512" height="512"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="social-media" width="512" height="512"/>
         <image name="yoga" width="512" height="512"/>
     </resources>
