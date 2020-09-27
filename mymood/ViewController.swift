@@ -71,7 +71,11 @@ class ViewController: UIViewController {
             let TabbarController = segue.destination as! TabBarController
             TabbarController.tbId = self.vcId
         }
+//        if segue.identifier == "toTabbaradmin"{
+//            let TabbarController = segue.destination as! TabBarController
+//            TabbarController.tbId = self.vcId
+//        }
     }
     
 }
-
+//toTabbaradmin
