@@ -170,6 +170,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                 self.performSegue(withIdentifier: "toListmood", sender: self)
+//                self.dismiss(animated: true, completion: nil)
                 
             }))
             self.present(alert, animated: true, completion: nil)

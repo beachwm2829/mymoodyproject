@@ -14,7 +14,20 @@ class NavigationController: UINavigationController {
         super.viewDidLoad()
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Resultcell"{
+             if let assessVc = segue.destination as? UINavigationController, let targetController = assessVc.topViewController as? Result_q2_ViewController {
+                           targetController.q2Id = self.ncId
+                       }
+        }
+        if segue.identifier == "toAddmood"{
+         if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? Addmood_ViewController {
+             targetController.amId = self.ncId
+         }
+        }
 
+
+    }
     /*
     // MARK: - Navigation
 

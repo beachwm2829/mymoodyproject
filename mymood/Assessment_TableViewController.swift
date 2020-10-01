@@ -1,26 +1,87 @@
 //
-//  settingTableViewController.swift
+//  Assessment_TableViewController.swift
 //  mymood
 //
-//  Created by macOS on 9/3/20.
+//  Created by macOS on 10/2/20.
 //  Copyright © 2020 Manasawee Kaenampornpan. All rights reserved.
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
+import SwiftyJSON
 
-class settingTableViewController: UITableViewController {
+class Assessment_TableViewController: UITableViewController {
+    
+    struct AssessmentModel :Decodable {
+           let nameAs :String
+           let timeAs :String
+           let dateAs :String
+           let resultAs :String
+       }
 
-    var stId :String?
+    var asId: String?
+    var AssData = [AssessmentModel]()
+    var AsData = [String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("ASSemment**")
+        print(asId)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AssessmentCell", for: indexPath) as? Assessment_TableViewCell
+        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let index = AssData[indexPath.row]
+        
+        cell?.nameAs.text = index.nameAs
+        cell?.resultAs.text = index.resultAs
+        cell?.timeAs.text = index.timeAs
+        cell?.dateAs.text = index.dateAs
+        
+        
+        
+        return cell!
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.getMood()
+    }
+    func getMood(){
+         let url = "https://moodapi.000webhostapp.com/DBMoody/"
+         let param : Parameters = ["u_id":self.asId! as AnyObject]
+
+         AF.request(url+"getAssessment.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
+             do {
+                 //print("do")
+                 let jsondata = try JSON(data: response.data!)
+                 print(jsondata)
+                 let AssessmentArray = jsondata["success"].arrayValue
+                 for aAssessment in AssessmentArray {
+                     let nameAs = aAssessment["assessment"].stringValue
+                     let resultAs = aAssessment["result"].stringValue
+                     let dateAs = aAssessment["date"].stringValue
+                     let timeAs = aAssessment["time"].stringValue
+
+                     let AsData = AssessmentModel(nameAs: nameAs, timeAs: timeAs, dateAs: dateAs, resultAs: resultAs)
+                     self.AssData.append(AsData)
+
+                 }
+                 self.tableView.reloadData()
+             }catch{
+                 print("error")
+             }
+         }
+     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
