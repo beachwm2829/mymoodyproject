@@ -19,6 +19,7 @@ class MoodViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var lbDatemood: UILabel!
     struct moodModel :Decodable {
            let mood :String
            let activity :String
@@ -37,14 +38,21 @@ class MoodViewController: UIViewController {
     var moods = [moodModel]()
     var mood = [String]()
     var activity = [String]()
-    var name = ["Stave", "tony", "thor"]
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    func getDate(){
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM"
+        let dateString = formatter.string(from: date)
+        lbDatemood.text = "TODAY \(dateString)"
+    }
+    
     func getMood(){
+        getDate()
+        
         let url = "https://moodapi.000webhostapp.com/DBMoody/"
         let param : Parameters = ["u_id":self.mvId! as AnyObject]
 
@@ -52,7 +60,7 @@ class MoodViewController: UIViewController {
             do {
                 //print("do")
                 let jsondata = try JSON(data: response.data!)
-                print(jsondata)
+                //print(jsondata)
                 let moodArray = jsondata["success"].arrayValue
                 for aMood in moodArray {
                     let arMood = aMood["mood"].stringValue
@@ -99,12 +107,11 @@ extension MoodViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.lbDate.text = datatimeString
         var imgMood = "mood"+index.mood
         cell?.imgMood.image = UIImage(named: imgMood)
-        
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 280
+        return 160
     }
     
     

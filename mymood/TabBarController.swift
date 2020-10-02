@@ -19,11 +19,11 @@ class TabBarController: UITabBarController {
         
         for viewControllers in viewControllers{
             if let mainNavigationController = viewControllers as? NavigationController{
+                if let AddmoodViewController = mainNavigationController.viewControllers.first as? Addmood_ViewController{
+                    AddmoodViewController.amId = self.tbId
+                }
                 if let settingTableViewController = mainNavigationController.viewControllers.first as? settingTableViewController{
                     settingTableViewController.stId = self.tbId
-                }
-                if let HomeViewController = mainNavigationController.viewControllers.first as? Addmood_ViewController{
-                    HomeViewController.amId = self.tbId
                 }
                 if let MoodViewController = mainNavigationController.viewControllers.first as? MoodViewController{
                     MoodViewController.mvId = self.tbId

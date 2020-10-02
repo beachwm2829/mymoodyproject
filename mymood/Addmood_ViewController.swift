@@ -44,7 +44,6 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("amId = \(amId!)")
         
         self.ldname_location.isHidden = true
         
