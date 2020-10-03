@@ -11,6 +11,7 @@ import Alamofire
 //import AlamofireImage
 import SwiftyJSON
 import GooglePlaces
+import Charts
 
 
 class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {

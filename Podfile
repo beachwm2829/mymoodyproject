@@ -9,11 +9,12 @@ target 'mymood' do
   # Pods for mymood
 #pod 'Alamofire', '~> 5.0.0'
 #pod 'AlamofireImage', '~> 4.1.0'
-pod 'AlamofireObjectMapper', '~> 6.2'
-pod 'Kingfisher', '~> 5.15'
-pod 'SwiftyJSON', '~> 4.0'
-pod 'ObjectMapper', '~> 3.5.1'
-pod 'GooglePlacesSearchController'
+  pod 'Charts'
+  pod 'AlamofireObjectMapper', '~> 6.2'
+  pod 'Kingfisher', '~> 5.15'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'ObjectMapper', '~> 3.5.1'
+  pod 'GooglePlacesSearchController'
 
 end
 

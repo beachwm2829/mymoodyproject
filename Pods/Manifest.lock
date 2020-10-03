@@ -3,6 +3,9 @@ PODS:
   - AlamofireObjectMapper (6.2.0):
     - Alamofire (= 5.0.0-rc.2)
     - ObjectMapper (~> 3.5.1)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - GoogleMaps/Base (3.10.0)
   - GooglePlaces (3.10.0):
     - GoogleMaps/Base (= 3.10.0)
@@ -15,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireObjectMapper (~> 6.2)
+  - Charts
   - GooglePlaces
   - GooglePlacesSearchController
   - Kingfisher (~> 5.15)
@@ -25,6 +29,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireObjectMapper
+    - Charts
     - GoogleMaps
     - GooglePlaces
     - GooglePlacesSearchController
@@ -35,6 +40,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: f9450d3c7f6bea2ad62e7a541c3e9b186c7991d6
   AlamofireObjectMapper: 74d1440c92c42bbcc2b5f4dc81654ac095ec669f
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   GoogleMaps: 8c080862ff2748ece9929471b30feb56a6c5079d
   GooglePlaces: 9a6f5f3a0c88da2aa1bf7426a65d3e004f5e69a1
   GooglePlacesSearchController: f8c7da8c3bf0bcf901c5873c22fda7db5fbfc15e
@@ -42,6 +48,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 1bbe2423eed7a8143e6b357bf94b024267139ac3
+PODFILE CHECKSUM: fe39c1d22f1492c7e9aacd2cfc2a185aa3265d4c
 
 COCOAPODS: 1.9.3
