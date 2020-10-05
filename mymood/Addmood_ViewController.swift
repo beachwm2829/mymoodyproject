@@ -29,6 +29,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let datePicker = UIDatePicker()
     var word = ""
     var photoBase64:String?
+    var mode = ""
     
     var activitySH:String?
     @IBOutlet weak var imgactivity: UIImageView!
@@ -49,10 +50,6 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         self.ldname_location.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(handle), name: NSNotification.Name(rawValue: "saveActivity"), object: nil)
-    }
-    
-    @IBAction func btBack(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func handle(notification : Notification){
@@ -135,7 +132,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
      }
 
    @IBAction func btsavemood(_ sender: Any) {
-    let url = "https://moodapi.000webhostapp.com/DBMoody/mood.php?" //MARK: - host addmood
+    let url = "http://project2.cocopatch.com/Moody/mood.php?" //MARK: - host addmood
     
     let date = Date()
     let calendar = Calendar.current
@@ -150,7 +147,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     formatter.dateFormat = "yyyy-MM-dd"
     
     let dateString = formatter.string(from: date)
-    print(dateString)
+    mode = "insert"
     
     let param : Parameters = [
         "mood":mood as AnyObject,
@@ -161,7 +158,8 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         "time":time as AnyObject,
         "date":dateString as AnyObject,
         "img":word as AnyObject,
-        "u_id":amId! as AnyObject
+        "u_id":amId! as AnyObject,
+        "mode":mode as AnyObject
         ]
     print(param)
     AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
@@ -169,8 +167,8 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         case .success(_):
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                self.performSegue(withIdentifier: "toListmood", sender: self)
-//                self.dismiss(animated: true, completion: nil)
+                self.resetComp()
+                self.tabBarController?.selectedIndex = 0
                 
             }))
             self.present(alert, animated: true, completion: nil)
@@ -187,13 +185,18 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
        present(autocompleteController, animated: true, completion: nil)
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toListmood"{
-            if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? MoodViewController {
-                targetController.mvId = self.amId
-            }
-        }
+    func resetComp(){
+        bt_mood1.isSelected = false
+        bt_mood2.isSelected = false
+        bt_mood3.isSelected = false
+        bt_mood4.isSelected = false
+        bt_mood5.isSelected = false
+        
+        lbHastag.text = ""
+        lb_note.text = ""
+        ldname_location.text = ""
+        img.image = nil
+        imgactivity.image = nil
     }
     
 }

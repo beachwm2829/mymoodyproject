@@ -15,12 +15,13 @@ import AlamofireObjectMapper
 
 
 
-class MoodViewController: UIViewController {
+class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var lbDatemood: UILabel!
     struct moodModel :Decodable {
+           let mid :String
            let mood :String
            let activity :String
            let location :String
@@ -40,7 +41,9 @@ class MoodViewController: UIViewController {
     var activity = [String]()
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 160
     }
     func getDate(){
         let date = Date()
@@ -53,7 +56,7 @@ class MoodViewController: UIViewController {
     func getMood(){
         getDate()
         
-        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["u_id":self.mvId! as AnyObject]
 
         AF.request(url+"getMood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
@@ -63,6 +66,7 @@ class MoodViewController: UIViewController {
                 //print(jsondata)
                 let moodArray = jsondata["success"].arrayValue
                 for aMood in moodArray {
+                    let arId = aMood["m_id"].stringValue
                     let arMood = aMood["mood"].stringValue
                     let arActivity = aMood["activity"].stringValue
                     let arLocation = aMood["location"].stringValue
@@ -72,24 +76,22 @@ class MoodViewController: UIViewController {
                     let arTime = aMood["time"].stringValue
                     let arDate = aMood["date"].stringValue
 
-                    let mood = moodModel(mood: arMood, activity: arActivity, location: arLocation, note: arNote, hastag: arHastag, image: arImage, time: arTime, date: arDate)
+                    let mood = moodModel(mid: arId, mood: arMood, activity: arActivity, location: arLocation, note: arNote, hastag: arHastag, image: arImage, time: arTime, date: arDate)
                     self.moods.append(mood)
 
                 }
                 self.tableView.reloadData()
             }catch{
-                print("error")
+                self.tableView.reloadData()
             }
         }
     }
         
     override func viewWillAppear(_ animated: Bool) {
+        self.moods.removeAll()
         self.getMood()
     }
-}
-
-
-extension MoodViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moods.count
     }
@@ -97,22 +99,78 @@ extension MoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  MoodTableViewCell
         let index = moods[indexPath.row]
+        let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
         
         cell?.lbNote.text = index.note
         cell?.lbHastag.text = index.hastag
         cell?.lbLocation.text = index.location
-        var dateString = index.date
-        var timeString = index.time
-        var datatimeString = "\(timeString) \(dateString)"
-        cell?.lbDate.text = datatimeString
+        cell?.img.kf.setImage(with: url)
+        cell?.lbDate.text = index.time
         var imgMood = "mood"+index.mood
         cell?.imgMood.image = UIImage(named: imgMood)
         return cell!
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        
+        return 195
     }
-    
-    
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let mood = moods[indexPath.row]
+            var mode = "delete"
+            let url = "http://project2.cocopatch.com/Moody/"
+            let param : Parameters = [
+                "m_id":mood.mid as AnyObject,
+                "mode":mode as AnyObject
+            ]
+            AF.request(url+"mood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
+            moods.removeAll()
+            getMood()
+            
+        }
+    }
 }
+
+
+//extension MoodViewController: UITableViewDelegate, UITableViewDataSource {
+//
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return moods.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  MoodTableViewCell
+//        let index = moods[indexPath.row]
+//        let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
+//
+//        cell?.lbNote.text = index.note
+//        cell?.lbHastag.text = index.hastag
+//        cell?.lbLocation.text = index.location
+//        cell?.img.kf.setImage(with: url)
+//        cell?.lbDate.text = index.time
+//        var imgMood = "mood"+index.mood
+//        cell?.imgMood.image = UIImage(named: imgMood)
+//        return cell!
+//    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        return 195
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            let mood = moods[indexPath.row]
+//            var mode = "delete"
+//            let url = "http://project2.cocopatch.com/Moody/"
+//            let param : Parameters = [
+//                "m_id":mood.mid as AnyObject,
+//                "mode":mode as AnyObject
+//            ]
+//            AF.request(url+"mood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
+//
+//
+//        }
+//    }
+//}

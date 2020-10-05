@@ -13,6 +13,7 @@ class MoodTableViewCell: UITableViewCell {
     @IBOutlet weak var lbNote: UILabel!
     @IBOutlet weak var lbHastag: UILabel!
     @IBOutlet weak var lbLocation: UILabel!
+    @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var lbDate: UILabel!
     
     @IBOutlet weak var imgMood: UIImageView!

@@ -25,7 +25,11 @@ class NavigationController: UINavigationController {
              targetController.amId = self.ncId
          }
         }
-
+        if segue.identifier == "toListmood"{
+         if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? MoodViewController {
+            targetController.mvId = self.ncId
+         }
+        }
 
     }
     /*

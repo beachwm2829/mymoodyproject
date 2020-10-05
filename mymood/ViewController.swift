@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btLogin(_ sender: Any) {
-        let url = "https://moodapi.000webhostapp.com/DBMoody/"
+        let url = "http://project2.cocopatch.com/Moody/"
         let param : [String:AnyObject] = [
             "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject]
