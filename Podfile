@@ -15,6 +15,7 @@ target 'mymood' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'ObjectMapper', '~> 3.5.1'
   pod 'GooglePlacesSearchController'
+  pod 'FSCalendar'
 
 end
 
