@@ -31,6 +31,9 @@ class TabBarController: UITabBarController {
                 if let AssessmentViewController = mainNavigationController.viewControllers.first as? Assessment_TableViewController{
                     AssessmentViewController.asId = self.tbId
                 }
+                if let ChartViewController = mainNavigationController.viewControllers.first as? ChartViewController{
+                    ChartViewController.ChartsId = self.tbId
+                }
             }
         }
         

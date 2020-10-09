@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lif-5A-KOD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lif-5A-KOD">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -248,13 +248,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gtj-kN-09C"/>
                     </view>
-                    <navigationItem key="navigationItem" title="รายการอารมณ์" id="AgX-It-pX4">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="bsu-WL-ZAi">
-                            <connections>
-                                <segue destination="cqB-n6-amS" kind="showDetail" id="C27-Kc-mot"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="รายการอารมณ์" id="AgX-It-pX4"/>
                     <connections>
                         <outlet property="lbDatemood" destination="207-5X-37A" id="txs-dZ-6az"/>
                         <outlet property="tableView" destination="osz-tq-eTY" id="quh-Nj-Cuq"/>
@@ -264,7 +258,7 @@
             </objects>
             <point key="canvasLocation" x="5411.594202898551" y="-2031.521739130435"/>
         </scene>
-        <!--Search View Controller-->
+        <!--ค้นหา-->
         <scene sceneID="c3T-qG-oOv">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" interfaceStyle="light" id="cqB-n6-amS" customClass="SearchViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
@@ -316,7 +310,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dHA-8m-TjQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7ZH-Tn-QSW"/>
+                    <navigationItem key="navigationItem" title="ค้นหา" id="7ZH-Tn-QSW"/>
                     <connections>
                         <outlet property="searchBar" destination="5VN-nx-bKN" id="jnc-I3-XvY"/>
                         <outlet property="tbView" destination="8fF-Sk-DXH" id="BN7-hd-LBN"/>
@@ -324,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A48-bp-81S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6181" y="-2030"/>
+            <point key="canvasLocation" x="3071" y="2387"/>
         </scene>
         <!--สมัครสมาชิก-->
         <scene sceneID="UCU-ak-2DC">
@@ -832,50 +826,50 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HRH-LS-q9c" kind="relationship" relationship="rootViewController" id="LTx-WC-Ak2"/>
+                        <segue destination="X47-rg-8Zs" kind="relationship" relationship="rootViewController" id="Kmd-YV-Icz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd4-8z-Jto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4499" y="-1030"/>
         </scene>
-        <!--สรุปรายการ-->
-        <scene sceneID="N2g-EE-5tH">
+        <!--Chart View Controller-->
+        <scene sceneID="Mfe-MX-5BG">
             <objects>
-                <viewController id="HRH-LS-q9c" customClass="StatsMoodViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zve-2T-XkN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                <viewController id="X47-rg-8Zs" customClass="ChartViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="toE-Ys-TFC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cSC-sW-1T8">
-                                <rect key="frame" x="119" y="76" width="176" height="32"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5U-eK-RNX" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="147" width="414" height="396"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K6l-QX-1jc">
+                                <rect key="frame" x="97" y="72" width="221" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="วัน"/>
-                                    <segment title="เดือน"/>
-                                    <segment title="ปี"/>
+                                    <segment title="Day"/>
+                                    <segment title="month"/>
+                                    <segment title="Year"/>
                                 </segments>
+                                <connections>
+                                    <action selector="Segment:" destination="X47-rg-8Zs" eventType="valueChanged" id="SEh-Ez-wF1"/>
+                                </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYr-Pk-QRf" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="39" y="142" width="333" height="292"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vW-ly-YuJ" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="39" y="481" width="333" height="292"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="3vI-gm-jD6"/>
+                        <viewLayoutGuide key="safeArea" id="ZsD-gt-Pr1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="สรุปรายการ" id="Ws7-fM-b1y"/>
-                    <size key="freeformSize" width="414" height="1500"/>
+                    <navigationItem key="navigationItem" id="gve-Xj-L3v"/>
+                    <connections>
+                        <outlet property="PieChart" destination="C5U-eK-RNX" id="gsG-Dn-khW"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6P6-GF-2Ew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kg8-N1-eGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5557.971014492754" y="-914.67391304347836"/>
+            <point key="canvasLocation" x="5411.594202898551" y="-1030.4347826086957"/>
         </scene>
         <!--Result q9 View Controller-->
         <scene sceneID="7km-pd-8Mf">
@@ -2322,11 +2316,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="15W-eE-E9Z"/>
                     </view>
-                    <navigationItem key="navigationItem" title="รายการสมาชิก" id="c9c-G0-4Cz"/>
+                    <navigationItem key="navigationItem" title="รายการสมาชิก" id="c9c-G0-4Cz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="Tgf-MD-ae9">
+                            <connections>
+                                <segue destination="cqB-n6-amS" kind="show" id="Jf8-Wu-Lny"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yo-aG-f85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="1898"/>
+            <point key="canvasLocation" x="2181" y="2379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="El6-qZ-D3Z">
@@ -2562,7 +2562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5A-WD-pYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6022" y="2441"/>
+            <point key="canvasLocation" x="5233" y="1674"/>
         </scene>
         <!--จัดการข้อมูลส่วนตัว-->
         <scene sceneID="zrN-4F-rSe">
@@ -2734,7 +2734,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3K-13-q45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6022" y="1016"/>
+            <point key="canvasLocation" x="6316" y="204"/>
         </scene>
         <!--คำแนะนำ-->
         <scene sceneID="OEQ-L0-Ftp">
@@ -2766,7 +2766,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SN9-KG-3cj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6841" y="1697"/>
+            <point key="canvasLocation" x="7135" y="885"/>
         </scene>
         <!--ผลแบบประเมินโรคซึมเศร้า-->
         <scene sceneID="War-u3-hB3">
@@ -2842,7 +2842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd7-Yw-vnz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6021.739130434783" y="1697.2826086956522"/>
+            <point key="canvasLocation" x="6316" y="885"/>
         </scene>
         <!--Addmood View Controller-->
         <scene sceneID="fa8-zS-fc6">
@@ -3122,7 +3122,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOJ-Ji-9hd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1723" y="1898"/>
+            <point key="canvasLocation" x="1275" y="2379"/>
         </scene>
         <!--ค้นหา-->
         <scene sceneID="gKi-c8-ekd">
@@ -3138,7 +3138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ui-NE-FGg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="2621"/>
+            <point key="canvasLocation" x="2181" y="3102"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Us2-t3-Xl6">
@@ -3159,7 +3159,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9L-g9-HFT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="1898"/>
+            <point key="canvasLocation" x="370" y="2379"/>
         </scene>
         <!--Item-->
         <scene sceneID="3MB-ZO-t69">
@@ -3178,7 +3178,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6q-Da-Iyq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="2621"/>
+            <point key="canvasLocation" x="1275" y="3102"/>
         </scene>
         <!--ตั้งค่า-->
         <scene sceneID="gbf-MD-Efa">
@@ -3194,7 +3194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1EP-D7-zSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="3372"/>
+            <point key="canvasLocation" x="2181" y="3853"/>
         </scene>
         <!--Item-->
         <scene sceneID="JWg-Lf-vIH">
@@ -3213,7 +3213,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5p-iM-biZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="3372"/>
+            <point key="canvasLocation" x="1275" y="3853"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6ir-U6-6D1">
@@ -3427,7 +3427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8X-D4-Kqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6841" y="2752"/>
+            <point key="canvasLocation" x="5232" y="2724"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
