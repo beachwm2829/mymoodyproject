@@ -30,8 +30,14 @@ class NavigationController: UINavigationController {
             targetController.mvId = self.ncId
          }
         }
-
+//        if segue.identifier == "AsCell"{
+//                if let AsVc = segue.destination as? UINavigationController, let targetController = AsVc.topViewController as? Assessment_TableViewController {
+//                   targetController.asId = self.ncId
+//                }
+//               }
     }
+    
+    //AsCell
     /*
     // MARK: - Navigation
 

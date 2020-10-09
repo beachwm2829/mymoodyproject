@@ -35,14 +35,15 @@ class Assessment_TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.getAssessment()
+    }
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssessmentCell", for: indexPath) as? Assessment_TableViewCell
-        let url = "https://moodapi.000webhostapp.com/DBMoody/"
         let index = AssData[indexPath.row]
-        
+        print("AssData ----->\(AssData)")
         cell?.nameAs.text = index.nameAs
         cell?.resultAs.text = index.resultAs
         cell?.timeAs.text = index.timeAs
@@ -53,27 +54,25 @@ class Assessment_TableViewController: UITableViewController {
         return cell!
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.getMood()
-    }
-    func getMood(){
-         let url = "https://moodapi.000webhostapp.com/DBMoody/"
+    
+    func getAssessment(){
+         let url = "http://project2.cocopatch.com/Moody/"
          let param : Parameters = ["u_id":self.asId! as AnyObject]
 
          AF.request(url+"getAssessment.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
              do {
-                 //print("do")
+//                 print("do")
                  let jsondata = try JSON(data: response.data!)
-                 print(jsondata)
+//                 print(jsondata)
                  let AssessmentArray = jsondata["success"].arrayValue
                  for aAssessment in AssessmentArray {
                      let nameAs = aAssessment["assessment"].stringValue
                      let resultAs = aAssessment["result"].stringValue
                      let dateAs = aAssessment["date"].stringValue
                      let timeAs = aAssessment["time"].stringValue
-
                      let AsData = AssessmentModel(nameAs: nameAs, timeAs: timeAs, dateAs: dateAs, resultAs: resultAs)
                      self.AssData.append(AsData)
+                    print(" self.AssData\( self.AssData)")
 
                  }
                  self.tableView.reloadData()
@@ -83,14 +82,18 @@ class Assessment_TableViewController: UITableViewController {
          }
      }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 120
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return AssData.count
     }
 
     /*

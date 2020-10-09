@@ -13,24 +13,43 @@ class settingTableViewController: UITableViewController {
     var stId :String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(stId)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AsCell"{
+//         if let AsVc = segue.destination as? UINavigationController, let targetController = AsVc.topViewController as? Assessment_TableViewController {
+//            targetController.asId = self.stId
+//         }
+            let Assessment_TableViewController = segue.destination as! Assessment_TableViewController
+                   Assessment_TableViewController.asId = stId
+        }
+    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+//
+//    if (segue.identifier == "yourSegueIdentifer") {
+//        // initialize new view controller and cast it as your view controller
+//        var Assessment_TableViewController = segue.destination as! Assessment_TableViewController
+//        // your new view controller should have property that will store passed value
+//        Assessment_TableViewController.asId = stId
+//    }
+//    }
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 0
+//    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
