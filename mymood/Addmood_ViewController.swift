@@ -185,6 +185,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
        present(autocompleteController, animated: true, completion: nil)
         
     }
+   
     func resetComp(){
         bt_mood1.isSelected = false
         bt_mood2.isSelected = false
@@ -198,6 +199,11 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         img.image = nil
         imgactivity.image = nil
     }
+    
+    @IBAction func btBack(_ sender: Any) {
+        navigationController?.pushViewController(MoodViewController(), animated: true)
+    }
+    
     
 }
 extension Addmood_ViewController: GMSAutocompleteViewControllerDelegate {

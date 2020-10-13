@@ -22,9 +22,6 @@ class settingTableViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AsCell"{
-//         if let AsVc = segue.destination as? UINavigationController, let targetController = AsVc.topViewController as? Assessment_TableViewController {
-//            targetController.asId = self.stId
-//         }
             let Assessment_TableViewController = segue.destination as! Assessment_TableViewController
                    Assessment_TableViewController.asId = stId
         }

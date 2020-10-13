@@ -43,7 +43,7 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 160
+        
     }
     func getDate(){
         let date = Date()
@@ -86,6 +86,30 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toaddMood"{
+            if let addmoodViewController = segue.destination as? UINavigationController, let targetController = addmoodViewController.topViewController as? Addmood_ViewController {
+                targetController.amId = self.mvId
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pm = storyboard?.instantiateViewController(withIdentifier: "popMoodViewController") as? popMoodViewController
+        
+        let index = moods[indexPath.row]
+               let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
+        pm?.note = index.note
+        pm?.tag = index.hastag
+        pm?.location = index.location
+        pm?.image = index.image
+        pm?.date = index.time
+        var imgMoods = "mood"+index.mood
+        pm?.imgMood = UIImage(named: imgMoods)!
+        
+//        self.navigationController?.popToViewController(pm!, animated: true)
+        self.navigationController?.pushViewController(pm!, animated: true)
+    }
         
     override func viewWillAppear(_ animated: Bool) {
         self.moods.removeAll()
@@ -115,6 +139,7 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return 110
     }
 
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let mood = moods[indexPath.row]
@@ -130,6 +155,7 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }
     }
+
 }
 
 

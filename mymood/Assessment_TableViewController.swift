@@ -36,6 +36,7 @@ class Assessment_TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewWillAppear(_ animated: Bool) {
+        AssData.removeAll()
         self.getAssessment()
     }
     // MARK: - Table view data source
@@ -81,11 +82,15 @@ class Assessment_TableViewController: UITableViewController {
              }
          }
      }
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAses"{
+            if let assessVc = segue.destination as? UINavigationController,
+               let targetController = assessVc.topViewController as? Result_q2_ViewController {
+                targetController.q2Id = self.asId
+                
+            }
+        }
+    }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 120

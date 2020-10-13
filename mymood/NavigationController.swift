@@ -20,7 +20,7 @@ class NavigationController: UINavigationController {
                            targetController.q2Id = self.ncId
                        }
         }
-        if segue.identifier == "toAddmood"{
+        if segue.identifier == "toaddMood"{
          if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? Addmood_ViewController {
              targetController.amId = self.ncId
          }
@@ -28,6 +28,11 @@ class NavigationController: UINavigationController {
         if segue.identifier == "toListmood"{
          if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? MoodViewController {
             targetController.mvId = self.ncId
+         }
+        }
+        if segue.identifier == "AsCell"{
+         if let AssesVc = segue.destination as? UINavigationController, let targetController = AssesVc.topViewController as? Assessment_TableViewController {
+            targetController.asId = self.ncId
          }
         }
 //        if segue.identifier == "AsCell"{

@@ -28,7 +28,6 @@ class Result_q2_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("q2Id = \(q2Id!)")
     }
     
     
@@ -106,6 +105,10 @@ class Result_q2_ViewController: UIViewController {
                
             }
         }
+    }
+    
+    @IBAction func btback(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
