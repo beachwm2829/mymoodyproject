@@ -47,7 +47,10 @@ class ViewController: UIViewController {
                 let data = JSON(response.data!)
                 if(data["login"] == "true"){
                     self.vcId = data["u_id"].stringValue
-                    if(data["status"] == "0"){
+                    
+                    if(data["status"] == "2"){
+                        self.performSegue(withIdentifier: "toTabbaradmin", sender: self)
+                    }else if(data["status_As"] == "0"){
                         self.performSegue(withIdentifier: "toTabbar", sender: self)
                     }else{
                         self.performSegue(withIdentifier: "Resultcell", sender: self)
@@ -71,10 +74,10 @@ class ViewController: UIViewController {
             let TabbarController = segue.destination as! TabBarController
             TabbarController.tbId = self.vcId
         }
-//        if segue.identifier == "toTabbaradmin"{
-//            let TabbarController = segue.destination as! TabBarController
-//            TabbarController.tbId = self.vcId
-//        }
+        if segue.identifier == "toTabbaradmin"{
+            let ListUserViewController = segue.destination as! ListUserViewController
+            ListUserViewController.amintbId = self.vcId
+        }
     }
     
 }
