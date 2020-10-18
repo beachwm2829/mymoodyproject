@@ -47,7 +47,6 @@ class ViewController: UIViewController {
                 let data = JSON(response.data!)
                 if(data["login"] == "true"){
                     self.vcId = data["u_id"].stringValue
-                    
                     if(data["status"] == "2"){
                         self.performSegue(withIdentifier: "toTabbaradmin", sender: self)
                     }else if(data["status_As"] == "0"){
@@ -66,9 +65,8 @@ class ViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Resultcell"{
-            if let assessVc = segue.destination as? UINavigationController, let targetController = assessVc.topViewController as? Result_q2_ViewController {
-                targetController.q2Id = self.vcId
-            }
+            let Result_q2 = segue.destination as! Result_q2_ViewController
+                Result_q2.q2Id = self.vcId
         }
         if segue.identifier == "toTabbar"{
             let TabbarController = segue.destination as! TabBarController
@@ -81,4 +79,3 @@ class ViewController: UIViewController {
     }
     
 }
-//toTabbaradmin

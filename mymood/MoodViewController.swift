@@ -13,6 +13,17 @@ import ObjectMapper
 import Kingfisher
 import AlamofireObjectMapper
 
+struct moodModel :Decodable {
+       let mid :String
+       let mood :String
+       let activity :String
+       let location :String
+       let note :String
+       let hastag :String
+       let image :String
+       let time :String
+       let date :String
+   }
 
 
 class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -20,19 +31,8 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var lbDatemood: UILabel!
-    struct moodModel :Decodable {
-           let mid :String
-           let mood :String
-           let activity :String
-           let location :String
-           let note :String
-           let hastag :String
-           let image :String
-           let time :String
-           let date :String
-       }
     
-    var mvId :String?
+    var mvId: String?
     var moodData = [[String:AnyObject]]()
     var pathPhoto :String?
     var Image1 :UIImage?
@@ -43,7 +43,7 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        
+        print(mvId)
     }
     func getDate(){
         let date = Date()
@@ -55,9 +55,9 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func getMood(){
         getDate()
-        
+
         let url = "http://project2.cocopatch.com/Moody/"
-        let param : Parameters = ["u_id":self.mvId! as AnyObject]
+        let param : Parameters = ["u_id":self.mvId as AnyObject]
 
         AF.request(url+"getMood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
             do {
@@ -107,7 +107,6 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var imgMoods = "mood"+index.mood
         pm?.imgMood = UIImage(named: imgMoods)!
         
-//        self.navigationController?.popToViewController(pm!, animated: true)
         self.navigationController?.pushViewController(pm!, animated: true)
     }
         
@@ -151,52 +150,9 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             ]
             AF.request(url+"mood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
             moods.removeAll()
-            getMood()
+//            getMood()
             
         }
     }
 
 }
-
-
-//extension MoodViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return moods.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  MoodTableViewCell
-//        let index = moods[indexPath.row]
-//        let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
-//
-//        cell?.lbNote.text = index.note
-//        cell?.lbHastag.text = index.hastag
-//        cell?.lbLocation.text = index.location
-//        cell?.img.kf.setImage(with: url)
-//        cell?.lbDate.text = index.time
-//        var imgMood = "mood"+index.mood
-//        cell?.imgMood.image = UIImage(named: imgMood)
-//        return cell!
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        return 195
-//    }
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let mood = moods[indexPath.row]
-//            var mode = "delete"
-//            let url = "http://project2.cocopatch.com/Moody/"
-//            let param : Parameters = [
-//                "m_id":mood.mid as AnyObject,
-//                "mode":mode as AnyObject
-//            ]
-//            AF.request(url+"mood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
-//
-//
-//        }
-//    }
-//}

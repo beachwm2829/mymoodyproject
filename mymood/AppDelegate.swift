@@ -18,13 +18,14 @@ import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     let gcmMessageIDKey = "gcm.Message_ID"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GMSPlacesClient.provideAPIKey("AIzaSyA1FbI9wftayT11Ubw8LKDlf5FrZFy59xE")
-        
+        GMSPlacesClient.provideAPIKey("AIzaSyAZKs6i7iYMwkktFX-_jOwvHBepNknz7_Q")
+//        GMSPlacesClient.provideAPIKey("AIzaSyA1FbI9wftayT11Ubw8LKDlf5FrZFy59xE")
+                
         if #available(iOS 10.0, *) {
           // For iOS 10 display notification (sent via APNS)
           UNUserNotificationCenter.current().delegate = self
@@ -100,6 +101,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       completionHandler(UIBackgroundFetchResult.newData)
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.hexString
+        print("TOKEN \(deviceTokenString)")
+    }
 }
 
 extension AppDelegate : MessagingDelegate {
@@ -155,3 +161,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     completionHandler()
   }
 }
+
+extension Data {
+    var hexString : String {
+        let hexString = map { String(format: "%02.2hhx", $0 )}.joined()
+        return hexString
+    }
+}
+
