@@ -17,7 +17,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     var amintbId:String?
-    
+    var sickUserId:String?
     
     struct ListUserModel :Decodable {
         let sickid :String
@@ -68,13 +68,14 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                 for aListUser in ListUserArray {
                     let luId = aListUser["u_id"].stringValue
                     let name = aListUser["name"].stringValue
-                    let sex = aListUser["img"].stringValue
-                    let birth = aListUser["u_id"].stringValue
-                    let disease = aListUser["name"].stringValue
-                    let adress = aListUser["img"].stringValue
-                    let mail = aListUser["u_id"].stringValue
-                    let tel = aListUser["name"].stringValue
+                    let sex = aListUser["gender"].stringValue
+                    let birth = aListUser["birthdate"].stringValue
+                    let disease = aListUser["disease"].stringValue
+                    let adress = aListUser["adress"].stringValue
+                    let mail = aListUser["email"].stringValue
+                    let tel = aListUser["phone"].stringValue
                     let imgprofile = aListUser["img"].stringValue
+                    
                     let List = ListUserModel(sickid: luId, name: name, sex: sex, birth: birth, disease: disease, adress: adress, mail: mail, tel: tel, imgprofile: imgprofile)
                     self.ListUsers.append(List)
 //                    print("ListUsers\(self.ListUsers)")
@@ -91,32 +92,33 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
         print("this here !!")
         let index = ListUsers[indexPath.row]
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.imgprofile)")
-        
+        sickUserId = index.sickid
         cell?.lbname.text = index.name
         cell?.imgProfile.kf.setImage(with: url)
         print("url\(url)")
         return cell!
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let pm = storyboard?.instantiateViewController(withIdentifier: "popListUserViewController") as? popListUserViewController
-        
-        let index = ListUsers[indexPath.row]
-               let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.imgprofile)")
-        pm?.popListUserId = index.sickid
-        pm?.name = index.name
-        pm?.sex = index.sex
-        pm?.birth = index.birth
-        pm?.adress = index.disease
-        pm?.disease = index.adress
-        pm?.tel = index.mail
-        pm?.mail = index.tel
-//        var imgProfile = ""+index.imgprofile
-//        print(index.imgprofile)
-//        pm?.imgListUser = UIImage(named: imgProfile)!
-//        
-//        self.navigationController?.popToViewController(pm!, animated: true)
-        self.navigationController?.pushViewController(pm!, animated: true)
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let pm = storyboard?.instantiateViewController(withIdentifier: "popListUserViewController") as? popListUserViewController
+//
+//        let index = ListUsers[indexPath.row]
+//               let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.imgprofile)")
+//        pm?.popListUserId = index.sickid
+//        pm?.name = index.name
+//        pm?.sex = index.sex
+//        pm?.birth = index.birth
+//        pm?.adress = index.disease
+//        pm?.disease = index.adress
+//        pm?.tel = index.mail
+//        pm?.mail = index.tel
+//        self.navigationController?.pushViewController(pm!, animated: true)
+//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailUser"{
+            let popListUserViewController = segue.destination as! popListUserViewController
+            popListUserViewController.popListUserId = self.sickUserId
+        }
     }
     /*
     // MARK: - Navigation

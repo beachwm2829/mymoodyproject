@@ -11,6 +11,7 @@ import UIKit
 class NavigationController: UINavigationController {
     var ncId :String?
     override func viewDidLoad() {
+        print(ncId)
         super.viewDidLoad()
         
     }
@@ -35,11 +36,6 @@ class NavigationController: UINavigationController {
             targetController.asId = self.ncId
          }
         }
-//        if segue.identifier == "AsCell"{
-//                if let AsVc = segue.destination as? UINavigationController, let targetController = AsVc.topViewController as? Assessment_TableViewController {
-//                   targetController.asId = self.ncId
-//                }
-//               }
     }
     
     //AsCell

@@ -73,8 +73,10 @@ class ViewController: UIViewController {
             TabbarController.tbId = self.vcId
         }
         if segue.identifier == "toTabbaradmin"{
-            let ListUserViewController = segue.destination as! ListUserViewController
-            ListUserViewController.amintbId = self.vcId
+            if let ListUserVC = segue.destination as? UINavigationController, let ListUserViewController = ListUserVC.topViewController as? ListUserViewController{
+                ListUserViewController.amintbId = self.vcId
+            }
+            
         }
     }
     

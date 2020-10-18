@@ -49,9 +49,6 @@ class Assessment_TableViewController: UITableViewController {
         cell?.resultAs.text = index.resultAs
         cell?.timeAs.text = index.timeAs
         cell?.dateAs.text = index.dateAs
-        
-        
-        
         return cell!
         
     }
