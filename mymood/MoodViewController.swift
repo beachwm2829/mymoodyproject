@@ -45,6 +45,17 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
         print(mvId)
     }
+    @IBAction func btAddmood(_ sender: Any) {
+        self.performSegue(withIdentifier: "toAddmood", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddmood"{
+            let AddmoodViewcontroller = segue.destination as! Addmood_ViewController
+            AddmoodViewcontroller.amId = self.mvId
+        }
+    }
+    
     func getDate(){
         let date = Date()
         let formatter = DateFormatter()
@@ -87,13 +98,6 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toaddMood"{
-            if let addmoodViewController = segue.destination as? UINavigationController, let targetController = addmoodViewController.topViewController as? Addmood_ViewController {
-                targetController.amId = self.mvId
-            }
-        }
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let pm = storyboard?.instantiateViewController(withIdentifier: "popMoodViewController") as? popMoodViewController
         
@@ -138,7 +142,6 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return 110
     }
 
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let mood = moods[indexPath.row]
@@ -150,7 +153,7 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             ]
             AF.request(url+"mood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
             moods.removeAll()
-//            getMood()
+            getMood()
             
         }
     }

@@ -52,7 +52,7 @@ class ViewController: UIViewController {
                     }else if(data["status_As"] == "0"){
                         self.performSegue(withIdentifier: "toTabbar", sender: self)
                     }else{
-                        self.performSegue(withIdentifier: "Resultcell", sender: self)
+                        self.performSegue(withIdentifier: "toAses", sender: self)
                     }
                     
                 }else{

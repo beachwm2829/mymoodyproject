@@ -131,8 +131,9 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
          present(selectPhoto, animated: true,completion: nil)
      }
 
+   //MARK: - host addmood
    @IBAction func btsavemood(_ sender: Any) {
-    let url = "http://project2.cocopatch.com/Moody/mood.php?" //MARK: - host addmood
+    let url = "http://project2.cocopatch.com/Moody/mood.php?"
     
     let date = Date()
     let calendar = Calendar.current
@@ -167,8 +168,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         case .success(_):
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                self.resetComp()
-                self.tabBarController?.selectedIndex = 0
+                self.navigationController!.popViewController(animated: true)
                 
             }))
             self.present(alert, animated: true, completion: nil)
