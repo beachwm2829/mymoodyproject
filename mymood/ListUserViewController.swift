@@ -17,7 +17,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     var amintbId:String?
-    var sickUserId:String?
+    var sickUserId:String = "1"
     
     struct ListUserModel :Decodable {
         let sickid :String
@@ -37,7 +37,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("sickUserId   =>\(self.sickUserId)")
         // Do any additional setup after loading the view.
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -89,16 +89,24 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListUsercell", for: indexPath) as?  ListUserTableViewCell
         
-        print("this here !!")
+//        print("this here !!")
         let index = ListUsers[indexPath.row]
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.imgprofile)")
-        sickUserId = index.sickid
+//        self.sickUserId = index.sickid
+//        print("sickUserId\(sickUserId)")
         cell?.lbname.text = index.name
         cell?.imgProfile.kf.setImage(with: url)
         print("url\(url)")
         return cell!
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = ListUsers[indexPath.row]
+        
+        sickUserId = index.sickid
+        print("sickUserId\(sickUserId)")
+        self.performSegue(withIdentifier: "toDetailUser", sender: self)
+        
+    }
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let pm = storyboard?.instantiateViewController(withIdentifier: "popListUserViewController") as? popListUserViewController
 //
@@ -115,11 +123,15 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        self.navigationController?.pushViewController(pm!, animated: true)
 //    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailUser"{
-            let popListUserViewController = segue.destination as! popListUserViewController
-            popListUserViewController.popListUserId = self.sickUserId
-        }
+       
+           if segue.identifier == "toDetailUser"{
+                    let popListUserViewController = segue.destination as! popListUserViewController
+                    print(self.sickUserId)
+                    popListUserViewController.popListUserId = self.sickUserId
+                }
+        
     }
+
     /*
     // MARK: - Navigation
 

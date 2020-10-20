@@ -11,6 +11,8 @@ import FSCalendar
 
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     
+    var calId:String?
+    
     var calendar:FSCalendar!
     var formatter = DateFormatter()
 

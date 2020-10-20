@@ -24,6 +24,7 @@ class popListUserViewController: UIViewController {
     @IBOutlet weak var lbtel: UILabel!
     
     var popListUserId:String?
+    var statusTrack:Bool = true
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,11 @@ class popListUserViewController: UIViewController {
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["u_id":self.popListUserId as AnyObject]
 
-        AF.request(url+"getListUser.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
+        AF.request(url+"getProfile.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
             do {
                 //print("do")
                 let jsondata = try JSON(data: response.data!)
-//                print(jsondata)
+                print("this here popuser")
                 let ListUserArray = jsondata["success"].arrayValue
                 for aListUser in ListUserArray {
                     let popListUserId = aListUser["u_id"].stringValue
@@ -60,14 +61,61 @@ class popListUserViewController: UIViewController {
     @IBAction func toResultAs(_ sender: Any) {
         self.performSegue(withIdentifier: "toResultAsess", sender: self)
     }
-
+    @IBAction func tograpMood(_ sender: Any) {
+        self.performSegue(withIdentifier: "tograpmood", sender: self)
+    }
+    @IBAction func toResultMood(_ sender: Any) {
+        self.performSegue(withIdentifier: "toResultMood", sender: self)
+    }
+    @IBAction func tocalMood(_ sender: Any) {
+        self.performSegue(withIdentifier: "tocalMood", sender: self)
+    }
+    @IBAction func totrack(_ sender: Any) {
+        if statusTrack == true {
+            self.performSegue(withIdentifier: "totraking", sender: self)
+        }
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResultAsess"{
             let Assessment = segue.destination as! Assessment_TableViewController
             Assessment.asId = self.popListUserId
         }
+        if segue.identifier == "tograpmood"{
+            let ChartView = segue.destination as! ChartViewController
+            ChartView.ChartsId = self.popListUserId
+        }
+        if segue.identifier == "toResultMood"{
+            let MoodForadmin = segue.destination as! MoodForadminTableViewController
+            MoodForadmin.mvId = self.popListUserId
+        }
+        if segue.identifier == "tocalMood"{
+            let CalendarView = segue.destination as! CalendarViewController
+            CalendarView.calId = self.popListUserId
+        }
+        if segue.identifier == "totraking"{
+            let TrackTable = segue.destination as! TrackTableViewController
+            TrackTable.tackId = self.popListUserId
+        }
     }
 //toResultAsess
+//tograpmood
+//toResultMood
+//tocalMood
+//totraking
+    
+    @IBAction func swTracking(_ sender: UISwitch) {
+        if sender.isOn == true{
+            statusTrack = true
+            print(statusTrack)
+        }
+        if sender.isOn == false{
+            statusTrack = false
+            print(statusTrack)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
