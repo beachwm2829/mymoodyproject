@@ -122,6 +122,22 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        pm?.mail = index.tel
 //        self.navigationController?.pushViewController(pm!, animated: true)
 //    }
+    @IBAction func tosetting(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: "ต้องการออกจากระบบหรือไม่?", preferredStyle: UIAlertController.Style.actionSheet)
+        let logOutButton = UIAlertAction(title: "ออกจากระบบ", style: UIAlertAction.Style.destructive){(select) in
+        self.dismiss(animated: true, completion: nil)
+        }
+        let settingButton = UIAlertAction(title: "จัดการข้อมูลส่วนตัว", style: UIAlertAction.Style.default){(select) in
+            self.performSegue(withIdentifier: "tosetting", sender: self)
+        }
+        let cancleButton = UIAlertAction(title: "ยกเลิก", style: UIAlertAction.Style.cancel){(select) in}
+            actionSheet.addAction(settingButton)
+            actionSheet.addAction(logOutButton)
+            actionSheet.addAction(cancleButton)
+            self.present(actionSheet, animated: true, completion: nil)
+        
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
            if segue.identifier == "toDetailUser"{
@@ -129,6 +145,11 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                     print(self.sickUserId)
                     popListUserViewController.popListUserId = self.sickUserId
                 }
+        if segue.identifier == "tosetting"{
+                 let adminSettingViewController = segue.destination as! adminSettingViewController
+                 print(self.amintbId)
+            adminSettingViewController.adSId = self.amintbId
+             }
         
     }
 
