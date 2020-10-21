@@ -40,6 +40,7 @@ class TrackTableViewController: UITableViewController {
     var TrackUsers = [TrackModel]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,12 +73,25 @@ class TrackTableViewController: UITableViewController {
         
         cell?.DateTrack.text = index.date+":"+index.timetk
         cell?.DateTrackNaxt.text = index.date_next+":"+index.timetk_next
+        
+        if index.status == "1"{
+            cell?.imgStatus.image = UIImage(named: "point-yellow")
+            
+        }else if index.status == "2"{
+            cell?.imgStatus.image = UIImage(named: "point-red")
+            
+        }else if index.status == "3"{
+            cell?.imgStatus.image = UIImage(named: "point-green")
+            
+        }
+        
+        
         return cell!
     }
     func getTrackUser(){
         
         let url = "http://project2.cocopatch.com/Moody/"
-        let param : Parameters = ["u_id":self.tackId! as AnyObject]
+        let param : Parameters = ["u_id":self.tackId! as AnyObject,"mode":"get" as AnyObject]
 
         AF.request(url+"FromTrack.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
             do {
@@ -120,6 +134,7 @@ class TrackTableViewController: UITableViewController {
         
         tkFId = index.tkId
         print("sickUserId\(tkFId)")
+        self.performSegue(withIdentifier: "toFromTrack", sender: self)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -12,7 +12,7 @@ class TrackTableViewCell: UITableViewCell {
 
     @IBOutlet weak var DateTrack: UILabel!
     @IBOutlet weak var DateTrackNaxt: UILabel!
-    @IBOutlet weak var btstatus: UIButton!
+    @IBOutlet weak var imgStatus: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         DateTrack.text = "20 11 2020 10:25"

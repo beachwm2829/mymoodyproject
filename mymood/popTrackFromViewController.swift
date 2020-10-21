@@ -46,7 +46,7 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
                 let jsondata = try JSON(data: response.data!)
                 print("this here popuser \(jsondata)")
                 let TrackFromArray = jsondata["success"].arrayValue
-                print("ListUserArray\(TrackFromArray)")
+                print("TrackFromArray\(TrackFromArray)")
                 for aTrackFrom in TrackFromArray {
                     let popListUserId = aTrackFrom["u_id"].stringValue
                     self.lbcomment.text = aTrackFrom["comment"].stringValue
@@ -66,17 +66,6 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
         }
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -109,6 +98,23 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
          present(selectPhoto, animated: true,completion: nil)
      }
     @IBAction func btsave(_ sender: Any) {
+        let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
+        let param : Parameters = ["tf_id":self.tkId as AnyObject,"comment":self.lbcomment.text as AnyObject,"mode":"update" as AnyObject]
+
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+        switch response.result {
+            case .success(_):
+                let alert = UIAlertController(title: "เพิ่มหมายเหตุเรียบร้อย", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                    self.navigationController!.popViewController(animated: true)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            case .failure(_):
+                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
         print("Save => track")
     }
     

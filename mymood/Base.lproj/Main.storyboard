@@ -3392,7 +3392,7 @@
                                 <rect key="frame" x="73" y="560.66666666666652" width="270" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.072192035619999997" green="0.44525921340000002" blue="0.88488525149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Create Account">
+                                <state key="normal" title="save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -3656,7 +3656,7 @@
                                 <connections>
                                     <outlet property="DateTrack" destination="kgA-q1-5DJ" id="o6I-HN-P4O"/>
                                     <outlet property="DateTrackNaxt" destination="z0X-Ii-YBF" id="tR5-Rs-NYP"/>
-                                    <outlet property="imgstate" destination="xYo-Yy-6Nv" id="FjY-po-OJj"/>
+                                    <outlet property="imgStatus" destination="xYo-Yy-6Nv" id="7t2-lR-agH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
