@@ -28,6 +28,8 @@ class ChartViewController: UIViewController {
     var lbDatemood:String = ""
     var name = [String]()
     var mooddata:[(Date,[Double])] = []
+    var mooddataToday:[Double] = []
+
     
     override func viewWillAppear(_ animated: Bool) {
         self.reloadInputViews()
@@ -65,25 +67,35 @@ class ChartViewController: UIViewController {
                                 if arMood == "1"{
                                     arMood = "โคตรมีความสุข"
                                     self.summood1 = self.summood1+1
+                                    self.mooddataToday.append(self.summood1)
                                 }
                                 if arMood == "2"{
                                     arMood = "มีความสุข"
                                     self.summood2 = self.summood2+1
+                                    self.mooddataToday.append(self.summood2)
+
                                 }
                                 if arMood == "3"{
                                     arMood = "เฉยชา"
                                     self.summood3 = self.summood3+1
+                                    self.mooddataToday.append(self.summood3)
+
+
                                 }
                                 if arMood == "4"{
                                     arMood = "เบื่อ"
                                     self.summood4 = self.summood4+1
+                                    self.mooddataToday.append(self.summood4)
+
                                 }
                                 if arMood == "5"{
                                     arMood = "โกรธ"
                                     self.summood5 = self.summood5+1
+                                    self.mooddataToday.append(self.summood5)
+
                                 }
                              self.name.append(arMood)
-                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
+//                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
                             }
                         } else if(typeDate == "month") {
                             let calendar = Calendar.current
@@ -91,6 +103,7 @@ class ChartViewController: UIViewController {
                             let components = calendar.dateComponents([.month], from: date)
                             let month:Int = components.month!
                             if(monthNow == month) {
+                                print(monthNow)
                                 if arMood == "1"{
                                     arMood = "โคตรมีความสุข"
                                     self.summood1 = self.summood1+1
@@ -120,6 +133,7 @@ class ChartViewController: UIViewController {
                             let components = calendar.dateComponents([.year], from: date)
                             let year:Int = components.year!
                             if(yearNow == year) {
+                                print(yearNow)
                                 if arMood == "1"{
                                     arMood = "โคตรมีความสุข"
                                     self.summood1 = self.summood1+1
@@ -146,22 +160,32 @@ class ChartViewController: UIViewController {
                         }
                     }
             }catch{}
-         let namee = Array(Set(self.name))
-         for i in 0..<self.mooddata.count {
-             self.setPieChart(dataPoints: namee, values: self.mooddata[i].1)
-            print(self.mooddata[i].1)
-         }
-         self.name.removeAll { $0 == "date" }
+            let namee = Array(Set(self.name))
+            if(typeDate == "today") {
+                self.setPieChart(dataPoints: namee, values: self.mooddataToday)
+            }else{
+                for i in 0..<self.mooddata.count {
+                    self.setPieChart(dataPoints: namee, values: self.mooddata[i].1)
+                    print(self.mooddata[i].1)
+                 }
+            }
+            self.name.removeAll { $0 == "date" }
         }
     }
     @IBAction func Segment(_ sender: UISegmentedControl) {
         print("mooddata in sement =>\(self.mooddata)")
         switch sender.selectedSegmentIndex {
         case 0:
+            self.name.removeAll()
+            self.mooddataToday.removeAll()
             checkDate(typeDate: "today")
         case 1:
+            self.name.removeAll()
+            self.mooddata.removeAll()
             checkDate(typeDate: "month")
         case 2:
+            self.name.removeAll()
+            self.mooddata.removeAll()
             checkDate(typeDate: "year")
         default:
             break
