@@ -641,10 +641,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8e-ET-7zU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGN-j0-DP9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpy-LB-9ZY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -936,7 +936,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vy-fF-EyM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-Pe-tY4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
@@ -1750,7 +1750,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIN-mx-4E8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9s-Rt-iWO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
@@ -2257,11 +2257,11 @@
             </objects>
             <point key="canvasLocation" x="3197.1014492753625" y="-1582.3369565217392"/>
         </scene>
-        <!--Mood-->
+        <!--แบบประเมิน-->
         <scene sceneID="LOc-tY-k4w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ahH-pE-Z6s" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mood" image="plus.circle.fill" catalog="system" id="rQg-Mb-mTQ"/>
+                    <tabBarItem key="tabBarItem" title="แบบประเมิน" image="plus.circle.fill" catalog="system" id="rQg-Mb-mTQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iwZ-sP-NE9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -2324,6 +2324,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <viewLayoutGuide key="contentLayoutGuide" id="6ZF-dp-fMP"/>
                         <viewLayoutGuide key="frameLayoutGuide" id="y93-NT-ou3"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Gpi-IX-UH5">
+                            <rect key="frame" x="0.0" y="342.66667175292969" width="414" height="299"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <sections>
                             <tableViewSection headerTitle="ข้อมูลส่วนตัว" id="iVt-fM-oy4">
                                 <cells>
@@ -2386,56 +2391,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square.and.pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Plj-Y3-clS">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.on.clipboard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Plj-Y3-clS">
                                                     <rect key="frame" x="20" y="11" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="แบบประเมิน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20d-tc-jQt">
-                                                    <rect key="frame" x="53" y="11" width="86" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="rxW-vX-XI4">
-                                        <rect key="frame" x="0.0" y="215.00000381469727" width="414" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rxW-vX-XI4" id="Lya-iH-ODX">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.text.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v1C-gy-uzm">
-                                                    <rect key="frame" x="20" y="9" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ผลประเมิน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHn-ae-wnH">
-                                                    <rect key="frame" x="53" y="11" width="74" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="M8y-nc-NoJ">
-                                        <rect key="frame" x="0.0" y="258.66667175292969" width="414" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M8y-nc-NoJ" id="Yps-fH-0xL">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="doc.on.clipboard" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b3L-tG-OWx">
-                                                    <rect key="frame" x="20" y="9" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คำแนะนำ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij3-jY-3ao">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คำแนะนำ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20d-tc-jQt">
                                                     <rect key="frame" x="53" y="11" width="67" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2450,7 +2411,7 @@
                             <tableViewSection headerTitle="ข้อมูลการติดตาม" id="hXX-YX-P1A">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="WUo-ei-FKe">
-                                        <rect key="frame" x="0.0" y="358.33333969116211" width="414" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="271.00000381469727" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WUo-ei-FKe" id="18k-Cl-Bh7">
                                             <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="43.666667938232422"/>
@@ -2480,6 +2441,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4lz-bK-mYF"/>
+                    <connections>
+                        <outlet property="toFromTrackkking" destination="WUo-ei-FKe" id="F6L-uc-nmF"/>
+                        <segue destination="oSF-Nh-GMb" kind="show" identifier="toupdateprofile" id="P4J-iT-Mqn"/>
+                        <segue destination="Vs4-lH-Hb2" kind="show" identifier="toFromTrackmb" id="Nxy-ty-gMZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mgk-ov-rMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2488,13 +2454,13 @@
         <!--แบบฟอร์มการพบแพทย์-->
         <scene sceneID="t1P-oE-Gmh">
             <objects>
-                <viewController id="Vs4-lH-Hb2" sceneMemberID="viewController">
+                <viewController id="Vs4-lH-Hb2" customClass="trackingmbTableViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dM9-M6-xXa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="115" id="BPf-yt-3h0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tofromtrack" rowHeight="115" id="BPf-yt-3h0" customClass="TrackTableViewCell" customModule="mymood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BPf-yt-3h0" id="Ckf-bf-Q9l">
@@ -2509,42 +2475,43 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc6-tk-h7H">
-                                            <rect key="frame" x="20" y="47" width="143" height="21"/>
+                                            <rect key="frame" x="20" y="47" width="285" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekO-1P-zXX">
-                                            <rect key="frame" x="366" y="46" width="20" height="22"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="point-yellow" translatesAutoresizingMaskIntoConstraints="NO" id="hPb-Gf-fz9">
+                                            <rect key="frame" x="351" y="43" width="30" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="circle.fill" catalog="system"/>
-                                        </button>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="DateTrack" destination="bos-NC-TuA" id="YN7-1n-WDn"/>
+                                    <outlet property="DateTrackNaxt" destination="gc6-tk-h7H" id="Zim-w2-mkI"/>
+                                    <outlet property="imgStatus" destination="hPb-Gf-fz9" id="P69-Px-8nm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="แบบฟอร์มการพบแพทย์" id="dbX-zk-kuQ"/>
+                    <connections>
+                        <segue destination="jKH-DS-mFP" kind="show" identifier="toFromTrackmb" id="yML-K6-bbQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o5A-WD-pYp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6220.289855072464" y="2438.3152173913045"/>
+            <point key="canvasLocation" x="6160.8695652173919" y="2031.521739130435"/>
         </scene>
         <!--จัดการข้อมูลส่วนตัว-->
         <scene sceneID="zrN-4F-rSe">
             <objects>
-                <viewController id="oSF-Nh-GMb" sceneMemberID="viewController">
+                <viewController id="oSF-Nh-GMb" customClass="manaProfileViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Maf-Jb-1vp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="87a-Sf-4i1">
-                                <rect key="frame" x="74" y="113.66666666666697" width="269" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCc-WB-F0U">
                                 <rect key="frame" x="74" y="155.66666666666697" width="269" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2611,6 +2578,7 @@
                                 <state key="selected" image="Checkbox"/>
                                 <connections>
                                     <action selector="btRadioGender:" destination="by1-Yf-cXy" eventType="touchUpInside" id="dX9-hJ-YeP"/>
+                                    <action selector="btRadioGender:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="ujy-EL-zLH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHk-MZ-wXK">
@@ -2619,6 +2587,7 @@
                                 <state key="normal" title="Button" image="UnCheckbox"/>
                                 <state key="selected" image="Checkbox"/>
                                 <connections>
+                                    <action selector="btRadioGender:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="Uhg-io-6F9"/>
                                     <action selector="btRadioGender:" destination="by1-Yf-cXy" eventType="touchUpInside" id="k4Y-hM-anK"/>
                                 </connections>
                             </button>
@@ -2643,45 +2612,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5G-hS-b6P">
-                                <rect key="frame" x="128" y="489.66666666666697" width="21" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="UnCheckbox"/>
-                                <state key="selected" image="Checkbox"/>
-                                <connections>
-                                    <action selector="btRadioStatus:" destination="by1-Yf-cXy" eventType="touchUpInside" id="dbk-Qb-4GE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T30-f1-Dam">
-                                <rect key="frame" x="213" y="490.66666666666697" width="21" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="UnCheckbox"/>
-                                <state key="selected" image="Checkbox"/>
-                                <connections>
-                                    <action selector="btRadioStatus:" destination="by1-Yf-cXy" eventType="touchUpInside" id="TuN-lo-ykh"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สถานะ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V23-5z-qsf">
-                                <rect key="frame" x="74" y="489.66666666666697" width="47" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สมาชิก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLV-LR-gH5">
-                                <rect key="frame" x="154" y="489.66666666666697" width="50" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ผู้ดูแล" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soV-Em-gpO">
-                                <rect key="frame" x="242" y="489.66666666666697" width="41" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZ9-6t-oD4">
                                 <rect key="frame" x="73" y="536.66666666666697" width="270" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2691,6 +2621,20 @@
                                 </state>
                                 <connections>
                                     <action selector="btCreateAccount:" destination="by1-Yf-cXy" eventType="touchUpInside" id="qCy-WU-ioN"/>
+                                    <action selector="btEditAccount:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="b8Y-TC-DHm"/>
+                                    <action selector="btUpdateAcount:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="GYi-YC-nRk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v06-Vi-Bi5">
+                                <rect key="frame" x="155" y="35" width="105" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="btProfile:" destination="by1-Yf-cXy" eventType="touchUpInside" id="XuW-fB-YNb"/>
+                                    <action selector="btProfile:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="rDV-gb-Df7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2698,6 +2642,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="จัดการข้อมูลส่วนตัว" id="jW0-VB-jzp"/>
+                    <connections>
+                        <outlet property="btFemale" destination="bHk-MZ-wXK" id="OJu-oG-iwk"/>
+                        <outlet property="btMale" destination="nVO-Wn-0C3" id="T4s-bv-sm2"/>
+                        <outlet property="img" destination="iVo-6z-i9j" id="5ab-Hp-gEt"/>
+                        <outlet property="tfAddress" destination="AOe-gc-bfm" id="UmP-au-RHO"/>
+                        <outlet property="tfBirth" destination="0Ip-2C-C3K" id="EeL-Fi-hFN"/>
+                        <outlet property="tfDisease" destination="W2d-z7-6cZ" id="APv-7F-q2v"/>
+                        <outlet property="tfEmail" destination="qRg-6E-744" id="jVo-sS-QtZ"/>
+                        <outlet property="tfFname" destination="bik-mb-EhE" id="68q-h2-lEy"/>
+                        <outlet property="tfLname" destination="YD7-lU-dke" id="INT-Xc-rSU"/>
+                        <outlet property="tfPassword" destination="ZCc-WB-F0U" id="wF0-r4-Nia"/>
+                        <outlet property="tfPhone" destination="3rz-d3-xFg" id="9oP-Je-WVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3K-13-q45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3066,192 +3023,194 @@
             </objects>
             <point key="canvasLocation" x="6161" y="-2865"/>
         </scene>
-        <!--View Controller-->
+        <!--Popfromtrackingmb View Controller-->
         <scene sceneID="6ir-U6-6D1">
             <objects>
-                <viewController id="jKH-DS-mFP" sceneMemberID="viewController">
+                <viewController id="jKH-DS-mFP" customClass="popfromtrackingmbViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C6f-1l-lfV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-nb-6Mc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-nb-6Mc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOE-Yw-IOk">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันนัดพบแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-yL-ubz">
-                                                <rect key="frame" x="20" y="278" width="106" height="21"/>
+                                                <rect key="frame" x="20" y="171" width="106" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="วันนัดพบแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hfB-YW-3ue">
-                                                <rect key="frame" x="20" y="307" width="374" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลานัดพบแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7y-z5-bfX">
-                                                <rect key="frame" x="20" y="1001" width="119" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เวลานัดพบแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKI-1j-r4v">
-                                                <rect key="frame" x="20" y="1030" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="200" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลานัดพบแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aT-s1-Ir7">
-                                                <rect key="frame" x="20" y="207" width="119" height="21"/>
+                                                <rect key="frame" x="20" y="100" width="119" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เวลานัดพบแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X2F-iM-oOs">
-                                                <rect key="frame" x="20" y="236" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="129" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ชื่อ นามสกุลแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kch-vE-Xfp">
-                                                <rect key="frame" x="20" y="349" width="127" height="21"/>
+                                                <rect key="frame" x="20" y="242" width="127" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ชื่อ นามสกุลแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNk-Uy-3Sx">
-                                                <rect key="frame" x="20" y="378" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="271" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="อีเมลแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifq-DK-6ie">
-                                                <rect key="frame" x="20" y="420" width="79" height="21"/>
+                                                <rect key="frame" x="20" y="313" width="79" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="อีเมลแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z2n-gc-tHB">
-                                                <rect key="frame" x="20" y="449" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="342" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เบอร์โทรแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD0-jR-F13">
-                                                <rect key="frame" x="20" y="491" width="105" height="21"/>
+                                                <rect key="frame" x="20" y="384" width="105" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เบอร์โทรแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8H-Hw-2xi">
-                                                <rect key="frame" x="20" y="520" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="413" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="โรงพยาบาล" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zs-QF-Ki5">
-                                                <rect key="frame" x="20" y="562" width="85" height="21"/>
+                                                <rect key="frame" x="20" y="455" width="85" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="โรงพยาบาล" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTY-QA-0hF">
-                                                <rect key="frame" x="20" y="591" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="484" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="บันทึกความ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANP-aw-IZT">
-                                                <rect key="frame" x="20" y="633" width="82" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เพิ่มรูป" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSl-Hy-b1l">
-                                                <rect key="frame" x="20" y="704" width="47" height="21"/>
+                                                <rect key="frame" x="20" y="540" width="47" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="บันทึกความ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YQj-lG-imr">
-                                                <rect key="frame" x="20" y="662" width="374" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxc-nW-ZXE">
+                                                <rect key="frame" x="20" y="568" width="191" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="คลังรูป"/>
+                                                <connections>
+                                                    <action selector="bt_abum:" destination="jKH-DS-mFP" eventType="touchUpInside" id="Qwy-ag-1JL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1P2-Yz-kQi">
+                                                <rect key="frame" x="215" y="568" width="191" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="กล้อง"/>
+                                                <connections>
+                                                    <action selector="bt_camera:" destination="jKH-DS-mFP" eventType="touchUpInside" id="9py-V2-i66"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="หมายเหตุ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-m3-3uZ">
+                                                <rect key="frame" x="20" y="31" width="68" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fa-dg-P0m">
+                                                <rect key="frame" x="20" y="60" width="374" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="เวลานัดพบแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7y-z5-bfX">
+                                                <rect key="frame" x="20" y="824" width="119" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เวลานัดพบแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKI-1j-r4v">
+                                                <rect key="frame" x="20" y="853" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ยา" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEH-Df-DQt">
-                                                <rect key="frame" x="20" y="930" width="19" height="21"/>
+                                                <rect key="frame" x="20" y="753" width="19" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ยา" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pML-ee-ujr">
-                                                <rect key="frame" x="20" y="959" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="782" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxc-nW-ZXE">
-                                                <rect key="frame" x="20" y="732" width="374" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="รูปภาพ"/>
-                                            </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JTH-Zb-dW8">
-                                                <rect key="frame" x="87" y="794" width="240" height="128"/>
+                                                <rect key="frame" x="87" y="617" width="240" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="วันนัดพบแพทย์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXh-h0-LTv">
-                                                <rect key="frame" x="20" y="1072" width="106" height="21"/>
+                                                <rect key="frame" x="20" y="895" width="106" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="วันนัดพบแพทย์" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xnJ-Ng-kin">
-                                                <rect key="frame" x="20" y="1101" width="374" height="34"/>
+                                                <rect key="frame" x="20" y="924" width="374" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNM-13-1h0">
-                                                <rect key="frame" x="20" y="1155" width="374" height="42"/>
+                                                <rect key="frame" x="20" y="978" width="374" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.085740587009999994" green="0.51022474520000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="ยื่นยัน">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btsave:" destination="jKH-DS-mFP" eventType="touchUpInside" id="KqX-NK-Xin"/>
+                                                </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAs-a8-RVU">
-                                                <rect key="frame" x="20" y="165" width="374" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="หมายเหตุ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-m3-3uZ">
-                                                <rect key="frame" x="20" y="138" width="68" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1500" id="rfw-UV-uWz"/>
+                                            <constraint firstAttribute="height" constant="1200" id="rfw-UV-uWz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3274,11 +3233,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vh5-jD-ZCo"/>
-                    <size key="freeformSize" width="414" height="1500"/>
+                    <size key="freeformSize" width="414" height="1200"/>
+                    <connections>
+                        <outlet property="imgview" destination="JTH-Zb-dW8" id="krz-YC-Ys6"/>
+                        <outlet property="lbDr_email" destination="Z2n-gc-tHB" id="S5X-fQ-a4U"/>
+                        <outlet property="lbDr_name" destination="aNk-Uy-3Sx" id="gIn-9h-mZn"/>
+                        <outlet property="lbcomment" destination="7fa-dg-P0m" id="snY-JU-JNI"/>
+                        <outlet property="lbdate" destination="hfB-YW-3ue" id="fdz-nz-KdZ"/>
+                        <outlet property="lbdate_next" destination="xnJ-Ng-kin" id="FXI-aB-dU5"/>
+                        <outlet property="lbdrug" destination="pML-ee-ujr" id="SNR-lQ-yEr"/>
+                        <outlet property="lbhospital" destination="LTY-QA-0hF" id="6HD-5n-ZRt"/>
+                        <outlet property="lbphone" destination="d8H-Hw-2xi" id="r5U-jV-gym"/>
+                        <outlet property="lbtime" destination="X2F-iM-oOs" id="eel-KA-vCb"/>
+                        <outlet property="lbtime_next" destination="wKI-1j-r4v" id="dRd-TY-k6X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8X-D4-Kqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6220.289855072464" y="3488.3152173913045"/>
+            <point key="canvasLocation" x="7015.9420289855079" y="2342.934782608696"/>
         </scene>
         <!--จัดการข้อมูลส่วนตัว-->
         <scene sceneID="YKz-uW-xd2">
@@ -3288,12 +3260,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbr-dv-NOo">
-                                <rect key="frame" x="74" y="137.66666666666652" width="269" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52Z-RD-V6U">
                                 <rect key="frame" x="74" y="179.66666666666652" width="269" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3415,7 +3381,6 @@
                         <outlet property="tfLname" destination="Lhd-ql-QoW" id="pEi-sS-kFl"/>
                         <outlet property="tfPassword" destination="52Z-RD-V6U" id="oHW-iR-mED"/>
                         <outlet property="tfPhone" destination="ggc-aq-J5e" id="lfn-xZ-FcF"/>
-                        <outlet property="tfUsername" destination="qbr-dv-NOo" id="hTi-Ia-oag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8X-Hh-MwD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4373,7 +4338,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3lK-Pn-sMe"/>
-        <segue reference="iAu-nv-i1r"/>
+        <segue reference="hfT-iq-6k1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
@@ -4392,7 +4357,6 @@
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="doc.on.clipboard" catalog="system" width="116" height="128"/>
-        <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="entertainment" width="512" height="512"/>
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
@@ -4431,12 +4395,6 @@
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="scrollViewTexturedBackgroundColor">
-            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="scrollViewTexturedBackgroundColor">
-            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

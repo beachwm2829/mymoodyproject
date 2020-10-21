@@ -1,8 +1,8 @@
 //
-//  TrackTableViewController.swift
+//  trackingmbTableViewController.swift
 //  mymood
 //
-//  Created by macOS on 10/19/20.
+//  Created by macOS on 10/21/20.
 //  Copyright © 2020 Manasawee Kaenampornpan. All rights reserved.
 //
 
@@ -13,7 +13,8 @@ import ObjectMapper
 import Kingfisher
 import AlamofireObjectMapper
 
-class TrackTableViewController: UITableViewController {
+
+class trackingmbTableViewController: UITableViewController {
     
     var tackId:String?
     var tkFId:String?
@@ -134,15 +135,15 @@ class TrackTableViewController: UITableViewController {
         
         tkFId = index.tkId
         print("sickUserId\(tkFId)")
-        self.performSegue(withIdentifier: "toFromTrack", sender: self)
+        self.performSegue(withIdentifier: "toFromTrackmb", sender: self)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-           if segue.identifier == "toFromTrack"{
-                    let popTrackFromViewController = segue.destination as! popTrackFromViewController
+           if segue.identifier == "toFromTrackmb"{
+                    let popfromtrackingmbViewController = segue.destination as! popfromtrackingmbViewController
                     print(self.tkFId)
-            popTrackFromViewController.tkId = self.tkFId
+            popfromtrackingmbViewController.tkId = self.tkFId
                 }
         
     }

@@ -1,8 +1,8 @@
 //
-//  popTrackFromViewController.swift
+//  popfromtrackingmbViewController.swift
 //  mymood
 //
-//  Created by macOS on 10/20/20.
+//  Created by macOS on 10/21/20.
 //  Copyright © 2020 Manasawee Kaenampornpan. All rights reserved.
 //
 
@@ -13,27 +13,25 @@ import SwiftyJSON
 import GooglePlaces
 import Charts
 
-class popTrackFromViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class popfromtrackingmbViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     var tkId:String?
     
-    @IBOutlet weak var lbcomment: UITextField!
-    @IBOutlet weak var lbtime: UILabel!
-    @IBOutlet weak var lbdate: UILabel!
-    @IBOutlet weak var lbDr_name: UILabel!
-    @IBOutlet weak var lbDr_email: UILabel!
-    @IBOutlet weak var lbphone: UILabel!
-    @IBOutlet weak var lbhospital: UILabel!
-    @IBOutlet weak var lbdrug: UILabel!
-    @IBOutlet weak var lbtime_next: UILabel!
-    @IBOutlet weak var lbdate_next: UILabel!
-    
+    @IBOutlet weak var lbcomment: UILabel!
+    @IBOutlet weak var lbtime: UITextField!
+    @IBOutlet weak var lbdate: UITextField!
+    @IBOutlet weak var lbDr_name: UITextField!
+    @IBOutlet weak var lbDr_email: UITextField!
+    @IBOutlet weak var lbphone: UITextField!
+    @IBOutlet weak var lbhospital: UITextField!
+    @IBOutlet weak var lbdrug: UITextField!
+    @IBOutlet weak var lbtime_next: UITextField!
+    @IBOutlet weak var lbdate_next: UITextField!
     @IBOutlet weak var imgview: UIImageView!
     
     let datePicker = UIDatePicker()
     var word = ""
     var photoBase64:String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(tkId)
@@ -117,5 +115,14 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
         }
         print("Save => track")
     }
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

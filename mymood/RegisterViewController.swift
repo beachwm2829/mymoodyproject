@@ -14,7 +14,7 @@ import ObjectMapper
 
 class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
-    @IBOutlet weak var tfUsername: UITextField!
+ 
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfFname: UITextField!
     @IBOutlet weak var tfLname: UITextField!
@@ -155,7 +155,6 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     @IBAction func btCreateAccount(_ sender: Any) {
         let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
         let param : Parameters = [
-            "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,
             "fname":tfFname.text! as AnyObject,
             "lname":tfLname.text! as AnyObject,
@@ -184,5 +183,6 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
             }
         }
     }
+
     
 }

@@ -23,6 +23,7 @@ class TabBarController: UITabBarController {
                     AddmoodViewController.amId = self.tbId
                 }
                 if let settingTableViewController = mainNavigationController.viewControllers.first as? settingTableViewController{
+                    print("setting this")
                     settingTableViewController.stId = self.tbId
                 }
                 if let MoodViewController = mainNavigationController.viewControllers.first as? MoodViewController{
