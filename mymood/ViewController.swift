@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 //import AlamofireImage
 import SwiftyJSON
+import UserNotifications
 
 class ViewController: UIViewController {
 
@@ -24,6 +25,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let content = UNMutableNotificationContent()
+        content.title = "กรอกอารมณ์"
+        content.body = "12:30"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
+        
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         loginBT.layer.cornerRadius = 20.0
         createBT.layer.cornerRadius = 20.0
         lbInvalid.isHidden = true
