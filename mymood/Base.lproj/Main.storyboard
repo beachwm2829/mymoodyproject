@@ -3410,11 +3410,11 @@
         <scene sceneID="Xxs-7X-5NT">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" id="evB-Ul-phX" customClass="SearchViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="b4l-T3-S3A">
+                    <view key="view" contentMode="scaleToFill" id="b4l-T3-S3A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwQ-eH-phL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MwQ-eH-phL">
                                 <rect key="frame" x="0.0" y="115" width="414" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

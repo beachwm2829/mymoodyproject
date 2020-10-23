@@ -27,7 +27,7 @@ class ChartViewController: UIViewController {
 
     var lbDatemood:String = ""
     var name = [String]()
-    var mooddata:[(Date,[Double])] = []
+    var mooddata:[[Double]] = []
     var mooddataToday:[Double] = []
 
     
@@ -95,6 +95,7 @@ class ChartViewController: UIViewController {
 
                                 }
                              self.name.append(arMood)
+                                
 //                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
                             }
                         } else if(typeDate == "month") {
@@ -125,7 +126,7 @@ class ChartViewController: UIViewController {
                                     self.summood5 = self.summood5+1
                                 }
                              self.name.append(arMood)
-                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
+                             self.mooddata.append([self.summood1,self.summood2,self.summood3,self.summood4,self.summood5])
                             }
                         } else if(typeDate == "year") {
                             let calendar = Calendar.current
@@ -155,25 +156,30 @@ class ChartViewController: UIViewController {
                                     self.summood5 = self.summood5+1
                                 }
                              self.name.append(arMood)
-                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
+                                self.mooddata.append([self.summood1,self.summood2,self.summood3,self.summood4,self.summood5])
                             }
                         }
                     }
             }catch{}
             let namee = Array(Set(self.name))
+            print(namee)
             if(typeDate == "today") {
                 self.setPieChart(dataPoints: namee, values: self.mooddataToday)
             }else{
-                for i in 0..<self.mooddata.count {
-                    self.setPieChart(dataPoints: namee, values: self.mooddata[i].1)
-                    print(self.mooddata[i].1)
-                 }
+                let countmood = self.mooddata.count - 1
+                for i in 0..<(self.mooddata.last?.count)! {
+                    if (self.mooddata.last![i]) == 0.0 {
+                        self.mooddata[countmood].remove(at: i)
+                    }
+                }
+                print("Mood Final is \(self.mooddata.last)")
+                self.setPieChart(dataPoints: namee, values: self.mooddata[countmood])
             }
             self.name.removeAll { $0 == "date" }
         }
     }
     @IBAction func Segment(_ sender: UISegmentedControl) {
-        print("mooddata in sement =>\(self.mooddata)")
+//        print("mooddata in sement =>\(self.mooddata)")
         switch sender.selectedSegmentIndex {
         case 0:
             self.name.removeAll()
@@ -193,18 +199,35 @@ class ChartViewController: UIViewController {
     }
     func setPieChart(dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
+        
+        var colors: [UIColor] = []
+
         for i in 0..<dataPoints.count {
             let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
             dataEntries.append(dataEntry)
+            
+            if(dataPoints[i] == "โคตรมีความสุข") {
+                colors.append(#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1))
+            } else if(dataPoints[i] == "มีความสุข") {
+                colors.append(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+            } else if(dataPoints[i] == "เฉยชา") {
+                colors.append(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+            } else if(dataPoints[i] == "เบื่อ") {
+                colors.append(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1))
+            } else if(dataPoints[i] == "โกรธ") {
+                colors.append(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))
+            }
+
         }
+        
         let legend = PieChart.legend
         legend.horizontalAlignment = .center
         legend.verticalAlignment = .bottom
 //        legend.orientation = .horizontal
         
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
-        pieChartDataSet.colors = [#colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1),#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)]
-       
+        pieChartDataSet.colors = colors
+               
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         let format = NumberFormatter()
         format.numberStyle = .none
