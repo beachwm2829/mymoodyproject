@@ -122,6 +122,11 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        pm?.mail = index.tel
 //        self.navigationController?.pushViewController(pm!, animated: true)
 //    }
+    @IBAction func tossearching(_ sender: Any) {
+       
+        self.performSegue(withIdentifier: "searchCell", sender: self)
+        
+    }
     @IBAction func tosetting(_ sender: Any) {
         let actionSheet = UIAlertController(title: nil, message: "ต้องการออกจากระบบหรือไม่?", preferredStyle: UIAlertController.Style.actionSheet)
         let logOutButton = UIAlertAction(title: "ออกจากระบบ", style: UIAlertAction.Style.destructive){(select) in
@@ -150,7 +155,11 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                  print(self.amintbId)
             adminSettingViewController.adSId = self.amintbId
              }
-        
+        if segue.identifier == "searchCell"{
+                 let searchTableViewController = segue.destination as! searchTableViewController
+                 print(self.amintbId)
+            searchTableViewController.searchId = self.amintbId
+             }
     }
 
     /*
