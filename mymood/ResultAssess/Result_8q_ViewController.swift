@@ -206,7 +206,7 @@ class Result_8q_ViewController: UIViewController {
                 }else if self.result == 0 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะฆ่าตัวตายในปัจจุบัน", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "toAddmood", sender: self)
+                        self.performSegue(withIdentifier: "toaddMood", sender: self)
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -218,7 +218,7 @@ class Result_8q_ViewController: UIViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toAddmood"{
+        if segue.identifier == "toaddMood"{
             let addmoodViewController = segue.destination as! Addmood_ViewController
             addmoodViewController.amId = self.q8Id
         }

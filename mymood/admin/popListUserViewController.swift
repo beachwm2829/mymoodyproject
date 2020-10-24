@@ -23,8 +23,11 @@ class popListUserViewController: UIViewController {
     @IBOutlet weak var lbmail: UILabel!
     @IBOutlet weak var lbtel: UILabel!
     
+    
+    @IBOutlet weak var switst: UISwitch!
     var popListUserId:String?
     var statusTrack:Bool = true
+    var stTrack:String?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +52,17 @@ class popListUserViewController: UIViewController {
                     self.lbadrees.text = aListUser["adress"].stringValue
                     self.lbmail.text = aListUser["email"].stringValue
                     self.lbtel.text = aListUser["phone"].stringValue
+                    self.stTrack = aListUser["trackingstatus"].stringValue
                     let imgprofile = aListUser["img"].stringValue
                     let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
                     self.imgProfile.kf.setImage(with: url)
-//                    print("ListUsers\(self.ListUsers)")
+                    print("stTrack\(self.stTrack)")
+                    
+                    if self.stTrack == "0"{
+                        self.switst.isOn = false
+                    }else{
+                        self.switst.isOn = true
+                    }
                 }
             }catch{
             }
@@ -106,14 +116,47 @@ class popListUserViewController: UIViewController {
 //totraking
     
     @IBAction func swTracking(_ sender: UISwitch) {
+        let url = "http://project2.cocopatch.com/Moody/updateStatusTrack.php?"
+        
+        
         if sender.isOn == true{
-            statusTrack = true
-            print(statusTrack)
+            stTrack = "1"
+            let param : Parameters = ["u_id":self.popListUserId as AnyObject,"trackingstatus":self.stTrack as AnyObject]
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title: "เปิดการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+//                        self.navigationController!.popViewController(animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
         if sender.isOn == false{
-            statusTrack = false
-            print(statusTrack)
+            stTrack = "0"
+            let param : Parameters = ["u_id":self.popListUserId as AnyObject,"trackingstatus":self.stTrack as AnyObject]
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title: "ปิดการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+//                        self.navigationController!.popViewController(animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
+        print(stTrack)
+
     }
     
     /*

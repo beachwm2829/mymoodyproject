@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import Kingfisher
+import SwiftyJSON
 
 class settingTableViewController: UITableViewController {
 
     var stId :String?
+    var stTrack :String?
     
     @IBOutlet weak var toFromTrackkking: UITableViewCell!
     
@@ -18,6 +22,24 @@ class settingTableViewController: UITableViewController {
         super.viewDidLoad()
         print(stId)
         print(toFromTrackkking)
+        
+        let url = "http://project2.cocopatch.com/Moody/"
+        let param : Parameters = ["u_id":self.stId as AnyObject]
+        
+        AF.request(url+"getProfile.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
+            do {
+                //print("do")
+                let jsondata = try JSON(data: response.data!)
+                print("this here popuser")
+                let ListUserArray = jsondata["success"].arrayValue
+                for aListUser in ListUserArray {
+                    self.stTrack = aListUser["trackingstatus"].stringValue
+                    print("stTrack\(self.stTrack)")
+
+                }
+            }catch{
+            }
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -27,10 +49,21 @@ class settingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("IndexPath: :\(indexPath)")
         if indexPath == [2, 0] {
-            performSegue(withIdentifier: "toFromTrackmb", sender: self)
+            if stTrack == "1" {
+                performSegue(withIdentifier: "toFromTrackmb", sender: self)
+            }else{
+               print("stTrack\(stTrack)")
+                
+            }
+            
         }
         if indexPath == [0, 0] {
             performSegue(withIdentifier: "toupdateprofile", sender: self)
+        }
+        if indexPath == [3, 0] {
+            print("exit")
+            self.dismiss(animated: true, completion: nil)
+
         }
         
     }
@@ -39,9 +72,13 @@ class settingTableViewController: UITableViewController {
             let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
             trackingmbTableViewController.tackId = stId
         }
-        if segue.identifier == "toupdateprofile"{
-            let manaProfileViewController = segue.destination as! manaProfileViewController
-            manaProfileViewController.rcId = stId
+        if stTrack == "1" {
+            if segue.identifier == "toupdateprofile"{
+                let manaProfileViewController = segue.destination as! manaProfileViewController
+                manaProfileViewController.rcId = stId
+            }
+        }else{
+            print("stTrack\(stTrack)")
         }
     }
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
