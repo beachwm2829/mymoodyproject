@@ -60,10 +60,20 @@ class settingTableViewController: UITableViewController {
         if indexPath == [0, 0] {
             performSegue(withIdentifier: "toupdateprofile", sender: self)
         }
+        if indexPath == [1, 0] {
+            performSegue(withIdentifier: "toAdvice", sender: self)
+        }
         if indexPath == [3, 0] {
             print("exit")
+            let actionSheet = UIAlertController(title: nil, message: "ต้องการออกจากระบบหรือไม่?", preferredStyle: UIAlertController.Style.actionSheet)
+            let logOutButton = UIAlertAction(title: "ออกจากระบบ", style: UIAlertAction.Style.destructive){(select) in
             self.dismiss(animated: true, completion: nil)
+            }
 
+            let cancleButton = UIAlertAction(title: "ยกเลิก", style: UIAlertAction.Style.cancel){(select) in}
+                actionSheet.addAction(logOutButton)
+                actionSheet.addAction(cancleButton)
+                self.present(actionSheet, animated: true, completion: nil)
         }
         
     }
@@ -71,6 +81,10 @@ class settingTableViewController: UITableViewController {
         if segue.identifier == "toFromTrackmb"{
             let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
             trackingmbTableViewController.tackId = stId
+        }
+        if segue.identifier == "toAdvice"{
+            let AdviceTableViewController = segue.destination as! AdviceTableViewController
+            AdviceTableViewController.AdvId = stId
         }
         if stTrack == "1" {
             if segue.identifier == "toupdateprofile"{

@@ -16,7 +16,7 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     
     var adSId:String?
     
-    @IBOutlet weak var tfUsername: UITextField!
+    
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfFname: UITextField!
     @IBOutlet weak var tfLname: UITextField!
@@ -58,7 +58,7 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
                 let ListUserArray = jsondata["success"].arrayValue
                 for aListUser in ListUserArray {
                     let popListUserId = aListUser["u_id"].stringValue
-                    self.tfUsername.text = aListUser["username"].stringValue
+                    
                     self.tfPassword.text = aListUser["password"].stringValue
                     
                     let name = aListUser["name"].stringValue
@@ -176,7 +176,6 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     @IBAction func btCreateAccount(_ sender: Any) {
         let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
         let param : Parameters = [
-            "username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,
             "fname":tfFname.text! as AnyObject,
             "lname":tfLname.text! as AnyObject,

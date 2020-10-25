@@ -61,16 +61,28 @@ print(rcId)
                 for aTrackFrom in TrackFromArray {
                     let popListUserId = aTrackFrom["u_id"].stringValue
                     self.tfPassword.text = aTrackFrom["password"].stringValue
-                    self.tfFname.text = aTrackFrom["name"].stringValue
-//                    self.lbbirth.text = aListUser["birthdate"].stringValue
-//                    self.lbdisease.text = aListUser["disease"].stringValue
-//                    self.lbadrees.text = aListUser["adress"].stringValue
-//                    self.lbmail.text = aListUser["email"].stringValue
-//                    self.lbtel.text = aListUser["phone"].stringValue
-//                    let imgprofile = aListUser["img"].stringValue
-//                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-//                    self.imgProfile.kf.setImage(with: url)
-//                    print("ListUsers\(self.ListUsers)")
+                    let name = aTrackFrom["name"].stringValue
+                    let nameArr = name.components(separatedBy: " ")
+                    
+                    if (nameArr.count == 0) {
+                        self.tfFname.text = ""
+                        self.tfLname.text = ""
+                    }else if (nameArr.count == 1) {
+                        self.tfFname.text = nameArr[0]
+                        self.tfLname.text = ""
+                    }else if (nameArr.count == 2) {
+                        self.tfFname.text = nameArr[0]
+                        self.tfLname.text = nameArr[1]
+                    }
+                    self.tfBirth.text = aTrackFrom["birthdate"].stringValue
+                    self.tfDisease.text = aTrackFrom["disease"].stringValue
+                    self.tfAddress.text = aTrackFrom["adress"].stringValue
+                    self.tfEmail.text = aTrackFrom["email"].stringValue
+                    self.tfPhone.text = aTrackFrom["phone"].stringValue
+                    let imgprofile = aTrackFrom["img"].stringValue
+                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.img.kf.setImage(with: url)
+                    
                 }
             }catch{print("goal => ")
             }

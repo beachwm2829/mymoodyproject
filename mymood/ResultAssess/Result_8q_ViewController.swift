@@ -200,7 +200,7 @@ class Result_8q_ViewController: UIViewController {
                     }
                     let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะฆ่าตัวตายในปัจจุบันใน \(self.rated)", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "toAddmood", sender: self)
+                        self.performSegue(withIdentifier: "toaddMood", sender: self)
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }else if self.result == 0 {
