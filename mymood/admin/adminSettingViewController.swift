@@ -25,6 +25,7 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     @IBOutlet weak var tfBirth: UITextField!
     @IBOutlet weak var tfAddress: UITextField!
     
+    var gender:String?
     
     
     @IBOutlet weak var btMale: UIButton!
@@ -36,7 +37,7 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     var word = ""
     var photoBase64:String?
     var nameArr:String?
-    var gender = ""
+    var chgender:String?
     var status : Int?
     
     override func viewDidLoad() {
@@ -57,7 +58,7 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
                 print("this here popuser")
                 let ListUserArray = jsondata["success"].arrayValue
                 for aListUser in ListUserArray {
-                    let popListUserId = aListUser["u_id"].stringValue
+                    self.adSId = aListUser["u_id"].stringValue
                     
                     self.tfPassword.text = aListUser["password"].stringValue
                     
@@ -76,12 +77,25 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
                     }
                     self.tfEmail.text = aListUser["email"].stringValue
                     self.tfPhone.text = aListUser["phone"].stringValue
+                    self.chgender = aListUser["gender"].stringValue
                     self.tfBirth.text = aListUser["birthdate"].stringValue
                     self.tfAddress.text = aListUser["address"].stringValue
                     let imgprofile = aListUser["img"].stringValue
                     let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
                     self.img.kf.setImage(with: url)
 //                    print("ListUsers\(self.ListUsers)")
+                    
+//                    print(self.chgender!.lowercased())
+                    if(self.chgender!.lowercased() == "male"){
+                        self.btMale.isSelected = true
+                        self.btFemale.isSelected = false
+                        self.chgender! = "male"
+                    }else if(self.chgender!.lowercased() == "female"){
+                        self.btMale.isSelected = false
+                        self.btFemale.isSelected = true
+                        self.chgender! = "female"
+                    }
+                    
                 }
             }catch{
             }
@@ -173,21 +187,22 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
         }
     }
 
-    @IBAction func btCreateAccount(_ sender: Any) {
-        let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
+    @IBAction func btUpdteAccount(_ sender: Any) {
+        let url = "http://project2.cocopatch.com/Moody/Updatemember.php?"
         let param : Parameters = [
-            "password":tfPassword.text! as AnyObject,
-            "fname":tfFname.text! as AnyObject,
-            "lname":tfLname.text! as AnyObject,
-            "gender":gender as AnyObject,
-            "birthdate":tfBirth.text! as AnyObject,
-            "phone":tfPhone.text! as AnyObject,
-            "address":tfAddress.text! as AnyObject,
-            "email":tfEmail.text! as AnyObject,
-            "img":word as AnyObject,
-            "status":status as AnyObject
+            "u_id":adSId as AnyObject,
+            "mode":"admin" as AnyObject,
+           "password":tfPassword.text! as AnyObject,
+           "fname":tfFname.text! as AnyObject,
+           "lname":tfLname.text! as AnyObject,
+           "gender":chgender as AnyObject,
+           "birthdate":tfBirth.text! as AnyObject,
+           "phone":tfPhone.text! as AnyObject,
+           "address":tfAddress.text! as AnyObject,
+           "email":tfEmail.text! as AnyObject,
+           "img":word as AnyObject
         ]
-        
+        print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):

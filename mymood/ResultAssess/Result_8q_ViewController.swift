@@ -178,7 +178,7 @@ class Result_8q_ViewController: UIViewController {
         let dateString = formatter.string(from: date)
         print(dateString)
         
-        let url = "https://moodapi.000webhostapp.com/DBMoody/assessment.php?"
+        let url = "http://project2.cocopatch.com/Moody/assessment.php?"
         let param : Parameters = [
             "assess":assess as AnyObject,
             "result":result as AnyObject,
@@ -200,13 +200,13 @@ class Result_8q_ViewController: UIViewController {
                     }
                     let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะฆ่าตัวตายในปัจจุบันใน \(self.rated)", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "toaddMood", sender: self)
+                        //self.performSegue(withIdentifier: "toaddMood", sender: self)
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }else if self.result == 0 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะฆ่าตัวตายในปัจจุบัน", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "toaddMood", sender: self)
+//                        self.performSegue(withIdentifier: "toaddMood", sender: self)
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -217,12 +217,12 @@ class Result_8q_ViewController: UIViewController {
             }
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toaddMood"{
-            let addmoodViewController = segue.destination as! Addmood_ViewController
-            addmoodViewController.amId = self.q8Id
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toaddMood"{
+//            let addmoodViewController = segue.destination as! Addmood_ViewController
+//            addmoodViewController.amId = self.q8Id
+//        }
+//    }
     /*
     // MARK: - Navigation
 

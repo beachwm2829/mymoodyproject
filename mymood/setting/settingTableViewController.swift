@@ -78,23 +78,25 @@ class settingTableViewController: UITableViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toFromTrackmb"{
-            let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
-            trackingmbTableViewController.tackId = stId
-        }
+        
         if segue.identifier == "toAdvice"{
             let AdviceTableViewController = segue.destination as! AdviceTableViewController
             AdviceTableViewController.AdvId = stId
         }
+        if segue.identifier == "toupdateprofile"{
+            let manaProfileViewController = segue.destination as! manaProfileViewController
+            manaProfileViewController.rcId = stId
+        }
         if stTrack == "1" {
-            if segue.identifier == "toupdateprofile"{
-                let manaProfileViewController = segue.destination as! manaProfileViewController
-                manaProfileViewController.rcId = stId
+            if segue.identifier == "toFromTrackmb"{
+                let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
+                trackingmbTableViewController.tackId = stId
             }
         }else{
             print("stTrack\(stTrack)")
         }
     }
+    //manaProfileViewController
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
 //
 //    if (segue.identifier == "yourSegueIdentifer") {

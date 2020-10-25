@@ -801,7 +801,6 @@
                         <outlet property="btTure_q2_r1" destination="1fV-LD-JWL" id="qyK-AP-vfg"/>
                         <outlet property="btTure_q2_r2" destination="vxe-um-YmF" id="TfO-nV-3au"/>
                         <segue destination="XDx-b2-JUX" kind="show" identifier="to9q" id="1ch-zX-B12"/>
-                        <segue destination="rFj-ns-mPt" kind="show" identifier="toaddMood" id="pVJ-PC-wek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1734,7 +1733,6 @@
                         <outlet property="bt4_q9_r8" destination="gAR-6l-p2F" id="lPr-t6-vU4"/>
                         <outlet property="bt4_q9_r9" destination="0Ry-lW-uqk" id="3pH-6x-cRd"/>
                         <segue destination="J89-99-xy3" kind="show" identifier="to8q" id="IR2-vL-4iQ"/>
-                        <segue destination="rFj-ns-mPt" kind="show" identifier="toaddMood" id="GfW-bK-9BS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2250,7 +2248,6 @@
                         <outlet property="btTure_q8_r6" destination="ar5-oL-T9S" id="HYw-ve-xkD"/>
                         <outlet property="btTure_q8_r7" destination="JzP-TU-S4C" id="ML4-cE-PNd"/>
                         <outlet property="btTure_q8_r8" destination="7v4-FH-rOk" id="mGm-ri-1Yq"/>
-                        <segue destination="rFj-ns-mPt" kind="show" identifier="toaddMood" id="U5r-QQ-uBX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2487,11 +2484,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssessmentCell" rowHeight="167" id="VRW-ds-DLe" customClass="Assessment_TableViewCell" customModule="mymood" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="167"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AssessmentCell" rowHeight="409" id="VRW-ds-DLe" customClass="Assessment_TableViewCell" customModule="mymood" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="409"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VRW-ds-DLe" id="61F-VX-prO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="167"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fji-kh-iGr">
@@ -2535,8 +2532,8 @@
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" image="timer" catalog="system"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-WB-hmY">
-                                            <rect key="frame" x="20" y="80" width="374" height="65"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="note" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-WB-hmY">
+                                            <rect key="frame" x="20" y="80" width="374" height="311"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -2732,9 +2729,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btCreateAccount:" destination="by1-Yf-cXy" eventType="touchUpInside" id="qCy-WU-ioN"/>
                                     <action selector="btEditAccount:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="b8Y-TC-DHm"/>
-                                    <action selector="btUpdateAcount:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="GYi-YC-nRk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v06-Vi-Bi5">
@@ -2851,6 +2846,7 @@
                     <navigationItem key="navigationItem" title="ผลแบบประเมินโรคซึมเศร้า" id="fV7-Hr-BKw">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="xyc-XD-6y2">
                             <connections>
+                                <action selector="toQ2As:" destination="KGh-8t-yFc" id="tOv-oJ-H1K"/>
                                 <segue destination="6Jm-gS-MDG" kind="show" identifier="toAses" id="hfT-iq-6k1"/>
                             </connections>
                         </barButtonItem>
@@ -3443,6 +3439,19 @@
                                 </state>
                                 <connections>
                                     <action selector="btCreateAccount:" destination="by1-Yf-cXy" eventType="touchUpInside" id="Ol9-ws-aEg"/>
+                                    <action selector="btUpdteAccount:" destination="H0w-dy-DGB" eventType="touchUpInside" id="9jK-le-UgR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3l5-nT-uRo">
+                                <rect key="frame" x="154" y="58" width="105" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="btProfile:" destination="H0w-dy-DGB" eventType="touchUpInside" id="rO5-Pp-TSl"/>
+                                    <action selector="btProfile:" destination="by1-Yf-cXy" eventType="touchUpInside" id="yTb-xf-f4q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4550,7 +4559,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U5r-QQ-uBX"/>
         <segue reference="hfT-iq-6k1"/>
     </inferredMetricsTieBreakers>
     <resources>

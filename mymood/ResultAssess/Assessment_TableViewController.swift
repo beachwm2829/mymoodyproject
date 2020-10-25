@@ -41,6 +41,9 @@ class Assessment_TableViewController: UITableViewController {
     }
     // MARK: - Table view data source
     
+    @IBAction func toQ2As(_ sender: Any) {
+        self.performSegue(withIdentifier: "toAses", sender: self)
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssessmentCell", for: indexPath) as? Assessment_TableViewCell
         let index = AssData[indexPath.row]
@@ -80,12 +83,10 @@ class Assessment_TableViewController: UITableViewController {
          }
      }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "toAses"{
-            if let assessVc = segue.destination as? UINavigationController,
-               let targetController = assessVc.topViewController as? Result_q2_ViewController {
-                targetController.q2Id = self.asId
-                
-            }
+            let Result_q2_ViewController = segue.destination as! Result_q2_ViewController
+            Result_q2_ViewController.q2Id = self.asId
         }
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

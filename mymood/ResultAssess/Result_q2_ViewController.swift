@@ -27,7 +27,7 @@ class Result_q2_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("q2Id\(q2Id)")
     }
     
     
@@ -74,7 +74,7 @@ class Result_q2_ViewController: UIViewController {
         print(dateString)
         
         
-        let url = "https://moodapi.000webhostapp.com/DBMoody/assessment.php?"
+        let url = "http://project2.cocopatch.com/Moody/assessment.php?"
         let param : Parameters = [
             "assess":assess as AnyObject,
             "result":result as AnyObject,
@@ -95,7 +95,8 @@ class Result_q2_ViewController: UIViewController {
                 }else if self.result == 0 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "toaddMood", sender: self)
+                        self.navigationController!.popViewController(animated: true)
+                        
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -116,10 +117,10 @@ class Result_q2_ViewController: UIViewController {
             let Result_q9_viewController = segue.destination as! Result_q9_ViewController
             Result_q9_viewController.q9Id = self.q2Id
         }
-        if segue.identifier == "toaddMood"{
-            let addmoodViewController = segue.destination as! Addmood_ViewController
-            addmoodViewController.amId = self.q2Id
-        }
+//        if segue.identifier == "toaddMood"{
+//            let addmoodViewController = segue.destination as! Addmood_ViewController
+//            addmoodViewController.amId = self.q2Id
+//        }
     }
     /*
     // MARK: - Navigation

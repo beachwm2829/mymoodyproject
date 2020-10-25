@@ -37,10 +37,11 @@ class manaProfileViewController: UIViewController,UIImagePickerControllerDelegat
        var rcId : String?
        var gender = ""
        var status : Int?
+    var chgender:String?
        
        override func viewDidLoad() {
            super.viewDidLoad()
-           
+           print(rcId)
            createDatePicker()
            
            let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecongizer: )))
@@ -59,7 +60,7 @@ print(rcId)
                 let TrackFromArray = jsondata["success"].arrayValue
                 print("Array\(TrackFromArray)")
                 for aTrackFrom in TrackFromArray {
-                    let popListUserId = aTrackFrom["u_id"].stringValue
+                    self.rcId = aTrackFrom["u_id"].stringValue
                     self.tfPassword.text = aTrackFrom["password"].stringValue
                     let name = aTrackFrom["name"].stringValue
                     let nameArr = name.components(separatedBy: " ")
@@ -76,12 +77,23 @@ print(rcId)
                     }
                     self.tfBirth.text = aTrackFrom["birthdate"].stringValue
                     self.tfDisease.text = aTrackFrom["disease"].stringValue
+                    self.chgender = aTrackFrom["gender"].stringValue
                     self.tfAddress.text = aTrackFrom["adress"].stringValue
                     self.tfEmail.text = aTrackFrom["email"].stringValue
                     self.tfPhone.text = aTrackFrom["phone"].stringValue
                     let imgprofile = aTrackFrom["img"].stringValue
                     let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
                     self.img.kf.setImage(with: url)
+                    
+                    if(self.chgender!.lowercased() == "male"){
+                        self.btMale.isSelected = true
+                        self.btFemale.isSelected = false
+                        self.chgender! = "male"
+                    }else if(self.chgender!.lowercased() == "female"){
+                        self.btMale.isSelected = false
+                        self.btFemale.isSelected = true
+                        self.chgender! = "female"
+                    }
                     
                 }
             }catch{print("goal => ")
@@ -178,21 +190,22 @@ print(rcId)
 
        
        @IBAction func btEditAccount(_ sender: Any) {
-           let url = "https://moodapi.000webhostapp.com/DBMoody/register.php?"
+           let url = "http://project2.cocopatch.com/Moody/Updatemember.php?"
            let param : Parameters = [
+                "u_id":rcId as AnyObject,
+                "mode":"member" as AnyObject,
                "password":tfPassword.text! as AnyObject,
                "fname":tfFname.text! as AnyObject,
                "lname":tfLname.text! as AnyObject,
-               "gender":gender as AnyObject,
+               "gender":chgender as AnyObject,
                "birthdate":tfBirth.text! as AnyObject,
                "phone":tfPhone.text! as AnyObject,
                "address":tfAddress.text! as AnyObject,
                "disease":tfDisease.text! as AnyObject,
                "email":tfEmail.text! as AnyObject,
-               "img":word as AnyObject,
-               "status":status as AnyObject
+               "img":word as AnyObject
            ]
-           
+           print(param)
            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
            switch response.result {
                case .success(_):
