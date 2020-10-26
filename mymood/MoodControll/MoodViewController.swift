@@ -110,6 +110,10 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         pm?.date = index.time
         var imgMoods = "mood"+index.mood
         pm?.imgMood = UIImage(named: imgMoods)!
+        var imgAv = index.activity
+        pm?.imgActivi = UIImage(named: imgAv)!
+        
+        
         
         self.navigationController?.pushViewController(pm!, animated: true)
     }

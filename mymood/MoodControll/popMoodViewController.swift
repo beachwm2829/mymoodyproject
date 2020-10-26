@@ -16,6 +16,7 @@ class popMoodViewController: UIViewController {
     
     @IBOutlet weak var imgview: UIImageView!
     @IBOutlet weak var imgMoods: UIImageView!
+    @IBOutlet weak var imgActivity: UIImageView!
     @IBOutlet weak var lblocation: UILabel!
     @IBOutlet weak var lbnote: UILabel!
     @IBOutlet weak var lbtag: UILabel!
@@ -26,6 +27,7 @@ class popMoodViewController: UIViewController {
     var tag = ""
     var note = ""
     var location = ""
+    var imgActivi = UIImage()
     var imgMood = UIImage()
     var image = ""
     
@@ -36,10 +38,12 @@ class popMoodViewController: UIViewController {
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(image)")
         imgview.kf.setImage(with: url)
         imgMoods.image = imgMood
+        imgActivity.image = imgActivi
         lblocation.text = "\(location)"
         lbnote.text = "\(note)"
         lbtag.text = "\(tag)"
         lbdate.text = "\(date)"
+        
         
         
         // Do any additional setup after loading the view.
