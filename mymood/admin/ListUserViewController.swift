@@ -161,7 +161,35 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
             searchTableViewController.searchId = self.amintbId
              }
     }
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let user = ListUsers[indexPath.row]
+            let url = "http://project2.cocopatch.com/Moody/"
+            let param : Parameters = [
+                "cid":user.sickid as AnyObject,
+                "mode":"delete" as AnyObject
+            ]
+            AF.request(url+"Updatemember.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+                switch response.result {
+                    case .success(_):
+                        let alert = UIAlertController(title: "ลบสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                            self.tableView.reloadData()
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ไม่สามารถลบสมาชิกได้", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.tableView.reloadData()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            ListUsers.removeAll()
+            getListUser()
+            self.tableView.reloadData()
+        }
+    }
     /*
     // MARK: - Navigation
 
