@@ -96,7 +96,8 @@ class Result_q2_ViewController: UIViewController {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                         self.navigationController!.popViewController(animated: true)
-                        
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
+                        self.present(vc, animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
