@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         loginBT.layer.cornerRadius = 20.0
         createBT.layer.cornerRadius = 20.0
+        tfUsername.text = ""
+        tfPassword.text = ""
         lbInvalid.isHidden = true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

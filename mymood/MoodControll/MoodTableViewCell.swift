@@ -20,6 +20,8 @@ class MoodTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        lbNote.numberOfLines = 3
         // Initialization code
     }
 

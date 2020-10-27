@@ -156,6 +156,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         let url = "http://project2.cocopatch.com/Moody/register.php?"
         let param : Parameters = ["username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,
+            "mode":"register" as AnyObject,
             "fname":tfFname.text! as AnyObject,
             "lname":tfLname.text! as AnyObject,
             "gender":gender as AnyObject,

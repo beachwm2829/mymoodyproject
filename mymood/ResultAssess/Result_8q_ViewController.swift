@@ -200,13 +200,15 @@ class Result_8q_ViewController: UIViewController {
                     }
                     let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะฆ่าตัวตายในปัจจุบันใน \(self.rated)", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        //self.performSegue(withIdentifier: "toaddMood", sender: self)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
+                        self.present(vc, animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }else if self.result == 0 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะฆ่าตัวตายในปัจจุบัน", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-//                        self.performSegue(withIdentifier: "toaddMood", sender: self)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
+                        self.present(vc, animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
