@@ -49,13 +49,20 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.performSegue(withIdentifier: "toAddmood", sender: self)
     }
     
+    @IBAction func btsearchMood(_ sender: Any) {
+        self.performSegue(withIdentifier: "tosearchMood", sender: self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddmood"{
             let AddmoodViewcontroller = segue.destination as! Addmood_ViewController
             AddmoodViewcontroller.amId = self.mvId
         }
+        if segue.identifier == "tosearchMood"{
+            let searchMoodViewController = segue.destination as! searchMoodViewController
+            searchMoodViewController.mvId = self.mvId
+        }
     }
-    
+    //tosearchMood
     func getDate(){
         let date = Date()
         let formatter = DateFormatter()

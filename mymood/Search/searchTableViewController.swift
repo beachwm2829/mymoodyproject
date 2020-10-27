@@ -131,9 +131,6 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
                 print(i)
             }
         }
-        
-        
-        
         self.tableView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
