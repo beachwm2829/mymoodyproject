@@ -207,8 +207,9 @@ class Result_8q_ViewController: UIViewController {
                 }else if self.result == 0 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะฆ่าตัวตายในปัจจุบัน", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
-                        self.present(vc, animated: true, completion: nil)
+                        self.performSegue(withIdentifier: "toTabbar", sender: self)
+//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
+//                        self.present(vc, animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -219,20 +220,10 @@ class Result_8q_ViewController: UIViewController {
             }
         }
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toaddMood"{
-//            let addmoodViewController = segue.destination as! Addmood_ViewController
-//            addmoodViewController.amId = self.q8Id
-//        }
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toTabbar"{
+            let TabbarController = segue.destination as! TabBarController
+            TabbarController.tbId = self.q8Id
+        }
     }
-    */
-
 }

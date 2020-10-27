@@ -27,7 +27,7 @@ class Result_q2_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("q2Id\(q2Id)")
+        print("q2Id \(q2Id)")
     }
     
     
@@ -79,6 +79,7 @@ class Result_q2_ViewController: UIViewController {
             "assess":assess as AnyObject,
             "result":result as AnyObject,
             "time":time as AnyObject,
+            "date":dateString as AnyObject,
             "u_id":q2Id as AnyObject
         ]
 
@@ -95,9 +96,9 @@ class Result_q2_ViewController: UIViewController {
                 }else if self.result == 0 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
-                        self.present(vc, animated: true, completion: nil)
+                        self.performSegue(withIdentifier: "toTabbar", sender: self)
+//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
+//                        self.present(vc, animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
                     
@@ -118,19 +119,10 @@ class Result_q2_ViewController: UIViewController {
             let Result_q9_viewController = segue.destination as! Result_q9_ViewController
             Result_q9_viewController.q9Id = self.q2Id
         }
-//        if segue.identifier == "toaddMood"{
-//            let addmoodViewController = segue.destination as! Addmood_ViewController
-//            addmoodViewController.amId = self.q2Id
-//        }
+        if segue.identifier == "toTabbar"{
+            let TabbarController = segue.destination as! TabBarController
+            TabbarController.tbId = self.q2Id
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

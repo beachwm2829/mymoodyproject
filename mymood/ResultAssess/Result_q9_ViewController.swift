@@ -377,10 +377,8 @@ class Result_q9_ViewController: UIViewController {
                 }else if self.result <= 6 {
                     let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-//                        self.performSegue(withIdentifier: "toaddMood", sender: self)
+                        self.performSegue(withIdentifier: "toTabbar", sender: self)
                     }))
-                    self.present(alert, animated: true, completion: nil)
-                    
             }
             case .failure(_):
                 print("fail")
@@ -394,10 +392,10 @@ class Result_q9_ViewController: UIViewController {
             let Result_8q_viewController = segue.destination as! Result_8q_ViewController
             Result_8q_viewController.q8Id = self.q9Id
         }
-//        if segue.identifier == "toaddMood"{
-//            let addmoodViewController = segue.destination as! Addmood_ViewController
-//            addmoodViewController.amId = self.q9Id
-//        }
+        if segue.identifier == "toTabbar"{
+            let TabbarController = segue.destination as! TabBarController
+            TabbarController.tbId = self.q9Id
+        }
     }
     
     /*

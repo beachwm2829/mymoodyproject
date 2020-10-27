@@ -642,7 +642,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PeD-wG-iPf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lif-5A-KOD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lif-5A-KOD" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8eQ-dS-m2h">
@@ -666,10 +666,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8e-ET-7zU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGN-j0-DP9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zpy-LB-9ZY">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -826,6 +826,7 @@
                         <outlet property="btTure_q2_r1" destination="1fV-LD-JWL" id="qyK-AP-vfg"/>
                         <outlet property="btTure_q2_r2" destination="vxe-um-YmF" id="TfO-nV-3au"/>
                         <segue destination="XDx-b2-JUX" kind="show" identifier="to9q" id="1ch-zX-B12"/>
+                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="8u9-zW-aqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -856,7 +857,7 @@
             </objects>
             <point key="canvasLocation" x="2552" y="130"/>
         </scene>
-        <!--ปฏิทินอารทณ์-->
+        <!--ปฏิทินอารมณ์-->
         <scene sceneID="743-Cl-WLW">
             <objects>
                 <viewController id="dQB-Kk-wXw" customClass="CalendarViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
@@ -866,7 +867,7 @@
                         <viewLayoutGuide key="safeArea" id="DXE-Bc-OJu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ปฏิทินอารทณ์" id="Asb-Cp-fA5"/>
+                    <navigationItem key="navigationItem" title="ปฏิทินอารมณ์" id="Asb-Cp-fA5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wR-b2-7Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -960,7 +961,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vy-fF-EyM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-Pe-tY4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
@@ -995,7 +996,7 @@
                                                     <action selector="btQ9_r1:" destination="XDx-b2-JUX" eventType="touchUpInside" id="51A-nQ-4F2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik1-dL-qBw">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik1-dL-qBw">
                                                 <rect key="frame" x="153" y="147" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="circle" catalog="system"/>
@@ -1686,13 +1687,6 @@
                                                     <action selector="save:" destination="XDx-b2-JUX" eventType="touchUpInside" id="ecM-Ho-NJx"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ต่อไป" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya5-Sp-CzE">
-                                                <rect key="frame" x="175" y="1355" width="53" height="28"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <color key="textColor" systemColor="systemBlueColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1758,6 +1752,7 @@
                         <outlet property="bt4_q9_r8" destination="gAR-6l-p2F" id="lPr-t6-vU4"/>
                         <outlet property="bt4_q9_r9" destination="0Ry-lW-uqk" id="3pH-6x-cRd"/>
                         <segue destination="J89-99-xy3" kind="show" identifier="to8q" id="IR2-vL-4iQ"/>
+                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="k7X-na-tXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1773,7 +1768,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIN-mx-4E8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9s-Rt-iWO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
@@ -2015,7 +2010,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ได้ทำให้ตนเองบาดเจ็บ แต่ไม่ตั้วใจที่จะทำ ให้เสียชีวิต" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJz-w6-7C8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ได้ทำให้ตนเองบาดเจ็บ แต่ไม่ตั้งใจที่จะทำ ให้เสียชีวิต" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJz-w6-7C8">
                                                 <rect key="frame" x="54" y="765" width="323" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2222,13 +2217,6 @@
                                                     <action selector="save:" destination="J89-99-xy3" eventType="touchUpInside" id="hp0-wd-q9Z"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ต่อไป" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npd-TF-rwd">
-                                                <rect key="frame" x="187" y="1333" width="53" height="28"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <color key="textColor" systemColor="systemBlueColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -2273,6 +2261,7 @@
                         <outlet property="btTure_q8_r6" destination="ar5-oL-T9S" id="HYw-ve-xkD"/>
                         <outlet property="btTure_q8_r7" destination="JzP-TU-S4C" id="ML4-cE-PNd"/>
                         <outlet property="btTure_q8_r8" destination="7v4-FH-rOk" id="mGm-ri-1Yq"/>
+                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="0eT-aU-19s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4584,7 +4573,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hfT-iq-6k1"/>
+        <segue reference="Nmv-iP-xMV"/>
+        <segue reference="iAu-nv-i1r"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>

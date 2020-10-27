@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let content = UNMutableNotificationContent()
-        content.title = "กรอกอารมณ์"
-        content.body = "12:30"
+        content.title = "MYMOODY"
+        content.body = "Welcome"
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Resultcell"{
+        if segue.identifier == "toAses"{
             let Result_q2 = segue.destination as! Result_q2_ViewController
                 Result_q2.q2Id = self.vcId
         }

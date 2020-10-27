@@ -67,7 +67,9 @@ class settingTableViewController: UITableViewController {
             print("exit")
             let actionSheet = UIAlertController(title: nil, message: "ต้องการออกจากระบบหรือไม่?", preferredStyle: UIAlertController.Style.actionSheet)
             let logOutButton = UIAlertAction(title: "ออกจากระบบ", style: UIAlertAction.Style.destructive){(select) in
-            self.dismiss(animated: true, completion: nil)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
             }
 
             let cancleButton = UIAlertAction(title: "ยกเลิก", style: UIAlertAction.Style.cancel){(select) in}
