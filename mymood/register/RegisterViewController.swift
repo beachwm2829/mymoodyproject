@@ -118,7 +118,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     }
     @objc func donePressed() {
         let fotmatter = DateFormatter()
-        fotmatter.dateFormat = "dd-MM-yyyy"
+        fotmatter.dateFormat = "yyyy-MM-dd"
     
         tfBirth.text = fotmatter.string(from: datePicker.date)
         self.view.endEditing(true)
@@ -148,7 +148,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         }
     }
     @IBAction func btback(_ sender: Any) {
-        self	.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     

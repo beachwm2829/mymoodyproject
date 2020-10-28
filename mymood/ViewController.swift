@@ -47,10 +47,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btLogin(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fcmToken = appDelegate.token
         let url = "http://project2.cocopatch.com/Moody/"
         let param : [String:AnyObject] = [
             "username":tfUsername.text! as AnyObject,
-            "password":tfPassword.text! as AnyObject]
+            "password":tfPassword.text! as AnyObject,
+            "fcmtoken":fcmToken as AnyObject
+        ]
         
         AF.request(url+"login.php?", method: .post, parameters: param,
                    encoding: JSONEncoding.default,

@@ -12,45 +12,68 @@ import CoreLocation
 import MapKit
 import GooglePlacesSearchController
 import UserNotifications
+import Firebase
 import FirebaseCore
 import FirebaseMessaging
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     let gcmMessageIDKey = "gcm.Message_ID"
+    var token = ""
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        GMSPlacesClient.provideAPIKey("AIzaSyCdKl6qkXJfGLCmBCc_aMOBPxdjg_GAfCQ")
+            FirebaseApp.configure()
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            
+            application.registerForRemoteNotifications()
+            Messaging.messaging().delegate = self
+        }
+        
+        func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+            print("Firebase registration token: \(fcmToken)")
+            self.token = fcmToken
+        }
+        
+        private func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+            Messaging.messaging().apnsToken = deviceToken as Data
+        }
     
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        GMSPlacesClient.provideAPIKey("AIzaSyAZKs6i7iYMwkktFX-_jOwvHBepNknz7_Q")
-//        GMSPlacesClient.provideAPIKey("AIzaSyA1FbI9wftayT11Ubw8LKDlf5FrZFy59xE")
-                
-        if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
-          UNUserNotificationCenter.current().delegate = self
-
-          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-          UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
-        } else {
-          let settings: UIUserNotificationSettings =
-          UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-          application.registerUserNotificationSettings(settings)
-        }
-
-        application.registerForRemoteNotifications()
-        
-        Messaging.messaging().delegate = self
-
-        
-        // Use Firebase library to configure APIs
-        FirebaseApp.configure()
-       
-        return true
-    }
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        // Override point for customization after application launch.
+//        GMSPlacesClient.provideAPIKey("AIzaSyAZKs6i7iYMwkktFX-_jOwvHBepNknz7_Q")
+////        GMSPlacesClient.provideAPIKey("AIzaSyA1FbI9wftayT11Ubw8LKDlf5FrZFy59xE")
+//
+//        if #available(iOS 10.0, *) {
+//          // For iOS 10 display notification (sent via APNS)
+//          UNUserNotificationCenter.current().delegate = self
+//
+//          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//          UNUserNotificationCenter.current().requestAuthorization(
+//            options: authOptions,
+//            completionHandler: {_, _ in })
+//        } else {
+//          let settings: UIUserNotificationSettings =
+//          UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+//          application.registerUserNotificationSettings(settings)
+//        }
+//
+//        application.registerForRemoteNotifications()
+//
+//        Messaging.messaging().delegate = self
+//
+//
+//        // Use Firebase library to configure APIs
+//        FirebaseApp.configure()
+//
+//        return true
+//    }
 
     // MARK: UISceneSession Lifecycle
 
@@ -80,20 +103,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Message ID: \(messageID)")
       }
 
-      // Print full message.
       print(userInfo)
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-      // If you are receiving a notification message while your app is in the background,
-      // this callback will not be fired till the user taps on the notification launching the application.
-      // TODO: Handle data of notification
-
-      // With swizzling disabled you must let Messaging know about the message, for Analytics
-      // Messaging.messaging().appDidReceiveMessage(userInfo)
-
-      // Print message ID.
       if let messageID = userInfo[gcmMessageIDKey] {
         print("Message ID: \(messageID)")
       }
@@ -103,23 +117,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       completionHandler(UIBackgroundFetchResult.newData)
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let deviceTokenString = deviceToken.hexString
-        print("TOKEN \(deviceTokenString)")
-    }
 }
 
-extension AppDelegate : MessagingDelegate {
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token: \(String(describing: fcmToken))")
-
-      let dataDict:[String: String] = ["token": fcmToken ?? ""]
-      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
-      // TODO: If necessary send token to application server.
-      // Note: This callback is fired at each app startup and whenever a new token is generated.
-    }
-}
+//extension AppDelegate : MessagingDelegate {
+//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+//      print("Firebase registration token: \(String(describing: fcmToken))")
+//
+//      let dataDict:[String: String] = ["token": fcmToken ?? ""]
+//      NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+//      // TODO: If necessary send token to application server.
+//      // Note: This callback is fired at each app startup and whenever a new token is generated.
+//    }
+//}
 
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
@@ -164,10 +173,10 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
   }
 }
 
-extension Data {
-    var hexString : String {
-        let hexString = map { String(format: "%02.2hhx", $0 )}.joined()
-        return hexString
-    }
-}
+//extension Data {
+//    var hexString : String {
+//        let hexString = map { String(format: "%02.2hhx", $0 )}.joined()
+//        return hexString
+//    }
+//}
 

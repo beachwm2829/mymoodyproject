@@ -60,6 +60,9 @@ class settingTableViewController: UITableViewController {
         if indexPath == [0, 0] {
             performSegue(withIdentifier: "toupdateprofile", sender: self)
         }
+        if indexPath == [0, 1] {
+            performSegue(withIdentifier: "toSetAlarm", sender: self)
+        }
         if indexPath == [1, 0] {
             performSegue(withIdentifier: "toAdvice", sender: self)
         }
@@ -82,6 +85,10 @@ class settingTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toAdvice"{
+            let AdviceTableViewController = segue.destination as! AdviceTableViewController
+            AdviceTableViewController.AdvId = stId
+        }
+        if segue.identifier == "toSetAlarm"{
             let AdviceTableViewController = segue.destination as! AdviceTableViewController
             AdviceTableViewController.AdvId = stId
         }

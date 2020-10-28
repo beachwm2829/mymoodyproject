@@ -28,21 +28,10 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 18.0)
         calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 16.0)
         
-        calendar.allowsMultipleSelection = true
+        calendar.allowsMultipleSelection = false
         
         calendar.dataSource = self
         calendar.delegate = self
-    }
-    
-    //MARK:- Datasource
-    
-    func minimumDate(for calendar: FSCalendar) -> Date {
-        return Date()
-    }
-    
-    func maximumDate(for calendar: FSCalendar) -> Date {
-        return Date().addingTimeInterval((24*60*60)*5)
-        
     }
     
     //MARK:- Delegate
