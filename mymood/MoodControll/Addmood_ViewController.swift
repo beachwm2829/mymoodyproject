@@ -146,6 +146,8 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let time = "\(hour):\(minutes):\(seconds)"
 
     let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en")
+    formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
     formatter.dateFormat = "yyyy-MM-dd"
     
     let dateString = formatter.string(from: date)

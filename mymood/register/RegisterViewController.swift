@@ -114,6 +114,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         tfBirth.inputView = datePicker
         
         datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
         
     }
     @objc func donePressed() {

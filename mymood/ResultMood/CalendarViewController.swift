@@ -15,6 +15,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     var calendar:FSCalendar!
     var formatter = DateFormatter()
+    
+    var dates = ["29-10-2020","30-10-2020","31-10-2020"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

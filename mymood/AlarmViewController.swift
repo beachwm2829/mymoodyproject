@@ -10,11 +10,15 @@ import UIKit
 
 class AlarmViewController: UIViewController {
 
-
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var alId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    @IBAction func SaveAlram(_ sender: Any) {
+        print(datePicker)
     }
     
 }

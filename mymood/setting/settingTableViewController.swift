@@ -40,11 +40,6 @@ class settingTableViewController: UITableViewController {
             }catch{
             }
         }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("IndexPath: :\(indexPath)")
@@ -89,8 +84,8 @@ class settingTableViewController: UITableViewController {
             AdviceTableViewController.AdvId = stId
         }
         if segue.identifier == "toSetAlarm"{
-            let AdviceTableViewController = segue.destination as! AdviceTableViewController
-            AdviceTableViewController.AdvId = stId
+            let AlarmViewController = segue.destination as! AlarmViewController
+            AlarmViewController.alId = stId
         }
         if segue.identifier == "toupdateprofile"{
             let manaProfileViewController = segue.destination as! manaProfileViewController
