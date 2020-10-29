@@ -25,15 +25,16 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
         let uId: String
         let User: String
         let Name: String
+        let img: String
     }
     
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     var ListUsers = [listUsr]()
-    var countryNameArr = [""]
+    var countryNameArr = [listUsr]()
     
-    var searchCounty = [String]()
+    var searchCounty = [listUsr]()
     var searching = false
     
     
@@ -41,9 +42,7 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         searchBar.delegate = self
-        
         searchCounty = countryNameArr
-        
         
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["u_id":self.searchId as AnyObject,"mode":"search" as AnyObject]
@@ -58,11 +57,14 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
                     let uId = aMood["u_id"].stringValue
                     let User = aMood["username"].stringValue
                     let Name = aMood["name"].stringValue
-                    self.countryNameArr.append(aMood["username"].stringValue)
-                    self.countryNameArr.append(aMood["name"].stringValue)
-                    let listU = listUsr(uId: uId, User: User, Name: Name)
+                    let arImage = aMood["image"].stringValue
+//                    self.countryNameArr.append(aMood["username"].stringValue)
+//                    self.countryNameArr.append(aMood["name"].stringValue)
+                    let listU = listUsr(uId: uId, User: User, Name: Name,img: arImage)
+                    self.countryNameArr.append(listU)
                     self.ListUsers.append(listU)
                     print("Name Name countryNameArr :\(self.countryNameArr)")
+//                    self.searchCounty = self.countryNameArr
                 }
                 self.tableView.reloadData()
             }catch{
@@ -83,24 +85,32 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
         return searchCounty.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? searchUserTableViewCell
+        let url = URL(string: "http://project2.cocopatch.com/searchUser/\(searchCounty[indexPath.row].img)")
 
-        cell?.textLabel?.text = searchCounty[indexPath.row]
+        cell?.name.text = searchCounty[indexPath.row].Name
+        cell?.user.text = searchCounty[indexPath.row].User
+        let imgs = searchCounty[indexPath.row].img
+        cell?.img.image = UIImage(named: imgs)
         return cell!
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 95
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = "http://project2.cocopatch.com/Moody/searchUser.php?"
+        
         let param : Parameters = [
             "cid":searchId! as AnyObject,
             "mode":"add" as AnyObject,
-            "u_id":u_id! as AnyObject,
-            "status":"0" as AnyObject
+            "u_id":searchCounty[indexPath.row].uId as AnyObject
         ]
         print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
-                let alert = UIAlertController(title: "ส่งคำขอเพื่อดูแลเรียบร้อย", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "เพิ่มการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
                 }))
@@ -114,24 +124,15 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        searchCounty = []
-        word = searchText
-        print("Word :\(word)")
-//        print("Name Name ListUser og:\(ListUsers)")
-        if searchText == "" {
-            searchCounty = countryNameArr
-        }else{
-            for i in ListUsers{
-                let namearr = i.Name
-                let userarr = i.User
-                self.u_id = i.uId
-                let finalString = [userarr, namearr].joined(separator: "\t")
-                if finalString.lowercased().contains(searchText.lowercased()){
-                    searchCounty.append(finalString)
-                }
-                print(i)
-            }
+        guard !searchText.isEmpty else {
+            searchCounty = []
+            tableView.reloadData()
+            return
         }
+        searchCounty = countryNameArr.filter({ listUsr -> Bool in
+            listUsr.User.contains(searchText.lowercased()) || listUsr.Name.contains(searchText.lowercased())
+            
+        })
         self.tableView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

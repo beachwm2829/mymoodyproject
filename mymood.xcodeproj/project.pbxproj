@@ -22,6 +22,7 @@
 		22480F3A25406E0D0030837E /* popfromtrackingmbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22480F3925406E0D0030837E /* popfromtrackingmbViewController.swift */; };
 		22480F3E254070A60030837E /* trackingmbTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22480F3D254070A60030837E /* trackingmbTableViewController.swift */; };
 		22480F42254074AA0030837E /* manaProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22480F41254074AA0030837E /* manaProfileViewController.swift */; };
+		224FC2AD254B4F9B00B526C5 /* searchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FC2AC254B4F9A00B526C5 /* searchUserTableViewCell.swift */; };
 		2258D54724EAE288001E1F12 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258D54624EAE288001E1F12 /* TabBarController.swift */; };
 		2258D54924EAE6B2001E1F12 /* Addmood_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258D54824EAE6B2001E1F12 /* Addmood_ViewController.swift */; };
 		2258D54B24EAE6CE001E1F12 /* Addmood_TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258D54A24EAE6CE001E1F12 /* Addmood_TableViewController.swift */; };
@@ -71,6 +72,7 @@
 		22480F3925406E0D0030837E /* popfromtrackingmbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popfromtrackingmbViewController.swift; sourceTree = "<group>"; };
 		22480F3D254070A60030837E /* trackingmbTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trackingmbTableViewController.swift; sourceTree = "<group>"; };
 		22480F41254074AA0030837E /* manaProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manaProfileViewController.swift; sourceTree = "<group>"; };
+		224FC2AC254B4F9A00B526C5 /* searchUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchUserTableViewCell.swift; sourceTree = "<group>"; };
 		2258D54624EAE288001E1F12 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2258D54824EAE6B2001E1F12 /* Addmood_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addmood_ViewController.swift; sourceTree = "<group>"; };
 		2258D54A24EAE6CE001E1F12 /* Addmood_TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addmood_TableViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		22AB903425432684007BAF70 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				224FC2AC254B4F9A00B526C5 /* searchUserTableViewCell.swift */,
 				22AB902C2543247C007BAF70 /* searchTableViewController.swift */,
 				22AB902B25432479007BAF70 /* SingleCellView.swift */,
 				F91CAF402507830800910D51 /* SearchViewController.swift */,
@@ -419,6 +422,7 @@
 				22480F32254049210030837E /* MoodForadminTableViewController.swift in Sources */,
 				22AB902E25432480007BAF70 /* searchTableViewController.swift in Sources */,
 				22480F3E254070A60030837E /* trackingmbTableViewController.swift in Sources */,
+				224FC2AD254B4F9B00B526C5 /* searchUserTableViewCell.swift in Sources */,
 				22352F1D2539ACF100E70F46 /* ListUserViewController.swift in Sources */,
 				F9FE602524E3C9EA009EA900 /* RegisterViewController.swift in Sources */,
 				22D692622534FCDF00AAA6C3 /* popMoodViewController.swift in Sources */,

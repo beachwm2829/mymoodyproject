@@ -12,7 +12,9 @@ import SwiftyJSON
 import Kingfisher
 import AlamofireObjectMapper
 
-class searchMoodViewController: UIViewController, UISearchBarDelegate {
+class searchMoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
+   
+    
 
     
     struct moodModel :Decodable {
@@ -27,7 +29,8 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
            let date :String
        }
     
-    var moodcount = 0
+    var moodcount:String = "0"
+    var ACtivitycount:String = "0"
     
     var word: String?
     
@@ -41,6 +44,9 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
     
     var MoodNameArr = [""]
     
+    var MoodArray = [moodModel]()
+    var CurrentMoodArray = [moodModel]()
+    
     var searchMood = [String]()
     var searching = false
     
@@ -50,6 +56,12 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var bt_mood4: UIButton!
     @IBOutlet weak var bt_mood5: UIButton!
      
+    @IBOutlet weak var bt_online_shopping: UIButton!
+    @IBOutlet weak var bt_entertainment: UIButton!
+    @IBOutlet weak var bt_yoga: UIButton!
+    @IBOutlet weak var bt_social_media: UIButton!
+
+    
     @IBOutlet weak var dateseach: UITextField!
     let datePicker = UIDatePicker()
     
@@ -87,14 +99,17 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
                     self.MoodNameArr.append(aMood["note"].stringValue)
                     self.MoodNameArr.append(aMood["hastag"].stringValue)
                     let mood = moodModel(mid: arId, mood: arMood, activity: arActivity, location: arLocation, note: arNote, hastag: arHastag, image: arImage, time: arTime, date: arDate)
-                    self.moods.append(mood)
-                    print(self.moods)
+                    self.MoodArray.append(mood)
+//                    print(self.MoodArray)
+                    self.CurrentMoodArray = self.MoodArray
+                    print("CurrentMoodArray\(self.CurrentMoodArray)")
                 }
                 self.tableView.reloadData()
             }catch{
                 self.tableView.reloadData()
             }
         }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -106,37 +121,64 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
             bt_mood4.isSelected = false
             bt_mood5.isSelected = false
             bt_mood5.isSelected = false
-            moodcount = 1
+            moodcount = "1"
         }else if sender.tag == 2 {
             bt_mood1.isSelected = false
             bt_mood2.isSelected = true
-            
             bt_mood3.isSelected = false
             bt_mood4.isSelected = false
             bt_mood5.isSelected = false
-            moodcount = 2
+            moodcount = "2"
         }else if sender.tag == 3 {
             bt_mood1.isSelected = false
             bt_mood2.isSelected = false
             bt_mood3.isSelected = true
             bt_mood4.isSelected = false
             bt_mood5.isSelected = false
-            moodcount = 3
+            moodcount = "3"
         }else if sender.tag == 4 {
             bt_mood1.isSelected = false
             bt_mood2.isSelected = false
             bt_mood3.isSelected = false
             bt_mood4.isSelected = true
             bt_mood5.isSelected = false
-            moodcount = 4
+            moodcount = "4"
         }else if sender.tag == 5 {
             bt_mood1.isSelected = false
             bt_mood2.isSelected = false
             bt_mood3.isSelected = false
             bt_mood4.isSelected = false
             bt_mood5.isSelected = true
-            moodcount = 5
+            moodcount = "5"
         }
+        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
+            moodModel.mood == moodcount
+        })
+        tableView.reloadData()
+    }
+    func ClearMood() {
+        bt_mood1.isSelected = false
+        bt_mood2.isSelected = false
+        bt_mood3.isSelected = false
+        bt_mood4.isSelected = false
+        bt_mood5.isSelected = false
+    }
+    @IBAction func action_Activity(_ sender: UIButton) {
+        
+        if sender.tag == 1{
+            ACtivitycount = "online-shopping"
+        }else if(sender.tag == 2){
+            ACtivitycount = "entertainment"
+        }else if(sender.tag == 3){
+            ACtivitycount = "yoga"
+        }else if(sender.tag == 4){
+            ACtivitycount = "social-media"
+        }
+        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
+            moodModel.activity == ACtivitycount
+            
+        })
+        tableView.reloadData()
     }
     func createDatePicker() {
         let toolbar = UIToolbar()
@@ -160,42 +202,54 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
     func getDate(){
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MMM"
+        formatter.locale = Locale(identifier: "en")
         let dateString = formatter.string(from: date)
+        
+        print("dateString\(dateString)")
+        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
+            moodModel.date == dateString
+            
+        })
+        tableView.reloadData()
 //        lbDatemood.text = "TODAY \(dateString)"
     }
     
 
     @IBAction func sement(_ sender: UISegmentedControl) {
-        
         switch sender.selectedSegmentIndex {
         case 0:
             print("1")
             dateView.isHidden = false
             activityView.isHidden = true
             moodView.isHidden = true
+            getDate()
+            ClearMood()
         case 1:
             print("2")
             dateView.isHidden = true
             activityView.isHidden = true
             moodView.isHidden = false
+            tableView.reloadData()
         case 2:
             print("3")
             dateView.isHidden = true
             moodView.isHidden = true
             activityView.isHidden = false
+            tableView.reloadData()
+            ClearMood()
         default:
             break
         }
     }
-   
-    override func viewWillAppear(_ animated: Bool) {
-        self.moods.removeAll()
-        self.viewDidLoad()
-    }
+
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.moods.removeAll()
+//        self.viewDidLoad()
+//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moods.count
+        return CurrentMoodArray.count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -203,19 +257,18 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  seachMoodTableViewCell
-        let index = moods[indexPath.row]
-        let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
-//        print("searchMood[indexPath.row]\(searchMood[indexPath.row])")
-        cell?.lbNote.text = searchMood[indexPath.row]
-//        cell?.textLabel?.text = searchMood[indexPath.row]
-        cell?.lbHastag.text = index.hastag
-        cell?.lbLocation.text = index.location
-        cell?.img.kf.setImage(with: url)
-        cell?.lbDate.text = index.time
-        var imgMood = "mood"+index.mood
-        cell?.imgMood.image = UIImage(named: imgMood)
-        return cell!
+                let url = URL(string: "http://project2.cocopatch.com/Moody/\(CurrentMoodArray[indexPath.row].image)")
+        //        print("searchMood[indexPath.row]\(searchMood[indexPath.row])")
+        cell?.lbNote!.text = CurrentMoodArray[indexPath.row].note
+        cell?.lbHastag!.text! = CurrentMoodArray[indexPath.row].hastag
+        cell?.lbLocation!.text = CurrentMoodArray[indexPath.row].location
+                cell?.img.kf.setImage(with: url)
+                cell?.lbDate.text = CurrentMoodArray[indexPath.row].time
+                let imgMood = "mood"+CurrentMoodArray[indexPath.row].mood
+                cell?.imgMood.image = UIImage(named: imgMood)
+                return cell!
     }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 110
@@ -237,29 +290,37 @@ class searchMoodViewController: UIViewController, UISearchBarDelegate {
         }
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        searchMood = []
-        word = searchText
-        print("Word :\(word)")
-//        print("Name Name ListUser og:\(ListUsers)")
-        if searchText == "" {
-            searchMood = MoodNameArr
-        }else{
-            for i in moods{
-                let namearr = i.note
-                let userarr = i.hastag
-//                self.u_id = i.mid
-                let finalString = [userarr, namearr].joined(separator: "\t")
-                if finalString.lowercased().contains(searchText.lowercased()){
-                    searchMood.append(finalString)
-                }
-                print(i)
-            }
+        guard !searchText.isEmpty else {
+            CurrentMoodArray = MoodArray
+            tableView.reloadData()
+            return
         }
-        self.tableView.reloadData()
+        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
+            moodModel.hastag.contains(searchText.lowercased()) || moodModel.note.contains(searchText.lowercased())
+            
+        })
+        tableView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel clicked")
     }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pm = storyboard?.instantiateViewController(withIdentifier: "popMoodViewController") as? popMoodViewController
+        
+        let index = MoodArray[indexPath.row]
+               let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
+        pm?.note = index.note
+        pm?.tag = index.hastag
+        pm?.location = index.location
+        pm?.image = index.image
+        pm?.date = index.time
+        var imgMoods = "mood"+index.mood
+        pm?.imgMood = UIImage(named: imgMoods)!
+        var imgAv = index.activity
+        pm?.imgActivi = UIImage(named: imgAv)!
+        
+        
+        
+        self.navigationController?.pushViewController(pm!, animated: true)
+    }
 }

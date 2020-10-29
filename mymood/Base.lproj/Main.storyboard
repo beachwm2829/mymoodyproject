@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lif-5A-KOD">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -3637,7 +3637,7 @@
                         <outlet property="tableView" destination="FoV-41-AaW" id="yXz-hb-Rp0"/>
                         <segue destination="LdK-UE-py2" kind="show" identifier="toDetailUser" id="9WP-Mm-3EQ"/>
                         <segue destination="H0w-dy-DGB" kind="show" identifier="tosetting" id="roi-wC-7hh"/>
-                        <segue destination="wbj-yL-l5U" kind="show" identifier="searchCell" id="U5u-eW-q2E"/>
+                        <segue destination="dHy-2J-xH0" kind="show" identifier="searchCell" id="L9k-x6-K39"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGV-Jw-JXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4583,43 +4583,6 @@
             </objects>
             <point key="canvasLocation" x="2297" y="3611"/>
         </scene>
-        <!--Search Table View Controller-->
-        <scene sceneID="WbU-2H-SrT">
-            <objects>
-                <tableViewController id="wbj-yL-l5U" customClass="searchTableViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qlS-Oo-gER">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="wyq-iv-vr0">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wLv-Lf-Xxj">
-                                <rect key="frame" x="0.0" y="72" width="414" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wLv-Lf-Xxj" id="1MA-2M-uS9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="wbj-yL-l5U" id="KUW-fK-ieU"/>
-                            <outlet property="delegate" destination="wbj-yL-l5U" id="Il4-j0-jfs"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Hz6-uP-Wug"/>
-                    <connections>
-                        <outlet property="searchBar" destination="wyq-iv-vr0" id="bVj-HA-J1K"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G6i-0H-pld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2296" y="2138"/>
-        </scene>
         <!--Search Mood View Controller-->
         <scene sceneID="qod-0c-a2S">
             <objects>
@@ -4674,21 +4637,33 @@
                                         <rect key="frame" x="8" y="16" width="67" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="online-shopping"/>
+                                        <connections>
+                                            <action selector="action_Activity:" destination="smF-x0-R8z" eventType="touchUpInside" id="Pfr-ge-xz1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPc-CQ-JhO">
                                         <rect key="frame" x="99" y="19" width="61" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="entertainment"/>
+                                        <connections>
+                                            <action selector="action_Activity:" destination="smF-x0-R8z" eventType="touchUpInside" id="nvU-0O-pKZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y56-M1-grK">
                                         <rect key="frame" x="193" y="19" width="61" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="yoga"/>
+                                        <connections>
+                                            <action selector="action_Activity:" destination="smF-x0-R8z" eventType="touchUpInside" id="N3d-50-ZXc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-7n-BZv">
                                         <rect key="frame" x="277" y="8" width="72" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="social-media"/>
+                                        <connections>
+                                            <action selector="action_Activity:" destination="smF-x0-R8z" eventType="touchUpInside" id="Yjb-QY-JJm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -4859,11 +4834,15 @@
                     <navigationItem key="navigationItem" id="B5Y-JF-jlS"/>
                     <connections>
                         <outlet property="activityView" destination="A9O-yk-KVt" id="yvY-6F-aSM"/>
+                        <outlet property="bt_entertainment" destination="SPc-CQ-JhO" id="7oZ-4p-BzO"/>
                         <outlet property="bt_mood1" destination="YSp-tb-Q2g" id="wBV-Ac-fCF"/>
                         <outlet property="bt_mood2" destination="57N-ja-Z3M" id="YZU-Fn-I25"/>
                         <outlet property="bt_mood3" destination="fvF-uz-g8Q" id="mky-PI-uks"/>
                         <outlet property="bt_mood4" destination="vqY-Wi-gGr" id="lko-OL-o66"/>
                         <outlet property="bt_mood5" destination="1xH-ns-XUY" id="Vt7-Jv-uH5"/>
+                        <outlet property="bt_online_shopping" destination="k8H-Rc-Qdf" id="AzS-Zh-uwE"/>
+                        <outlet property="bt_social_media" destination="B9B-7n-BZv" id="qj8-aV-if5"/>
+                        <outlet property="bt_yoga" destination="y56-M1-grK" id="mQQ-CT-Ocu"/>
                         <outlet property="dateView" destination="E7z-fb-QOe" id="oAA-dh-GAq"/>
                         <outlet property="dateseach" destination="JKa-st-w0h" id="mt0-31-m1L"/>
                         <outlet property="moodView" destination="goq-ZS-Fc6" id="xN5-fJ-alG"/>
@@ -4875,6 +4854,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amv-Vv-YlP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6160.8695652173919" y="-2032.3369565217392"/>
+        </scene>
+        <!--Search Table View Controller-->
+        <scene sceneID="BWg-G2-z0S">
+            <objects>
+                <tableViewController id="dHy-2J-xH0" customClass="searchTableViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="icJ-CI-wFN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="vLu-Yz-ImV">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="95" id="KKA-Xd-LD9" customClass="searchUserTableViewCell" customModule="mymood" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="95"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KKA-Xd-LD9" id="3iJ-ph-bHh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gn0-f6-SdK">
+                                            <rect key="frame" x="14" y="11" width="135" height="72"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02u-4E-zs7">
+                                            <rect key="frame" x="157" y="11" width="153" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWV-vx-aMg">
+                                            <rect key="frame" x="157" y="62" width="153" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="img" destination="Gn0-f6-SdK" id="dmK-jy-MKE"/>
+                                    <outlet property="name" destination="02u-4E-zs7" id="MYU-k8-Uaw"/>
+                                    <outlet property="user" destination="sWV-vx-aMg" id="cVS-8T-0xu"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dHy-2J-xH0" id="gDA-JS-33U"/>
+                            <outlet property="delegate" destination="dHy-2J-xH0" id="4RT-XX-nhJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="qJj-MV-dvL"/>
+                    <connections>
+                        <outlet property="searchBar" destination="vLu-Yz-ImV" id="iJL-dG-RYW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61O-sy-UMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295.6521739130435" y="2137.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
