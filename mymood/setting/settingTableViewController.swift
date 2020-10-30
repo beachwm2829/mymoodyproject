@@ -17,11 +17,10 @@ class settingTableViewController: UITableViewController {
     var stTrack :String?
     
     @IBOutlet weak var toFromTrackkking: UITableViewCell!
+    @IBOutlet weak var btSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(stId)
-        print(toFromTrackkking)
         
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["u_id":self.stId as AnyObject]
@@ -56,7 +55,9 @@ class settingTableViewController: UITableViewController {
             performSegue(withIdentifier: "toupdateprofile", sender: self)
         }
         if indexPath == [0, 1] {
-            performSegue(withIdentifier: "toSetAlarm", sender: self)
+            if btSwitch.isOn == true{
+                performSegue(withIdentifier: "toSetAlarm", sender: self)
+            }
         }
         if indexPath == [1, 0] {
             performSegue(withIdentifier: "toAdvice", sender: self)

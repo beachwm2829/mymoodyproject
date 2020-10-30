@@ -36,9 +36,6 @@ class popMoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lbnote.numberOfLines = 3
-        lbtag.numberOfLines = 5
-        
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(image)")
         imgview.kf.setImage(with: url)
         imgMoods.image = imgMood

@@ -167,10 +167,17 @@ class ChartViewController: UIViewController {
                 self.setPieChart(dataPoints: namee, values: self.mooddataToday)
             }else{
                 let countmood = self.mooddata.count - 1
-                for i in 0..<(self.mooddata.last?.count)! {
+                print("count \(self.mooddata.last?.count)")
+                print("last \(self.mooddata.last)")
+                var i = 0
+                while i < (self.mooddata.last?.count)! {
                     if (self.mooddata.last![i]) == 0.0 {
                         self.mooddata[countmood].remove(at: i)
+                        i = 0
+                    }else {
+                        i += 1
                     }
+                    
                 }
                 print("Mood Final is \(self.mooddata.last)")
                 self.setPieChart(dataPoints: namee, values: self.mooddata[countmood])
