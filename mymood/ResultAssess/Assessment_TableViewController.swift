@@ -20,6 +20,7 @@ class Assessment_TableViewController: UITableViewController {
            let resultAs :String
        }
 
+    var AsArray = ["Q2":"แบบคัดกรองโรคซึมเศร้าด้วย 2 คำถาม (2Q)","Q9":"แบบประเมินโรคซึมเศร้าด้วย 9 คำถาม ( 9Q)","Q8":"แบบประเมินการฆ่าตัวตาย (8Q)"]
     var asId: String?
     var AssData = [AssessmentModel]()
     var AsData = [String]()
@@ -52,6 +53,13 @@ class Assessment_TableViewController: UITableViewController {
         cell?.resultAs.text = index.resultAs
         cell?.timeAs.text = index.timeAs
         cell?.dateAs.text = index.dateAs
+        if(index.nameAs == "Q2"){
+            cell?.lbnote.text = AsArray["Q2"]
+        }else if(index.nameAs == "Q9"){
+            cell?.lbnote.text = AsArray["Q9"]
+        }else if(index.nameAs == "Q8"){
+            cell?.lbnote.text = AsArray["Q8"]
+        }
         return cell!
         
     }

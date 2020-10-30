@@ -80,6 +80,9 @@ class popListUserViewController: UIViewController {
     @IBAction func tocalMood(_ sender: Any) {
         self.performSegue(withIdentifier: "tocalMood", sender: self)
     }
+    @IBAction func alertMood(_ sender: Any) {
+        self.performSegue(withIdentifier: "toalertMood", sender: self)
+    }
     @IBAction func totrack(_ sender: Any) {
         if statusTrack == true {
             self.performSegue(withIdentifier: "totraking", sender: self)
@@ -103,6 +106,10 @@ class popListUserViewController: UIViewController {
         if segue.identifier == "tocalMood"{
             let CalendarView = segue.destination as! CalendarViewController
             CalendarView.calId = self.popListUserId
+        }
+        if segue.identifier == "toalertMood"{
+            let AlertMood = segue.destination as! AlertMoodViewController
+            AlertMood.AlerMId = self.popListUserId
         }
         if segue.identifier == "totraking"{
             let TrackTable = segue.destination as! TrackTableViewController

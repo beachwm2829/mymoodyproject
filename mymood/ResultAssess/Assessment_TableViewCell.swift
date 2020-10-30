@@ -15,6 +15,7 @@ class Assessment_TableViewCell: UITableViewCell {
     @IBOutlet weak var dateAs: UILabel!
     @IBOutlet weak var resultAs: UILabel!
     @IBOutlet weak var textResultAs: UILabel!
+    @IBOutlet weak var lbnote: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
