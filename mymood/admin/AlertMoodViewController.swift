@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -22,7 +23,9 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var picker: UIPickerView!
     
     var pickerData: [String] = [String]()
+    
     var AlerMId:String?
+    var amId:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,7 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.picker.dataSource = self
                 
                 // Input the data into the array
-                pickerData = ["1", "2", "3", "4", "5"]
+                pickerData = ["1", "2", "3", "4", "5","6","7","8","9","10"]
         // Do any additional setup after loading the view.
     }
     @IBAction func btMoodControl(_ sender: UIButton) {
@@ -88,16 +91,30 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
     @IBAction func btsave(_ sender: Any) {
         print(mood)
-        print(pickercount)
-    }
-    /*
-    // MARK: - Navigation
+        print(pickercount!)
+        let url = "http://project2.cocopatch.com/Moody/resultmood.php?"
+        let param : Parameters = [
+            "amount":pickercount! as AnyObject,
+            "mood":mood as AnyObject,
+            "u_id":AlerMId! as AnyObject,
+            "c_id":amId! as AnyObject,
+            "mode":"insert" as AnyObject
+        ]
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title: "เพิ่มสถานะวิกฤตเรียบร้อย", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
-    */
-
 }

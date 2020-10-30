@@ -165,11 +165,11 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         "u_id":amId! as AnyObject,
         "mode":mode as AnyObject
         ]
-    print(param)
     AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
     switch response.result {
         case .success(_):
             let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
+            self.getAlertmood()
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                 self.navigationController!.popViewController(animated: true)
                 
@@ -182,6 +182,25 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         }
     }
     }
+    //MARK: - GET AlertMood
+    func getAlertmood(){
+        let url = "http://project2.cocopatch.com/Moody/resultmood.php?"
+        let param : Parameters = [
+            "u_id":amId! as AnyObject,
+            "c_id":"59" as AnyObject,
+            "mode":"get" as AnyObject
+        ]
+
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    print("success")
+                case .failure(_):
+                    print("failure")
+            }
+        }
+    }
+    
     @IBAction func btLocation(_ sender: Any) {
        let autocompleteController = GMSAutocompleteViewController()
        autocompleteController.delegate = self

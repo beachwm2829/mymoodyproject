@@ -12,7 +12,6 @@ import Kingfisher
 import SwiftyJSON
 
 class popListUserViewController: UIViewController {
-    var popListUserId:String?
 
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lbname: UILabel!
@@ -26,6 +25,12 @@ class popListUserViewController: UIViewController {
     
     @IBOutlet weak var switst: UISwitch!
     
+<<<<<<< Updated upstream
+=======
+    var amId:String?
+    var popListUserId:String?
+    
+>>>>>>> Stashed changes
     var statusTrack:Bool = true
     var stTrack:String?
    
@@ -110,6 +115,7 @@ class popListUserViewController: UIViewController {
         if segue.identifier == "toalertMood"{
             let AlertMood = segue.destination as! AlertMoodViewController
             AlertMood.AlerMId = self.popListUserId
+            AlertMood.amId = self.popListUserId
         }
         if segue.identifier == "totraking"{
             let TrackTable = segue.destination as! TrackTableViewController

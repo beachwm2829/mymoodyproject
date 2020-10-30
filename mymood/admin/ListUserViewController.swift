@@ -147,8 +147,8 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
        
            if segue.identifier == "toDetailUser"{
                     let popListUserViewController = segue.destination as! popListUserViewController
-                    print(self.sickUserId)
                     popListUserViewController.popListUserId = self.sickUserId
+                    popListUserViewController.amId = self.sickUserId
                 }
         if segue.identifier == "tosetting"{
                  let adminSettingViewController = segue.destination as! adminSettingViewController
