@@ -12,7 +12,7 @@ import Kingfisher
 import SwiftyJSON
 
 class popListUserViewController: UIViewController {
-    
+    var popListUserId:String?
 
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var lbname: UILabel!
@@ -25,7 +25,7 @@ class popListUserViewController: UIViewController {
     
     
     @IBOutlet weak var switst: UISwitch!
-    var popListUserId:String?
+    
     var statusTrack:Bool = true
     var stTrack:String?
    
