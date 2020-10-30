@@ -31,7 +31,7 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.picker.dataSource = self
                 
                 // Input the data into the array
-                pickerData = ["1", "2", "3", "4", "5", "6"]
+                pickerData = ["1", "2", "3", "4", "5"]
         // Do any additional setup after loading the view.
     }
     @IBAction func btMoodControl(_ sender: UIButton) {
