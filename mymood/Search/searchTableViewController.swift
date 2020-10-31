@@ -103,14 +103,14 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let param : Parameters = [
             "cid":searchId! as AnyObject,
-            "mode":"add" as AnyObject,
+            "mode":"addconf" as AnyObject,
             "u_id":searchCounty[indexPath.row].uId as AnyObject
         ]
         print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
-                let alert = UIAlertController(title: "เพิ่มการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "เพิ่มคำขอการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
                 }))

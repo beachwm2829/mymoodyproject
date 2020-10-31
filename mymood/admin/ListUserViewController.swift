@@ -144,22 +144,21 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-           if segue.identifier == "toDetailUser"{
-                    let popListUserViewController = segue.destination as! popListUserViewController
-                    popListUserViewController.popListUserId = self.sickUserId
-                    popListUserViewController.amId = self.sickUserId
-                }
+        if segue.identifier == "toDetailUser"{
+            let popListUserViewController = segue.destination as! popListUserViewController
+            popListUserViewController.popListUserId = self.sickUserId
+            popListUserViewController.amId = self.sickUserId
+        }
         if segue.identifier == "tosetting"{
-                 let adminSettingViewController = segue.destination as! adminSettingViewController
-                 print(self.amintbId)
+            let adminSettingViewController = segue.destination as! adminSettingViewController
+            print(self.amintbId)
             adminSettingViewController.adSId = self.amintbId
-             }
+        }
         if segue.identifier == "searchCell"{
-                 let searchTableViewController = segue.destination as! searchTableViewController
-                 print(self.amintbId)
+            let searchTableViewController = segue.destination as! searchTableViewController
+            print(self.amintbId)
             searchTableViewController.searchId = self.amintbId
-             }
+        }
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

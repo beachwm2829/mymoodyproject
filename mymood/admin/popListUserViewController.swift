@@ -23,8 +23,7 @@ class popListUserViewController: UIViewController {
     @IBOutlet weak var lbtel: UILabel!
     
     
-    @IBOutlet weak var switst: UISwitch!
-    
+    @IBOutlet weak var switst: UISwitch!    
 
     var amId:String?
     var popListUserId:String?

@@ -42,15 +42,6 @@ class settingTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("IndexPath: :\(indexPath)")
-        if indexPath == [2, 0] {
-            if stTrack == "1" {
-                performSegue(withIdentifier: "toFromTrackmb", sender: self)
-            }else{
-               print("stTrack\(stTrack)")
-                
-            }
-            
-        }
         if indexPath == [0, 0] {
             performSegue(withIdentifier: "toupdateprofile", sender: self)
         }
@@ -62,6 +53,19 @@ class settingTableViewController: UITableViewController {
         if indexPath == [1, 0] {
             performSegue(withIdentifier: "toAdvice", sender: self)
         }
+        if indexPath == [2, 0] {
+            performSegue(withIdentifier: "toCarer", sender: self)
+        }
+        if indexPath == [2, 1] {
+            if stTrack == "1" {
+                performSegue(withIdentifier: "toFromTrackmb", sender: self)
+            }else{
+               print("stTrack\(stTrack)")
+                
+            }
+            
+        }
+
         if indexPath == [3, 0] {
             print("exit")
             let actionSheet = UIAlertController(title: nil, message: "ต้องการออกจากระบบหรือไม่?", preferredStyle: UIAlertController.Style.actionSheet)
@@ -92,6 +96,11 @@ class settingTableViewController: UITableViewController {
             let manaProfileViewController = segue.destination as! manaProfileViewController
             manaProfileViewController.rcId = stId
         }
+        if segue.identifier == "toCarer"{
+            let ListCarerTableViewController = segue.destination as! ListCarerTableViewController
+            ListCarerTableViewController.lcId = stId
+        }
+
         if stTrack == "1" {
             if segue.identifier == "toFromTrackmb"{
                 let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
