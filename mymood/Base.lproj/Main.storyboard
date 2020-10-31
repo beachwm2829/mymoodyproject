@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lif-5A-KOD">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -123,7 +123,7 @@
                         <outlet property="tfUsername" destination="9rQ-Fd-21z" id="SnR-9h-5xz"/>
                         <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="Nmv-iP-xMV"/>
                         <segue destination="gOE-lS-4K3" kind="presentation" identifier="toTabbaradmin" modalPresentationStyle="fullScreen" id="VKU-DT-u4Q"/>
-                        <segue destination="6Jm-gS-MDG" kind="show" identifier="toAses" id="iAu-nv-i1r"/>
+                        <segue destination="vBr-L1-57O" kind="show" identifier="Resultcell" id="iAu-nv-i1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -307,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yuo-D1-xQC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5411.594202898551" y="-2031.521739130435"/>
+            <point key="canvasLocation" x="6318.840579710145" y="-2031.521739130435"/>
         </scene>
         <!--Pop Mood View Controller-->
         <scene sceneID="2kZ-UA-FWP">
@@ -388,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9B-f2-8J4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6852" y="-2032"/>
+            <point key="canvasLocation" x="7757.971014492754" y="-2032.3369565217392"/>
         </scene>
         <!--สมัครสมาชิก-->
         <scene sceneID="UCU-ak-2DC">
@@ -814,12 +814,12 @@
                         <outlet property="btTure_q2_r1" destination="1fV-LD-JWL" id="qyK-AP-vfg"/>
                         <outlet property="btTure_q2_r2" destination="vxe-um-YmF" id="TfO-nV-3au"/>
                         <segue destination="XDx-b2-JUX" kind="show" identifier="to9q" id="1ch-zX-B12"/>
-                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="8u9-zW-aqS"/>
+                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="00K-Cc-p6f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276.8115942028987" y="-1582.3369565217392"/>
+            <point key="canvasLocation" x="2184.057971014493" y="-1582.3369565217392"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="97h-7t-7Zx">
@@ -880,7 +880,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLd-yU-eMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4506" y="-2031"/>
+            <point key="canvasLocation" x="5413.04347826087" y="-2031.521739130435"/>
         </scene>
         <!--Stats-->
         <scene sceneID="Vie-LA-g2W">
@@ -900,7 +900,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dd4-8z-Jto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4499" y="-1030"/>
+            <point key="canvasLocation" x="5405.7971014492759" y="-1030.4347826086957"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="Mfe-MX-5BG">
@@ -938,7 +938,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg8-N1-eGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5411.594202898551" y="-1030.4347826086957"/>
+            <point key="canvasLocation" x="6318.840579710145" y="-1030.4347826086957"/>
         </scene>
         <!--Result q9 View Controller-->
         <scene sceneID="7km-pd-8Mf">
@@ -1740,12 +1740,12 @@
                         <outlet property="bt4_q9_r8" destination="gAR-6l-p2F" id="lPr-t6-vU4"/>
                         <outlet property="bt4_q9_r9" destination="0Ry-lW-uqk" id="3pH-6x-cRd"/>
                         <segue destination="J89-99-xy3" kind="show" identifier="to8q" id="IR2-vL-4iQ"/>
-                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="k7X-na-tXQ"/>
+                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="2Zb-Pk-kmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297.1014492753625" y="-1582.3369565217392"/>
+            <point key="canvasLocation" x="3204.347826086957" y="-1582.3369565217392"/>
         </scene>
         <!--Result 8q View Controller-->
         <scene sceneID="s1K-Ik-PPC">
@@ -2249,12 +2249,12 @@
                         <outlet property="btTure_q8_r6" destination="ar5-oL-T9S" id="HYw-ve-xkD"/>
                         <outlet property="btTure_q8_r7" destination="JzP-TU-S4C" id="ML4-cE-PNd"/>
                         <outlet property="btTure_q8_r8" destination="7v4-FH-rOk" id="mGm-ri-1Yq"/>
-                        <segue destination="hTo-6L-b1y" kind="show" identifier="toTabbar" id="0eT-aU-19s"/>
+                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="LGD-Jd-ddM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3197.1014492753625" y="-1582.3369565217392"/>
+            <point key="canvasLocation" x="4104.347826086957" y="-1582.3369565217392"/>
         </scene>
         <!--แบบประเมิน-->
         <scene sceneID="LOc-tY-k4w">
@@ -2262,6 +2262,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ahH-pE-Z6s" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="แบบประเมิน" image="plus.circle.fill" catalog="system" id="rQg-Mb-mTQ"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="i3Z-oZ-Zlf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iwZ-sP-NE9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2911,7 +2912,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="xyc-XD-6y2">
                             <connections>
                                 <action selector="toQ2As:" destination="KGh-8t-yFc" id="tOv-oJ-H1K"/>
-                                <segue destination="6Jm-gS-MDG" kind="show" identifier="toAses" id="hfT-iq-6k1"/>
+                                <segue destination="vBr-L1-57O" kind="presentation" identifier="toAses" modalPresentationStyle="fullScreen" id="riN-gb-I7f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -4411,7 +4412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amv-Vv-YlP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6160.8695652173919" y="-2032.3369565217392"/>
+            <point key="canvasLocation" x="7068.115942028986" y="-2032.3369565217392"/>
         </scene>
         <!--ค้นหา-->
         <scene sceneID="BWg-G2-z0S">
@@ -4964,10 +4965,29 @@
             </objects>
             <point key="canvasLocation" x="2295.6521739130435" y="2967.3913043478265"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xen-JA-sxB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vBr-L1-57O" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="aNU-Gr-4mm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vcr-z3-JTA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Jm-gS-MDG" kind="relationship" relationship="rootViewController" id="a7c-hc-Lwp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OH6-GL-3bE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276.8115942028987" y="-1582.3369565217392"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nmv-iP-xMV"/>
-        <segue reference="hfT-iq-6k1"/>
+        <segue reference="iAu-nv-i1r"/>
+        <segue reference="LGD-Jd-ddM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>

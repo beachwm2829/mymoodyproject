@@ -11,13 +11,13 @@ import UIKit
 class NavigationController: UINavigationController {
     var ncId :String?
     override func viewDidLoad() {
-        print(ncId)
+        print("ncId\(ncId)")
         super.viewDidLoad()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Resultcell"{
-             if let assessVc = segue.destination as? UINavigationController, let targetController = assessVc.topViewController as? Result_q2_ViewController {
+            if let assessVc = segue.destination as? UINavigationController, let targetController = assessVc.topViewController as? Result_q2_ViewController {
                            targetController.q2Id = self.ncId
                        }
         }
@@ -26,11 +26,11 @@ class NavigationController: UINavigationController {
              targetController.amId = self.ncId
          }
         }
-//        if segue.identifier == "toListmood"{
-//         if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? MoodViewController {
-//            targetController.mvId = self.ncId
-//         }
-//        }
+        if segue.identifier == "toTabbar"{
+         if let moodVc = segue.destination as? UINavigationController, let targetController = moodVc.topViewController as? Assessment_TableViewController {
+            targetController.asId = self.ncId
+         }
+        }
         if segue.identifier == "AsCell"{
          if let AssesVc = segue.destination as? UINavigationController, let targetController = AssesVc.topViewController as? Assessment_TableViewController {
             targetController.asId = self.ncId

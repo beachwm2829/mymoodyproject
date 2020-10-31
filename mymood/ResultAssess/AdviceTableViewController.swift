@@ -74,7 +74,7 @@ class AdviceTableViewController: UITableViewController {
                     
                 
             }else if (index.nameAs == "Q9"){
-                if(resultInt! > 7 && resultInt! < 12){
+                if(resultInt! > 0 && resultInt! < 12){
                     if(name == "Q9=7-12"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")

@@ -25,12 +25,10 @@ class popListUserViewController: UIViewController {
     
     @IBOutlet weak var switst: UISwitch!
     
-<<<<<<< Updated upstream
-=======
+
     var amId:String?
     var popListUserId:String?
-    
->>>>>>> Stashed changes
+
     var statusTrack:Bool = true
     var stTrack:String?
    

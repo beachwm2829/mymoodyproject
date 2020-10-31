@@ -93,8 +93,11 @@ class Assessment_TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "toAses"{
-            let Result_q2_ViewController = segue.destination as! Result_q2_ViewController
-            Result_q2_ViewController.q2Id = self.asId
+            if let Result_q2_ViewController = segue.destination as? NavigationController{
+                if let ResultQ2 = Result_q2_ViewController.viewControllers.first as? Result_q2_ViewController{
+                    ResultQ2.q2Id = self.asId
+                }
+            }
         }
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

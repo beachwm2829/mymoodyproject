@@ -72,7 +72,7 @@ class ViewController: UIViewController {
                     }else if(data["status_As"] == "0"){
                         self.performSegue(withIdentifier: "toTabbar", sender: self)
                     }else{
-                        self.performSegue(withIdentifier: "toAses", sender: self)
+                        self.performSegue(withIdentifier: "Resultcell", sender: self)
                     }
                     
                 }else{
@@ -85,9 +85,13 @@ class ViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAses"{
-            let Result_q2 = segue.destination as! Result_q2_ViewController
-                Result_q2.q2Id = self.vcId
+            if let Result_q2_ViewController = segue.destination as? NavigationController{
+                if let ResultQ2 = Result_q2_ViewController.viewControllers.first as? Result_q2_ViewController{
+                    ResultQ2.q2Id = self.vcId
+                }
+            }
         }
+    
         if segue.identifier == "toTabbar"{
             let TabbarController = segue.destination as! TabBarController
             TabbarController.tbId = self.vcId
