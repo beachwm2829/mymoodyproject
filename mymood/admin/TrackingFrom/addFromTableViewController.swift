@@ -16,25 +16,49 @@ import Charts
 class addFromTableViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     var tkId:String?
+    var u_id:String?
     
-    @IBOutlet weak var lbcomment: UILabel!
-    @IBOutlet weak var lbtime: UITextField!
-    @IBOutlet weak var lbdate: UITextField!
+    var lbtime: String?
+    var lbdate: String?
     @IBOutlet weak var lbDr_name: UITextField!
     @IBOutlet weak var lbDr_email: UITextField!
     @IBOutlet weak var lbphone: UITextField!
     @IBOutlet weak var lbhospital: UITextField!
     @IBOutlet weak var lbdrug: UITextField!
-    @IBOutlet weak var lbtime_next: UITextField!
-    @IBOutlet weak var lbdate_next: UITextField!
+    var lbtime_next: String?
+    var lbdate_next: String?
     @IBOutlet weak var imgview: UIImageView!
     
+    @IBOutlet weak var dateTimePicker: UIDatePicker!
+    @IBOutlet weak var dateTimePisckerNext: UIDatePicker!
     let datePicker = UIDatePicker()
     var word = ""
     var photoBase64:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         print("tkId\(tkId)")
+//        dateTimePicker.datePickerMode = .
+        dateTimePicker.preferredDatePickerStyle = .compact
+        dateTimePisckerNext.preferredDatePickerStyle = .compact
+            let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let selectedDate = dateFormatter.string(from: dateTimePicker.date)
+        var timeArr = selectedDate.components(separatedBy: " ")
+        lbtime = timeArr[0]
+        lbdate = timeArr[1]
+                    print("selectedDate",selectedDate)
+        dateTimePisckerNext.preferredDatePickerStyle = .compact
+            let dateFormatternext = DateFormatter()
+                    dateFormatternext.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let selectedDatenext = dateFormatternext.string(from: dateTimePisckerNext.date)
+        var timeArrnext = selectedDatenext.components(separatedBy: " ")
+        lbtime_next = timeArrnext[0]
+        lbdate_next = timeArrnext[1]
+                    print("selectedDatenext",selectedDatenext)
+        
+        print("lbtime\(lbtime) : lbdate\(lbdate)")
+        print("lbtime_next\(lbtime_next) : lbdate_next\(lbdate_next)")
+                  
        
         // Do any additional setup after loading the view.
     }
@@ -72,15 +96,16 @@ class addFromTableViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func btsave(_ sender: Any) {
         let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
         let param : Parameters = ["u_id":self.tkId as  AnyObject,
-                                  "time":self.lbtime.text as AnyObject,
-                                  "date":self.lbdate.text as  AnyObject,
+                                  "time":self.lbtime as AnyObject,
+                                  "date":self.lbdate as  AnyObject,
                                 "dr_name":self.lbDr_name.text as AnyObject,
                                  "email":self.lbDr_email.text as  AnyObject,
                                  "phone":self.lbphone.text as AnyObject,
                                  "hospital":self.lbhospital.text as  AnyObject,
                                  "drug":self.lbdrug.text as AnyObject,
-                                 "time_next":self.lbtime_next.text as  AnyObject,
-                                 "date_next":self.lbdate_next.text as AnyObject,
+                                 "time_next":self.lbtime_next as  AnyObject,
+                                 "date_next":self.lbdate_next as AnyObject,
+                                 "image":self.word as AnyObject,
                                   "mode":"insert" as AnyObject]
 print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in

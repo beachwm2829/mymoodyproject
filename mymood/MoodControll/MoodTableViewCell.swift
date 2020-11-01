@@ -17,6 +17,7 @@ class MoodTableViewCell: UITableViewCell {
     @IBOutlet weak var lbDate: UILabel!
     
     @IBOutlet weak var imgMood: UIImageView!
+    @IBOutlet weak var imgActivity: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

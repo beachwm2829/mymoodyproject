@@ -18,6 +18,7 @@ class Assessment_TableViewCell: UITableViewCell {
     @IBOutlet weak var lbnote: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 

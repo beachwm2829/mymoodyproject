@@ -18,17 +18,25 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
     var tkId:String?
     
     @IBOutlet weak var lbcomment: UILabel!
-    @IBOutlet weak var lbtime: UITextField!
-    @IBOutlet weak var lbdate: UITextField!
+     var lbtime: String?
+     var lbdate: String?
+    
     @IBOutlet weak var lbDr_name: UITextField!
     @IBOutlet weak var lbDr_email: UITextField!
     @IBOutlet weak var lbphone: UITextField!
     @IBOutlet weak var lbhospital: UITextField!
     @IBOutlet weak var lbdrug: UITextField!
-    @IBOutlet weak var lbtime_next: UITextField!
-    @IBOutlet weak var lbdate_next: UITextField!
+    var lbtime_next: String?
+    var lbdate_next: String?
     @IBOutlet weak var imgview: UIImageView!
     
+    var lbtimes: String?
+    var lbdates: String?
+   var lbtime_nexts: String?
+   var lbdate_nexts: String?
+    
+    @IBOutlet weak var dateTimePicker: UIDatePicker!
+    @IBOutlet weak var dateTimenextPicker: UIDatePicker!
     let datePicker = UIDatePicker()
     var word = ""
     var photoBase64:String?
@@ -48,20 +56,49 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
                 for aTrackFrom in TrackFromArray {
                     let popListUserId = aTrackFrom["u_id"].stringValue
                     self.lbcomment.text = aTrackFrom["comment"].stringValue
-                    self.lbtime.text = aTrackFrom["time"].stringValue
-//                    self.lbbirth.text = aListUser["birthdate"].stringValue
-//                    self.lbdisease.text = aListUser["disease"].stringValue
-//                    self.lbadrees.text = aListUser["adress"].stringValue
-//                    self.lbmail.text = aListUser["email"].stringValue
-//                    self.lbtel.text = aListUser["phone"].stringValue
-//                    let imgprofile = aListUser["img"].stringValue
-//                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-//                    self.imgProfile.kf.setImage(with: url)
-//                    print("ListUsers\(self.ListUsers)")
+                    self.lbtime = aTrackFrom["time"].stringValue
+                    self.lbdate = aTrackFrom["date"].stringValue
+                    self.lbDr_name.text = aTrackFrom["dr_name"].stringValue
+                    self.lbDr_email.text = aTrackFrom["email"].stringValue
+                    self.lbphone.text = aTrackFrom["phone"].stringValue
+                    self.lbhospital.text = aTrackFrom["hospital"].stringValue
+                    self.lbdrug.text = aTrackFrom["drug"].stringValue
+                    self.lbtime_next = aTrackFrom["time_next"].stringValue
+                    self.lbdate_next = aTrackFrom["date_next"].stringValue
+                    let imgprofile = aTrackFrom["image"].stringValue
+                    print("imgprofile!\(imgprofile)")
+                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.imgview.kf.setImage(with: url)
+                    
+                    let strDate : String! = "\(self.lbdate!+" "+self.lbtime!)"
+                    let strDateNext : String! = "\(self.lbdate_next!+" "+self.lbtime_next!)"
+                    if (strDate == "0000-00-00 00:00:00"){
+                        print("date Time Error!!")
+                    }else{
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        dateFormatter.locale = Locale(identifier: "en")
+                        let date = dateFormatter.date(from: strDate)
+                //        self.dateTimePicker.datePickerMode = .date
+                        self.dateTimePicker.setDate(date!, animated: false)
+                    }
+                    if(strDateNext == "0000-00-00 00:00:00"){
+                        print("date Time DUE Error!!")
+                    }else{
+                        let dateFormatterNext = DateFormatter()
+                        dateFormatterNext.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        dateFormatterNext.locale = Locale(identifier: "en")
+                        let dateNext = dateFormatterNext.date(from: strDateNext)
+                //        self.dateTimePicker.datePickerMode = .date
+                        self.dateTimenextPicker.setDate(dateNext!, animated: false)
+                    }
+                    
                 }
             }catch{print("goal => ")
             }
         }
+        
+        print(" self.lbtime\(self.lbtime)self.lbdate\(self.lbdate)self.lbtime_next\(self.lbtime_next)self.lbdate_next\(self.lbdate_next)")
         // Do any additional setup after loading the view.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -96,13 +133,43 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
          present(selectPhoto, animated: true,completion: nil)
      }
     @IBAction func btsave(_ sender: Any) {
+        dateTimePicker.preferredDatePickerStyle = .compact
+        dateTimenextPicker.preferredDatePickerStyle = .compact
+            let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let selectedDate = dateFormatter.string(from: dateTimePicker.date)
+        var timeArr = selectedDate.components(separatedBy: " ")
+        self.lbtime = timeArr[0]
+        self.lbdate = timeArr[1]
+                    print("selectedDate",selectedDate)
+        dateTimenextPicker.preferredDatePickerStyle = .compact
+            let dateFormatternext = DateFormatter()
+                    dateFormatternext.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let selectedDatenext = dateFormatternext.string(from: dateTimenextPicker.date)
+        var timeArrnext = selectedDatenext.components(separatedBy: " ")
+        self.lbtime_next = timeArrnext[0]
+        self.lbdate_next = timeArrnext[1]
+                    print("selectedDatenext",selectedDatenext)
+        print(" self.lbtime\(self.lbtime)self.lbdate\(self.lbdate)self.lbtime_next\(self.lbtime_next)self.lbdate_next\(self.lbdate_next)")
         let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
-        let param : Parameters = ["tf_id":self.tkId as AnyObject,"comment":self.lbcomment.text as AnyObject,"mode":"update" as AnyObject]
-
+        let param : Parameters = ["u_id":self.tkId as AnyObject,
+                                  "time":self.lbtime as AnyObject,
+                                  "date":self.lbdate as AnyObject,
+                                  "dr_name":self.lbDr_name.text as AnyObject,
+                                  "email":self.lbDr_email.text as AnyObject,
+                                  "phone":self.lbphone.text as AnyObject,
+                                  "hospital":self.lbhospital.text as AnyObject,
+                                  "drug":self.lbdrug.text as AnyObject,
+                                  "time_next":self.lbtime_next as AnyObject,
+                                  "date_next":self.lbdate_next as AnyObject,
+                                  "image":self.word as AnyObject,
+                                  "mode":"userupdate" as AnyObject]
+print(param)
+      
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
-                let alert = UIAlertController(title: "เพิ่มหมายเหตุเรียบร้อย", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "เพิ่มฟอร์มการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
                 }))
