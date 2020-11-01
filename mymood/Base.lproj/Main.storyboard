@@ -813,8 +813,8 @@
                         <outlet property="btFalse_q2_r2" destination="qOZ-6L-HPU" id="ktU-wf-Jka"/>
                         <outlet property="btTure_q2_r1" destination="1fV-LD-JWL" id="qyK-AP-vfg"/>
                         <outlet property="btTure_q2_r2" destination="vxe-um-YmF" id="TfO-nV-3au"/>
-                        <segue destination="XDx-b2-JUX" kind="show" identifier="to9q" id="1ch-zX-B12"/>
-                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="00K-Cc-p6f"/>
+                        <segue destination="XDx-b2-JUX" kind="presentation" identifier="to9q" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="1ch-zX-B12"/>
+                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="00K-Cc-p6f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8El-Xf-nFO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -824,7 +824,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="97h-7t-7Zx">
             <objects>
-                <tabBarController storyboardIdentifier="MyTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="hTo-6L-b1y" customClass="TabBarController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MyTabBarController" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="hTo-6L-b1y" customClass="TabBarController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Uw8-oe-4xO"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -864,7 +864,7 @@
         <!--Home-->
         <scene sceneID="N3M-zH-9kj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tut-0y-RJc" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="tut-0y-RJc" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="xTR-UW-SQA"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Oc6-wq-pwo"/>
@@ -949,7 +949,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vy-fF-EyM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-Pe-tY4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
@@ -1739,8 +1739,8 @@
                         <outlet property="bt4_q9_r7" destination="wHD-WM-iC6" id="Uoi-DU-kNf"/>
                         <outlet property="bt4_q9_r8" destination="gAR-6l-p2F" id="lPr-t6-vU4"/>
                         <outlet property="bt4_q9_r9" destination="0Ry-lW-uqk" id="3pH-6x-cRd"/>
-                        <segue destination="J89-99-xy3" kind="show" identifier="to8q" id="IR2-vL-4iQ"/>
-                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="2Zb-Pk-kmQ"/>
+                        <segue destination="J89-99-xy3" kind="presentation" identifier="to8q" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="IR2-vL-4iQ"/>
+                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="2Zb-Pk-kmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhT-me-Tg8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1756,7 +1756,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIN-mx-4E8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1456"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9s-Rt-iWO">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
@@ -2249,7 +2249,7 @@
                         <outlet property="btTure_q8_r6" destination="ar5-oL-T9S" id="HYw-ve-xkD"/>
                         <outlet property="btTure_q8_r7" destination="JzP-TU-S4C" id="ML4-cE-PNd"/>
                         <outlet property="btTure_q8_r8" destination="7v4-FH-rOk" id="mGm-ri-1Yq"/>
-                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" id="LGD-Jd-ddM"/>
+                        <segue destination="hTo-6L-b1y" kind="presentation" identifier="toTabbar" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="LGD-Jd-ddM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Kl-ZC-oiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
