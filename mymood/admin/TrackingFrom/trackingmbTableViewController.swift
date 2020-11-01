@@ -44,7 +44,8 @@ class trackingmbTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("tackId\(tackId)")
+        print("tkFId\(tkFId)")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -138,6 +139,9 @@ class trackingmbTableViewController: UITableViewController {
         self.performSegue(withIdentifier: "toFromTrackmb", sender: self)
         
     }
+    @IBAction func toAddFrom(_ sender: Any) {
+        self.performSegue(withIdentifier: "toaddFromTrackmb", sender: self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
            if segue.identifier == "toFromTrackmb"{
@@ -145,6 +149,11 @@ class trackingmbTableViewController: UITableViewController {
                     print(self.tkFId)
             popfromtrackingmbViewController.tkId = self.tkFId
                 }
+        if segue.identifier == "toaddFromTrackmb"{
+                 let addFromTableViewController = segue.destination as! addFromTableViewController
+                 print(self.tackId)
+            addFromTableViewController.tkId = self.tackId
+             }
         
     }
     /*

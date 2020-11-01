@@ -1,10 +1,10 @@
 //
-//  popTrackFromViewController.swift
+//  addFromTableViewController.swift
 //  mymood
 //
-//  Created by macOS on 10/20/20.
+//  Created by macOS on 10/31/20.
 //  Copyright © 2020 Manasawee Kaenampornpan. All rights reserved.
-//
+//addFromTableViewController
 
 import UIKit
 import Alamofire
@@ -13,57 +13,29 @@ import SwiftyJSON
 import GooglePlaces
 import Charts
 
-class popTrackFromViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class addFromTableViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     var tkId:String?
     
-    @IBOutlet weak var lbcomment: UITextField!
-    @IBOutlet weak var lbtime: UILabel!
-    @IBOutlet weak var lbdate: UILabel!
-    @IBOutlet weak var lbDr_name: UILabel!
-    @IBOutlet weak var lbDr_email: UILabel!
-    @IBOutlet weak var lbphone: UILabel!
-    @IBOutlet weak var lbhospital: UILabel!
-    @IBOutlet weak var lbdrug: UILabel!
-    @IBOutlet weak var lbtime_next: UILabel!
-    @IBOutlet weak var lbdate_next: UILabel!
-    
+    @IBOutlet weak var lbcomment: UILabel!
+    @IBOutlet weak var lbtime: UITextField!
+    @IBOutlet weak var lbdate: UITextField!
+    @IBOutlet weak var lbDr_name: UITextField!
+    @IBOutlet weak var lbDr_email: UITextField!
+    @IBOutlet weak var lbphone: UITextField!
+    @IBOutlet weak var lbhospital: UITextField!
+    @IBOutlet weak var lbdrug: UITextField!
+    @IBOutlet weak var lbtime_next: UITextField!
+    @IBOutlet weak var lbdate_next: UITextField!
     @IBOutlet weak var imgview: UIImageView!
     
     let datePicker = UIDatePicker()
     var word = ""
     var photoBase64:String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tkId)
-        let url = "http://project2.cocopatch.com/Moody/"
-        let param : Parameters = ["tf_id":self.tkId as AnyObject]
-
-        AF.request(url+"getDetailFromTracking.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
-            do {
-                print("do")
-                let jsondata = try JSON(data: response.data!)
-                print("this here popuser \(jsondata)")
-                let TrackFromArray = jsondata["success"].arrayValue
-                print("TrackFromArray\(TrackFromArray)")
-                for aTrackFrom in TrackFromArray {
-                    let popListUserId = aTrackFrom["u_id"].stringValue
-                    self.lbcomment.text = aTrackFrom["comment"].stringValue
-                    self.lbtime.text = aTrackFrom["time"].stringValue
-//                    self.lbbirth.text = aListUser["birthdate"].stringValue
-//                    self.lbdisease.text = aListUser["disease"].stringValue
-//                    self.lbadrees.text = aListUser["adress"].stringValue
-//                    self.lbmail.text = aListUser["email"].stringValue
-//                    self.lbtel.text = aListUser["phone"].stringValue
-//                    let imgprofile = aListUser["img"].stringValue
-//                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-//                    self.imgProfile.kf.setImage(with: url)
-//                    print("ListUsers\(self.ListUsers)")
-                }
-            }catch{print("goal => ")
-            }
-        }
+        print("tkId\(tkId)")
+       
         // Do any additional setup after loading the view.
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,8 +71,18 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
      }
     @IBAction func btsave(_ sender: Any) {
         let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
-        let param : Parameters = ["tf_id":self.tkId as AnyObject,"comment":self.lbcomment.text as AnyObject,"mode":"update" as AnyObject]
-
+        let param : Parameters = ["u_id":self.tkId as  AnyObject,
+                                  "time":self.lbtime.text as AnyObject,
+                                  "date":self.lbdate.text as  AnyObject,
+                                "dr_name":self.lbDr_name.text as AnyObject,
+                                 "email":self.lbDr_email.text as  AnyObject,
+                                 "phone":self.lbphone.text as AnyObject,
+                                 "hospital":self.lbhospital.text as  AnyObject,
+                                 "drug":self.lbdrug.text as AnyObject,
+                                 "time_next":self.lbtime_next.text as  AnyObject,
+                                 "date_next":self.lbdate_next.text as AnyObject,
+                                  "mode":"insert" as AnyObject]
+print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
@@ -117,5 +99,14 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
         }
         print("Save => track")
     }
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

@@ -100,11 +100,11 @@ class settingTableViewController: UITableViewController {
             let ListCarerTableViewController = segue.destination as! ListCarerTableViewController
             ListCarerTableViewController.lcId = stId
         }
-
         if stTrack == "1" {
             if segue.identifier == "toFromTrackmb"{
                 let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
                 trackingmbTableViewController.tackId = stId
+                trackingmbTableViewController.tkFId = stTrack
             }
         }else{
             print("stTrack\(stTrack)")

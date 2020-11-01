@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2225439C254D7BB400C08F4C /* alertMoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225439B254D7BB400C08F4C /* alertMoodTableViewCell.swift */; };
+		222543A5254D97BE00C08F4C /* addFromTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222543A4254D97BE00C08F4C /* addFromTableViewController.swift */; };
 		22352F1D2539ACF100E70F46 /* ListUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22352F1C2539ACF100E70F46 /* ListUserViewController.swift */; };
 		22352F242539B36800E70F46 /* ListUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22352F232539B36800E70F46 /* ListUserTableViewCell.swift */; };
 		22352F292539DB8E00E70F46 /* popListUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22352F282539DB8E00E70F46 /* popListUserViewController.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		2225439B254D7BB400C08F4C /* alertMoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertMoodTableViewCell.swift; sourceTree = "<group>"; };
+		222543A4254D97BE00C08F4C /* addFromTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFromTableViewController.swift; sourceTree = "<group>"; };
 		22352F1C2539ACF100E70F46 /* ListUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserViewController.swift; sourceTree = "<group>"; };
 		22352F232539B36800E70F46 /* ListUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserTableViewCell.swift; sourceTree = "<group>"; };
 		22352F282539DB8E00E70F46 /* popListUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popListUserViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,19 @@
 			path = alertMood;
 			sourceTree = "<group>";
 		};
+		222543A2254D979200C08F4C /* TrackingFrom */ = {
+			isa = PBXGroup;
+			children = (
+				22480F3D254070A60030837E /* trackingmbTableViewController.swift */,
+				22480F3925406E0D0030837E /* popfromtrackingmbViewController.swift */,
+				22480F302540491F0030837E /* popTrackFromViewController.swift */,
+				22480F31254049200030837E /* TrackTableViewCell.swift */,
+				22480F2F2540491F0030837E /* TrackTableViewController.swift */,
+				222543A4254D97BE00C08F4C /* addFromTableViewController.swift */,
+			);
+			path = TrackingFrom;
+			sourceTree = "<group>";
+		};
 		226FAA4425443A1E00F9225F /* ResultMood */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,11 +228,7 @@
 				22480F2E2540491E0030837E /* MoodForadminTableViewController.swift */,
 				2225439E254D7BBE00C08F4C /* alertMood */,
 				22352F232539B36800E70F46 /* ListUserTableViewCell.swift */,
-				22480F3D254070A60030837E /* trackingmbTableViewController.swift */,
-				22480F3925406E0D0030837E /* popfromtrackingmbViewController.swift */,
-				22480F302540491F0030837E /* popTrackFromViewController.swift */,
-				22480F31254049200030837E /* TrackTableViewCell.swift */,
-				22480F2F2540491F0030837E /* TrackTableViewController.swift */,
+				222543A2254D979200C08F4C /* TrackingFrom */,
 				22352F282539DB8E00E70F46 /* popListUserViewController.swift */,
 				22352F1C2539ACF100E70F46 /* ListUserViewController.swift */,
 				22EA3ECE253E913300AEFE3F /* adminSettingViewController.swift */,
@@ -441,6 +452,7 @@
 				22EA3ECF253E913300AEFE3F /* adminSettingViewController.swift in Sources */,
 				F9A8863125498DC700893EA1 /* AlarmViewController.swift in Sources */,
 				22352F292539DB8E00E70F46 /* popListUserViewController.swift in Sources */,
+				222543A5254D97BE00C08F4C /* addFromTableViewController.swift in Sources */,
 				F94F37D52500DCC000865559 /* NotificationNameExtension.swift in Sources */,
 				2258D54D24EAE6E4001E1F12 /* Addmood_TableViewCell.swift in Sources */,
 				22AB902D25432480007BAF70 /* SingleCellView.swift in Sources */,
