@@ -43,10 +43,14 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
     override func viewDidLoad() {
         super.viewDidLoad()
         print(tkId)
+        
+        dateTimePicker.preferredDatePickerStyle = .compact
+        dateTimenextPicker.preferredDatePickerStyle = .compact
+        
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["tf_id":self.tkId as AnyObject]
 
-        AF.request(url+"getDetailFromTracking.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
+        AF.request(url+"getDetailFromTracking.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ [self] (response) in
             do {
                 print("do")
                 let jsondata = try JSON(data: response.data!)
@@ -70,36 +74,50 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
                     let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
                     self.imgview.kf.setImage(with: url)
                     
-                    let strDate : String! = "\(self.lbdate!+" "+self.lbtime!)"
-                    let strDateNext : String! = "\(self.lbdate_next!+" "+self.lbtime_next!)"
-                    if (strDate == "0000-00-00 00:00:00"){
-                        print("date Time Error!!")
-                    }else{
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        dateFormatter.locale = Locale(identifier: "en")
-                        let date = dateFormatter.date(from: strDate)
-                //        self.dateTimePicker.datePickerMode = .date
-                        self.dateTimePicker.setDate(date!, animated: false)
-                    }
-                    if(strDateNext == "0000-00-00 00:00:00"){
-                        print("date Time DUE Error!!")
-                    }else{
-                        let dateFormatterNext = DateFormatter()
-                        dateFormatterNext.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        dateFormatterNext.locale = Locale(identifier: "en")
-                        let dateNext = dateFormatterNext.date(from: strDateNext)
-                //        self.dateTimePicker.datePickerMode = .date
-                        self.dateTimenextPicker.setDate(dateNext!, animated: false)
-                    }
+//                    let strDate : String! = "\(self.lbdate!+" "+self.lbtime!)"
+//                    let strDateNext : String! = "\(self.lbdate_next!+" "+self.lbtime_next!)"
+                    
+                    setDateformmat()
+//
                     
                 }
             }catch{print("goal => ")
             }
         }
-        
-        print(" self.lbtime\(self.lbtime)self.lbdate\(self.lbdate)self.lbtime_next\(self.lbtime_next)self.lbdate_next\(self.lbdate_next)")
         // Do any additional setup after loading the view.
+    }
+    func setDateformmat() {
+        print(" self.lbtime\(self.lbtime!)self.lbdate\(self.lbdate!)self.lbtime_next\(self.lbtime_next!)self.lbdate_next\(self.lbdate_next!)")
+        
+        var strDate : String! = "\(self.lbdate!+" "+self.lbtime!)"
+        var strDateNext : String! = "\(self.lbdate_next!+" "+self.lbtime_next!)"
+        print("strDate ->>>>>\(strDate!)")
+        if (self.lbdate! == "0000-00-00" || self.lbtime! == "00:00:00"){
+                              print("date Time Error!!")
+            
+            self.dateTimePicker.setDate(datePicker.date, animated: true)
+                          }else{
+                              let dateFormatter = DateFormatter()
+                              dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                              dateFormatter.locale = Locale(identifier: "en")
+                              let date = dateFormatter.date(from: strDate)
+      
+                              self.dateTimePicker.setDate(date!, animated: true)
+      
+                          }
+                          if(self.lbdate_next! == "0000-00-00" || self.lbtime_next! == "00:00:00"){
+                           
+                              print("date Time DUE Error!!")
+                           
+                            self.dateTimenextPicker.setDate(datePicker.date, animated: false)
+                          }else{
+                              let dateFormatterNext = DateFormatter()
+                              dateFormatterNext.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                              dateFormatterNext.locale = Locale(identifier: "en")
+                              let dateNext = dateFormatterNext.date(from: strDateNext)
+                      //        self.dateTimePicker.datePickerMode = .date
+                              self.dateTimenextPicker.setDate(dateNext!, animated: false)
+                          }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -153,15 +171,15 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
         print(" self.lbtime\(self.lbtime)self.lbdate\(self.lbdate)self.lbtime_next\(self.lbtime_next)self.lbdate_next\(self.lbdate_next)")
         let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
         let param : Parameters = ["u_id":self.tkId as AnyObject,
-                                  "time":self.lbtime as AnyObject,
-                                  "date":self.lbdate as AnyObject,
+                                  "time":""+self.lbtime! as AnyObject,
+                                  "date":""+self.lbdate! as AnyObject,
                                   "dr_name":self.lbDr_name.text as AnyObject,
                                   "email":self.lbDr_email.text as AnyObject,
                                   "phone":self.lbphone.text as AnyObject,
                                   "hospital":self.lbhospital.text as AnyObject,
                                   "drug":self.lbdrug.text as AnyObject,
-                                  "time_next":self.lbtime_next as AnyObject,
-                                  "date_next":self.lbdate_next as AnyObject,
+                                  "time_next":"\(self.lbtime_next!)" as AnyObject,
+                                  "date_next":"\(self.lbdate_next!)" as AnyObject,
                                   "image":self.word as AnyObject,
                                   "mode":"userupdate" as AnyObject]
 print(param)

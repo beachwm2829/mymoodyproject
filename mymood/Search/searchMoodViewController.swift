@@ -13,10 +13,7 @@ import Kingfisher
 import AlamofireObjectMapper
 
 class searchMoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
-   
-    
 
-    
     struct moodModel :Decodable {
            let mid :String
            let mood :String

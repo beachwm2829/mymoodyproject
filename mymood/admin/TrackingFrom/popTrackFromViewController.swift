@@ -36,11 +36,11 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tkId)
+        print("tkId\(tkId)")
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["tf_id":self.tkId as AnyObject]
 
-        AF.request(url+"getDetailFromTracking.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
+        AF.request(url+"getDetailFromTracking.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ [self] (response) in
             do {
                 print("do")
                 let jsondata = try JSON(data: response.data!)
@@ -51,15 +51,20 @@ class popTrackFromViewController: UIViewController, UIImagePickerControllerDeleg
                     let popListUserId = aTrackFrom["u_id"].stringValue
                     self.lbcomment.text = aTrackFrom["comment"].stringValue
                     self.lbtime.text = aTrackFrom["time"].stringValue
-//                    self.lbbirth.text = aListUser["birthdate"].stringValue
-//                    self.lbdisease.text = aListUser["disease"].stringValue
-//                    self.lbadrees.text = aListUser["adress"].stringValue
-//                    self.lbmail.text = aListUser["email"].stringValue
-//                    self.lbtel.text = aListUser["phone"].stringValue
-//                    let imgprofile = aListUser["img"].stringValue
-//                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-//                    self.imgProfile.kf.setImage(with: url)
-//                    print("ListUsers\(self.ListUsers)")
+                    self.lbdate.text = aTrackFrom["date"].stringValue
+                    self.lbDr_name.text = aTrackFrom["dr_name"].stringValue
+                    self.lbDr_email.text = aTrackFrom["email"].stringValue
+                    self.lbphone.text = aTrackFrom["phone"].stringValue
+                    self.lbhospital.text = aTrackFrom["hospital"].stringValue
+                    self.lbdrug.text = aTrackFrom["drug"].stringValue
+                    self.lbtime_next.text = aTrackFrom["time_next"].stringValue
+                    self.lbdate_next.text = aTrackFrom["date_next"].stringValue
+                    let imgprofile = aTrackFrom["image"].stringValue
+                    print("imgprofile!\(imgprofile)")
+                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.imgview.kf.setImage(with: url)
+                    
+                    print("TrackFromArray\(TrackFromArray)")
                 }
             }catch{print("goal => ")
             }

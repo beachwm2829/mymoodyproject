@@ -35,6 +35,7 @@ class addFromTackTableViewController: UIViewController, UIImagePickerControllerD
     @IBAction func btsave(_ sender: Any) {
         let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
         let param : Parameters = ["u_id":self.tkId as  AnyObject,
+                                  "mode":"insert" as  AnyObject,
                                   "comment":self.lbcomment.text as AnyObject]
 print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in

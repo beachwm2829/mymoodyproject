@@ -134,6 +134,11 @@ class TrackTableViewController: UITableViewController {
         return 80
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let index = TrackUsers[indexPath.row]
+        
+        self.tkFId = index.tkId
+        
         self.performSegue(withIdentifier: "toFromTrack", sender: self)
         
     }
