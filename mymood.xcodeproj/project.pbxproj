@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2217340E2551B7630024933B /* SearchAssementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217340D2551B7630024933B /* SearchAssementViewController.swift */; };
 		2225439C254D7BB400C08F4C /* alertMoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225439B254D7BB400C08F4C /* alertMoodTableViewCell.swift */; };
 		222543A5254D97BE00C08F4C /* addFromTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222543A4254D97BE00C08F4C /* addFromTableViewController.swift */; };
 		22352F1D2539ACF100E70F46 /* ListUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22352F1C2539ACF100E70F46 /* ListUserViewController.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2217340D2551B7630024933B /* SearchAssementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssementViewController.swift; sourceTree = "<group>"; };
 		2225439B254D7BB400C08F4C /* alertMoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertMoodTableViewCell.swift; sourceTree = "<group>"; };
 		222543A4254D97BE00C08F4C /* addFromTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFromTableViewController.swift; sourceTree = "<group>"; };
 		22352F1C2539ACF100E70F46 /* ListUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUserViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				F91CAF402507830800910D51 /* SearchViewController.swift */,
 				225A408525488BC5002E46C4 /* searchMoodViewController.swift */,
 				225A408825488BDA002E46C4 /* seachMoodTableViewCell.swift */,
+				2217340D2551B7630024933B /* SearchAssementViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				22D692622534FCDF00AAA6C3 /* popMoodViewController.swift in Sources */,
 				22480F34254049210030837E /* popTrackFromViewController.swift in Sources */,
 				2258D54724EAE288001E1F12 /* TabBarController.swift in Sources */,
+				2217340E2551B7630024933B /* SearchAssementViewController.swift in Sources */,
 				F922C28C254D778500432FB5 /* ListCarerTableViewController.swift in Sources */,
 				2274E0E224FD6DFD007AD0E2 /* add_activityViewController.swift in Sources */,
 				2240FC1D252644C3004350C1 /* Assessment_TableViewController.swift in Sources */,
