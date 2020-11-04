@@ -118,21 +118,36 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
             mood = 5
         }
     }
-    
-    @IBAction func bt_abum(_ sender: Any) {
-         let selectPhoto = UIImagePickerController()
-         selectPhoto.delegate = self
-         selectPhoto.sourceType = .photoLibrary
-         present(selectPhoto, animated: true,completion: nil)
-     }
-     @IBAction func bt_camera(_ sender: Any) {
-         let selectPhoto = UIImagePickerController()
-         selectPhoto.delegate = self
-         selectPhoto.sourceType = .camera
-         present(selectPhoto, animated: true,completion: nil)
-     }
 
-   //MARK: - host addmood
+    @IBAction func btAddImages(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let litButton = UIAlertAction(title: "คลังรูปภาพ", style: UIAlertAction.Style.default){(litSelect) in
+            print("Library")
+            let selectPhoto = UIImagePickerController()
+            selectPhoto.delegate = self
+            selectPhoto.sourceType = .photoLibrary
+            self.present(selectPhoto, animated: true, completion: nil)
+            
+        }
+        let camButton = UIAlertAction(title: "ถ่ายภาพ", style: UIAlertAction.Style.default){(litSelect) in
+            print("Camera")
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .camera
+            self.present(picker, animated: true, completion: nil)
+            
+        }
+        let cancleButton = UIAlertAction(title: "ยกเลิก", style: UIAlertAction.Style.cancel){(canSelect) in
+            print("Cancle")
+            
+        }
+        actionSheet.addAction(camButton)
+        actionSheet.addAction(litButton)
+        actionSheet.addAction(cancleButton)
+        self.present(actionSheet,animated: true,completion: nil)
+    }
+    //MARK: - host addmood
    @IBAction func btsavemood(_ sender: Any) {
     let url = "http://project2.cocopatch.com/Moody/mood.php?"
     

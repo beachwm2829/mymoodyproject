@@ -1,24 +1,17 @@
 //
-//  Assessment_TableViewCell.swift
+//  searchAssementTableViewCell.swift
 //  mymood
 //
-//  Created by macOS on 10/2/20.
+//  Created by macOS on 11/3/20.
 //  Copyright © 2020 Manasawee Kaenampornpan. All rights reserved.
 //
 
 import UIKit
 
-class Assessment_TableViewCell: UITableViewCell {
+class searchAssementTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameAs: UILabel!
-    @IBOutlet weak var timeAs: UILabel!
-    @IBOutlet weak var dateAs: UILabel!
-    @IBOutlet weak var resultAs: UILabel!
-    @IBOutlet weak var textResultAs: UILabel!
-    @IBOutlet weak var lbnote: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         // Initialization code
     }
 

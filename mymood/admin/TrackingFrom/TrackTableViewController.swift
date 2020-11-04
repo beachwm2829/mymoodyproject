@@ -39,11 +39,10 @@ class TrackTableViewController: UITableViewController {
     var TrackData = [[String:AnyObject]]()
     var TrackUsers = [TrackModel]()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -53,6 +52,7 @@ class TrackTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.TrackUsers.removeAll()
         self.getTrackUser()
+        print("tackId\(tackId)")
     }
     // MARK: - Table view data source
 
@@ -117,6 +117,7 @@ class TrackTableViewController: UITableViewController {
         
                     let List = TrackModel(userId: userId,tkId: tkId, date: date, timetk: timetk, dr_name: dr_name, email: email, phone: phone, hospital: hospital, image: image, drug: drug, date_next: date_next, timetk_next: timetk_next, comment: comment, status: status)
                     self.TrackUsers.append(List)
+                   
 //                    print("ListUsers\(self.ListUsers)")
                 }
                 self.tableView.reloadData()
@@ -125,15 +126,19 @@ class TrackTableViewController: UITableViewController {
             }
         }
     }
+    @IBAction func addFrom(_ sender: Any) {
+        self.performSegue(withIdentifier: "toaddFromTrack", sender: self)
+    }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 80
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let index = TrackUsers[indexPath.row]
         
-        tkFId = index.tkId
-        print("sickUserId\(tkFId)")
+        self.tkFId = index.tkId
+        
         self.performSegue(withIdentifier: "toFromTrack", sender: self)
         
     }
@@ -144,8 +149,14 @@ class TrackTableViewController: UITableViewController {
                     print(self.tkFId)
             popTrackFromViewController.tkId = self.tkFId
                 }
+        if segue.identifier == "toaddFromTrack"{
+                 let addFromTackTableViewController = segue.destination as! addFromTackTableViewController
+                 print(self.tkFId)
+            addFromTackTableViewController.tkId = self.tackId
+             }
         
     }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

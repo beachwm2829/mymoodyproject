@@ -30,6 +30,8 @@ class AdviceTableViewController: UITableViewController {
         super.viewDidLoad()
         print("ASSemment**")
         print(AdvId)
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -74,36 +76,36 @@ class AdviceTableViewController: UITableViewController {
                     
                 
             }else if (index.nameAs == "Q9"){
-                if(resultInt! > 0 && resultInt! < 12){
+                if(resultInt! > 0 && resultInt! <= 12){
                     if(name == "Q9=7-12"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")
                     }
-                }else if(resultInt! > 13 && resultInt! < 18){
+                }else if(resultInt! >= 13 && resultInt! <= 18){
                     if(name == "Q9=13-18"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")
                     }
                 }
-                else if(resultInt! > 19){
+                else if(resultInt! >= 19){
                     if(name == "Q9>19"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")
                     }
                 }
             }else if (index.nameAs == "Q8"){
-                if(resultInt! >= 0 && resultInt! < 8){
+                if(resultInt! >= 0 && resultInt! <= 8){
                     if(name == "Q8=1-8"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")
                     }
                     
-                }else if(resultInt! > 9 && resultInt! < 16){
+                }else if(resultInt! >= 9 && resultInt! <= 16){
                     if(name == "Q8=9-16"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")
                     }
-                }else if(resultInt! > 17){
+                }else if(resultInt! >= 17){
                     if(name == "Q8>17"){
                         print("advice\(advice)")
                         cell?.textResultAs.text = advice.joined(separator:"\n")

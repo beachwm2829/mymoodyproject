@@ -13,10 +13,7 @@ import Kingfisher
 import AlamofireObjectMapper
 
 class searchMoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate {
-   
-    
 
-    
     struct moodModel :Decodable {
            let mid :String
            let mood :String
@@ -62,7 +59,8 @@ class searchMoodViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var bt_social_media: UIButton!
 
     
-    @IBOutlet weak var dateseach: UITextField!
+//    @IBOutlet weak var dateseach: UITextField!
+    @IBOutlet weak var datePickerSearch: UIDatePicker!
     let datePicker = UIDatePicker()
     
     @IBOutlet weak var dateView: UIView!
@@ -72,10 +70,13 @@ class searchMoodViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var sement: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDatePicker()
+//        createDatePicker()
         searchBar.delegate = self
         searchMood = MoodNameArr
         dateView.isHidden = false
+        
+        datePickerSearch.datePickerMode = .date
+        datePickerSearch.preferredDatePickerStyle = .compact
         
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["u_id":self.mvId as AnyObject,"mode":"search" as AnyObject]
@@ -174,47 +175,58 @@ class searchMoodViewController: UIViewController,UITableViewDelegate,UITableView
         }else if(sender.tag == 4){
             ACtivitycount = "social-media"
         }
+        print(ACtivitycount)
         CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
             moodModel.activity == ACtivitycount
             
         })
         tableView.reloadData()
     }
-    func createDatePicker() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneBth = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([doneBth], animated: true)
-        dateseach.inputAccessoryView = toolbar
-        dateseach.inputView = datePicker
-        
-        datePicker.datePickerMode = .date
-        
-    }
-    @objc func donePressed() {
-        let fotmatter = DateFormatter()
-        fotmatter.dateFormat = "dd-MM-yyyy"
-    
-        dateseach.text = fotmatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-    }
-    func getDate(){
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en")
-        let dateString = formatter.string(from: date)
-        
-        print("dateString\(dateString)")
-        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
-            moodModel.date == dateString
-            
-        })
-        tableView.reloadData()
-//        lbDatemood.text = "TODAY \(dateString)"
-    }
-    
+//    func createDatePicker() {
+//        let toolbar = UIToolbar()
+//        toolbar.sizeToFit()
+//
+//        let doneBth = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+//        toolbar.setItems([doneBth], animated: true)
+//        dateseach.inputAccessoryView = toolbar
+//        dateseach.inputView = datePicker
+//
+//        datePicker.datePickerMode = .date
+//    }
+//    @objc func donePressed() {
+//        let fotmatter = DateFormatter()
+//        fotmatter.dateFormat = "dd-MM-yyyy"
+//
+//        dateseach.text = fotmatter.string(from: datePicker.date)
+//        self.view.endEditing(true)
+//
+//    }
+//    func getDate(){
+//        let date = Date()
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "en")
+//        formatter.dateFormat = "dd-MM-yyyy"
+//        let dateString = formatter.string(from: date)
+//
+//        print("dateseach\(dateseach.text)")
+//        let strdatesearch:String = formatter.string(from: dateseach)
+//        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
+//            moodModel.date == strdatesearch
+//        })
+//        tableView.reloadData()
+//    }
+//
 
+    @IBAction func btSearch(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let selectedDate = dateFormatter.string(from: datePickerSearch.date)
+                print("selectedDate",selectedDate)
+                CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
+                    moodModel.date == selectedDate
+                })
+                tableView.reloadData()
+    }
     @IBAction func sement(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -222,7 +234,6 @@ class searchMoodViewController: UIViewController,UITableViewDelegate,UITableView
             dateView.isHidden = false
             activityView.isHidden = true
             moodView.isHidden = true
-            getDate()
             ClearMood()
         case 1:
             print("2")

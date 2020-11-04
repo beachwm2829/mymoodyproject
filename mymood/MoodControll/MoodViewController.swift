@@ -96,7 +96,7 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
                     let mood = moodModel(mid: arId, mood: arMood, activity: arActivity, location: arLocation, note: arNote, hastag: arHastag, image: arImage, time: arTime, date: arDate)
                     self.moods.append(mood)
-
+                    print(self.moods)
                 }
                 self.tableView.reloadData()
             }catch{
@@ -146,11 +146,20 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell?.lbDate.text = index.time
         var imgMood = "mood"+index.mood
         cell?.imgMood.image = UIImage(named: imgMood)
+        if (index.activity == "social-media") {
+            cell?.imgActivity.image = UIImage(named: "social-media")
+        }else if (index.activity == "yoga"){
+            cell?.imgActivity.image = UIImage(named: "yoga")
+        }else if (index.activity == "online-shopping"){
+            cell?.imgActivity.image = UIImage(named: "online-shopping")
+        }else if (index.activity == "entertainment"){
+            cell?.imgActivity.image = UIImage(named: "entertainment")
+        }
         return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 110
+        return 126
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

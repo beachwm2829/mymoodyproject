@@ -124,6 +124,7 @@ class settingTableViewController: UITableViewController {
             if segue.identifier == "toFromTrackmb"{
                 let trackingmbTableViewController = segue.destination as! trackingmbTableViewController
                 trackingmbTableViewController.tackId = stId
+                trackingmbTableViewController.tkFId = stTrack
             }
         }else{
             print("stTrack\(stTrack)")
