@@ -165,7 +165,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
             let user = ListUsers[indexPath.row]
             let url = "http://project2.cocopatch.com/Moody/"
             let param : Parameters = [
-                "cid":user.sickid as AnyObject,
+                "c_id":user.sickid as AnyObject,
                 "mode":"delete" as AnyObject
             ]
             AF.request(url+"Updatemember.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in

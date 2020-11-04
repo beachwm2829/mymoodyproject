@@ -102,7 +102,7 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
         let url = "http://project2.cocopatch.com/Moody/searchUser.php?"
         
         let param : Parameters = [
-            "cid":searchId! as AnyObject,
+            "c_id":searchId! as AnyObject,
             "mode":"addconf" as AnyObject,
             "u_id":searchCounty[indexPath.row].uId as AnyObject
         ]

@@ -66,6 +66,30 @@ class ListCarerTableViewController: UITableViewController {
              }
          }
      }
+    
+    func apiCarer(mode :String,cid :String, uid:String){
+        let url = "http://project2.cocopatch.com/Moody/"
+        let param : Parameters = [
+           "mode":mode as AnyObject,
+           "c_id":cid as AnyObject,
+           "u_id":uid as AnyObject
+        ]
+        print("MODE : \(mode) || UID : \(uid) --> CID \(cid)")
+        AF.request(url+"searchUser.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+            case .success(_):
+                let alert = UIAlertController(title: "เพิ่มผู้ดูแลเรียบร้อย", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+//                    self.navigationController!.popViewController(animated: true)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            case .failure(_):
+                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -89,10 +113,16 @@ class ListCarerTableViewController: UITableViewController {
         let index = CarerData[indexPath.row]
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
         cell?.img.kf.setImage(with: url)
-        cell?.ID = index.ID
         cell?.lbName.text = index.name
         
-
+        cell?.actionBlockADD = {
+            print("ADD \(index.ID)")
+            self.apiCarer(mode: "add", cid: index.ID, uid: self.lcId!)
+        }
+        cell?.actionBlockDel = {
+            print("DEL \(index.ID)")
+            self.apiCarer(mode: "delete", cid: index.ID, uid: self.lcId!)
+        }
         return cell!
     }
     

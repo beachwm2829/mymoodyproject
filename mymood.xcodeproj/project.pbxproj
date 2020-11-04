@@ -53,6 +53,7 @@
 		F922C292254D7A2400432FB5 /* ListCarerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F922C291254D7A2400432FB5 /* ListCarerTableViewCell.swift */; };
 		F94F37D52500DCC000865559 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F37D42500DCBF00865559 /* NotificationNameExtension.swift */; };
 		F953110B24DFD38500230B12 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F953110A24DFD38500230B12 /* NavigationController.swift */; };
+		F998C993255055BE00235F02 /* CarerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F998C992255055BE00235F02 /* CarerViewController.swift */; };
 		F9993AD8252720740067910F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9993AD7252720740067910F /* CalendarViewController.swift */; };
 		F9A8863125498DC700893EA1 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A8863025498DC700893EA1 /* AlarmViewController.swift */; };
 		F9DBC70725161C4300798B03 /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DBC70625161C4300798B03 /* MoodTableViewCell.swift */; };
@@ -112,6 +113,7 @@
 		F922C291254D7A2400432FB5 /* ListCarerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCarerTableViewCell.swift; sourceTree = "<group>"; };
 		F94F37D42500DCBF00865559 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 		F953110A24DFD38500230B12 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		F998C992255055BE00235F02 /* CarerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarerViewController.swift; sourceTree = "<group>"; };
 		F9993AD7252720740067910F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		F9A8863025498DC700893EA1 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		F9DBC70625161C4300798B03 /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				F922C28B254D778400432FB5 /* ListCarerTableViewController.swift */,
 				F922C291254D7A2400432FB5 /* ListCarerTableViewCell.swift */,
+				F998C992255055BE00235F02 /* CarerViewController.swift */,
 			);
 			path = Carer;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				F9DBC70725161C4300798B03 /* MoodTableViewCell.swift in Sources */,
 				F922C292254D7A2400432FB5 /* ListCarerTableViewCell.swift in Sources */,
 				F91D1E2A24D9581700D5E112 /* AppDelegate.swift in Sources */,
+				F998C993255055BE00235F02 /* CarerViewController.swift in Sources */,
 				2258D54B24EAE6CE001E1F12 /* Addmood_TableViewController.swift in Sources */,
 				225A408925488BDA002E46C4 /* seachMoodTableViewCell.swift in Sources */,
 				2225439C254D7BB400C08F4C /* alertMoodTableViewCell.swift in Sources */,

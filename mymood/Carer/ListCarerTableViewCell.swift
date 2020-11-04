@@ -15,14 +15,18 @@ class ListCarerTableViewCell: UITableViewCell {
     @IBOutlet weak var btAdd: UIButton!
     @IBOutlet weak var btDel: UIButton!
     
-    var ID:String?
+    var c_id:String?
+    var u_id:String?
+    
+    var actionBlockADD: (() -> Void)? = nil
+    var actionBlockDel: (() -> Void)? = nil
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         btAdd.layer.cornerRadius = 10.0
         btDel.layer.cornerRadius = 10.0
-        img.layer.cornerRadius = 20.0
+        img.layer.cornerRadius = img.frame.size.height/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,11 +34,13 @@ class ListCarerTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     @IBAction func btAdd(_ sender: Any) {
-        print("ADD CARER")
+        actionBlockADD?()
     }
     @IBAction func btDel(_ sender: Any) {
-        print("DELETE CARER")
+        actionBlockDel?()
     }
     
 }
+

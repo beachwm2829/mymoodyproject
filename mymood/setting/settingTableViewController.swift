@@ -15,6 +15,15 @@ class settingTableViewController: UITableViewController {
 
     var stId :String?
     var stTrack :String?
+    var stCid :String?
+    var stName :String?
+    var stSex :String?
+    var stBirth :String?
+    var stAddress :String?
+    var stDisease :String?
+    var stMail :String?
+    var stTel :String?
+    var stImg :String?
     
     @IBOutlet weak var toFromTrackkking: UITableViewCell!
     @IBOutlet weak var btSwitch: UISwitch!
@@ -33,8 +42,7 @@ class settingTableViewController: UITableViewController {
                 let ListUserArray = jsondata["success"].arrayValue
                 for aListUser in ListUserArray {
                     self.stTrack = aListUser["trackingstatus"].stringValue
-                    print("stTrack\(self.stTrack)")
-
+                    self.stCid = aListUser["c_id"].stringValue
                 }
             }catch{
             }
@@ -54,7 +62,14 @@ class settingTableViewController: UITableViewController {
             performSegue(withIdentifier: "toAdvice", sender: self)
         }
         if indexPath == [2, 0] {
-            performSegue(withIdentifier: "toCarer", sender: self)
+            print("STcid = \(self.stCid!)")
+            if self.stCid! == "" {
+                performSegue(withIdentifier: "toCarer", sender: self)
+            }
+            else {
+                performSegue(withIdentifier: "toCarerDetail", sender: self)
+            }
+            
         }
         if indexPath == [2, 1] {
             if stTrack == "1" {
@@ -99,6 +114,10 @@ class settingTableViewController: UITableViewController {
         if segue.identifier == "toCarer"{
             let ListCarerTableViewController = segue.destination as! ListCarerTableViewController
             ListCarerTableViewController.lcId = stId
+        }
+        if segue.identifier == "toCarerDetail"{
+            let CarerViewController = segue.destination as! CarerViewController
+            CarerViewController.cvId = stCid
         }
 
         if stTrack == "1" {

@@ -59,7 +59,6 @@ class ChartViewController: UIViewController {
                     var arMood = aMood["mood"].stringValue
                     let arDate = aMood["date"].stringValue
                     let dateFormatter = DateFormatter()
-                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let date = dateFormatter.date(from:arDate)!
                     if(typeDate == "today") {
@@ -79,8 +78,6 @@ class ChartViewController: UIViewController {
                                     arMood = "เฉยชา"
                                     self.summood3 = self.summood3+1
                                     self.mooddataToday.append(self.summood3)
-
-
                                 }
                                 if arMood == "4"{
                                     arMood = "เบื่อ"
@@ -95,7 +92,6 @@ class ChartViewController: UIViewController {
 
                                 }
                              self.name.append(arMood)
-                                
 //                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
                             }
                         } else if(typeDate == "month") {
@@ -166,21 +162,23 @@ class ChartViewController: UIViewController {
             if(typeDate == "today") {
                 self.setPieChart(dataPoints: namee, values: self.mooddataToday)
             }else{
-                let countmood = self.mooddata.count - 1
-                print("count \(self.mooddata.last?.count)")
-                print("last \(self.mooddata.last)")
-                var i = 0
-                while i < (self.mooddata.last?.count)! {
-                    if (self.mooddata.last![i]) == 0.0 {
-                        self.mooddata[countmood].remove(at: i)
-                        i = 0
-                    }else {
-                        i += 1
+                if(self.mooddata.last != nil){
+                    let countmood = self.mooddata.count - 1
+                    print("count \(self.mooddata.last?.count)")
+                    print("last \(self.mooddata.last)")
+                    var i = 0
+                    while i < (self.mooddata.last?.count)! {
+                        if (self.mooddata.last![i]) == 0.0 {
+                            self.mooddata[countmood].remove(at: i)
+                            i = 0
+                        }else {
+                            i += 1
+                        }
+                        
                     }
-                    
+                    print("Mood Final is \(self.mooddata.last)")
+                    self.setPieChart(dataPoints: namee, values: self.mooddata[countmood])
                 }
-                print("Mood Final is \(self.mooddata.last)")
-                self.setPieChart(dataPoints: namee, values: self.mooddata[countmood])
             }
             self.name.removeAll { $0 == "date" }
         }
