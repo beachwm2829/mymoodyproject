@@ -74,19 +74,32 @@ class ListCarerTableViewController: UITableViewController {
            "c_id":cid as AnyObject,
            "u_id":uid as AnyObject
         ]
-        print("MODE : \(mode) || UID : \(uid) --> CID \(cid)")
-        AF.request(url+"searchUser.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-            switch response.result {
-            case .success(_):
-                let alert = UIAlertController(title: "เพิ่มผู้ดูแลเรียบร้อย", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-//                    self.navigationController!.popViewController(animated: true)
-                }))
-                self.present(alert, animated: true, completion: nil)
-            case .failure(_):
-                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+//        print("MODE : \(mode) || UID : \(uid) --> CID \(cid)")
+        if mode == "add"{
+            AF.request(url+"searchUser.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+                switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title: "เพิ่มผู้ดูแลเรียบร้อย", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.navigationController!.popViewController(animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }else {
+            AF.request(url+"searchUser.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+                switch response.result {
+                case .success(_):
+                    print("success")
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
