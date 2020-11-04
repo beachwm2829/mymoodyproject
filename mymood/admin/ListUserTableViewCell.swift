@@ -12,6 +12,7 @@ class ListUserTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbname: UILabel!
     @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var lbuser: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

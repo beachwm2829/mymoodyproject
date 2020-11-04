@@ -119,6 +119,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     }
     @objc func donePressed() {
         let fotmatter = DateFormatter()
+        fotmatter.locale = Locale(identifier: "en")
         fotmatter.dateFormat = "yyyy-MM-dd"
     
         tfBirth.text = fotmatter.string(from: datePicker.date)

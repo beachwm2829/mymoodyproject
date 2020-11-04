@@ -187,4 +187,19 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             }
         }
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let Alert = AlertMoods[indexPath.row]
+            
+            let url = "http://project2.cocopatch.com/Moody/"
+            let param : Parameters = [
+                "arm_id":Alert.arm_id as AnyObject
+            ]
+            AF.request(url+"deleteAlert.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
+            AlertMoods.removeAll()
+            viewDidLoad()
+            self.tableView.reloadData()
+            
+        }
+    }
 }

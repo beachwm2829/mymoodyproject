@@ -57,7 +57,7 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
                     let uId = aMood["u_id"].stringValue
                     let User = aMood["username"].stringValue
                     let Name = aMood["name"].stringValue
-                    let arImage = aMood["image"].stringValue
+                    let arImage = aMood["img"].stringValue
 //                    self.countryNameArr.append(aMood["username"].stringValue)
 //                    self.countryNameArr.append(aMood["name"].stringValue)
                     let listU = listUsr(uId: uId, User: User, Name: Name,img: arImage)
@@ -86,12 +86,11 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? searchUserTableViewCell
-        let url = URL(string: "http://project2.cocopatch.com/searchUser/\(searchCounty[indexPath.row].img)")
+        let url = URL(string: "http://project2.cocopatch.com/Moody/\(searchCounty[indexPath.row].img)")
 
         cell?.name.text = searchCounty[indexPath.row].Name
         cell?.user.text = searchCounty[indexPath.row].User
-        let imgs = searchCounty[indexPath.row].img
-        cell?.img.image = UIImage(named: imgs)
+        cell?.img.kf.setImage(with: url)
         return cell!
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
