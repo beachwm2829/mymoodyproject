@@ -2855,7 +2855,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <action selector="btProfile:" destination="by1-Yf-cXy" eventType="touchUpInside" id="XuW-fB-YNb"/>
                                     <action selector="btProfile:" destination="oSF-Nh-GMb" eventType="touchUpInside" id="rDV-gb-Df7"/>
                                 </connections>
                             </button>
@@ -2868,7 +2867,7 @@
                         <outlet property="btFemale" destination="bHk-MZ-wXK" id="OJu-oG-iwk"/>
                         <outlet property="btMale" destination="nVO-Wn-0C3" id="T4s-bv-sm2"/>
                         <outlet property="img" destination="iVo-6z-i9j" id="5ab-Hp-gEt"/>
-                        <outlet property="tfAddress" destination="AOe-gc-bfm" id="UmP-au-RHO"/>
+                        <outlet property="tfAddress" destination="AOe-gc-bfm" id="hpz-R9-4as"/>
                         <outlet property="tfBirth" destination="0Ip-2C-C3K" id="EeL-Fi-hFN"/>
                         <outlet property="tfDisease" destination="W2d-z7-6cZ" id="APv-7F-q2v"/>
                         <outlet property="tfEmail" destination="qRg-6E-744" id="jVo-sS-QtZ"/>

@@ -48,8 +48,8 @@ class manaProfileViewController: UIViewController,UIImagePickerControllerDelegat
            view.addGestureRecognizer(tap)
            
            img.layer.cornerRadius = img.frame.size.height/2
-        
         let url = "http://project2.cocopatch.com/Moody/"
+       
         let param : Parameters = ["u_id":self.rcId as AnyObject]
 print(rcId)
         AF.request(url+"getProfile.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).responseJSON{ (response) in
@@ -78,12 +78,12 @@ print(rcId)
                     self.tfBirth.text = aTrackFrom["birthdate"].stringValue
                     self.tfDisease.text = aTrackFrom["disease"].stringValue
                     self.chgender = aTrackFrom["gender"].stringValue
-                    self.tfAddress.text = aTrackFrom["adress"].stringValue
+                    self.tfAddress.text = aTrackFrom["address"].stringValue
                     self.tfEmail.text = aTrackFrom["email"].stringValue
                     self.tfPhone.text = aTrackFrom["phone"].stringValue
                     let imgprofile = aTrackFrom["img"].stringValue
-                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-                    self.img.kf.setImage(with: url)
+                    let imgpro = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.img.kf.setImage(with: imgpro)
                     
                     if(self.chgender!.lowercased() == "male"){
                         self.btMale.isSelected = true

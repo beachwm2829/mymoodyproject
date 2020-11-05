@@ -103,7 +103,7 @@ class MoodForadminTableViewController: UITableViewController {
         return 110
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "admincell", for: indexPath) as?  MoodTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as?  MoodTableViewCell
         let index = moods[indexPath.row]
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
         print("this====here")
