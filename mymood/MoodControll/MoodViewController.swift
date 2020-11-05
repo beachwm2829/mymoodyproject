@@ -118,7 +118,12 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var imgMoods = "mood"+index.mood
         pm?.imgMood = UIImage(named: imgMoods)!
         var imgAv = index.activity
-        pm?.imgActivi = UIImage(named: imgAv)!
+        if (imgAv == "") {
+            pm?.imgActivi = UIImage(named: "social")!
+        }else{
+            pm?.imgActivi = UIImage(named: imgAv)!
+        }
+        
 
         self.navigationController?.pushViewController(pm!, animated: true)
     }
@@ -144,7 +149,10 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell?.lbDate.text = index.time
         var imgMood = "mood"+index.mood
         cell?.imgMood.image = UIImage(named: imgMood)
-        if (index.activity == "social-media") {
+        
+        if (index.activity == "") {
+            cell?.imgActivity.image = UIImage(named: "social")
+        }else if (index.activity == "social-media") {
             cell?.imgActivity.image = UIImage(named: "social-media")
         }else if (index.activity == "yoga"){
             cell?.imgActivity.image = UIImage(named: "yoga")

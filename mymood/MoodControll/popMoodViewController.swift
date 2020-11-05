@@ -39,6 +39,7 @@ class popMoodViewController: UIViewController {
         let url = URL(string: "http://project2.cocopatch.com/Moody/\(image)")
         imgview.kf.setImage(with: url)
         imgMoods.image = imgMood
+        
         imgActivity.image = imgActivi
         lblocation.text = "\(location)"
         lbnote.text = "\(note)"

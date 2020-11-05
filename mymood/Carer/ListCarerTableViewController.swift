@@ -136,6 +136,7 @@ class ListCarerTableViewController: UITableViewController {
         cell?.actionBlockDel = {
             print("DEL \(index.ID)")
             self.apiCarer(mode: "delete", cid: index.ID, uid: self.lcId!)
+            self.tableView.reloadData()
         }
         return cell!
     }

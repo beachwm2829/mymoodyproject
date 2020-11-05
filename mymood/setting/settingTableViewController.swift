@@ -30,7 +30,11 @@ class settingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.getProfile()
+    }
+    func getProfile(){
         let url = "http://project2.cocopatch.com/Moody/"
         let param : Parameters = ["u_id":self.stId as AnyObject]
         
@@ -43,10 +47,12 @@ class settingTableViewController: UITableViewController {
                 for aListUser in ListUserArray {
                     self.stTrack = aListUser["trackingstatus"].stringValue
                     self.stCid = aListUser["c_id"].stringValue
+                    print("STCID ==== \(self.stCid)")
                 }
             }catch{
             }
         }
+        self.tableView.reloadData()
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("IndexPath: :\(indexPath)")
@@ -85,8 +91,7 @@ class settingTableViewController: UITableViewController {
             print("exit")
             let actionSheet = UIAlertController(title: nil, message: "ต้องการออกจากระบบหรือไม่?", preferredStyle: UIAlertController.Style.actionSheet)
             let logOutButton = UIAlertAction(title: "ออกจากระบบ", style: UIAlertAction.Style.destructive){(select) in
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-                vc.modalPresentationStyle = .fullScreen
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "NavigationStart") as! NavigationController
                 self.present(vc, animated: true, completion: nil)
             }
 
@@ -117,6 +122,7 @@ class settingTableViewController: UITableViewController {
         }
         if segue.identifier == "toCarerDetail"{
             let CarerViewController = segue.destination as! CarerViewController
+            CarerViewController.uvId = stId
             CarerViewController.cvId = stCid
         }
 
