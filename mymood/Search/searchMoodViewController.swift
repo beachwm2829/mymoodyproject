@@ -182,44 +182,12 @@ class searchMoodViewController: UIViewController,UITableViewDelegate,UITableView
         })
         tableView.reloadData()
     }
-//    func createDatePicker() {
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//
-//        let doneBth = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-//        toolbar.setItems([doneBth], animated: true)
-//        dateseach.inputAccessoryView = toolbar
-//        dateseach.inputView = datePicker
-//
-//        datePicker.datePickerMode = .date
-//    }
-//    @objc func donePressed() {
-//        let fotmatter = DateFormatter()
-//        fotmatter.dateFormat = "dd-MM-yyyy"
-//
-//        dateseach.text = fotmatter.string(from: datePicker.date)
-//        self.view.endEditing(true)
-//
-//    }
-//    func getDate(){
-//        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.locale = Locale(identifier: "en")
-//        formatter.dateFormat = "dd-MM-yyyy"
-//        let dateString = formatter.string(from: date)
-//
-//        print("dateseach\(dateseach.text)")
-//        let strdatesearch:String = formatter.string(from: dateseach)
-//        CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in
-//            moodModel.date == strdatesearch
-//        })
-//        tableView.reloadData()
-//    }
-//
-
+    
     @IBAction func btSearch(_ sender: Any) {
         let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
                 let selectedDate = dateFormatter.string(from: datePickerSearch.date)
                 print("selectedDate",selectedDate)
                 CurrentMoodArray = MoodArray.filter({ moodModel -> Bool in

@@ -21,6 +21,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     struct ListUserModel :Decodable {
         let sickid :String
+        let user :String
         let name :String
         let sex :String
         let birth :String
@@ -42,7 +43,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 110
+        return 99
     }
     override func viewWillAppear(_ animated: Bool) {
         self.ListUsers.removeAll()
@@ -67,6 +68,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                 let ListUserArray = jsondata["success"].arrayValue
                 for aListUser in ListUserArray {
                     let luId = aListUser["u_id"].stringValue
+                    let user = aListUser["username"].stringValue
                     let name = aListUser["name"].stringValue
                     let sex = aListUser["gender"].stringValue
                     let birth = aListUser["birthdate"].stringValue
@@ -76,7 +78,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                     let tel = aListUser["phone"].stringValue
                     let imgprofile = aListUser["img"].stringValue
                     
-                    let List = ListUserModel(sickid: luId, name: name, sex: sex, birth: birth, disease: disease, adress: adress, mail: mail, tel: tel, imgprofile: imgprofile)
+                    let List = ListUserModel(sickid: luId, user: user, name: name, sex: sex, birth: birth, disease: disease, adress: adress, mail: mail, tel: tel, imgprofile: imgprofile)
                     self.ListUsers.append(List)
 //                    print("ListUsers\(self.ListUsers)")
                 }
@@ -95,6 +97,7 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        self.sickUserId = index.sickid
 //        print("sickUserId\(sickUserId)")
         cell?.lbname.text = index.name
+        cell?.lbuser.text = index.user
         cell?.imgProfile.kf.setImage(with: url)
         print("url\(url)")
         return cell!
@@ -107,21 +110,6 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
         self.performSegue(withIdentifier: "toDetailUser", sender: self)
         
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let pm = storyboard?.instantiateViewController(withIdentifier: "popListUserViewController") as? popListUserViewController
-//
-//        let index = ListUsers[indexPath.row]
-//               let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.imgprofile)")
-//        pm?.popListUserId = index.sickid
-//        pm?.name = index.name
-//        pm?.sex = index.sex
-//        pm?.birth = index.birth
-//        pm?.adress = index.disease
-//        pm?.disease = index.adress
-//        pm?.tel = index.mail
-//        pm?.mail = index.tel
-//        self.navigationController?.pushViewController(pm!, animated: true)
-//    }
     @IBAction func tossearching(_ sender: Any) {
        
         self.performSegue(withIdentifier: "searchCell", sender: self)
