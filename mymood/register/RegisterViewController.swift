@@ -49,8 +49,12 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         view.addGestureRecognizer(tap)
         
         img.layer.cornerRadius = img.frame.size.height/2
-
+        tfUsername.addTarget(self,
+                action : #selector(textFieldDidChange),
+                for : .editingChanged)
     }
+    @objc func textFieldDidChange()
+    { print(tfUsername.text ?? "Doh!") }
     
     @objc func viewTapped(gestureRecongizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -152,8 +156,51 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         self.navigationController?.popViewController(animated: true)
     }
     
+    func isValidEmail(testStr:String) -> Bool {
+
+        print("validate emilId: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let result = emailTest.evaluate(with: testStr)
+        return result
+
+    }
     
     @IBAction func btCreateAccount(_ sender: Any) {
+                let Email:String = tfEmail.text!
+                let username:String = tfUsername.text!
+                let password:String = tfPassword.text!
+//                let confirm_password:String = .text!
+
+                if isValidEmail(testStr: Email) == true{
+                    do {
+                    print("this is e-mail!")
+                    }
+                }
+                else if Email.isEmpty || username.isEmpty || password.isEmpty {
+
+                    let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
+                    let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                        print("Settings")
+                    }
+
+                    alertController.addAction(DestructiveAction)
+
+                    self.present(alertController, animated: true, completion: nil)
+                }
+//                else if ( !password.isEqual(confirm_password) ) {
+//
+//                    let alertController = UIAlertController(title: "Alert", message: "Password Din't Match.", preferredStyle: UIAlertControllerStyle.Alert)
+//                    let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+//                        print("Password Din't Match")
+//                    }
+//
+//                    alertController.addAction(DestructiveAction)
+//
+//                    self.presentViewController(alertController, animated: true, completion: nil)
+//
+//                }
+                    
         let url = "http://project2.cocopatch.com/Moody/register.php?"
         let param : Parameters = ["username":tfUsername.text! as AnyObject,
             "password":tfPassword.text! as AnyObject,
@@ -169,7 +216,6 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
             "img":word as AnyObject,
             "status":status as AnyObject
         ]
-        print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
@@ -185,6 +231,4 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
             }
         }
     }
-
-    
 }

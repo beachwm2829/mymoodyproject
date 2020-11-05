@@ -95,6 +95,7 @@ class ListCarerTableViewController: UITableViewController {
                 switch response.result {
                 case .success(_):
                     print("success")
+                    self.tableView.reloadData()
                 case .failure(_):
                     let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))

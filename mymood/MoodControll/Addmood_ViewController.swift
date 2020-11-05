@@ -168,6 +168,18 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let dateString = formatter.string(from: date)
     mode = "insert"
     
+    if lb_note.text == "" || lbHastag.text == "" || imgactivity.image == nil || img.image == nil {
+
+        let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
+        let DestructiveAction = UIAlertAction(title: "ตกลง", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+            print("Settings")
+        }
+
+        alertController.addAction(DestructiveAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     let param : Parameters = [
         "mood":mood as AnyObject,
         "activity":activitySH as AnyObject,
@@ -187,7 +199,7 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
             self.getAlertmood()
             alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                 self.navigationController!.popViewController(animated: true)
-                
+
             }))
             self.present(alert, animated: true, completion: nil)
         case .failure(_):
