@@ -49,12 +49,12 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         view.addGestureRecognizer(tap)
         
         img.layer.cornerRadius = img.frame.size.height/2
-        tfUsername.addTarget(self,
-                action : #selector(textFieldDidChange),
-                for : .editingChanged)
+//        tfUsername.addTarget(self,
+//                action : #selector(textFieldDidChange),
+//                for : .editingChanged)
     }
-    @objc func textFieldDidChange()
-    { print(tfUsername.text ?? "Doh!") }
+//    @objc func textFieldDidChange()
+//    { print(tfUsername.text ?? "Doh!") }
     
     @objc func viewTapped(gestureRecongizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -157,28 +157,72 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         self.navigationController?.popViewController(animated: true)
     }
     
-    func isValidEmail(testStr:String) -> Bool {
+    func isValid(testStr:String, type:String) -> Bool {
+        if type == "email" {
+            print("validate emilId: \(testStr)")
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            let result = emailTest.evaluate(with: testStr)
+            return result
+        }
+        else if type == "user" {
+            print("validate password: \(testStr)")
+            let userRegEx = "^(?=.*[a-z])(?=.*[$@$#!%*?&]).{6,}$"
+            let userTest = NSPredicate(format:"SELF MATCHES %@", userRegEx)
+            let result = userTest.evaluate(with: testStr)
+            return result
+        }
+        else if type == "pass" {
+            print("validate password: \(testStr)")
+            let passRegEx = "^(?=.*[a-z])(?=.*[$@$#!%*?&]).{6,}$"
+            let passTest = NSPredicate(format:"SELF MATCHES %@", passRegEx)
+            let result = passTest.evaluate(with: testStr)
+            return result
+        }
+        else if type == "phone" {
+            print("validate phone: \(testStr)")
+            let phoneRegEx = "^(\\([0-9]{3}\\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$"
+            let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+            let result = phoneTest.evaluate(with: testStr)
+            return result
+        }
 
-        print("validate emilId: \(testStr)")
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let result = emailTest.evaluate(with: testStr)
-        return result
-
+        return false
     }
     
     @IBAction func btCreateAccount(_ sender: Any) {
                 let Email:String = tfEmail.text!
                 let username:String = tfUsername.text!
                 let password:String = tfPassword.text!
+                let phone:String = tfPhone.text!
+                let birth:String = tfBirth.text!
+                let fname:String = tfFname.text!
+                let lname:String = tfLname.text!
+                
 //                let confirm_password:String = .text!
 
-                if isValidEmail(testStr: Email) == true{
+                if isValid(testStr: Email,type: "email") == true{
                     do {
                     print("this is e-mail!")
                     }
                 }
-                else if Email.isEmpty || username.isEmpty || password.isEmpty {
+                if isValid(testStr: Email,type: "user") == true{
+                    do {
+                    print("this is username!")
+                    }
+                }
+                if isValid(testStr: Email,type: "pass") == true{
+                    do {
+                    print("this is password!")
+                    }
+                }
+                if isValid(testStr: Email,type: "phone") == true{
+                    do {
+                    print("this is phone!")
+                    }
+                }
+        if Email.isEmpty || username.isEmpty || password.isEmpty || phone.isEmpty || birth.isEmpty
+            || fname.isEmpty || lname.isEmpty || self.gender.isEmpty || self.status == 0 {
 
                     let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
                     let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in

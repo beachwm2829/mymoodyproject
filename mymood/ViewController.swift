@@ -25,17 +25,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let content = UNMutableNotificationContent()
-        content.title = "MYMOODY"
-        content.body = "Welcome"
-        content.sound = UNNotificationSound.default
+//        let content = UNMutableNotificationContent()
+//        content.title = "MYMOODY"
+//        content.body = "Welcome"
+//        content.sound = UNNotificationSound.default
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//
+//        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
-        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
-        
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         loginBT.layer.cornerRadius = 20.0
         createBT.layer.cornerRadius = 20.0
         tfUsername.text = ""

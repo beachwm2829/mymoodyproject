@@ -59,8 +59,11 @@ class ChartViewController: UIViewController {
                     var arMood = aMood["mood"].stringValue
                     let arDate = aMood["date"].stringValue
                     let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en")
+                    dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let date = dateFormatter.date(from:arDate)!
+                    print(date)
                     if(typeDate == "today") {
                             if(Calendar.current.isDateInToday(date)) {
                                 if arMood == "1"{
