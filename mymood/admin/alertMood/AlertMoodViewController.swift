@@ -161,29 +161,38 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             return pickerData[row]
         }
     @IBAction func btsave(_ sender: Any) {
-        print(mood)
-        print(pickercount!)
-        let url = "http://project2.cocopatch.com/Moody/resultmood.php?"
-        let param : Parameters = [
-            "amount":pickercount! as AnyObject,
-            "mood":mood as AnyObject,
-            "u_id":AlerMId! as AnyObject,
-            "c_id":amId! as AnyObject,
-            "mode":"insert" as AnyObject
-        ]
+        if mood == 0 {
+            let alertController = UIAlertController(title: "เลือกอารมณ์", message: "กรุณาเลือกอารมณ์ก่อนบันทึก", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "ตกลง", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
 
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-            switch response.result {
-                case .success(_):
-                    let alert = UIAlertController(title: "เพิ่มสถานะวิกฤตเรียบร้อย", message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.navigationController?.popViewController(animated: true)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                case .failure(_):
-                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+            alertController.addAction(DestructiveAction)
+
+            self.present(alertController, animated: true, completion: nil)
+        }else {
+            let url = "http://project2.cocopatch.com/Moody/resultmood.php?"
+            let param : Parameters = [
+                "amount":pickercount! as AnyObject,
+                "mood":mood as AnyObject,
+                "u_id":AlerMId! as AnyObject,
+                "c_id":amId! as AnyObject,
+                "mode":"insert" as AnyObject
+            ]
+
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+                switch response.result {
+                    case .success(_):
+                        let alert = UIAlertController(title: "เพิ่มสถานะวิกฤตเรียบร้อย", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                            self.navigationController?.popViewController(animated: true)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    case .failure(_):
+                        let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }

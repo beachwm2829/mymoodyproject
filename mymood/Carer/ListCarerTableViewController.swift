@@ -136,7 +136,19 @@ class ListCarerTableViewController: UITableViewController {
         cell?.actionBlockDel = {
             print("DEL \(index.ID)")
             self.apiCarer(mode: "delete", cid: index.ID, uid: self.lcId!)
-            self.tableView.reloadData()
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+            let Button = UIAlertAction(title: "ลบผู้ดูแล", style: UIAlertAction.Style.cancel){(litSelect) in
+                self.CarerData.removeAll()
+                self.tableView.reloadData()
+                
+            }
+            let cancleButton = UIAlertAction(title: "ยกเลิก", style: UIAlertAction.Style.cancel){(canSelect) in
+                print("Cancle")
+            }
+            actionSheet.addAction(Button)
+            actionSheet.addAction(cancleButton)
+            self.present(actionSheet,animated: true,completion: nil)
+            
         }
         return cell!
     }

@@ -37,7 +37,10 @@ class searchTableViewController: UITableViewController, UISearchBarDelegate {
     var searchCounty = [listUsr]()
     var searching = false
     
-    
+    func reloadRows(at indexPaths: [IndexPath],
+                    with animation: UITableView.RowAnimation){
+        self.tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

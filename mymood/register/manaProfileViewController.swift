@@ -30,6 +30,10 @@ class manaProfileViewController: UIViewController,UIImagePickerControllerDelegat
 
        
        @IBOutlet weak var img: UIImageView!
+    
+       var emailValid:String?
+       var passValid:String?
+       var phoneValid:String?
        
        let datePicker = UIDatePicker()
        var word = ""
@@ -105,6 +109,37 @@ print(rcId)
        @objc func viewTapped(gestureRecongizer: UITapGestureRecognizer) {
            view.endEditing(true)
        }
+    
+    @IBAction func pass_act(_ sender: Any){
+        let text = tfPassword.text!
+        if text.isValidPass() {
+            tfPassword.textColor = UIColor.black
+            passValid = "true"
+        }else {
+            tfPassword.textColor = UIColor.red
+            passValid = "false"
+        }
+    }
+    @IBAction func email_act(_ sender: Any){
+        let text = tfEmail.text!
+        if text.isValidEmail() {
+            tfEmail.textColor = UIColor.black
+            emailValid = "true"
+        }else {
+            tfEmail.textColor = UIColor.red
+            emailValid = "false"
+        }
+    }
+    @IBAction func phone_act(_ sender: Any){
+        let text = tfPhone.text!
+        if text.isValidPhone() {
+            tfPhone.textColor = UIColor.black
+            phoneValid = "true"
+        }else {
+            tfPhone.textColor = UIColor.red
+            phoneValid = "false"
+        }
+    }
        
        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
            [UIImagePickerController.InfoKey:Any]) {
@@ -190,6 +225,43 @@ print(rcId)
 
        
        @IBAction func btEditAccount(_ sender: Any) {
+        let Email:String = tfEmail.text!
+        let password:String = tfPassword.text!
+        let phone:String = tfPhone.text!
+        let birth:String = tfBirth.text!
+        let fname:String = tfFname.text!
+        let lname:String = tfLname.text!
+        
+        if Email.isEmpty || password.isEmpty || phone.isEmpty || birth.isEmpty
+            || fname.isEmpty || lname.isEmpty || self.gender.isEmpty || self.status == 0 {
+            let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  passValid == "false"{
+            let alertController = UIAlertController(title: "Password ไม่ถูกต้อง", message: "กรุณากรอก password อย่างน้อย 6 ตัว มีตัวอักษรกับตัวเลข", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  emailValid == "false"{
+            let alertController = UIAlertController(title: "Email ไม่ถูกต้อง", message: "กรุณากรอก Email ให้ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  phoneValid == "false"{
+            let alertController = UIAlertController(title: "เบอร์โทรศัพท์ ไม่ถูกต้อง", message: "กรุณากรอกเบอร์โทรศัพท์ ให้ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else {
            let url = "http://project2.cocopatch.com/Moody/Updatemember.php?"
            let param : Parameters = [
                 "u_id":rcId as AnyObject,
@@ -221,16 +293,5 @@ print(rcId)
                }
            }
        }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+       }
 }

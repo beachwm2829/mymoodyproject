@@ -16,7 +16,6 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     
     var adSId:String?
     
-    
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfFname: UITextField!
     @IBOutlet weak var tfLname: UITextField!
@@ -25,6 +24,11 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     @IBOutlet weak var tfBirth: UITextField!
     @IBOutlet weak var tfAddress: UITextField!
     
+    @IBOutlet weak var btSave: UIButton!
+    
+    var emailValid:String?
+    var passValid:String?
+    var phoneValid:String?
     var gender:String?
     
     
@@ -46,6 +50,7 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
         
 
         img.layer.cornerRadius = img.frame.size.height/2
+        btSave.layer.cornerRadius = 20.0
         
         print(adSId)
         let url = "http://project2.cocopatch.com/Moody/"
@@ -81,8 +86,8 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
                     self.tfBirth.text = aListUser["birthdate"].stringValue
                     self.tfAddress.text = aListUser["address"].stringValue
                     let imgprofile = aListUser["img"].stringValue
-                    let urlimg = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-                    self.img.kf.setImage(with: urlimg)
+                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.img.kf.setImage(with: url)
 //                    print("ListUsers\(self.ListUsers)")
                     
 //                    print(self.chgender!.lowercased())
@@ -105,6 +110,37 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     
     @objc func viewTapped(gestureRecongizer: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @IBAction func pass_act(_ sender: Any){
+        let text = tfPassword.text!
+        if text.isValidPass() {
+            tfPassword.textColor = UIColor.black
+            passValid = "true"
+        }else {
+            tfPassword.textColor = UIColor.red
+            passValid = "false"
+        }
+    }
+    @IBAction func email_act(_ sender: Any){
+        let text = tfEmail.text!
+        if text.isValidEmail() {
+            tfEmail.textColor = UIColor.black
+            emailValid = "true"
+        }else {
+            tfEmail.textColor = UIColor.red
+            emailValid = "false"
+        }
+    }
+    @IBAction func phone_act(_ sender: Any){
+        let text = tfPhone.text!
+        if text.isValidPhone() {
+            tfPhone.textColor = UIColor.black
+            phoneValid = "true"
+        }else {
+            tfPhone.textColor = UIColor.red
+            phoneValid = "false"
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
@@ -188,35 +224,72 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
     }
 
     @IBAction func btUpdteAccount(_ sender: Any) {
-        let url = "http://project2.cocopatch.com/Moody/Updatemember.php?"
-        let param : Parameters = [
-            "u_id":adSId as AnyObject,
-            "mode":"admin" as AnyObject,
-           "password":tfPassword.text! as AnyObject,
-           "fname":tfFname.text! as AnyObject,
-           "lname":tfLname.text! as AnyObject,
-           "gender":chgender as AnyObject,
-           "birthdate":tfBirth.text! as AnyObject,
-           "phone":tfPhone.text! as AnyObject,
-           "address":tfAddress.text! as AnyObject,
-           "email":tfEmail.text! as AnyObject,
-           "img":word as AnyObject
-        ]
-        print(param)
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-        switch response.result {
-            case .success(_):
-                let alert = UIAlertController(title: "แก้ไขข้อมูลเรียบร้อย", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                    self.navigationController!.popViewController(animated: true)
-                }))
-                self.present(alert, animated: true, completion: nil)
-            case .failure(_):
-                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+        let Email:String = tfEmail.text!
+        let password:String = tfPassword.text!
+        let phone:String = tfPhone.text!
+        let birth:String = tfBirth.text!
+        let fname:String = tfFname.text!
+        let lname:String = tfLname.text!
+        
+        if Email.isEmpty || password.isEmpty || phone.isEmpty || birth.isEmpty
+            || fname.isEmpty || lname.isEmpty || ((self.gender?.isEmpty) != nil) || self.status == 0 {
+            let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  passValid == "false"{
+            let alertController = UIAlertController(title: "Password ไม่ถูกต้อง", message: "กรุณากรอก password อย่างน้อย 6 ตัว มีตัวอักษรกับตัวเลข", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  emailValid == "false"{
+            let alertController = UIAlertController(title: "Email ไม่ถูกต้อง", message: "กรุณากรอก Email ให้ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  phoneValid == "false"{
+            let alertController = UIAlertController(title: "เบอร์โทรศัพท์ ไม่ถูกต้อง", message: "กรุณากรอกเบอร์โทรศัพท์ ให้ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else {
+            let url = "http://project2.cocopatch.com/Moody/Updatemember.php?"
+            let param : Parameters = [
+                "u_id":adSId as AnyObject,
+                "mode":"admin" as AnyObject,
+               "password":tfPassword.text! as AnyObject,
+               "fname":tfFname.text! as AnyObject,
+               "lname":tfLname.text! as AnyObject,
+               "gender":chgender as AnyObject,
+               "birthdate":tfBirth.text! as AnyObject,
+               "phone":tfPhone.text! as AnyObject,
+               "address":tfAddress.text! as AnyObject,
+               "email":tfEmail.text! as AnyObject,
+               "img":word as AnyObject
+            ]
+            print(param)
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title: "แก้ไขข้อมูลเรียบร้อย", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.navigationController!.popViewController(animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
-
 }

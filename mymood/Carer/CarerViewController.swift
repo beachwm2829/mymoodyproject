@@ -37,7 +37,7 @@ class CarerViewController: UIViewController {
                 let jsondata = try JSON(data: response.data!)
                 let ListUserArray = jsondata["success"].arrayValue
                 for aListUser in ListUserArray {
-                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(aListUser["img"])")
+                    let urlimg = URL(string: "http://project2.cocopatch.com/Moody/\(aListUser["img"])")
                     self.lbName.text = aListUser["name"].stringValue
                     self.lbSex.text = aListUser["gender"].stringValue
                     self.lbBirth.text = aListUser["birthdate"].stringValue
@@ -45,7 +45,7 @@ class CarerViewController: UIViewController {
                     self.lbDisease.text = aListUser["disease"].stringValue
                     self.lbMail.text = aListUser["email"].stringValue
                     self.lbTel.text = aListUser["phone"].stringValue
-                    self.img.kf.setImage(with: url)
+                    self.img.kf.setImage(with: urlimg)
                 }
             }catch{
             }

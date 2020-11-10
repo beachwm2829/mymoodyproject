@@ -160,7 +160,9 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                 switch response.result {
                     case .success(_):
                         let alert = UIAlertController(title: "ลบสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{ [self](action) -> Void in
+                            self.ListUsers.removeAll()
+                            self.getListUser()
                             self.tableView.reloadData()
                         }))
                         self.present(alert, animated: true, completion: nil)
@@ -171,10 +173,9 @@ class ListUserViewController: UIViewController, UITableViewDelegate,UITableViewD
                     }))
                     self.present(alert, animated: true, completion: nil)
                 }
+                self.tableView.reloadData()
             }
-            ListUsers.removeAll()
-            getListUser()
-            self.tableView.reloadData()
+            
         }
     }
     /*

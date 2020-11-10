@@ -39,6 +39,12 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
     var gender = ""
     var status : Int?
     
+    var emailValid:String?
+    var userValid:String?
+    var passValid:String?
+    var phoneValid:String?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,8 +59,46 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
 //                action : #selector(textFieldDidChange),
 //                for : .editingChanged)
     }
-//    @objc func textFieldDidChange()
-//    { print(tfUsername.text ?? "Doh!") }
+    @IBAction func user_act(_ sender: Any){
+        let text = tfUsername.text!
+        if text.isValidUser() {
+            tfUsername.textColor = UIColor.black
+            userValid = "true"
+        }else {
+            tfUsername.textColor = UIColor.red
+            userValid = "false"
+        }
+    }
+    @IBAction func pass_act(_ sender: Any){
+        let text = tfPassword.text!
+        if text.isValidPass() {
+            tfPassword.textColor = UIColor.black
+            passValid = "true"
+        }else {
+            tfPassword.textColor = UIColor.red
+            passValid = "false"
+        }
+    }
+    @IBAction func email_act(_ sender: Any){
+        let text = tfEmail.text!
+        if text.isValidEmail() {
+            tfEmail.textColor = UIColor.black
+            emailValid = "true"
+        }else {
+            tfEmail.textColor = UIColor.red
+            emailValid = "false"
+        }
+    }
+    @IBAction func phone_act(_ sender: Any){
+        let text = tfPhone.text!
+        if text.isValidPhone() {
+            tfPhone.textColor = UIColor.black
+            phoneValid = "true"
+        }else {
+            tfPhone.textColor = UIColor.red
+            phoneValid = "false"
+        }
+    }
     
     @objc func viewTapped(gestureRecongizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -157,82 +201,82 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
         self.navigationController?.popViewController(animated: true)
     }
     
-    func isValid(testStr:String, type:String) -> Bool {
-        if type == "email" {
-            print("validate emilId: \(testStr)")
-            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-            let result = emailTest.evaluate(with: testStr)
-            return result
-        }
-        else if type == "user" {
-            print("validate password: \(testStr)")
-            let userRegEx = "^(?=.*[a-z])(?=.*[$@$#!%*?&]).{6,}$"
-            let userTest = NSPredicate(format:"SELF MATCHES %@", userRegEx)
-            let result = userTest.evaluate(with: testStr)
-            return result
-        }
-        else if type == "pass" {
-            print("validate password: \(testStr)")
-            let passRegEx = "^(?=.*[a-z])(?=.*[$@$#!%*?&]).{6,}$"
-            let passTest = NSPredicate(format:"SELF MATCHES %@", passRegEx)
-            let result = passTest.evaluate(with: testStr)
-            return result
-        }
-        else if type == "phone" {
-            print("validate phone: \(testStr)")
-            let phoneRegEx = "^(\\([0-9]{3}\\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$"
-            let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
-            let result = phoneTest.evaluate(with: testStr)
-            return result
-        }
-
-        return false
-    }
-    
     @IBAction func btCreateAccount(_ sender: Any) {
-                let Email:String = tfEmail.text!
-                let username:String = tfUsername.text!
-                let password:String = tfPassword.text!
-                let phone:String = tfPhone.text!
-                let birth:String = tfBirth.text!
-                let fname:String = tfFname.text!
-                let lname:String = tfLname.text!
-                
-//                let confirm_password:String = .text!
-
-                if isValid(testStr: Email,type: "email") == true{
-                    do {
-                    print("this is e-mail!")
-                    }
-                }
-                if isValid(testStr: Email,type: "user") == true{
-                    do {
-                    print("this is username!")
-                    }
-                }
-                if isValid(testStr: Email,type: "pass") == true{
-                    do {
-                    print("this is password!")
-                    }
-                }
-                if isValid(testStr: Email,type: "phone") == true{
-                    do {
-                    print("this is phone!")
-                    }
-                }
+        let Email:String = tfEmail.text!
+        let username:String = tfUsername.text!
+        let password:String = tfPassword.text!
+        let phone:String = tfPhone.text!
+        let birth:String = tfBirth.text!
+        let fname:String = tfFname.text!
+        let lname:String = tfLname.text!
+        
         if Email.isEmpty || username.isEmpty || password.isEmpty || phone.isEmpty || birth.isEmpty
             || fname.isEmpty || lname.isEmpty || self.gender.isEmpty || self.status == 0 {
-
-                    let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
-                    let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
-                        print("Settings")
-                    }
-
-                    alertController.addAction(DestructiveAction)
-
-                    self.present(alertController, animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  userValid == "false"{
+            let alertController = UIAlertController(title: "Username ไม่ถูกต้อง", message: "กรุณากรอก username ให้ครบ 6 ตัว มีตัวอักษรกับตัวเลข", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  passValid == "false"{
+            let alertController = UIAlertController(title: "Password ไม่ถูกต้อง", message: "กรุณากรอก password อย่างน้อย 6 ตัว มีตัวอักษรกับตัวเลข", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  emailValid == "false"{
+            let alertController = UIAlertController(title: "Email ไม่ถูกต้อง", message: "กรุณากรอก Email ให้ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else if  phoneValid == "false"{
+            let alertController = UIAlertController(title: "เบอร์โทรศัพท์ ไม่ถูกต้อง", message: "กรุณากรอกเบอร์โทรศัพท์ ให้ถูกต้อง", preferredStyle: UIAlertController.Style.alert)
+            let DestructiveAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
+                print("Settings")
+            }
+            alertController.addAction(DestructiveAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else {
+            let url = "http://project2.cocopatch.com/Moody/register.php?"
+            let param : Parameters = ["username":tfUsername.text! as AnyObject,
+                "password":tfPassword.text! as AnyObject,
+                "mode":"register" as AnyObject,
+                "fname":tfFname.text! as AnyObject,
+                "lname":tfLname.text! as AnyObject,
+                "gender":gender as AnyObject,
+                "birthdate":tfBirth.text! as AnyObject,
+                "phone":tfPhone.text! as AnyObject,
+                "address":tfAddress.text! as AnyObject,
+                "disease":tfDisease.text! as AnyObject,
+                "email":emailValid as AnyObject,
+                "img":word as AnyObject,
+                "status":status as AnyObject
+            ]
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title: "สมัครสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                        self.navigationController!.popViewController(animated: true)
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                case .failure(_):
+                    let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
+            }
+        }
 //                else if ( !password.isEqual(confirm_password) ) {
 //
 //                    let alertController = UIAlertController(title: "Alert", message: "Password Din't Match.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -246,34 +290,31 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
 //
 //                }
                     
-        let url = "http://project2.cocopatch.com/Moody/register.php?"
-        let param : Parameters = ["username":tfUsername.text! as AnyObject,
-            "password":tfPassword.text! as AnyObject,
-            "mode":"register" as AnyObject,
-            "fname":tfFname.text! as AnyObject,
-            "lname":tfLname.text! as AnyObject,
-            "gender":gender as AnyObject,
-            "birthdate":tfBirth.text! as AnyObject,
-            "phone":tfPhone.text! as AnyObject,
-            "address":tfAddress.text! as AnyObject,
-            "disease":tfDisease.text! as AnyObject,
-            "email":tfEmail.text! as AnyObject,
-            "img":word as AnyObject,
-            "status":status as AnyObject
-        ]
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-        switch response.result {
-            case .success(_):
-                let alert = UIAlertController(title: "สมัครสมาชิกเรียบร้อย", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                    self.navigationController!.popViewController(animated: true)
-                }))
-                self.present(alert, animated: true, completion: nil)
-            case .failure(_):
-                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
     }
 }
+
+extension String {
+    func isValidEmail() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
+    }
+    func isValidUser() -> Bool {
+        let userRegEx = "^(?=.*[a-z]).{6,}$"
+        let userTest = NSPredicate(format:"SELF MATCHES %@", userRegEx)
+        return userTest.evaluate(with: self)
+    }
+
+    func isValidPass() -> Bool {
+        let passRegEx = "^(?=.*[a-z])(?=.*[0-9]).{6,}$"
+        let passTest = NSPredicate(format:"SELF MATCHES %@", passRegEx)
+        return passTest.evaluate(with: self)
+    }
+
+    func isValidPhone() -> Bool {
+        let phoneRegEx = "^(0)[0-9]{9,9}$"
+        let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+        return phoneTest.evaluate(with: self)
+    }
+}
+
