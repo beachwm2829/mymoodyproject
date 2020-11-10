@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lif-5A-KOD">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -4902,7 +4902,7 @@
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ts-Dc-Pif">
                                 <rect key="frame" x="175" y="77" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="3.circle" catalog="system"/>
+                                <state key="normal" image="mood3-1"/>
                                 <state key="selected" image="mood3"/>
                                 <connections>
                                     <action selector="btMoodControl:" destination="Kz6-DY-aus" eventType="touchUpInside" id="XCn-eV-13U"/>
@@ -4912,7 +4912,7 @@
                                 <rect key="frame" x="29" y="77" width="67" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" image="1.circle" catalog="system"/>
+                                <state key="normal" image="mood1-1"/>
                                 <state key="selected" image="mood1"/>
                                 <connections>
                                     <action selector="btMoodControl:" destination="Kz6-DY-aus" eventType="touchUpInside" id="aRT-K3-02x"/>
@@ -4921,7 +4921,7 @@
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Djt-o6-OrK">
                                 <rect key="frame" x="248" y="77" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="4.circle" catalog="system"/>
+                                <state key="normal" image="mood4-1"/>
                                 <state key="selected" image="mood4"/>
                                 <connections>
                                     <action selector="btMoodControl:" destination="Kz6-DY-aus" eventType="touchUpInside" id="9uA-ZR-14C"/>
@@ -4930,7 +4930,7 @@
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wu-T2-gTs">
                                 <rect key="frame" x="321" y="77" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="5.circle" catalog="system"/>
+                                <state key="normal" image="mood5-1"/>
                                 <state key="selected" image="mood5"/>
                                 <connections>
                                     <action selector="btMoodControl:" destination="Kz6-DY-aus" eventType="touchUpInside" id="jLR-nq-0ps"/>
@@ -4939,7 +4939,7 @@
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XUP-gL-iyM">
                                 <rect key="frame" x="102" y="76" width="65" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="2.circle" catalog="system"/>
+                                <state key="normal" image="mood2-1"/>
                                 <state key="selected" image="mood2"/>
                                 <connections>
                                     <action selector="btMoodControl:" destination="Kz6-DY-aus" eventType="touchUpInside" id="pCs-KV-s83"/>
@@ -6084,11 +6084,6 @@
         <segue reference="LGD-Jd-ddM"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="1.circle" catalog="system" width="128" height="121"/>
-        <image name="2.circle" catalog="system" width="128" height="121"/>
-        <image name="3.circle" catalog="system" width="128" height="121"/>
-        <image name="4.circle" catalog="system" width="128" height="121"/>
-        <image name="5.circle" catalog="system" width="128" height="121"/>
         <image name="89619017_496934974327158_5541626706655182848_n" width="256" height="256"/>
         <image name="Checkbox" width="60" height="60"/>
         <image name="Rusult" width="551" height="550"/>
