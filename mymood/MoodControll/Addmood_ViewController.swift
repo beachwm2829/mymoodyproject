@@ -168,9 +168,8 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
     let dateString = formatter.string(from: date)
     mode = "insert"
     
-    if lb_note.text == "" || lbHastag.text == "" || imgactivity.image == nil || img.image == nil {
-
-        let alertController = UIAlertController(title: "Alert", message: "กรุณากรอกข้อมูลให้ครบ", preferredStyle: UIAlertController.Style.alert)
+    if mood == 0 {
+        let alertController = UIAlertController(title: "เลือกอารมณ์", message: "กรุณาเลือกอารมณ์ก่อนบันทึก", preferredStyle: UIAlertController.Style.alert)
         let DestructiveAction = UIAlertAction(title: "ตกลง", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
             print("Settings")
         }
@@ -178,36 +177,38 @@ class Addmood_ViewController: UIViewController, UIImagePickerControllerDelegate 
         alertController.addAction(DestructiveAction)
 
         self.present(alertController, animated: true, completion: nil)
-    }
+    }else {
+        let param : Parameters = [
+            "mood":mood as AnyObject,
+            "activity":activitySH as AnyObject,
+            "note":lb_note.text! as AnyObject,
+            "location":ldname_location.text! as AnyObject,
+            "hastag":lbHastag.text! as AnyObject,
+            "time":time as AnyObject,
+            "date":dateString as AnyObject,
+            "img":word as AnyObject,
+            "u_id":amId! as AnyObject,
+            "mode":mode as AnyObject
+            ]
+        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+        switch response.result {
+            case .success(_):
+                let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
+                self.getAlertmood()
+                alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                    self.navigationController!.popViewController(animated: true)
 
-    let param : Parameters = [
-        "mood":mood as AnyObject,
-        "activity":activitySH as AnyObject,
-        "note":lb_note.text! as AnyObject,
-        "location":ldname_location.text! as AnyObject,
-        "hastag":lbHastag.text! as AnyObject,
-        "time":time as AnyObject,
-        "date":dateString as AnyObject,
-        "img":word as AnyObject,
-        "u_id":amId! as AnyObject,
-        "mode":mode as AnyObject
-        ]
-    AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-    switch response.result {
-        case .success(_):
-            let alert = UIAlertController(title: "เพิ่มข้อมูลอารมณ์เรียบร้อย", message: nil, preferredStyle: .alert)
-            self.getAlertmood()
-            alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                self.navigationController!.popViewController(animated: true)
-
-            }))
-            self.present(alert, animated: true, completion: nil)
-        case .failure(_):
-            let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            case .failure(_):
+                let alert = UIAlertController(title: "ข้อผิดพลาดเซิร์ฟเวอร์", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ลองอีกครั้ง", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
+
+    
     }
     //MARK: - GET AlertMood
     func getAlertmood(){
