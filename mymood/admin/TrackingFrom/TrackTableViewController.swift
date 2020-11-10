@@ -67,6 +67,8 @@ class TrackTableViewController: UITableViewController {
         
         let index = TrackUsers[indexPath.row]
 //        let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
+        cell?.DateTrack.text = index.date + ":" + index.timetk
+        cell?.DateTrackNaxt.text = index.date_next + ":" + index.timetk_next
 
         if index.status == "1"{
             cell?.imgStatus.image = UIImage(named: "point-yellow")

@@ -43,8 +43,8 @@ class AlarmViewController: UIViewController {
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
 
-        dateComponents.weekday = 2  // Sunday Monday Tuesday wednesday thursday friday saturday
-        dateComponents.hour = 18
+        dateComponents.weekday = 3  // Sunday Monday Tuesday wednesday thursday friday saturday
+        dateComponents.hour = 19
         dateComponents.minute = 40
 
         print(dateComponents.hour)

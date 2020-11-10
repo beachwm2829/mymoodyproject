@@ -15,8 +15,8 @@ class TrackTableViewCell: UITableViewCell {
     @IBOutlet weak var imgStatus: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        DateTrack.text = "20 11 2020 10:25"
-        DateTrackNaxt.text = "20 3 2021 12:25"
+//        DateTrack.text = "20 11 2020 10:25"
+//        DateTrackNaxt.text = "20 3 2021 12:25"
         // Initialization code
     }
 

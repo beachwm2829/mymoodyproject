@@ -178,11 +178,11 @@ class MoodViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 "mode":mode as AnyObject
             ]
             AF.request(url+"mood.php?", method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil)
-            moods.removeAll()
-            getMood()
-            self.tableView.reloadData()
-            
+            self.moods.removeAll()
+//            print("self.moods\(self.moods)")
+            self.getMood()
         }
+        self.tableView.reloadData()
     }
 
 }

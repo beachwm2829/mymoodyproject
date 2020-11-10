@@ -854,29 +854,12 @@
                         <segue destination="tut-0y-RJc" kind="relationship" relationship="viewControllers" id="T2a-kf-pX5"/>
                         <segue destination="pxU-qB-uMz" kind="relationship" relationship="viewControllers" id="X3X-Xz-RM8"/>
                         <segue destination="ahH-pE-Z6s" kind="relationship" relationship="viewControllers" id="UTQ-AZ-cgL"/>
-                        <segue destination="eJV-aK-slF" kind="relationship" relationship="viewControllers" id="Tf7-os-XsP"/>
                         <segue destination="GX0-pZ-upR" kind="relationship" relationship="viewControllers" id="P2Q-6g-O86"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBV-Ut-Pxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2552" y="130"/>
-        </scene>
-        <!--ปฏิทินอารมณ์-->
-        <scene sceneID="743-Cl-WLW">
-            <objects>
-                <viewController id="dQB-Kk-wXw" customClass="CalendarViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eft-FG-vuP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="DXE-Bc-OJu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="ปฏิทินอารมณ์" id="Asb-Cp-fA5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1wR-b2-7Lb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4505.7971014492759" y="885.32608695652186"/>
         </scene>
         <!--Home-->
         <scene sceneID="N3M-zH-9kj">
@@ -2292,25 +2275,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0e-ah-fcu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3599" y="129"/>
-        </scene>
-        <!--Calendar-->
-        <scene sceneID="MtF-QR-ofd">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJV-aK-slF" customClass="NavigationController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="mIG-qo-9E7"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dhh-l2-oE6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="dQB-Kk-wXw" kind="relationship" relationship="rootViewController" id="0U6-rb-hk2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hDF-N5-tV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3598.5507246376815" y="885.32608695652186"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="El6-qZ-D3Z">
@@ -6104,7 +6068,6 @@
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="cake" width="512" height="512"/>
-        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
         <image name="chart.bar.doc.horizontal.fill" catalog="system" width="115" height="128"/>
         <image name="chart.pie" catalog="system" width="128" height="121"/>
