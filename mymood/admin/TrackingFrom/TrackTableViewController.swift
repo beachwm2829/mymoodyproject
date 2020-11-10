@@ -35,25 +35,22 @@ class TrackTableViewController: UITableViewController {
         let status :String
            
        }
-    
+    let datePicker = UIDatePicker()
     var TrackData = [[String:AnyObject]]()
     var TrackUsers = [TrackModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewWillAppear(_ animated: Bool) {
         self.TrackUsers.removeAll()
         self.getTrackUser()
+   
         print("tackId\(tackId)")
+
     }
+
     // MARK: - Table view data source
 
 //    override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,15 +67,9 @@ class TrackTableViewController: UITableViewController {
         
         let index = TrackUsers[indexPath.row]
 //        let url = URL(string: "http://project2.cocopatch.com/Moody/\(index.image)")
-        
-        cell?.DateTrack.text = index.date+":"+index.timetk
-        cell?.DateTrackNaxt.text = index.date_next+":"+index.timetk_next
-        
+
         if index.status == "1"{
             cell?.imgStatus.image = UIImage(named: "point-yellow")
-            
-        }else if index.status == "2"{
-            cell?.imgStatus.image = UIImage(named: "point-red")
             
         }else if index.status == "3"{
             cell?.imgStatus.image = UIImage(named: "point-green")
@@ -86,8 +77,12 @@ class TrackTableViewController: UITableViewController {
         }
         
         
+        
         return cell!
     }
+//    func checkdate() {
+//
+//    }
     func getTrackUser(){
         
         let url = "http://project2.cocopatch.com/Moody/"
@@ -119,6 +114,8 @@ class TrackTableViewController: UITableViewController {
                     self.TrackUsers.append(List)
                    
 //                    print("ListUsers\(self.ListUsers)")
+                    
+//                    checkDate()
                 }
                 self.tableView.reloadData()
             }catch{

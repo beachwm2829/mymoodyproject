@@ -82,7 +82,25 @@ class trackingmbTableViewController: UITableViewController {
         }else if index.status == "2"{
             cell?.imgStatus.image = UIImage(named: "point-red")
             
-        }else if index.status == "3"{
+        }
+        
+        print("checkDate!!")
+        let date = Date()
+        let calendar = Calendar.current
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en")
+        formatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy")
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = formatter.string(from: date)
+
+//        for datenext in TrackUsers {
+//            if (dateString.compare(datenext.date_next)) {
+//                <#code#>
+//            }
+//        }
+        if index.status == "3"{
             cell?.imgStatus.image = UIImage(named: "point-green")
             
         }

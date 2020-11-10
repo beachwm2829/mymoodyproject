@@ -57,6 +57,7 @@ class Result_8q_ViewController: UIViewController {
     var result_r7 = 0
     var result_r8 = 0
     var result = 0
+    var checkAs:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r1(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r1.isSelected = true
             btFalse_q8_r1.isSelected = false
@@ -77,6 +79,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r2(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r2.isSelected = true
             btFalse_q8_r2.isSelected = false
@@ -89,6 +92,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r3(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r3.isSelected = true
             btFalse_q8_r3.isSelected = false
@@ -101,6 +105,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r4(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r4.isSelected = true
             btFalse_q8_r4.isSelected = false
@@ -113,6 +118,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r5(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r5.isSelected = true
             btFalse_q8_r5.isSelected = false
@@ -125,6 +131,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r6(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r6.isSelected = true
             btFalse_q8_r6.isSelected = false
@@ -137,6 +144,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r7(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r7.isSelected = true
             btFalse_q8_r7.isSelected = false
@@ -149,6 +157,7 @@ class Result_8q_ViewController: UIViewController {
     }
     
     @IBAction func btQ8_r8(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q8_r8.isSelected = true
             btFalse_q8_r8.isSelected = false
@@ -162,6 +171,13 @@ class Result_8q_ViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         result = result_r1 + result_r2 + result_r3 + result_r4 + result_r5 + result_r6 + result_r7 + result_r8
+        
+        if(checkAs < 8){
+            let alert = UIAlertController(title: "ข้อมูลไม่ครบถ้วน", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
         let date = Date()
         let calendar = Calendar.current
         
@@ -219,6 +235,7 @@ class Result_8q_ViewController: UIViewController {
                 print("fail")
                
             }
+        }
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

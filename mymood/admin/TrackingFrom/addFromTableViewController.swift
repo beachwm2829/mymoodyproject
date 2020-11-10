@@ -105,13 +105,15 @@ class addFromTableViewController: UIViewController, UIImagePickerControllerDeleg
                                  "drug":self.lbdrug.text as AnyObject,
                                  "time_next":self.lbtime_next as  AnyObject,
                                  "date_next":self.lbdate_next as AnyObject,
+                                 "status":"3" as AnyObject,
                                  "image":self.word as AnyObject,
                                   "mode":"insert" as AnyObject]
+        
 print(param)
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
-                let alert = UIAlertController(title: "เพิ่มหมายเหตุเรียบร้อย", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "เพิ่มแบบฟอร์มเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
                 }))

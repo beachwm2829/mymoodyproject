@@ -71,8 +71,8 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
                     self.lbdate_next = aTrackFrom["date_next"].stringValue
                     let imgprofile = aTrackFrom["image"].stringValue
                     print("imgprofile!\(imgprofile)")
-                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-                    self.imgview.kf.setImage(with: url)
+                    let urlimg = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.imgview.kf.setImage(with: urlimg)
                     
 //                    let strDate : String! = "\(self.lbdate!+" "+self.lbtime!)"
 //                    let strDateNext : String! = "\(self.lbdate_next!+" "+self.lbtime_next!)"
@@ -157,16 +157,16 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     let selectedDate = dateFormatter.string(from: dateTimePicker.date)
         var timeArr = selectedDate.components(separatedBy: " ")
-        self.lbtime = timeArr[0]
-        self.lbdate = timeArr[1]
+        self.lbtime = timeArr[1]
+        self.lbdate = timeArr[0]
                     print("selectedDate",selectedDate)
         dateTimenextPicker.preferredDatePickerStyle = .compact
             let dateFormatternext = DateFormatter()
                     dateFormatternext.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     let selectedDatenext = dateFormatternext.string(from: dateTimenextPicker.date)
         var timeArrnext = selectedDatenext.components(separatedBy: " ")
-        self.lbtime_next = timeArrnext[0]
-        self.lbdate_next = timeArrnext[1]
+        self.lbtime_next = timeArrnext[1]
+        self.lbdate_next = timeArrnext[0]
                     print("selectedDatenext",selectedDatenext)
         print(" self.lbtime\(self.lbtime)self.lbdate\(self.lbdate)self.lbtime_next\(self.lbtime_next)self.lbdate_next\(self.lbdate_next)")
         let url = "http://project2.cocopatch.com/Moody/FromTrack.php?"
@@ -181,13 +181,14 @@ class popfromtrackingmbViewController: UIViewController, UIImagePickerController
                                   "time_next":"\(self.lbtime_next!)" as AnyObject,
                                   "date_next":"\(self.lbdate_next!)" as AnyObject,
                                   "image":self.word as AnyObject,
+                                  "status":"3" as AnyObject,
                                   "mode":"userupdate" as AnyObject]
 print(param)
       
         AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
         switch response.result {
             case .success(_):
-                let alert = UIAlertController(title: "เพิ่มฟอร์มการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
+                let alert = UIAlertController(title: "เพิ่มเติมฟอร์มการติดตามเรียบร้อย", message: nil, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
                     self.navigationController!.popViewController(animated: true)
                 }))

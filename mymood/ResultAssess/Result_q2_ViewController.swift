@@ -24,6 +24,7 @@ class Result_q2_ViewController: UIViewController {
     var result = 0
     var r1 = 0
     var r2 = 0
+    var checkAs:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class Result_q2_ViewController: UIViewController {
     
     
     @IBAction func btQ2_r1(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q2_r1.isSelected = true
             btFalse_q2_r1.isSelected = false
@@ -43,6 +45,7 @@ class Result_q2_ViewController: UIViewController {
         }
     }
     @IBAction func btQ2_r2(_ sender: UIButton) {
+        checkAs = checkAs+1
         if sender.tag == 1 {
             btTure_q2_r2.isSelected = true
             btFalse_q2_r2.isSelected = false
@@ -56,58 +59,68 @@ class Result_q2_ViewController: UIViewController {
     }
     
     @IBAction func b(_ sender: UIButton) {
-        result = r1 + r2
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        
-        let time = "\(hour):\(minutes):\(seconds)"
+        result = (r1 + r2)/2
         
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        let dateString = formatter.string(from: date)
-        print(dateString)
-        
-        
-        let url = "http://project2.cocopatch.com/Moody/assessment.php?"
-        let param : Parameters = [
-            "assess":assess as AnyObject,
-            "result":result as AnyObject,
-            "time":time as AnyObject,
-            "date":dateString as AnyObject,
-            "u_id":q2Id as AnyObject
-        ]
+        if(checkAs < 2){
+            let alert = UIAlertController(title: "ข้อมูลไม่ครบถ้วน", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            let date = Date()
+            let calendar = Calendar.current
+            
+            let hour = calendar.component(.hour, from: date)
+            let minutes = calendar.component(.minute, from: date)
+            let seconds = calendar.component(.second, from: date)
+            
+            let time = "\(hour):\(minutes):\(seconds)"
+            
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            let dateString = formatter.string(from: date)
+            print(dateString)
+            
+            
+            let url = "http://project2.cocopatch.com/Moody/assessment.php?"
+            let param : Parameters = [
+                "assess":assess as AnyObject,
+                "result":result as AnyObject,
+                "time":time as AnyObject,
+                "date":dateString as AnyObject,
+                "u_id":q2Id as AnyObject
+            ]
 
-        AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
-        switch response.result {
-            case .success(_):
-                print("success")
-                if self.result >= 1 {
-                    let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า กรุณาทำแบบประเมินต่อ", message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "to9q", sender: self)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                }else if self.result == 0 {
-                    let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
-                        self.performSegue(withIdentifier: "toTabbar", sender: self)
-//                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
-//                        self.present(vc, animated: true, completion: nil)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                    
-            }
-            case .failure(_):
-                print("fail")
-               
+            AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: nil).validate().responseString{ (response) in
+            switch response.result {
+                case .success(_):
+                    print("success")
+                    if self.result >= 1 {
+                        let alert = UIAlertController(title: "คุณมีแนวโน้มที่จะเป็นโรคซึมเศร้า กรุณาทำแบบประเมินต่อ", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                            self.performSegue(withIdentifier: "to9q", sender: self)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }else if self.result == 0 {
+                        let alert = UIAlertController(title: "คุณไม่มีแนวโน้มที่จะเป็นโรคซึมเศร้า", message: nil, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "ตกลง", style: .cancel, handler:{(action) -> Void in
+                            self.performSegue(withIdentifier: "toTabbar", sender: self)
+    //                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyTabBarController") as! TabBarController
+    //                        self.present(vc, animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                        
+                }
+                case .failure(_):
+                    print("fail")
+                   
+                }
             }
         }
+        
     }
     
     @IBAction func btback(_ sender: Any) {

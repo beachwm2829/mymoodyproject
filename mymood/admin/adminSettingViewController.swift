@@ -81,8 +81,8 @@ class adminSettingViewController: UIViewController,UIImagePickerControllerDelega
                     self.tfBirth.text = aListUser["birthdate"].stringValue
                     self.tfAddress.text = aListUser["address"].stringValue
                     let imgprofile = aListUser["img"].stringValue
-                    let url = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
-                    self.img.kf.setImage(with: url)
+                    let urlimg = URL(string: "http://project2.cocopatch.com/Moody/\(imgprofile)")
+                    self.img.kf.setImage(with: urlimg)
 //                    print("ListUsers\(self.ListUsers)")
                     
 //                    print(self.chgender!.lowercased())
