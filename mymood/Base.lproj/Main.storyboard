@@ -2911,7 +2911,7 @@
                                 <color key="backgroundColor" red="0.072192035619999997" green="0.44525921340000002" blue="0.88488525149999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="BeR-v0-q2S"/>
-                                    <constraint firstAttribute="height" constant="36" id="jE2-wB-hKm"/>
+                                    <constraint firstAttribute="height" constant="36" id="IEA-7i-Zw8"/>
                                 </constraints>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2942,7 +2942,6 @@
                             <constraint firstItem="0Ip-2C-C3K" firstAttribute="leading" secondItem="3rz-d3-xFg" secondAttribute="trailing" constant="8" symbolic="YES" id="LU6-bR-yxJ"/>
                             <constraint firstItem="qRg-6E-744" firstAttribute="top" secondItem="4hv-gg-fwL" secondAttribute="bottom" constant="14" id="P9s-gP-ZuQ"/>
                             <constraint firstItem="v06-Vi-Bi5" firstAttribute="leading" secondItem="CS6-Gs-IUZ" secondAttribute="leading" constant="128" id="PcI-lF-4MQ"/>
-                            <constraint firstItem="CS6-Gs-IUZ" firstAttribute="bottom" secondItem="kZ9-6t-oD4" secondAttribute="bottom" constant="56" id="Pg3-WN-cdb"/>
                             <constraint firstItem="CXb-8E-fUL" firstAttribute="top" secondItem="CS6-Gs-IUZ" secondAttribute="top" constant="157" id="QWd-70-zXX"/>
                             <constraint firstItem="ZCc-WB-F0U" firstAttribute="top" secondItem="v06-Vi-Bi5" secondAttribute="bottom" constant="60" id="Qxd-1N-6OU"/>
                             <constraint firstItem="ZCc-WB-F0U" firstAttribute="top" secondItem="iVo-6z-i9j" secondAttribute="bottom" constant="52.999999999999915" id="RBi-EH-fuo"/>
@@ -3489,7 +3488,7 @@
             <objects>
                 <viewController id="jKH-DS-mFP" customClass="popfromtrackingmbViewController" customModule="mymood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C6f-1l-lfV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1i-nb-6Mc">
@@ -3876,7 +3875,6 @@
                             <constraint firstItem="YPc-l0-cCg" firstAttribute="top" secondItem="T8R-1r-fUk" secondAttribute="bottom" constant="13" id="BhR-iy-pRH"/>
                             <constraint firstItem="Pr0-6Z-u5n" firstAttribute="trailing" secondItem="MNR-ZG-6Kx" secondAttribute="trailing" constant="140" id="CC4-xb-cxA"/>
                             <constraint firstItem="Ft1-R2-Ghd" firstAttribute="top" secondItem="2lT-ho-ano" secondAttribute="bottom" constant="13" id="Ete-Ma-kyg"/>
-                            <constraint firstItem="Pr0-6Z-u5n" firstAttribute="bottom" secondItem="fiA-CI-A9A" secondAttribute="bottom" constant="114" id="GTB-OG-rZ1"/>
                             <constraint firstItem="bzg-GK-Eqk" firstAttribute="leading" secondItem="Pr0-6Z-u5n" secondAttribute="leading" constant="72" id="H2s-OC-kYv"/>
                             <constraint firstItem="YPc-l0-cCg" firstAttribute="leading" secondItem="Pr0-6Z-u5n" secondAttribute="leading" constant="72" id="HeK-oz-nGg"/>
                             <constraint firstItem="MNR-ZG-6Kx" firstAttribute="top" secondItem="Lhd-ql-QoW" secondAttribute="bottom" constant="13" id="JV3-ST-aat"/>
@@ -5920,10 +5918,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HQu-eq-a3h">
-                                <rect key="frame" x="157" y="20" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-bo-FMo">
                                 <rect key="frame" x="80" y="176.66666666666652" width="329" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -6060,6 +6054,10 @@
                                     <action selector="btDelCarer:" destination="vAh-rF-DYc" eventType="touchUpInside" id="44A-8g-XPI"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQu-eq-a3h">
+                                <rect key="frame" x="85" y="10" width="244" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eDs-jH-dgV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
