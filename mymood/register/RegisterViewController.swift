@@ -258,7 +258,7 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate,U
                 "phone":tfPhone.text! as AnyObject,
                 "address":tfAddress.text! as AnyObject,
                 "disease":tfDisease.text! as AnyObject,
-                "email":emailValid as AnyObject,
+                "email":tfEmail.text! as AnyObject,
                 "img":word as AnyObject,
                 "status":status as AnyObject
             ]

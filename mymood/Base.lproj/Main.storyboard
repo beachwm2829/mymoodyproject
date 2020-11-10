@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lif-5A-KOD">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -2757,6 +2757,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="pass_act:" destination="oSF-Nh-GMb" eventType="editingChanged" id="DVC-65-zUN"/>
+                                </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iVo-6z-i9j">
                                 <rect key="frame" x="146" y="12.666666666666657" width="120" height="120"/>
@@ -2815,6 +2818,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="email_act:" destination="oSF-Nh-GMb" eventType="editingChanged" id="eoV-D3-7gd"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เบอร์โทรศัพท์" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3rz-d3-xFg">
                                 <rect key="frame" x="69" y="404" width="130" height="34"/>
@@ -2824,6 +2830,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="phone_act:" destination="oSF-Nh-GMb" eventType="editingChanged" id="jnx-w7-B2u"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="วันเกิด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ip-2C-C3K">
                                 <rect key="frame" x="207" y="404" width="130" height="34"/>
@@ -3702,6 +3711,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="pass_act:" destination="H0w-dy-DGB" eventType="editingChanged" id="0cJ-cD-MHH"/>
+                                </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="B5b-Jc-nsj">
                                 <rect key="frame" x="147" y="49.666666666666657" width="120" height="120"/>
@@ -3736,6 +3748,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="email_act:" destination="H0w-dy-DGB" eventType="editingChanged" id="khM-bx-EAf"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="เบอร์โทรศัพท์" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggc-aq-J5e">
                                 <rect key="frame" x="72" y="452" width="130" height="34"/>
@@ -3745,6 +3760,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="phone_act:" destination="H0w-dy-DGB" eventType="editingChanged" id="0lY-Lf-ya3"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="วันเกิด" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvf-sm-mIC">
                                 <rect key="frame" x="210" y="452" width="130" height="34"/>
@@ -3932,6 +3950,7 @@
                     <connections>
                         <outlet property="btFemale" destination="QjP-2n-asa" id="tyD-l3-aEW"/>
                         <outlet property="btMale" destination="T8R-1r-fUk" id="RPB-r9-zNR"/>
+                        <outlet property="btSave" destination="fiA-CI-A9A" id="KBv-fg-r5l"/>
                         <outlet property="img" destination="B5b-Jc-nsj" id="Jex-r9-Y0S"/>
                         <outlet property="tfAddress" destination="bzg-GK-Eqk" id="bys-rb-aOX"/>
                         <outlet property="tfBirth" destination="dvf-sm-mIC" id="kfd-bm-Vhp"/>
