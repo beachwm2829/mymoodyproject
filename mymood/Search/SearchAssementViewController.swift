@@ -12,7 +12,7 @@ import Alamofire
 import AlamofireObjectMapper
 import SwiftyJSON
 
-class SearchAssementViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIPickerViewDelegate,UIPickerViewDataSource{
+class SearchAssementViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UIPickerViewDelegate,UIPickerViewDataSource,UISearchBarDelegate{
     
     struct AssessmentModel :Decodable {
            let nameAs :String
@@ -23,6 +23,7 @@ class SearchAssementViewController: UIViewController,UITableViewDelegate,UITable
         let year :String
        }
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var datemonthPicker: UIPickerView!
     
@@ -45,6 +46,9 @@ class SearchAssementViewController: UIViewController,UITableViewDelegate,UITable
 //        dateTimePicker.heightA
     }
     override func viewWillAppear(_ animated: Bool) {
+        searchBar.delegate = self
+        CurrentAsesArray = AssData
+        
         AssData.removeAll()
         yearArr.removeAll()
         self.getAssessment()
@@ -190,7 +194,18 @@ class SearchAssementViewController: UIViewController,UITableViewDelegate,UITable
         // #warning Incomplete implementation, return the number of rows
         return CurrentAsesArray.count
     }
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchText\(searchText)")
+        guard !searchText.isEmpty else {
+            CurrentAsesArray = AssData
+            tableView.reloadData()
+            return
+        }
+        CurrentAsesArray = AssData.filter({AssessmentModel -> Bool in
+            AssessmentModel.nameAs.contains(searchText.uppercased())
+        })
+        tableView.reloadData()
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
