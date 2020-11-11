@@ -50,8 +50,8 @@ class AlertMoodViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.picker.delegate = self
         self.picker.dataSource = self
                 
-                // Input the data into the array
-                pickerData = ["1", "2", "3", "4", "5","6","7","8","9","10"]
+        // Input the data into the array
+        pickerData = ["1", "2", "3", "4", "5","6","7","8","9","10"]
         // Do any additional setup after loading the view.
         
         let url = "http://project2.cocopatch.com/Moody/"

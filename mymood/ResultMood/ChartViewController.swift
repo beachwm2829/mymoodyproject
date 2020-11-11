@@ -33,11 +33,12 @@ class ChartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.reloadInputViews()
+        checkDate(typeDate: "today")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkDate(typeDate: "today")
+        
     }
     
     
@@ -69,33 +70,34 @@ class ChartViewController: UIViewController {
                                 if arMood == "1"{
                                     arMood = "โคตรมีความสุข"
                                     self.summood1 = self.summood1+1
-                                    self.mooddataToday.append(self.summood1)
+//                                    self.mooddataToday.append(self.summood1)
                                 }
                                 if arMood == "2"{
                                     arMood = "มีความสุข"
                                     self.summood2 = self.summood2+1
-                                    self.mooddataToday.append(self.summood2)
+                                    print(self.summood2)
+//                                    self.mooddataToday.append(self.summood2)
 
                                 }
                                 if arMood == "3"{
                                     arMood = "เฉยชา"
                                     self.summood3 = self.summood3+1
-                                    self.mooddataToday.append(self.summood3)
+//                                    self.mooddataToday.append(self.summood3)
                                 }
                                 if arMood == "4"{
                                     arMood = "เบื่อ"
                                     self.summood4 = self.summood4+1
-                                    self.mooddataToday.append(self.summood4)
+//                                    self.mooddataToday.append(self.summood4)
 
                                 }
                                 if arMood == "5"{
                                     arMood = "โกรธ"
                                     self.summood5 = self.summood5+1
-                                    self.mooddataToday.append(self.summood5)
+//                                    self.mooddataToday.append(self.summood5)
 
                                 }
                              self.name.append(arMood)
-//                             self.mooddata.append((date,[self.summood1,self.summood2,self.summood3,self.summood4,self.summood5]))
+                             self.mooddata.append([self.summood1,self.summood2,self.summood3,self.summood4,self.summood5])
                             }
                         } else if(typeDate == "month") {
                             let calendar = Calendar.current
@@ -155,16 +157,18 @@ class ChartViewController: UIViewController {
                                     self.summood5 = self.summood5+1
                                 }
                              self.name.append(arMood)
-                                self.mooddata.append([self.summood1,self.summood2,self.summood3,self.summood4,self.summood5])
+                             self.mooddata.append([self.summood1,self.summood2,self.summood3,self.summood4,self.summood5])
                             }
                         }
                     }
             }catch{}
             let namee = Array(Set(self.name))
             print(namee)
-            if(typeDate == "today") {
-                self.setPieChart(dataPoints: namee, values: self.mooddataToday)
-            }else{
+//            if(typeDate == "today") {
+//                print("mooddataToday : \(self.mooddataToday)")
+//                self.setPieChart(dataPoints: namee, values: self.mooddataToday)
+//            }else{
+                print(self.mooddata)
                 if(self.mooddata.last != nil){
                     let countmood = self.mooddata.count - 1
                     print("count \(self.mooddata.last?.count)")
@@ -182,7 +186,7 @@ class ChartViewController: UIViewController {
                     print("Mood Final is \(self.mooddata.last)")
                     self.setPieChart(dataPoints: namee, values: self.mooddata[countmood])
                 }
-            }
+//            }
             self.name.removeAll { $0 == "date" }
         }
     }
