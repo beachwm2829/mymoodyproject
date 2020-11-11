@@ -40,14 +40,18 @@ class AlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func SaveAlram(_ sender: Any) {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm:ss"
+       
 
         let dateString = formatter.string(from: datePicker.date)
         print("dateString :: \(dateString)")
+        print("datePicker.date  \(datePicker.date)")
+        
+        let dateArr = dateString.components(separatedBy: ":")
         
         let date = datePicker.date
         var calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
+//        let hour = calendar.component(.hour, from: dateArr[0])
+//        let minute = calendar.component(.minute, from: dateArr[1])
         
         if pickercount == "Sunday"{
             day = 1
@@ -66,8 +70,8 @@ class AlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         print("Weekday : \(day!)")
         print("body : \(tfNote.text!)")
-        print("Hour : \(hour)")
-        print("Minute : \(minute)")
+//        print("Hour : \(hour)")
+//        print("Minute : \(minute)")
 
         let content = UNMutableNotificationContent()
         content.title = "MYMOODY"
@@ -79,9 +83,9 @@ class AlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         dateComponents.calendar = Calendar.current
 
         dateComponents.weekday = day!  // Sunday Monday Tuesday wednesday thursday friday saturday
-        dateComponents.hour = hour
-        dateComponents.minute = minute
-
+        dateComponents.hour = Int(dateArr[0])
+        dateComponents.minute = Int(dateArr[1])
+	
         // Create the trigger as a repeating event.
         let trigger = UNCalendarNotificationTrigger(
                  dateMatching: dateComponents, repeats: true)
